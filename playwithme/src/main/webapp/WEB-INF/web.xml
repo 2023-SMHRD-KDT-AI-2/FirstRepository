@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE web-app PUBLIC
  "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
@@ -15,3 +16,84 @@
   	<url-pattern>/goMain</url-pattern>
   </servlet-mapping>
 </web-app>
+=======
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+	<display-name>Archetype Created Web Application</display-name>
+	<servlet>
+		<servlet-name>test</servlet-name>
+		<display-name>test</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.test</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>WriteTest</servlet-name>
+		<display-name>WriteTest</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.WriteTest</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>goProfile</servlet-name>
+		<display-name>goProfile</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.goProfile</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>goLogin</servlet-name>
+		<display-name>goLogin</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.goLogin</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>LoginProgram</servlet-name>
+		<display-name>LoginProgram</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.LoginProgram</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>goChangeImg</servlet-name>
+		<display-name>goChangeImg</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.goChangeImg</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>goFavorite</servlet-name>
+		<display-name>goFavorite</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.goFavorite</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>goProfile</servlet-name>
+		<url-pattern>/goProfile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>goLogin</servlet-name>
+		<url-pattern>/goLogin</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>LoginProgram</servlet-name>
+		<url-pattern>/LoginProgram</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>goChangeImg</servlet-name>
+		<url-pattern>/goChangeImg</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>goFavorite</servlet-name>
+		<url-pattern>/goFavorite</url-pattern>
+
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>test</servlet-name>
+		<url-pattern>/test</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>WriteTest</servlet-name>
+		<url-pattern>/WriteTest</url-pattern>
+	</servlet-mapping>
+</web-app>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git

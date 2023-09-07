@@ -20,10 +20,14 @@
   </properties>
 
   <dependencies>
+<<<<<<< HEAD
 	  <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 
 
     
+=======
+	 
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 <dependency>
     <groupId>javax.servlet</groupId>
@@ -63,6 +67,13 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/jstl/jstl -->
+<dependency>
+    <groupId>jstl</groupId>
+    <artifactId>jstl</artifactId>
+    <version>1.2</version>
+</dependency>
+
   </dependencies>
 
   <build>
