@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: SM2312AA
-=======
-Built-By: smhrd
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 Build-Jdk: 17.0.7
 Created-By: Maven Integration for Eclipse
 
