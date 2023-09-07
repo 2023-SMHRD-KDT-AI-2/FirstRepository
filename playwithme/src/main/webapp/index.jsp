@@ -2,7 +2,7 @@
 <body>
 <h2>Hello World!</h2>
 <%
-		response.sendRedirect("GoProfile");
+		response.sendRedirect("goLogin");
 	%>
 </body>
 </html>

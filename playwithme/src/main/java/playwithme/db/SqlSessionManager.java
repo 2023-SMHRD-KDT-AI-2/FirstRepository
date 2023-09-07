@@ -17,7 +17,7 @@ public class SqlSessionManager {
 		// static 초기화 블럭 : 프로그램이 실행되면 자동적으로 실행되는 문법
 		// 초기화 블럭 : 생성자가 실행이 될 때 자동적으로 실행되는 문법
 		try {
-			String resource = "/playwithme/db/config.xml";
+			String resource = "playwithme/db/config.xml";
 
 			// config.xml 파일을 수정하거나 작업을 할 수 있도록 읽어들이는 작업
 			InputStream inputStream = Resources.getResourceAsStream(resource);

@@ -27,6 +27,6 @@
   	sql 문장들이 정리된 파일을 연결하는 태그
    -->
   <mappers>
-    <mapper resource="com/smhrd/model/MemberMapper.xml"/>
+    <mapper resource="playwithme/model/MemberMapper.xml"/>
   </mappers>
 </configuration>
