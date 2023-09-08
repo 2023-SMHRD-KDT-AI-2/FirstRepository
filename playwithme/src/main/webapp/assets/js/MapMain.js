@@ -60,6 +60,32 @@
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
+		// 게시글 작성 후 마커
+
+		// 마커가 표시될 위치입니다 
+		//let markerPosition2  = new kakao.maps.LatLng(35.11039142255239, 126.87748644508468); 
+		
+		// 마커를 생성합니다
+		//let marker2 = new kakao.maps.Marker({
+		//    position: markerPosition2
+		//});
+		
+		// 마커가 지도 위에 표시되도록 설정합니다
+		//marker2.setMap(map);
+		
+		//let iwContent = '<div style="padding:5px;">여기에 게시물 제목</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+		//    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+		//
+		// 인포윈도우를 생성합니다
+		//let infowindow2 = new kakao.maps.InfoWindow({
+		//    position : iwPosition, 
+		//    content : iwContent 
+		//});
+		  
+		// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+		//infowindow2.open(map, marker); 
+
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
         // 주소-좌표
         let geocoder = new kakao.maps.services.Geocoder();
 
@@ -71,6 +97,7 @@
         function searchDetailAddrFromCoords(coords, callback) {
             // 좌표로 법정동 상세 주소 정보를 요청합니다
             geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+            
         }
 
         // 지도를 클릭했을 때 클릭 위치 좌표에 대한 주소정보를 표시하도록 이벤트를 등록합니다
@@ -82,7 +109,7 @@
                     detailAddr += '<div>지번 주소 : ' + result[0].address.address_name + '</div>';
                     
                     var content = '<div class="bAddr">' +
-                                    '<span class="title">법정동 주소정보</span>' + 
+                                    '<span class="title"></span>' + 
                                     detailAddr + 
                                 '</div>';
 
