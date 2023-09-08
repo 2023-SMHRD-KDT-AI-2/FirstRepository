@@ -35,7 +35,7 @@ public class LoginProgram extends HttpServlet {
 
 		if (cnt != null) {
 			session.setAttribute("memberid", id);
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Profile.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
 			rd.forward(request, response);
 		} else {
 			out.println("<script>alert('ID,PW를 다시 확인하세요.');location.href='goLogin'; </script>");

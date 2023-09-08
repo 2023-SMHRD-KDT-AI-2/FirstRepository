@@ -6,11 +6,7 @@
 <%@page import="playwithme.model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<<<<<<< HEAD
 
-=======
-<%@ page isELIgnored="false" %>
->>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 <!DOCTYPE html>
 <html>
 <head>
@@ -97,16 +93,9 @@ td>button {
 </style>
 </head>
 <body>
-	<%
-	String id =(String)session.getAttribute("memberid");
-	MemberDAO dao = new MemberDAO();
-	ArrayList<MemberDTO> info = new ArrayList<>();
-	info=dao.getmember(id);
-	session.setAttribute("info",info);
 	
-	%>
 	<div id="profileimg">
-		<img src="file/<%=info.get(0).getM_Profile() %>" alt="" id="img">
+		<img src="file/${info.get(0).getM_Profile()}" alt="" id="img">
 		
 		${info.get(0).getAge()}
 		<table id=table2>
@@ -118,7 +107,7 @@ td>button {
 		<br> <br> <br>
 	</div>
 	<div>
-		<span class="graph1"><%= info.get(0).getTemper()%></span> <br> <span class="graph1">▼</span>
+		<span class="graph1">${info.get(0).getTemper()}</span> <br> <span class="graph1">▼</span>
 	</div>
 	<div class="graph"></div>
 	<table id="table">
@@ -142,8 +131,8 @@ td>button {
 	<script>
 	 	let graphnum = document.querySelector("body > div:nth-child(2) > span:nth-child(1)")
      	console.log(graphnum.textContent);
-    	$('.graph1').css("width","<%=info.get(0).getTemper() %>%");
-     	$('body > div:nth-child(2) > span:nth-child(1)').text("<%=info.get(0).getTemper() %>℃");
+    	$('.graph1').css("width",`${info.get(0).getTemper()}%`);
+     	$('body > div:nth-child(2) > span:nth-child(1)').text(`${info.get(0).getTemper()}℃`);
 		let changeImgBtn = document.querySelector('#changeImg')
 		let fixBtn = document.querySelector('#fix')
 		let myTextBtn = document.querySelector('#myText')
