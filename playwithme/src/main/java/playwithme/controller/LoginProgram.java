@@ -13,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import playwithme.model.MemberDAO;
 import playwithme.model.MemberDTO;
-@WebServlet("/LoginProgram")
+
 public class LoginProgram extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

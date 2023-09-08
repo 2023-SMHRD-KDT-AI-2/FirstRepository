@@ -57,7 +57,7 @@
                 게시판
             </li>
             <li id="A3" data-order="2">
-                <span class="menu_bg new-icon3"></span>
+                <span id="chatLink" class="menu_bg new-icon3"></span>
                 채팅
             </li>
             <li id="A4" data-order="3">
@@ -121,6 +121,18 @@
 </div>
 
 <div id="modalBackground" class="modal-background"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // id가져오기
+       	let chatSpan = document.getElementById("chatLink");
+
+        // 클릭 리스너 이벤트
+        chatSpan.addEventListener("click", function () {
+            //  chat.jsp이동
+            window.location = "chat";
+        });
+    });
+</script>
 
 <script type="text/javascript"
 src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>

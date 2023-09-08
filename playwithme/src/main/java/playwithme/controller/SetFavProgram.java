@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import oracle.net.ns.SessionAtts;
 import playwithme.model.FavoriteDTO;
-@WebServlet("/SetFavProgram")
+
 public class SetFavProgram extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
