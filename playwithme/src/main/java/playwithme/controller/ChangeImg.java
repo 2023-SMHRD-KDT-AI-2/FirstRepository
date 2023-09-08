@@ -21,7 +21,7 @@ import playwithme.model.MemberDAO;
 import playwithme.model.MemberDTO;
 
 @MultipartConfig
-@WebServlet("/ChangeImg")
+
 public class ChangeImg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
