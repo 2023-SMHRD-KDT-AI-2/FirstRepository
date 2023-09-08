@@ -591,4 +591,8 @@
             message2.style.position = 'static';
             message2.innerHTML = '';
         })
+        let btn4 = document.getElementById("A4");
+        btn4.addEventListener("click",function(){
+			window.location = "goProfile"
+		})
            

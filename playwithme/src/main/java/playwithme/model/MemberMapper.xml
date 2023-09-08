@@ -4,7 +4,16 @@
 <select id="all" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
 		select *
 		from NA_MEMBER
-		where MEMBER_ID = #{memberid} and PW = #{pw}
+		where MEMBER_ID = #{member_Id} and PW = #{pw}
 </select>
+<select id="get" parameterType="string" resultType="playwithme.model.MemberDTO">
+		select *
+		from NA_MEMBER
+		where MEMBER_ID = #{member_Id}
+</select>
+<update id="img" parameterType="playwithme.model.MemberDTO">
+		update NA_MEMBER
+		set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
+</update>
 
 </mapper>

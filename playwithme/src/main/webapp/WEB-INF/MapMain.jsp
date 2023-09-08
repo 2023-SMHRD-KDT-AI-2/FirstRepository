@@ -1,3 +1,6 @@
+<%@page import="playwithme.model.MemberDTO"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="playwithme.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +14,14 @@
 </head>
 
 <body>
+<%
+	String id =(String)session.getAttribute("memberid");
+	MemberDAO dao = new MemberDAO();
+	ArrayList<MemberDTO> info = new ArrayList<>();
+	info=dao.getmember(id);
+	session.setAttribute("info",info);
+	
+	%>
     <p style="margin-top:-12px">
         <em class="link">
             <a href="/web/documentation/#CategoryCode" target="_blank"></a>

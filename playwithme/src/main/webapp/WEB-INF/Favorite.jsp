@@ -123,7 +123,7 @@
         </table>
         
     </form>
-    <script src="code.jquery.com_jquery-3.7.1.min.js"></script>
+    <script src="js/jquery-3.7.1.js"></script>
     <script>
         $(document).ready(function(){
         $('.music').click(function(){

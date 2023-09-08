@@ -1,5 +1,11 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="javax.print.attribute.HashPrintRequestAttributeSet"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@page import="playwithme.model.*" %>
+ <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+ <%@ page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,20 +34,16 @@
         }
     </style>
 </head>
-<body>
-    <form action="">
-        <div>
-        
-            <button>확인</button>
-        
-        </div>
+<body>   
         <div id="profileimg">
         
-            <img src="/이미지/spongbob.jpg" alt="" id ="img">    
+            <img src="file/${info.get(0).getM_Profile() }" alt="" id ="img">    
         </div>
+    <form action="ChangeImg" method="post" enctype ="multipart/form-data">
+   
+        <input type="file" name = "filename">이미지 선택
+		<input type="submit" value ="확인">    
+    
     </form>
-    <div>
-        <button id = changeImg>프로필사진 변경하기</button>
-    </div>
 </body>
 </html>

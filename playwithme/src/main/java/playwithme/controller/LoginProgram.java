@@ -26,7 +26,7 @@ public class LoginProgram extends HttpServlet {
 
 		MemberDTO dto = new MemberDTO();
 		MemberDAO dao = new MemberDAO();
-		dto.setMemberid(id);
+		dto.setMember_Id(id);
 		dto.setPw(pw);
 		MemberDTO cnt = dao.login(dto);
 		HttpSession session = request.getSession();
@@ -34,14 +34,8 @@ public class LoginProgram extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if (cnt != null) {
-			session.setAttribute("memberid", cnt.getMemberid());
-			session.setAttribute("gender", cnt.getGender());
-			session.setAttribute("mbti", cnt.getMBTI());
-			session.setAttribute("name", cnt.getMName());
-			session.setAttribute("profile", cnt.getMProfile());
-			session.setAttribute("temper", cnt.getTemper());
-			session.setAttribute("age", cnt.getAge());
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Profile.jsp");
+			session.setAttribute("memberid", id);
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
 			rd.forward(request, response);
 		} else {
 			out.println("<script>alert('ID,PW를 다시 확인하세요.');location.href='goLogin'; </script>");

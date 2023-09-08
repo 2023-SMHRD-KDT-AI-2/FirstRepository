@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class MemberDTO {
 	
-	private String memberid;
+	private String member_Id;
 	private String pw;
 	private int age;
-	private	String mName;
+	private	String m_Name;
 	private String gender;
 	private int temper;
-	private String mProfile;
-	private String MBTI;
+	private String m_Profile;
+	private String mbti;
 }

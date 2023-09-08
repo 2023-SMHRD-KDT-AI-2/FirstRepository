@@ -8,21 +8,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+
 @WebServlet("/goChangeImg")
-/**
- * Servlet implementation class goChangeImg
- */
 public class goChangeImg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String uri = "WEB-INF/ChangeImg.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
+		
 	}
 
 }
