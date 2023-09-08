@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import playwithme.model.MemberDAO;
 import playwithme.model.MemberDTO;
-
+@WebServlet("/LoginProgram")
 public class LoginProgram extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -25,7 +26,7 @@ public class LoginProgram extends HttpServlet {
 
 		MemberDTO dto = new MemberDTO();
 		MemberDAO dao = new MemberDAO();
-		dto.setMemberid(id);
+		dto.setMember_Id(id);
 		dto.setPw(pw);
 		MemberDTO cnt = dao.login(dto);
 		HttpSession session = request.getSession();
@@ -33,13 +34,7 @@ public class LoginProgram extends HttpServlet {
 		PrintWriter out = response.getWriter();
 
 		if (cnt != null) {
-			session.setAttribute("memberid", cnt.getMemberid());
-			session.setAttribute("gender", cnt.getGender());
-			session.setAttribute("mbti", cnt.getMBTI());
-			session.setAttribute("name", cnt.getMName());
-			session.setAttribute("profile", cnt.getMProfile());
-			session.setAttribute("temper", cnt.getTemper());
-			session.setAttribute("age", cnt.getAge());
+			session.setAttribute("memberid", id);
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Profile.jsp");
 			rd.forward(request, response);
 		} else {

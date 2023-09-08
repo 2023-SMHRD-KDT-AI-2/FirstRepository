@@ -1,11 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@ page isELIgnored="false" %>
 <%@page import="playwithme.model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -58,47 +60,25 @@ td>button {
 	border-radius: 40px;
 }
 
-.graph1 {
-	display: block;
-	width: 75%;
-	line-height: 10px;
-	text-align: right;
-	border-radius: 45px;
-	box-sizing: border-box;
-	font-size: 30px;
-	color: black;
-	animation: stack 2s 1;
-}
-
-@
-keyframes stack { 0%{
-	width: 0;
-	color: rgb(255, 255, 255, 0)
-}
-
-50
-%
-{
-}
-100
-%
-{
-width
-:
-75%;
-color
-:
-rgb(
-0
-,
-0
-,
-0
-,
-1
-)
-}
-}
+.graph1{
+            display: block;
+            width: 0;
+            line-height: 10px;
+            text-align: right;
+            border-radius: 45px;
+            box-sizing: border-box;
+            font-size: 30px;
+            color: black; animation: stack 2s 1;
+        }
+        body > div:nth-child(2) > span:nth-child(1){
+            margin-left: 15px;
+        }
+        @keyframes stack{
+            0%{ width:0; color:rgb(255,255,255,0)}
+            
+           
+            
+        }
 #ch {
 	display: contents;
 	justify-content: right;
@@ -116,26 +96,26 @@ rgb(
 <body>
 	<%
 	String id =(String)session.getAttribute("memberid");
-	String gender =(String)session.getAttribute("gender");
-	String mbti =(String)session.getAttribute("mbti");
-	String name =(String)session.getAttribute("name");
-	String profile =(String)session.getAttribute("profile");
-	int temper =(int)session.getAttribute("temper");
-	int age =(int)session.getAttribute("age");
+	MemberDAO dao = new MemberDAO();
+	ArrayList<MemberDTO> info = new ArrayList<>();
+	info=dao.getmember(id);
+	session.setAttribute("info",info);
 	
 	%>
 	<div id="profileimg">
-		<img src=<%=profile %> alt="" id="img">
+		<img src="file/<%=info.get(0).getM_Profile() %>" alt="" id="img">
+		
+		${info.get(0).getAge()}
 		<table id=table2>
 			<tr>
-				<td><%=mbti %></td>
-				<%=profile %>
+				<td></td>
+
 			</tr>
 		</table>
 		<br> <br> <br>
 	</div>
 	<div>
-		<span class="graph1"><%=temper%>%</span> <br> <span class="graph1">▼</span>
+		<span class="graph1"><%= info.get(0).getTemper()%></span> <br> <span class="graph1">▼</span>
 	</div>
 	<div class="graph"></div>
 	<table id="table">
@@ -155,8 +135,12 @@ rgb(
 			<td><button id="logout">로그아웃</button></td>
 		</tr>
 	</table>
-	<script src="code.jquery.com_jquery-3.7.1.min.js"></script>
+	<script src="js/jquery-3.7.1.js"></script>
 	<script>
+	 	let graphnum = document.querySelector("body > div:nth-child(2) > span:nth-child(1)")
+     	console.log(graphnum.textContent);
+    	$('.graph1').css("width","<%=info.get(0).getTemper() %>%");
+     	$('body > div:nth-child(2) > span:nth-child(1)').text("<%=info.get(0).getTemper() %>℃");
 		let changeImgBtn = document.querySelector('#changeImg')
 		let fixBtn = document.querySelector('#fix')
 		let myTextBtn = document.querySelector('#myText')
