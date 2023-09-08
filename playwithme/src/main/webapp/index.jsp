@@ -1,8 +1,11 @@
+<%@page import="java.lang.ProcessBuilder.Redirect"%> 
 <html>
 <body>
 <h2>Hello World!</h2>
 <%
-		response.sendRedirect("goLogin");
+
+		response.sendRedirect("goMain");
+
 	%>
 </body>
 </html>

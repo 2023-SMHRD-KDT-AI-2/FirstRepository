@@ -9,14 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/goProfile")
-public class goProfile extends HttpServlet {
+
+@WebServlet("/goTest")
+public class test extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uri = "WEB-INF/Profile.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(uri);
-		rd.forward(request, response);
+	
+		String uri = "WEB-INF/test.jsp";
+	      RequestDispatcher rd = request.getRequestDispatcher(uri);
+	      rd.forward(request, response);
+	
 	}
 
 }

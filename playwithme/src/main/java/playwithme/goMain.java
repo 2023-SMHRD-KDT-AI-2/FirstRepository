@@ -1,4 +1,4 @@
-package playwithme.controller;
+package playwithme;
 
 import java.io.IOException;
 
@@ -8,15 +8,19 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-@WebServlet("/goProfile")
-public class goProfile extends HttpServlet {
+@WebServlet("/goMain")
+/**
+ * Servlet implementation class goMain
+ */
+public class goMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String uri = "WEB-INF/Profile.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(uri);
-		rd.forward(request, response);
+
+	RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
+	rd.forward(request, response);
+	
 	}
 
 }

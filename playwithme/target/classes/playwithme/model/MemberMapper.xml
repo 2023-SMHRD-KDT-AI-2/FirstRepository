@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="playwithme.model.MemberMapper">
+<select id="all" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
+		select *
+		from NA_MEMBER
+		where MEMBER_ID = #{member_Id} and PW = #{pw}
+</select>
+<select id="get" parameterType="string" resultType="playwithme.model.MemberDTO">
+		select *
+		from NA_MEMBER
+		where MEMBER_ID = #{member_Id}
+</select>
+<update id="img" parameterType="playwithme.model.MemberDTO">
+		update NA_MEMBER
+		set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
+</update>
+
+</mapper>
