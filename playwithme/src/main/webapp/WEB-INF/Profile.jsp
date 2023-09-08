@@ -1,13 +1,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jstl/core" %>
 <%@page import="java.io.PrintWriter"%>
-<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@ page isELIgnored="false" %>
 <%@page import="playwithme.model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 
+=======
+<%@ page isELIgnored="false" %>
+>>>>>>> branch 'master' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 <!DOCTYPE html>
 <html>
 <head>
