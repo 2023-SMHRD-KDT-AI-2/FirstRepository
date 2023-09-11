@@ -64,7 +64,11 @@
                 <span class="menu_bg new-icon4"></span>
                 마이
             </li>
-        </ul>
+            <li id="A5" data-order="4">
+                <span class="menu_bg new-icon5"></span>
+                지도
+            </li>
+        </ul>  
 		<ul id="post">
 			<li id="post1" data-order="0"><span class="post new-icon1"></span>
 			</li>
@@ -133,6 +137,7 @@
         });
     });
 </script>
+
 
 <script type="text/javascript"
 src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>

@@ -126,6 +126,7 @@ td>button {
 		<tr>
 			<td><button id="logout">로그아웃</button></td>
 		</tr>
+		
 	</table>
 	<script src="js/jquery-3.7.1.js"></script>
 	<script>
@@ -148,10 +149,10 @@ td>button {
 			window.location = "https://www.naver.com"
 		})
 		changePwBtn.addEventListener('click', function() {
-			window.location = "https://www.naver.com"
+			window.location = "goChangepPw"
 		})
 		logoutBtn.addEventListener('click', function() {
-			window.location = "https://www.naver.com"
+			window.location = "Logout"
 		})
 	</script>
 </body>

@@ -101,9 +101,10 @@
 
 
         #menu li {
+			
             display: block;
             /* border-right: 1px solid #acacac; */
-            padding: 6px 29px;
+            padding: 6px 6%; 
             /* 패딩을 작게 조정 */
             font-size: 10px;
             /* 폰트 크기를 작게 조정 */
@@ -156,6 +157,12 @@
         #menu li .menu_bg.new-icon4 {
             margin-top: 7px;
             background: url("../../images/마이.png") no-repeat;
+            background-size: contain;
+
+        }
+        #menu li .menu_bg.new-icon5 {
+            margin-top: 7px;
+            background: url("../../images/지도2.png") no-repeat;
             background-size: contain;
 
         }

@@ -31,4 +31,11 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		return member1;
 		
 	}
+	public int changePw(MemberDTO member) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		int member1 = sqlSession.update("pw", member);
+		sqlSession.close();
+		return member1;
+		
+	}
 }
