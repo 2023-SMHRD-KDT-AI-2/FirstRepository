@@ -41,7 +41,7 @@
 </head>
 <body>
     
-    <form action="">
+    <form action="SetFavProgram">
         
         <table>
             <tr>
