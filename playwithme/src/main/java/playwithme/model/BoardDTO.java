@@ -9,10 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class BoardDTO {
 	private int boardNum;   // 게시판 번호
-	private String memberId; // 아이디
+	private String member_Id; // 아이디
 	private String title; // 제목
-	private String bContent; // 내용
-	private String bDate; // 작성시간
+	private String b_Content; // 내용
+	private String b_Date; // 작성시간
 	private String place; // 모임장소
 	private Double longitude; // 경도
 	private Double latitude; // 위도

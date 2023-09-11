@@ -26,9 +26,9 @@ public class WriteTest extends HttpServlet {
 		int numPeople = Integer.getInteger(request.getParameter("numPeople"));
 		
 		BoardDTO boardDTO = new BoardDTO();
-		boardDTO.setMemberId(memberId);
+		boardDTO.setMember_Id(memberId);
 		boardDTO.setTitle(title);
-		boardDTO.setBContent(bContent);
+		boardDTO.setB_Content(bContent);
 		boardDTO.setPlace(place);
 		boardDTO.setLongitude(longitude);
 		boardDTO.setLatitude(latitude);

@@ -37,6 +37,15 @@ public class BoardDAO {
 		return boardlist;
 	}
 	
+	public ArrayList<BoardDTO> myList(String memberId) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		boardlist = (ArrayList)sqlSession.selectList("myList",memberId);
+		
+		sqlSession.close();
+		
+		return boardlist;
+	}
 	
 	
 	

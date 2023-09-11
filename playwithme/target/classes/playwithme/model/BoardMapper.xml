@@ -33,6 +33,11 @@
 	<select id = "list" resultType="playwithme.model.BoardDTO">
 		select * from Board
 	</select>
+	
+	<select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
+		select * from Board
+		where MEMBER_ID = #{member_id}
+	</select>
 
 
 
