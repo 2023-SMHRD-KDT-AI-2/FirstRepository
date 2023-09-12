@@ -3,6 +3,24 @@ package playwithme.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -28,7 +46,7 @@ public class ChangeImg extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		request.setCharacterEncoding("utf-8");
-		
+		response.setContentType("text/html;charset=UTF-8");
 		String path = request.getServletContext().getRealPath("file");
 		MemberDTO dto = new MemberDTO();
 		MemberDAO dao = new MemberDAO();
@@ -43,16 +61,17 @@ public class ChangeImg extends HttpServlet {
 		HttpSession session = request.getSession();
 		dto.setM_Profile(img);
 		dto.setMember_Id((String)session.getAttribute("memberid"));
+		PrintWriter out = response.getWriter();
 		
-		int upimg=dao.upImg(dto);
-		if(upimg>0) {
-			RequestDispatcher rd = request.getRequestDispatcher("goProfile");
-			rd.forward(request, response);
-		}else {
+		if(img != null) {
+			dao.upImg(dto);
+				RequestDispatcher rd = request.getRequestDispatcher("goProfile");
+				rd.forward(request, response);
 			
-			RequestDispatcher rd = request.getRequestDispatcher("goProfile");
-			rd.forward(request, response);
+		}else {
+			out.println("<script>alert('프로필 사진을 선택해주세요');location.href='goChangeImg'; </script>");
 		}
+		
 		
 		
 
