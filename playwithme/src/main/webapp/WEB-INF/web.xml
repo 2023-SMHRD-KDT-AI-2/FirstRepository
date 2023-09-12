@@ -48,6 +48,12 @@
   	<servlet-class>playwithme.goMain</servlet-class>
   </servlet>
 	<servlet>
+  	<servlet-name>BoardProgram</servlet-name>
+  	<display-name>BoardProgram</display-name>
+  	<description></description>
+  	<servlet-class>playwithme.BoardProgram</servlet-class>
+  </servlet>
+	<servlet>
 		<servlet-name>goLogin</servlet-name>
 		<display-name>goLogin</display-name>
 		<description></description>
@@ -106,6 +112,10 @@
 	<servlet-mapping>
   	<servlet-name>goMain</servlet-name>
   	<url-pattern>/goMain</url-pattern>
+  </servlet-mapping>
+	<servlet-mapping>
+  	<servlet-name>BoardProgram</servlet-name>
+  	<url-pattern>/BoardProgram</url-pattern>
   </servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>goChangeImg</servlet-name>

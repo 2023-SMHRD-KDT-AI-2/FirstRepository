@@ -46,7 +46,7 @@
         }
 
         #category li:hover {
-            background: #ffe6e6;
+            background: #eee;
             border-left: 1px solid #acacac;
             margin-left: -1px;
         }
@@ -117,7 +117,7 @@
         }
 
         #menu li:hover {
-            background: #ffe6e6;
+            background: #eee;
             margin-left: -1px;
         }
 
@@ -192,10 +192,6 @@
             background: #eee;
         }
 
-        #post li:hover {
-            background: #ffe6e6;
-        }
-
         #post li span {
             display: block;
             margin: 0 auto 3px;
@@ -206,7 +202,18 @@
         #post li .post.new-icon1 {
             background: url("../../images/플러스.png") no-repeat;
             background-size: contain;
+            cursor: pointer;
+            display: block;
+          	transition: 0.25s;
 
+        }
+        #post li span:hover{
+          letter-spacing: 2px;
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+        #post li span:active {
+             transform: scale(1.2);
         }
 
 
@@ -461,11 +468,14 @@
             cursor: default;
             color: #777;
         }
-
+		#clock{
+			size: 5px;;
+		}
         input {
             border-radius: 5px;
             height: 28px;
             width: 195px;
+            margin-top: 25px;
         }
         #myModal{
             width: 250px;
