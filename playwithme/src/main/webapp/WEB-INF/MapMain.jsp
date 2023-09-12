@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
@@ -15,6 +16,8 @@
 </head>
 
 <body>
+	
+	<div id="clock"></div>
 <%
 	String id =(String)session.getAttribute("memberid");
 	MemberDAO dao = new MemberDAO();
@@ -89,7 +92,7 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
-</div>
+
 <div id="me"><p id="message"></p></div>
 <div id="myModal" class="modal">
     <form action="BoardProgram" method ="post" onsubmit="return check()">
@@ -124,32 +127,54 @@
     <input type="hidden" id="longitude" name="longitude" value = ""></input>
     <input type="hidden" value=<%=info.get(0).getMember_Id()%> name=memberId></input>
     
-    <button type="submit" id="savePost">저장</button> 
+
     <button type = "button" id="cancelPost">취소</button>
+    <button type="submit" id="savePost">저장</button> 
     <!-- <button id="savePost">저장</button> -->
      </form>
 </div>
-</div>
 
 <div id="modalBackground" class="modal-background"></div>
-
 <script src="js/jquery-3.7.1.js"></script>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+	<script> 
+        document.addEventListener("DOMContentLoaded", function () {
         // id가져오기
-       	let chatSpan = document.getElementById("chatLink");
+       	let chatSpan = document.getElementById("chatLink");})
+        function updateClock() {
+            const currentDate = new Date();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
 
-        // 클릭 리스너 이벤트
-        chatSpan.addEventListener("click", function () {
-            //  chat.jsp이동
-            window.location = "chat";
-        });
-    });
-</script>
+
+            const clockElement = document.getElementById("clock");
+            clockElement.textContent = `${hours}:${minutes}`;
+        }
+
+        // 1초마다 시간을 업데이트
+        setInterval(updateClock, 1000);
+
+        // 초기 로딩 시에도 시간 표시
+        updateClock();
+        
+        
+   
+	    document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("chatLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  chat.jsp이동
+	            window.location = "chat";
+	        });
+	    });
+	</script>
 
 
 <script type="text/javascript"
+
 src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+
 <script src="assets/js/MapMain.js"></script>
 </body>
 
