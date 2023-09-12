@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoardDTO {
+
 	private int board_Num;   // 게시판 번호
 	private String member_Id; // 아이디
 	private String title; // 제목
@@ -18,5 +19,6 @@ public class BoardDTO {
 	private Double latitude; // 위도
 	private String meet_Time; // 모임시간
 	private int num_People; // 모임 인원 수
+
 
 }

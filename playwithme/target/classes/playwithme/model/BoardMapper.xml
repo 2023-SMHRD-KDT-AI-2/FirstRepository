@@ -3,6 +3,7 @@
 <mapper namespace="playwithme.model.BoardMapper">
 	
 	
+
 <!-- 게시글 작성하면 Board테이블로 들어감 -->
 	<insert id="write" parameterType="playwithme.model.BoardDTO">
 		INSERT INTO BOARD 
@@ -42,6 +43,7 @@
 				, NUM_PEOPLE  
 		FROM 	BOARD
 	</select>
+
 	
 	<select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
 		select * from Board
