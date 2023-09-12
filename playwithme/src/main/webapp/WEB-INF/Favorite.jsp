@@ -7,23 +7,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        body{
-            background-color: rgb( 160, 225, 243);
-        }
-        .check{
-            width: 50%;
+    @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+	    .check{
+           width: 50%;
         }
         table{
             display: flex;
             justify-content: center;
             align-items: center;
             border-collapse: separate;
-            border-spacing: 5px 60px;
-           
+            border-spacing: 20px 60px;
+            height : 680px;
+            margin-top: 50px !important;
         }
+
+        body{
+            background-color: white;
+        }
+        
+      
         td{
-            
+        	text-align : center;
             font-size: small;
+            width: 75px;
+            height : 75px;
         }
         
         input.check{
@@ -31,9 +38,37 @@
         }
 
         .bold {
-            background-color: rgb( 160, 195, 223);
+            background-color: #67b7ee;
             border-radius: 10px;
         }
+        #button{
+            border-radius: 4px;
+            color: #67b7ee;
+            background-color: white;
+            border: 3px solid #67b7ee;
+            cursor: pointer;
+            display: block;
+            font-size: 14px;
+            padding: 10px;
+            margin-top: 16px;
+            width: 70px;
+            height: 45px;
+            text-align : center;
+            font-family: "paybooc-Light", sans-serif;
+            text-decoration: none;
+    		transition: 0.25s;
+        }
+        #button:hover{
+        	background-color: #67b7ee;
+    		color: white;
+    		letter-spacing: 2px;
+    		transform: scale(1.2);
+    		cursor: pointer;
+        }
+        #button:active {
+   			 transform: scale(1.2);
+        }
+        
     </style>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -41,7 +76,10 @@
 </head>
 <body>
     
-    <form action="SetFavProgram">
+
+    <form action="SetFavProgram"  id='form'>
+
+
         
         <table>
             <tr>
@@ -51,31 +89,31 @@
                         <i class="fa fa-cutlery fa-3x traval1" aria-hidden="true">🛫</i>
                     </label><br>
                     <input type="checkbox" id="chk" class="traval check" name="favorite" value="아웃도어/여행" >
-                    <br>아웃도어/여행</td>
+                    <br>여행</td>
                     </span>
                 <td>
                     <label for="chk1">
                         <i class="fa fa-cutlery fa-3x sports1" aria-hidden="true">🚴‍♀️</i>
                     </label><br>
-                    <input type="checkbox" id="chk1" class="sports check" name="favorite" value="운동/스포츠"><br>운동/스포츠</td>
+                    <input type="checkbox" id="chk1" class="sports check" name="favorite" value="운동/스포츠"><br>운동</td>
                 <td>
                     <label for="chk2">
                         <i class="fa fa-cutlery fa-3x book1" aria-hidden="true">📚</i>
                     </label><br>
-                    <input type="checkbox"  id="chk2" class="book check" name="favorite" value="인문학/책/글"><br>인문학/책/글</td>
+                    <input type="checkbox"  id="chk2" class="book check" name="favorite" value="인문학/책/글"><br>인문학/책</td>
             </tr>
             <tr>
                 <td>
                     <label for="chk3">
                         <i class="fa fa-cutlery fa-3x culture1" aria-hidden="true">🎊</i>
                     </label><br>
-                    <input type="checkbox" id="chk3" class="culture check" name="favorite" value="문화/공연/축제"><br>문화/공연/축제</td>
+                    <input type="checkbox" id="chk3" class="culture check" name="favorite" value="문화/공연/축제"><br>공연/축제</td>
                 <td>
                     <label for="chk4">
                         <i class="fa fa-cutlery fa-3x music1 " aria-hidden="true">🎧</i>
                     </label><br>
-                    <input type="checkbox" id="chk4" class="music check" name="favorite" value="음악/악기"><br>음악음악/악기</td>
-                <td>
+                    <input type="checkbox" id="chk4" class="music check" name="favorite" value="음악/악기"><br>음악/악기</td>
+                <td class='onlyCSS'>
                     <label for="chk5">
                         <i class="fa fa-cutlery fa-3x make1" aria-hidden="true">🛠</i>
                     </label><br>
@@ -86,13 +124,13 @@
                     <label for="chk6">
                         <i class="fa fa-cutlery fa-3x cook1" aria-hidden="true">🍽</i>
                     </label><br>
-                    <input type="checkbox" id="chk6" class="cook check" name="favorite" value="요리/제조"><br>요리/제조</td>
+                    <input type="checkbox" id="chk6" class="cook check" name="favorite" value="요리/제조"><br>요리</td>
                 <td>
                     <label for="chk7">
                         <i class="fa fa-cutlery fa-3x picture1" aria-hidden="true">📷</i>
                     </label><br>
                     <input type="checkbox" id="chk7" class="picture check" name="favorite" value="사진/영상"><br>사진/영상</td>
-                <td>
+                <td class='onlyCSS'>
                     <label for="chk8">
                         <i class="fa fa-cutlery  fa-3x car1" aria-hidden="true">🚗</i>
                     </label><br>
@@ -108,7 +146,7 @@
                     <label for="chk10">
                         <i class="fa fa-cutlery fa-3x look1" aria-hidden="true">⚾</i>
                     </label><br>
-                    <input type="checkbox" id="chk10" class="look check" name="favorite" value="야구관람"><br>야구관람</td>
+                    <input type="checkbox" id="chk10" class="look check" name="favorite" value="야구관람"><br>야구</td>
                 <td>
                     <label for="chk11">
                         <i class="fa fa-cutlery fa-3x people1" aria-hidden="true">👨‍👩‍👦‍👦</i>
@@ -118,7 +156,7 @@
             <tr>
                 <td></td>
                 <td></td>
-                <td><input type="submit"></td>
+                <td><input type="submit" id='button' value='수정'></td>
             </tr>
         </table>
         
@@ -245,7 +283,14 @@
           }
         });
       });
-
+      $('#button').hover(
+    		    function() {
+    		        $(this).css('backgroundColor', '#40a9f2');
+    		    },
+    		    function() {
+    		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
+    		    }
+    			);
     </script>
     
    
