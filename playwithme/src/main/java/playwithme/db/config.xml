@@ -30,7 +30,9 @@
    -->
   <mappers>
     <mapper resource="playwithme/model/MemberMapper.xml"/>
-    <mapper resource="playwithme/model/BoardMapper.xml"/>
+
     <mapper resource="playwithme/model/FavoriteMapper.xml"/>
+    <mapper resource="playwithme/model/BoardMapper.xml"/>
+    <mapper resource="playwithme/model/CctvMapper.xml"/>
   </mappers>
 </configuration>

@@ -38,4 +38,11 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		return member1;
 		
 	}
+	//회원가입 
+	public int Join(MemberDTO member) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int cnt = sqlSession.insert("Join", member);
+		sqlSession.close();
+		return cnt;
+	}
 }
