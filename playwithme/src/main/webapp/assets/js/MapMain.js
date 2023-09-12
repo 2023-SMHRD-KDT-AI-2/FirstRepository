@@ -546,7 +546,7 @@
                 me.style.position= 'relative';
                 message2.style.textAlign = 'center';
             } else {
-                // 이미 post를 클릭한 경우 이 코드 블록 실행
+                // 이미 post를 클릭한 경우 이 코드 블록 실행22
                 map2.style.opacity = '1';
                 message2.style.position = 'static';
                 message2.innerHTML = '';
