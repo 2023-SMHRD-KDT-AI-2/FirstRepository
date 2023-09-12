@@ -1,163 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
-<%@page import="playwithme.model.*"%>
-<%@page import="playwithme.controller.*"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<title>WebSocket Chat</title>
-<style>
-body {
-	font-family: Arial, sans-serif;
-}
-
-#chat-container {
-	width: 300px;
-	margin: 0 auto;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	padding: 10px;
-	box-shadow: 0px 0px 10px #ccc;
-}
-
-#chat-messages {
-	max-height: 300px;
-	overflow-y: auto;
-	padding: 10px;
-	border: 1px solid #eee;
-	border-radius: 5px;
-	background-color: #f7f7f7;
-}
-
-.message {
-	background-color: #0084FF;
-	color: #fff;
-	padding: 5px 10px;
-	margin-bottom: 5px;
-	border-radius: 5px;
-}
-
-.message.sent {
-	background-color: #4CAF50;
-	text-align: right;
-}
-
-#message {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
-
-#send-button {
-	display: block;
-	margin-top: 5px;
-	background-color: #0084FF;
-	color: #fff;
-	border: none;
-	border-radius: 3px;
-	padding: 5px 10px;
-	cursor: pointer;
-}
-
-#name-input {
-	width: 100%;
-	padding: 5px;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-}
-</style>
+<meta charset="UTF-8">
+<title>ì±„íŒ…</title>
 </head>
 <body>
 	<div id="chat-container">
 		<div id="chat-messages"></div>
-		<input type="text" id="message" placeholder="Type a message">
-		<button onclick="sendMessage()">Send</button>
-
+		<input type="text" id="name-input" placeholder="ì´ë¦„ ì…ë ¥"> <input
+			type="text" id="message" placeholder="ë©”ì‹œì§€ ì…ë ¥">
+		<button id="send-button" onclick="sendMessage()">ì „ì†¡</button>
 	</div>
 
+	<script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const chatroom = urlParams.get('room');
+        const socket = new WebSocket(`ws://220.80.33.64:8080/playwithme/chat/${chatroom}`);
+        let senderName = ""; // ì´ˆê¸°ê°’ì€ ë¹ˆ ë¬¸ìì—´ë¡œ ì„¤ì •í•©ë‹ˆë‹¤.
 
-<script>
-const socket = new WebSocket("ws://59.3.58.102:8080/playwithme/chat");
+        // ì´ë¦„ ì…ë ¥ë€ì˜ ê°’ì´ ë³€ê²½ë  ë•Œë§ˆë‹¤ ë°œì‹ ì ì´ë¦„ì„ ì—…ë°ì´íŠ¸í•©ë‹ˆë‹¤.
+        document.getElementById("name-input").addEventListener("input", (event) => {
+            senderName = event.target.value;
+        });
 
-socket.onopen = (event) => {
-    console.log("Ã¤ÆÃ ¼ÒÄÏÀÌ ¿­·È½À´Ï´Ù.");
-};
+        // ì—°ê²°ì´ ì—´ë ¸ì„ ë•Œ ì‹¤í–‰í•  ì½”ë“œ
+        socket.onopen = (event) => {
+            console.log("ì±„íŒ… ì†Œì¼“ì´ ì—´ë ¸ìŠµë‹ˆë‹¤.");
+        };
 
-socket.onmessage = (event) => {
-    // ¼­¹ö·ÎºÎÅÍ ¸Ş½ÃÁö¸¦ ¹Ş¾ÒÀ» ¶§ ½ÇÇàÇÒ ÄÚµå
-    // ¸Ş½ÃÁö¸¦ WebSocketÀ» ÅëÇØ ¼­¹ö·Î º¸³»´Â ÄÚµå
-    const chatDiv = document.getElementById("chat-messages");
-    const message = event.data;
-    
-    // ¿øÇÏ´Â Á¤º¸¸¦ Æ÷ÇÔÇÑ 'info' º¯¼ö¸¦ Á¤ÀÇ
-    // ¿¹¸¦ µé¾î, º¸³½ »ç¶÷ÀÇ ÀÌ¸§À» Ç¥½ÃÇÏ·Á´Â °æ¿ì:
-    const senderName = "´ç½ÅÀÇÀÌ¸§";  // '´ç½ÅÀÇÀÌ¸§'À» ½ÇÁ¦ º¸³½ »ç¶÷ÀÇ ÀÌ¸§À¸·Î ´ëÃ¼
-    
-    chatDiv.innerHTML += `<div class="message"><strong>${senderName}:</strong> ${message}</div>`;
+        socket.onmessage = (event) => {
+            // ì„œë²„ë¡œë¶€í„° ë©”ì‹œì§€ë¥¼ ë°›ì•˜ì„ ë•Œ ì‹¤í–‰í•  ì½”ë“œ
+            const chatDiv = document.getElementById("chat-messages");
+            const data = JSON.parse(event.data);
+            chatDiv.innerHTML += `<div class="message"><strong>${data.senderName}:</strong> ${data.message}</div>`;
+            chatDiv.scrollTop = chatDiv.scrollHeight;
+        };
 
-    chatDiv.scrollTop = chatDiv.scrollHeight;
-};
+        // ì—°ê²°ì´ ë‹«í˜”ì„ ë•Œ ì‹¤í–‰í•  ì½”ë“œ
+        socket.onclose = (event) => {
+            console.log("ì±„íŒ… ì†Œì¼“ì´ ë‹«í˜”ìŠµë‹ˆë‹¤.");
+        };
 
-// ¿¬°áÀÌ ´İÇûÀ» ¶§ ½ÇÇàÇÒ ÄÚµå
-socket.onclose = (event) => {
-    console.log("Ã¤ÆÃ ¼ÒÄÏÀÌ ´İÇû½À´Ï´Ù.");
-};
-
-// ¸Ş½ÃÁö¸¦ WebSocketÀ» ÅëÇØ ¼­¹ö·Î º¸³»´Â ÄÚµå
+        // ë©”ì‹œì§€ë¥¼ WebSocketì„ í†µí•´ ì„œë²„ë¡œ ë³´ë‚´ëŠ” ì½”ë“œ / ë° ì´ë¦„ 
 function sendMessage() {
     const message = document.getElementById("message").value;
-    socket.send(message);
+    const data = JSON.stringify({
+        senderName: senderName,
+        message: message
+    });
+    socket.send(data);
     document.getElementById("message").value = "";
 }
-
-
-
-
-
-
-
-
-
-/*
-//const socket = new WebSocket("ws://59.3.58.102:8080/playwithme/chat");
-
-const socket = new WebSocket("ws://59.3.58.102:8080/playwithme/chat");
-
-    socket.onopen = (event) => {
-        console.log("Ã¤ÆÃ ¼ÒÄÏÀÌ ¿­·È½À´Ï´Ù.");
-    };
-
-socket.onmessage = (event) => {
-    // ¼­¹ö·ÎºÎÅÍ ¸Ş½ÃÁö¸¦ ¹Ş¾ÒÀ» ¶§ ½ÇÇàÇÒ ÄÚµå
-    // ¸Ş½ÃÁö¸¦ WebSocketÀ» ÅëÇØ ¼­¹ö·Î º¸³»´Â ÄÚµå
-    const chatDiv = document.getElementById("chat-messages");
-    const message = event.data;
-    chatDiv.innerHTML += `<div class="message"><strong>${info.get(0).getMember_Id()}:</strong> ${message}</div>`;
-
-   
-
-    chatDiv.scrollTop = chatDiv.scrollHeight;
-};
-
-// ¿¬°áÀÌ ´İÇûÀ» ¶§ ½ÇÇàÇÒ ÄÚµå
-socket.onclose = (event) => {
-    console.log("Ã¤ÆÃ ¼ÒÄÏÀÌ ´İÇû½À´Ï´Ù.");
-};
-
-// ¸Ş½ÃÁö¸¦ WebSocketÀ» ÅëÇØ ¼­¹ö·Î º¸³»´Â ÄÚµå
-function sendMessage() {
-    const message = document.getElementById("message").value;
-    socket.send(message);
-    document.getElementById("message").value = "";
-}
-*/
-</script>
-
-	
-	
-        
-        
-    
+    </script>
 </body>
 </html>
