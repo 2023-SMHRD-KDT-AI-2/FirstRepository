@@ -159,16 +159,23 @@
     <script>
    
     $('#button1').click(function check(){
-    	if($('#pw2').val() === $('#pw3').val() && $('#pw').val() === `${info.get(0).getPw()}`){
-    		return true
+    	if($('#pw').val() === $('#pw3').val()){
+    		alert("기존 비밀번호와 같습니다.")
+    		return false;
     	}else{
-	    	alert('비밀번호가 일치하지 않습니다.')
-	    	window.location.reload()
-	    	$('#pw2').value=''
-	    	$('#pw3').value=''
-	    	return false
-    }})
-    
+    		if($('#pw2').val() === $('#pw3').val() && $('#pw').val() === `${info.get(0).getPw()}`){
+        		return true
+        	}else{
+    	    	alert('비밀번호가 일치하지 않습니다.')
+    	    	window.location.reload()
+    	    	$('#pw2').value=''
+    	    	$('#pw3').value=''
+    	    	return false
+    	    	}
+    	}
+    })
+        
+    	
     $('#button1').hover(
     function() {
         $(this).css('backgroundColor', '#40a9f2');
