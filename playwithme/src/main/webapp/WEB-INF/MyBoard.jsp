@@ -20,7 +20,16 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<link rel="stylesheet" href="assets/css/MyBoardstyle.css">
-
+	<style >
+	 #back {
+		border : 0px;
+		background-color :#fafafa;
+		margin-top : 15px;
+		margin-left : 10px;
+		
+		}
+	
+	</style>
 	</head>
 	<body>
 	<%
@@ -30,6 +39,11 @@
 	myBoard = dao.myList(memberId);
 	session.setAttribute("myBoard", myBoard);
 	%>
+	<button class="material-symbols-outlined" id ="back" style="color:gray;">
+arrow_back_ios
+</button>
+	
+	
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -85,5 +99,10 @@
   <script src="assets/js/MyBoardpopper.js"></script>
   <script src="assets/js/MyBoardbootstrap.min.js"></script>
   <script src="assets/js/MyBoardmain.js"></script>
+  <script >
+  $('#back').click(function () {
+		location.href = 'goProfile';
+	})
+  </script>
 	</body>
 </html>
