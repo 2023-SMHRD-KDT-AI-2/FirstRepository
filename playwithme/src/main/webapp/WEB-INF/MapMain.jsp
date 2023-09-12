@@ -1,6 +1,8 @@
+<%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
+<%@page import="playwithme.model.CctvDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -23,6 +25,14 @@
 	session.setAttribute("info",info);
 	
 	%>
+<!-- 선웅선웅선웅선웅  -->
+<%
+	CctvDAO cdao = new CctvDAO();
+
+
+
+
+%>	
     <p style="margin-top:-12px">
         <em class="link">
             <a href="/web/documentation/#CategoryCode" target="_blank"></a>

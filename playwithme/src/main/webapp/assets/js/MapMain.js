@@ -594,6 +594,7 @@
         	function check(){
 				if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
             // 모달 창 닫음
+             alert('게시글이 저장되었습니다:\n');
             modal.style.display = 'none';
             modalBackground.style.display = 'none';
 
