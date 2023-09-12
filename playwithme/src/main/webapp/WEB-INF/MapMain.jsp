@@ -4,6 +4,7 @@
 <%@page import="playwithme.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -126,6 +127,7 @@
     <input type="hidden" id="longitude" name="longitude" value = ""></input>
     <input type="hidden" value=<%=info.get(0).getMember_Id()%> name=memberId></input>
     
+
     <button type = "button" id="cancelPost">취소</button>
     <button type="submit" id="savePost">저장</button> 
     <!-- <button id="savePost">저장</button> -->
@@ -134,11 +136,15 @@
 
 <div id="modalBackground" class="modal-background"></div>
 <script src="js/jquery-3.7.1.js"></script>
-	<script>
+	<script> 
+        document.addEventListener("DOMContentLoaded", function () {
+        // id가져오기
+       	let chatSpan = document.getElementById("chatLink");})
         function updateClock() {
             const currentDate = new Date();
             const hours = currentDate.getHours();
             const minutes = currentDate.getMinutes();
+
 
             const clockElement = document.getElementById("clock");
             clockElement.textContent = `${hours}:${minutes}`;
@@ -166,7 +172,9 @@
 
 
 <script type="text/javascript"
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
+
+src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+
 <script src="assets/js/MapMain.js"></script>
 </body>
 
