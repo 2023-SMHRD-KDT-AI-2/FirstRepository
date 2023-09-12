@@ -122,12 +122,6 @@
                     infowindow.open(map, marker);
                     let meetingPlace = document.getElementById('meetingPlace')
                     meetingPlace.value = result[0].address.address_name
-                    // 위도 경도값을 구합니다.
-                    $("#latitude").val(mouseEvent.latLng.getLng())
-                    $("#longitude").val(mouseEvent.latLng.getLat())
-                    // 클릭된 위치의 좌표를 콘솔에 출력합니다.
-            console.log('위도:', mouseEvent.latLng.getLat());
-            console.log('경도:', mouseEvent.latLng.getLng());
                 }   
             });
         });
@@ -552,7 +546,7 @@
                 me.style.position= 'relative';
                 message2.style.textAlign = 'center';
             } else {
-                // 이미 post를 클릭한 경우 이 코드 블록 실행
+                // 이미 post를 클릭한 경우 이 코드 블록 실행22
                 map2.style.opacity = '1';
                 message2.style.position = 'static';
                 message2.innerHTML = '';
@@ -571,7 +565,7 @@
             }
         });
    
-        savePost.addEventListener('click', function() {
+/*        savePost.addEventListener('click', function() {
             //게시글 저장
             let content = postContent.value;
             alert('게시글이 저장되었습니다:\n');
@@ -594,7 +588,23 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-        });
+        });*/
+        	// 게시물 저장 시 내용 안 채웠을 때 / 선웅
+        	function check(){
+				if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
+            // 모달 창 닫음
+             alert('게시글이 저장되었습니다:\n');
+            modal.style.display = 'none';
+            modalBackground.style.display = 'none';
+
+            map2.style.opacity = '1';
+            message2.style.position = 'static';
+            message2.innerHTML = '';
+				}else{
+					alert('모든 값을 입력해주세요!')
+					return false;
+				}
+			}
                 
         ////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 시 인원 수 
@@ -608,7 +618,8 @@
         }
         ///////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 취소
-           $('#cancelPost').on("click",function (){
+        let cancelPost = document.getElementById('cancelPost')
+        cancelPost.addEventListener('click',function(){
             modal.style.display = 'none';
             modalBackground.style.display = 'none';
 
@@ -628,6 +639,6 @@
         
         let btn4 = document.getElementById("A4");
         btn4.addEventListener("click",function(){
-         window.location = "goProfile"
-      })
+			window.location = "goProfile"
+		})
            
