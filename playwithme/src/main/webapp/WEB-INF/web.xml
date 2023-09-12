@@ -4,12 +4,7 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
-	<servlet>
-		<servlet-name>test</servlet-name>
-		<display-name>test</display-name>
-		<description></description>
-		<servlet-class>playwithme.controller.test</servlet-class>
-	</servlet>
+
 	<servlet>
 		<servlet-name>goChangepPw</servlet-name>
 		<display-name>goChangepPw</display-name>
@@ -23,10 +18,10 @@
 		<servlet-class>playwithme.controller.ChangePwProgram</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>WriteTest</servlet-name>
-		<display-name>WriteTest</display-name>
+		<servlet-name>BoardProgram</servlet-name>
+		<display-name>BoardProgram</display-name>
 		<description></description>
-		<servlet-class>playwithme.controller.WriteTest</servlet-class>
+		<servlet-class>playwithme.controller.BoardProgram</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -105,15 +100,11 @@
 
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>test</servlet-name>
-		<url-pattern>/test</url-pattern>
-	</servlet-mapping>
-	<servlet-mapping>
 		<servlet-name>goChangepPw</servlet-name>
 		<url-pattern>/goChangepPw</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
-		<servlet-name>WriteTest</servlet-name>
-		<url-pattern>/WriteTest</url-pattern>
+		<servlet-name>BoardProgram</servlet-name>
+		<url-pattern>/BoardProgram</url-pattern>
 	</servlet-mapping>
 </web-app>

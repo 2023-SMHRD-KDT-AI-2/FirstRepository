@@ -3,6 +3,7 @@
 <%@page import="playwithme.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -91,6 +92,7 @@
 </div>
 <div id="me"><p id="message"></p></div>
 <div id="myModal" class="modal">
+    <form action="BoardProgram" method ="post" onsubmit="return check()">
     <h3>게시글 작성</h3>
     <label for="postTitle">제목:</label>
     <input type="text" id="postTitle" placeholder="제목을 입력하세요" name="title">
@@ -118,13 +120,20 @@
     <textarea id="postContent" name="bContent" rows="4" cols="50"></textarea>
     
     <br><br>
+    <input type="hidden" id="latitude"  name="latitude" value = ""></input>
+    <input type="hidden" id="longitude" name="longitude" value = ""></input>
+    <input type="hidden" value=<%=info.get(0).getMember_Id()%> name=memberId></input>
     
-    <button id="cancelPost">취소</button>
-    <button id="savePost">저장</button>
+    <button type="submit" id="savePost">저장</button> 
+    <button type = "button" id="cancelPost">취소</button>
+    <!-- <button id="savePost">저장</button> -->
+     </form>
 </div>
 </div>
 
 <div id="modalBackground" class="modal-background"></div>
+
+<script src="js/jquery-3.7.1.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         // id가져오기
@@ -140,7 +149,7 @@
 
 
 <script type="text/javascript"
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
+src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
 <script src="assets/js/MapMain.js"></script>
 </body>
 

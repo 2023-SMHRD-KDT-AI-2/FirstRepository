@@ -122,6 +122,9 @@
                     infowindow.open(map, marker);
                     let meetingPlace = document.getElementById('meetingPlace')
                     meetingPlace.value = result[0].address.address_name
+            		// 위도 경도값을 구합니다.
+                    $("#latitude").val(mouseEvent.latLng.getLng())
+                    $("#longitude").val(mouseEvent.latLng.getLat())
                 }   
             });
         });
@@ -565,7 +568,7 @@
             }
         });
    
-        savePost.addEventListener('click', function() {
+/*        savePost.addEventListener('click', function() {
             //게시글 저장
             let content = postContent.value;
             alert('게시글이 저장되었습니다:\n');
@@ -586,7 +589,22 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-        });
+        });*/
+        	// 게시물 저장 시 내용 안 채웠을 때 / 선웅
+        	function check(){
+				if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
+            // 모달 창 닫음
+            modal.style.display = 'none';
+            modalBackground.style.display = 'none';
+
+            map2.style.opacity = '1';
+            message2.style.position = 'static';
+            message2.innerHTML = '';
+				}else{
+					alert('모든 값을 입력해주세요!')
+					return false;
+				}
+			}
                 
         ////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 시 인원 수 
@@ -600,7 +618,7 @@
         }
         ///////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 취소
-        let cancelPost = document.getElementById('cancelPost')
+        let cancelPost = document.getElementById('cancelPost');
         cancelPost.addEventListener('click',function(){
             modal.style.display = 'none';
             modalBackground.style.display = 'none';
@@ -620,6 +638,6 @@
         })
         let btn4 = document.getElementById("A4");
         btn4.addEventListener("click",function(){
-			window.location = "goProfile"
+			window.location = "goProfile";
 		})
            
