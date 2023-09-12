@@ -8144,7 +8144,7 @@ a {
   -webkit-transition: .3s all ease;
   -o-transition: .3s all ease;
   transition: .3s all ease;
-  color: #a3f7bf; }
+  color: gray; }
   a:hover, a:focus {
     text-decoration: none !important;
     outline: none !important;
@@ -8189,8 +8189,8 @@ h1, h2, h3, h4, h5,
   background-position: center center; }
 
 .btn-img {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important;
   -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important;
   box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important; }
