@@ -60,30 +60,30 @@
 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
-		// 게시글 작성 후 마커
+      // 게시글 작성 후 마커
 
-		// 마커가 표시될 위치입니다 
-		//let markerPosition2  = new kakao.maps.LatLng(35.11039142255239, 126.87748644508468); 
-		
-		// 마커를 생성합니다
-		//let marker2 = new kakao.maps.Marker({
-		//    position: markerPosition2
-		//});
-		
-		// 마커가 지도 위에 표시되도록 설정합니다
-		//marker2.setMap(map);
-		
-		//let iwContent = '<div style="padding:5px;">여기에 게시물 제목</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-		//    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-		//
-		// 인포윈도우를 생성합니다
-		//let infowindow2 = new kakao.maps.InfoWindow({
-		//    position : iwPosition, 
-		//    content : iwContent 
-		//});
-		  
-		// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-		//infowindow2.open(map, marker); 
+      // 마커가 표시될 위치입니다 
+      //let markerPosition2  = new kakao.maps.LatLng(35.11039142255239, 126.87748644508468); 
+      
+      // 마커를 생성합니다
+      //let marker2 = new kakao.maps.Marker({
+      //    position: markerPosition2
+      //});
+      
+      // 마커가 지도 위에 표시되도록 설정합니다
+      //marker2.setMap(map);
+      
+      //let iwContent = '<div style="padding:5px;">여기에 게시물 제목</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+      //    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+      //
+      // 인포윈도우를 생성합니다
+      //let infowindow2 = new kakao.maps.InfoWindow({
+      //    position : iwPosition, 
+      //    content : iwContent 
+      //});
+        
+      // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+      //infowindow2.open(map, marker); 
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
         // 주소-좌표
@@ -546,7 +546,7 @@
                 me.style.position= 'relative';
                 message2.style.textAlign = 'center';
             } else {
-                // 이미 post를 클릭한 경우 이 코드 블록 실행
+                // 이미 post를 클릭한 경우 이 코드 블록 실행22
                 map2.style.opacity = '1';
                 message2.style.position = 'static';
                 message2.innerHTML = '';
@@ -565,7 +565,7 @@
             }
         });
    
-        savePost.addEventListener('click', function() {
+/*        savePost.addEventListener('click', function() {
             //게시글 저장
             let content = postContent.value;
             alert('게시글이 저장되었습니다:\n');
@@ -577,7 +577,9 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-
+         
+         
+         
             // 입력 필드 초기화
             postTitle.value = '';
             numParticipants.selectedIndex = 0; // 첫 번째 옵션으로 초기화
@@ -586,7 +588,23 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-        });
+        });*/
+        	// 게시물 저장 시 내용 안 채웠을 때 / 선웅
+        	function check(){
+				if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
+            // 모달 창 닫음
+             alert('게시글이 저장되었습니다:\n');
+            modal.style.display = 'none';
+            modalBackground.style.display = 'none';
+
+            map2.style.opacity = '1';
+            message2.style.position = 'static';
+            message2.innerHTML = '';
+				}else{
+					alert('모든 값을 입력해주세요!')
+					return false;
+				}
+			}
                 
         ////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 시 인원 수 
@@ -617,7 +635,8 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-        })
+        });
+        
         let btn4 = document.getElementById("A4");
         btn4.addEventListener("click",function(){
 			window.location = "goProfile"

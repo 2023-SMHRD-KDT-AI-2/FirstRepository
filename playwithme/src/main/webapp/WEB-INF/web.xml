@@ -4,11 +4,12 @@
 
 <web-app>
 	<display-name>Archetype Created Web Application</display-name>
+
 	<servlet>
-		<servlet-name>test</servlet-name>
-		<display-name>test</display-name>
+		<servlet-name>SetFavProgram</servlet-name>
+		<display-name>SetFavProgram</display-name>
 		<description></description>
-		<servlet-class>playwithme.controller.test</servlet-class>
+		<servlet-class>playwithme.controller.SetFavProgram</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>goChangepPw</servlet-name>
@@ -23,10 +24,10 @@
 		<servlet-class>playwithme.controller.ChangePwProgram</servlet-class>
 	</servlet>
 	<servlet>
-		<servlet-name>WriteTest</servlet-name>
-		<display-name>WriteTest</display-name>
+		<servlet-name>BoardProgram</servlet-name>
+		<display-name>BoardProgram</display-name>
 		<description></description>
-		<servlet-class>playwithme.controller.WriteTest</servlet-class>
+		<servlet-class>playwithme.controller.BoardProgram</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -42,6 +43,12 @@
   	<servlet-class>playwithme.goMain</servlet-class>
   </servlet>
 	<servlet>
+  	<servlet-name>BoardProgram</servlet-name>
+  	<display-name>BoardProgram</display-name>
+  	<description></description>
+  	<servlet-class>playwithme.BoardProgram</servlet-class>
+  </servlet>
+	<servlet>
 		<servlet-name>goLogin</servlet-name>
 		<display-name>goLogin</display-name>
 		<description></description>
@@ -52,6 +59,12 @@
 		<display-name>Logout</display-name>
 		<description></description>
 		<servlet-class>playwithme.controller.Logout</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>ChangeImg</servlet-name>
+		<display-name>ChangeImg</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.ChangeImg</servlet-class>
 	</servlet>
 	<servlet>
 		<servlet-name>LoginProgram</servlet-name>
@@ -96,6 +109,10 @@
   	<url-pattern>/goMain</url-pattern>
   </servlet-mapping>
 	<servlet-mapping>
+  	<servlet-name>BoardProgram</servlet-name>
+  	<url-pattern>/BoardProgram</url-pattern>
+  </servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>goChangeImg</servlet-name>
 		<url-pattern>/goChangeImg</url-pattern>
 	</servlet-mapping>
@@ -105,15 +122,28 @@
 
 	</servlet-mapping>
 	<servlet-mapping>
+
+		<servlet-name>ChangeImg</servlet-name>
+		<url-pattern>/ChangeImg</url-pattern>
+
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>test</servlet-name>
 		<url-pattern>/test</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+
 		<servlet-name>goChangepPw</servlet-name>
 		<url-pattern>/goChangepPw</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+
+		<servlet-name>SetFavProgram</servlet-name>
+		<url-pattern>/SetFavProgram</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>WriteTest</servlet-name>
 		<url-pattern>/WriteTest</url-pattern>
+
 	</servlet-mapping>
 </web-app>

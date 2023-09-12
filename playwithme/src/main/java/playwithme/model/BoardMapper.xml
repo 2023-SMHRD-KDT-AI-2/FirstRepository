@@ -3,36 +3,47 @@
 <mapper namespace="playwithme.model.BoardMapper">
 	
 	
-	<!-- 게시글 작성하면 Board테이블로 들어감 -->
+
+<!-- 게시글 작성하면 Board테이블로 들어감 -->
 	<insert id="write" parameterType="playwithme.model.BoardDTO">
-			insert into Board (
-				board_num,
-				member_id,
-				title,
-				b_content,
-				b_date,
-				place,
-				longitude,
-				latitude,
-				meet_time,
-				num_people
-			) values(
-				board_num.next,
-				#{member_id},
-				#{title},
-				#{b_content},
-				sysdate,
-				#{place},
-				#{longitude},
-				#{latitude},
-				#{meet_time},
-				#{num_people}
-			)
+		INSERT INTO BOARD 
+		( BOARD_NUM	
+			, MEMBER_ID	
+			, TITLE		
+			, B_CONTENT	
+			, B_DATE		
+			, PLACE		
+			, LONGITUDE	
+			, LATITUDE	
+			, MEET_TIME	
+			, NUM_PEOPLE )
+		VALUES
+		( seq_board.nextval,
+			#{member_Id},
+			#{title},
+			#{b_Content},
+			sysdate,
+			#{place},
+			#{longitude},
+			#{latitude},
+			REPLACE(#{meet_Time},':',''),
+			#{num_People} )
 	</insert>
 	<!-- 전체 게시물 읽기 -->
 	<select id = "list" resultType="playwithme.model.BoardDTO">
-		select * from Board
+		SELECT BOARD_NUM	
+				, MEMBER_ID	
+				, TITLE		
+				, B_CONTENT	
+				, B_DATE		
+				, PLACE		
+				, LONGITUDE	
+				, LATITUDE	
+				, MEET_TIME	
+				, NUM_PEOPLE  
+		FROM 	BOARD
 	</select>
+
 	
 	<select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
 		select * from Board
