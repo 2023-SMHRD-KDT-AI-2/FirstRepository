@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
@@ -14,6 +15,8 @@
 </head>
 
 <body>
+	
+	<div id="clock"></div>
 <%
 	String id =(String)session.getAttribute("memberid");
 	MemberDAO dao = new MemberDAO();
@@ -88,9 +91,10 @@
         <ul id="placesList"></ul>
         <div id="pagination"></div>
     </div>
-</div>
+
 <div id="me"><p id="message"></p></div>
 <div id="myModal" class="modal">
+    <form action="BoardProgram" method ="post" onsubmit="return check()">
     <h3>게시글 작성</h3>
     <label for="postTitle">제목:</label>
     <input type="text" id="postTitle" placeholder="제목을 입력하세요" name="title">
@@ -118,29 +122,51 @@
     <textarea id="postContent" name="bContent" rows="4" cols="50"></textarea>
     
     <br><br>
+    <input type="hidden" id="latitude"  name="latitude" value = ""></input>
+    <input type="hidden" id="longitude" name="longitude" value = ""></input>
+    <input type="hidden" value=<%=info.get(0).getMember_Id()%> name=memberId></input>
     
-    <button id="cancelPost">취소</button>
-    <button id="savePost">저장</button>
-</div>
+    <button type = "button" id="cancelPost">취소</button>
+    <button type="submit" id="savePost">저장</button> 
+    <!-- <button id="savePost">저장</button> -->
+     </form>
 </div>
 
 <div id="modalBackground" class="modal-background"></div>
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // id가져오기
-       	let chatSpan = document.getElementById("chatLink");
+<script src="js/jquery-3.7.1.js"></script>
+	<script>
+        function updateClock() {
+            const currentDate = new Date();
+            const hours = currentDate.getHours();
+            const minutes = currentDate.getMinutes();
 
-        // 클릭 리스너 이벤트
-        chatSpan.addEventListener("click", function () {
-            //  chat.jsp이동
-            window.location = "chat";
-        });
-    });
-</script>
+            const clockElement = document.getElementById("clock");
+            clockElement.textContent = `${hours}:${minutes}`;
+        }
+
+        // 1초마다 시간을 업데이트
+        setInterval(updateClock, 1000);
+
+        // 초기 로딩 시에도 시간 표시
+        updateClock();
+        
+        
+   
+	    document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("chatLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  chat.jsp이동
+	            window.location = "chat";
+	        });
+	    });
+	</script>
 
 
 <script type="text/javascript"
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
+src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
 <script src="assets/js/MapMain.js"></script>
 </body>
 
