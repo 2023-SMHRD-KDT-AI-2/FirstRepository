@@ -173,8 +173,8 @@
 	
 	        // 클릭 리스너 이벤트
 	        chatSpan.addEventListener("click", function () {
-	            //  chat.jsp이동
-	            window.location = "chat";
+	            //  goChattingList.jsp이동
+	        	window.location = "goChattingList";
 	        });
 	    });
 	</script>
@@ -182,7 +182,7 @@
 
 <script type="text/javascript"
 
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&libraries=services,clusterer,drawing"></script>
 
 <script src="assets/js/MapMain.js"></script>
 </body>
