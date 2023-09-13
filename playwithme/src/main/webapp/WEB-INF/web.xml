@@ -127,10 +127,7 @@
 		<url-pattern>/ChangeImg</url-pattern>
 
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>test</servlet-name>
-		<url-pattern>/test</url-pattern>
-	</servlet-mapping>
+
 	<servlet-mapping>
 
 		<servlet-name>goChangepPw</servlet-name>
@@ -141,9 +138,5 @@
 		<servlet-name>SetFavProgram</servlet-name>
 		<url-pattern>/SetFavProgram</url-pattern>
 	</servlet-mapping>
-	<servlet-mapping>
-		<servlet-name>WriteTest</servlet-name>
-		<url-pattern>/WriteTest</url-pattern>
 
-	</servlet-mapping>
 </web-app>
