@@ -34,22 +34,29 @@
 	
 	.first {
             cursor: pointer;
-            background-color: #67b7ee;
-    		border: #67b7ee;
+            background-color: #adabab;
             border-radius: 4px;
             color: #fff;
             font-size: 10px;
-            width: 40px;
+		    width: 38px;
+		    height: 25px;
         }
       .second {
             cursor: pointer;
-            background-color: #67b7ee;
-    		border: #67b7ee;
+            background-color: #848181;
             border-radius: 4px;
-            color: red;
             font-size: 10px;
-            width: 40px;
+            
+            width: 38px;
+		    height: 25px;
         }
+        .collapse.acc2{
+        	padding-left:64px;
+        }
+        .title{
+        	    padding-left: 10px;
+        }
+     
 	</style>
 	</head>
 	<body>
@@ -76,9 +83,7 @@ arrow_back_ios
 						<table class="table myaccordion table-hover" id="accordion">
 						  <thead>
 						    <tr>
-						      <th></th>
-						      <th>제목</th>
-						      <th>작성시간</th>
+						      <th class="title" style="text-align: left; !important" >&nbsp;&nbsp;제목</th>
 						      <th>인원수</th>
 						      <th>수정/삭제</th>
 						    </tr>
@@ -99,19 +104,18 @@ arrow_back_ios
 							
 							%>
 							    <tr data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>" >
-							      <th scope="row"><%=i +1 %></th>
 							      
-							      <td><%=myBoard.get(i).getTitle() %></td>
-							      <td><%=formattedDate%></td>
+							      <td style="text-align: left; !important"><%=myBoard.get(i).getTitle() %></td>
 							      <td><%=myBoard.get(i).getNum_People() %>명</td>
 							      <td><button class = "first"><a href ="goFixBoard?num=<%=myBoard.get(i).getBoard_Num()%>" onclick ="return fixOk();">수정</button>
 							      <button class = "second"><a href ="BoardDeleteOne?num=<%=myBoard.get(i).getBoard_Num()%>" onclick ="return delOk();">삭제</a></button >
 							      </td>
 							    </tr>
 							    <tr>
-							    	<td colspan="5" id="collapse<%=i%>" class="collapse acc" data-parent="#accordion"style="text-align: left; !important">
+							    	<td colspan="1" id="collapse<%=i%>" class="collapse acc"  data-parent="#accordion"style="text-align: left; !important" width= 165px; >
 							    		 <%=myBoard.get(i).getB_Content()%>
 							    	</td>
+							      <td colspan="2" id="collapse<%=i%>" class="collapse acc2" data-parent="#accordion"style="text-align: center;"><%=formattedDate%></td>
 							    </tr>
 							    <script>
 	           						 document.getElementById('collapse<%=i%>'). classList.remove('show');

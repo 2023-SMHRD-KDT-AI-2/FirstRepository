@@ -506,8 +506,8 @@ pre {
 .col-xl-auto {
   position: relative;
   width: 100%;
-  padding-right: 15px;
-  padding-left: 15px; }
+  padding-right: 7px;
+  padding-left: 7px; }
 
 .col {
   -ms-flex-preferred-size: 0;
@@ -1346,8 +1346,6 @@ pre {
   color: #212529; }
   .table th,
   .table td {
-    padding: 0.75rem;
-    vertical-align: top;
     border-top: 1px solid #dee2e6; }
   .table thead th {
     vertical-align: bottom;
@@ -8191,7 +8189,7 @@ h1, h2, h3, h4, h5,
 
 .table-wrap {
   overflow-x: scroll; }
-
+	
 .table {
   /*min-width: 1000px !important;*/
   text-align: center;
@@ -8208,13 +8206,13 @@ h1, h2, h3, h4, h5,
       -o-transition: none;
       transition: none; } }
   .table thead th {
-	text-align-last: center;
     border: none;
-    padding: 1px;
-    font-size: 11px;
+    padding: 5px;
+    font-size: 13px;
     color: #000;
     border-bottom: 2px solid #ececec;
-    background: #fff; }
+    background: #fff; 
+    font-weight: normal;}
   .table tbody tr {
     margin-bottom: 10px;
     cursor: pointer;
@@ -8230,8 +8228,9 @@ h1, h2, h3, h4, h5,
         transition: none; } }
   .table tbody th, .table tbody td {
     border: none;
-    padding: 1px;
-    font-size: 12px; }
+    height: 56px;
+    font-size: 12px;
+    padding-left: 10px; }
   .table tbody td.acc {
     background: rgb(255, 255, 255);
     border: none; }

@@ -55,12 +55,21 @@
         }
    
         #back {
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 15px;
-		margin-left : 10px;
+			border : 0px;
+			background-color :#fafafa;
+			margin-top : 15px;
+			margin-left : 10px;
 		
 		}
+on
+		.manner-temperature {
+		    position: absolute;
+		    top: -25px; /* 그래프 위에 위치하도록 조절 */
+		    font-size: 11px;
+		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+		}
+		
+
 		#clock {
 		margin-left: 10px;
 		margin-bottom: 10px;
@@ -93,6 +102,7 @@
 			height: 21px;
 			margin-bottom: 3px;
 		}
+
     </style>
   </head>
   <body>
@@ -128,7 +138,11 @@ arrow_back_ios
 
 					<div class="col-md-6 d-flex justify-content-center">
 						<div class="btn-group show">
-						 <%--  <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> --%>
+
+						  <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  
+						  
+
 						  <div class="dropdown-menu show">
 						  <div>
 						    <a class="dropdown-item d-flex align-items-center" href="goChangeImg">
@@ -149,7 +163,6 @@ arrow_back_ios
 						    <a class="dropdown-item d-flex align-items-center" href="Logout">
 								로그아웃
 						    </a>
-						  </div>
 						</div>
 					</div>
 				</div>
@@ -212,6 +225,13 @@ arrow_back_ios
         // temper 값을 사용하여 그래프 업데이트
         const temper = ${info.get(0).getTemper()}; // temper 값에 따라서 설정하세요.
         updateGraph(temper);
+        
+     // "매너온도" 문구 추가
+        const mannerTemperature = document.createElement("span");
+        mannerTemperature.className = "manner-temperature";
+        mannerTemperature.textContent = "매너온도";
+        document.querySelector(".graph-container").appendChild(mannerTemperature);
+        
         $('#back').click(function () {
 			location.href = 'goMain';
 		})
