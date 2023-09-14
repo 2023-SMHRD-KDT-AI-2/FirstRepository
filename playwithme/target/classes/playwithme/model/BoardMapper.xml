@@ -6,29 +6,29 @@
 
 <!-- 게시글 작성하면 Board테이블로 들어감 -->
 	<insert id="write" parameterType="playwithme.model.BoardDTO">
-		INSERT INTO BOARD 
-		( BOARD_NUM	
-			, MEMBER_ID	
-			, TITLE		
-			, B_CONTENT	
-			, B_DATE		
-			, PLACE		
-			, LONGITUDE	
-			, LATITUDE	
-			, MEET_TIME	
-			, NUM_PEOPLE )
-		VALUES
-		( seq_board.nextval,
-			#{member_Id},
-			#{title},
-			#{b_Content},
-			sysdate,
-			#{place},
-			#{longitude},
-			#{latitude},
-			REPLACE(#{meet_Time},':',''),
-			#{num_People} )
-	</insert>
+      INSERT INTO BOARD 
+      ( BOARD_NUM   
+         , MEMBER_ID   
+         , TITLE      
+         , B_CONTENT   
+         , B_DATE      
+         , PLACE      
+         , LONGITUDE   
+         , LATITUDE   
+         , MEET_TIME   
+         , NUM_PEOPLE )
+      VALUES
+      ( seq_board.nextval,
+         #{member_Id},
+         #{title},
+         #{b_Content},
+         sysdate,
+         #{place},
+         #{longitude},
+         #{latitude},
+         REPLACE(#{meet_Time},':',''),
+         #{num_People} )
+   </insert>
 	<!-- 전체 게시물 읽기 -->
 	<select id = "list" resultType="playwithme.model.BoardDTO">
 		select board.* , na_member.m_profile
@@ -37,11 +37,16 @@
 	
 	</select>
 
-	
+	<!-- 내 게시물  -->
 	<select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
 		select * from Board
 		where MEMBER_ID = #{member_id}
 		order by Board_Num ASC
+	</select>
+	
+	<!-- 지도 위 게시글  -->
+	<select id = "meeting" resultType="playwithme.model.BoardDTO">
+		select * from Board
 	</select>
 
 	<delete id="deleteOne" parameterType="playwithme.model.BoardDTO">
