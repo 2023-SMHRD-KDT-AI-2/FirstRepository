@@ -625,5 +625,4 @@
          window.location = "goProfile"
       })
 
->>>>>>> origin/beta
            
