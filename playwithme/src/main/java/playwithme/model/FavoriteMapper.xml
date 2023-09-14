@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="playwithme.model.FavoriteMapper">
+<insert id="in">
+insert into INTEREST(Member_ID,INTER_NUM) values(#{member_id},interest_seq.nextval)
+</insert>
+<insert id="inup" parameterType="playwithme.model.FavoriteDTO"  >
+insert into INTEREST_NAME (INTER_NUM,interest)
+select i.inter_num,#{interest}
+from INTEREST i
+where i.Member_id = #{member_id}
+
+</insert>
+<select id="incheck" parameterType="playwithme.model.FavoriteDTO" resultType="playwithme.model.FavoriteDTO">
+SELECT*
+from INTEREST
+WHERE MEMBER_ID = #{member_id}
+</select>
+<delete id="favdel" parameterType="playwithme.model.FavoriteDTO">
+DELETE FROM INTEREST_NAME
+WHERE INTER_NUM = (SELECT inter_num FROM INTEREST WHERE Member_id = #{member_id})
+  
+</delete>
+
+</mapper>
