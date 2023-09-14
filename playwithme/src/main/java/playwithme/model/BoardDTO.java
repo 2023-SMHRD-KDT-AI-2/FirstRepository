@@ -15,10 +15,10 @@ public class BoardDTO {
 	private String b_Content; // 내용
 	private String b_Date; // 작성시간
 	private String place; // 모임장소
-	private Double longitude; // 경도
-	private Double latitude; // 위도
+	private Double longitude; // 위도
+	private Double latitude; // 경도
 	private String meet_Time; // 모임시간
 	private int num_People; // 모임 인원 수
-
+	private String M_Profile; // 내 프로필 사진
 
 }

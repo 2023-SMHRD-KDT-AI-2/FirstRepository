@@ -37,10 +37,22 @@ public class BoardDAO {
 		return boardlist;
 	}
 	
+	// 내 게시물 
 	public ArrayList<BoardDTO> myList(String memberId) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
 		boardlist = (ArrayList)sqlSession.selectList("myList",memberId);
+		
+		sqlSession.close();
+		
+		return boardlist;
+	}
+	
+	// 지도 위 게시글 
+	public ArrayList<BoardDTO> meeting() {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		boardlist = (ArrayList)sqlSession.selectList("meeting");
 		
 		sqlSession.close();
 		
