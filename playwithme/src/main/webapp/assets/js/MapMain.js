@@ -36,9 +36,7 @@
             position: map.getCenter()
         });
         // 지도에 마커를 표시합니다
-        marker.setMap(map);
-
-        
+        marker.setMap(map);       
         
         // 지도에 클릭 이벤트를 등록합니S다
         // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
@@ -122,6 +120,10 @@
                     infowindow.open(map, marker);
                     let meetingPlace = document.getElementById('meetingPlace')
                     meetingPlace.value = result[0].address.address_name
+
+                	// 위도 경도값을 구합니다.
+                    $("#latitude").val(mouseEvent.latLng.getLng())
+                    $("#longitude").val(mouseEvent.latLng.getLat())
                 }   
             });
         });
@@ -134,6 +136,7 @@
         contentNode = document.createElement('div'), // 커스텀 오버레이의 컨텐츠 엘리먼트 입니다 
         markers = [], // 마커를 담을 배열입니다
         currCategory = ''; // 현재 선택된 카테고리를 가지고 있을 변수입니다
+                
         // 장소 검색 객체를 생성합니다
         let ps = new kakao.maps.services.Places(map);
         // let category = document.getElementById('category');
@@ -174,22 +177,89 @@
             // 지도에 표시되고 있는 마커를 제거합니다
             removeMarker();
             
-            ps.categorySearch(currCategory, placesSearchCB, { useMapBounds: true });
-        }
+      
+           
+            
+            
+            
+            ps.categorySearch(currCategory, placesSearchCB1, { useMapBounds: true });
+            
 
-        // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-        function placesSearchCB(data, status, pagination) {
-            if (status === kakao.maps.services.Status.OK) {
-                
-                // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
-                displayPlaces(data);
-            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-                // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요
-                
-            } else if (status === kakao.maps.services.Status.ERROR) {
-                // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
-            }
         }
+        //////////////////////////////////////
+      		/*   Haversine 공식*/
+      	function calculateDistance(lat1, lon1, lat2, lon2) {
+    	const R = 6371; // 지구 반지름 (단위: 킬로미터)
+    	const dLat = (lat2 - lat1) * (Math.PI / 180);
+    	const dLon = (lon2 - lon1) * (Math.PI / 180);
+    	const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(lat1 * (Math.PI / 180)) * Math.cos(lat2 * (Math.PI / 180)) *
+        Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    	const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    	const distance = R * c; // 거리 (단위: 킬로미터)
+    	return distance * 1000; // 거리를 미터로 변환
+		}
+        //////////////////////////////////////
+		 /*선웅 if문 작성*/                 
+        // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
+        /////////////////////////////////////////////////////
+        // 주어진 중심 좌표에서 1km 이내의 장소만 필터링하여 최대 15개의 장소만 표시
+function displayPlaces1(places) {
+    let order = document.getElementById(currCategory).getAttribute('data-order');
+    let filteredPlaces = [];
+
+    // 중심 좌표
+    let center = map.getCenter();
+
+    for (let i = 0; i < places.length; i++) {
+        // 장소의 좌표
+        let placeLatLng = new kakao.maps.LatLng(places[i].y, places[i].x);
+
+
+        // 중심 좌표와의 거리 계산 (단위: 미터)
+        const distance = calculateDistance(center.getLat(), center.getLng(), placeLatLng.getLat(), placeLatLng.getLng());
+
+        // 1km 이내에 있는 장소 중 최대 15개만 필터링
+        if (distance <= 1000 && filteredPlaces.length < 50) {
+            filteredPlaces.push(places[i]);
+
+            // Create a marker and display it on the map
+            let marker = addMarker(placeLatLng, order);
+
+            // Register a click event to display location information
+            (function (marker, place) {
+                kakao.maps.event.addListener(marker, 'click', function () {
+                    displayPlaceInfo(place);
+                });
+            })(marker, places[i]);
+        }
+    }
+}
+        /////////////////////////////////////////////////////
+        function placesSearchCB1(data, status, pagination) {	
+			if(currCategory=="AD5"){
+				    $.ajax({
+						url : "CctvProgram",
+						type : "get",
+						dataType : "json",
+						success : function(data){  
+							displayPlaces1(data);
+							
+						 },
+						error : function(){ alert("error");  }
+					});
+			}else if (status === kakao.maps.services.Status.OK) {
+			    	console.log("dddd");	                
+	                // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
+	                displayPlaces(data);
+	            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+	                // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요                
+	                
+	            } else if (status === kakao.maps.services.Status.ERROR) {
+	                // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
+	        } 
+	                     
+        };
 
         // 지도에 마커를 표출하는 함수입니다
         function displayPlaces(places) {
@@ -341,11 +411,14 @@
         
         // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
         function placesSearchCB(data, status, pagination) {
+			console.log(currCategory);
+			
+
             if (status === kakao.maps.services.Status.OK) {
                 
                 // 정상적으로 검색이 완료됐으면
-                // 검색 목록과 마커를 표출합니다
-                displayPlaces(data);
+                // 검색 목록과 마커를 표출합니다               
+				    displayPlaces(data);		
                 
                 // 페이지 번호를 표출합니다
                 // displayPagination(pagination);
@@ -365,7 +438,7 @@
 
         // 검색 결과 목록과 마커를 표출하는 함수입니다
         function displayPlaces(places) {
-
+           
             let listEl = document.getElementById('placesList'),
             menuEl = document.getElementById('menu_wrap'),
             fragment = document.createDocumentFragment(),
@@ -379,7 +452,7 @@
             removeMarker();
             
             for (let i = 0; i < places.length; i++) {
-                
+                 console.log(places[i].y+":"+places[i].x);
                 // 마커를 생성하고 지도에 표시합니다
                 let placePosition = new kakao.maps.LatLng(places[i].y, places[i].x),
                 marker = addMarker(placePosition, i),
@@ -601,7 +674,7 @@
             message2.style.position = 'static';
             message2.innerHTML = '';
 				}else{
-					alert('모든 값을 입력해주세요!')
+					alert('모든 값을 입력해주세요!');
 					return false;
 				}
 			}

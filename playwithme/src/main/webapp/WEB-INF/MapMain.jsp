@@ -1,5 +1,6 @@
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
+<%@page import="playwithme.model.CctvDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
 <%@page import="playwithme.model.CctvDAO"%>
@@ -30,11 +31,11 @@
 <!-- 선웅선웅선웅선웅  -->
 <%
 	CctvDAO cdao = new CctvDAO();
-
-
-
+	
+	ArrayList<CctvDTO> cctvlist = cdao.clist();
 
 %>	
+
     <p style="margin-top:-12px">
         <em class="link">
             <a href="/web/documentation/#CategoryCode" target="_blank"></a>
@@ -173,8 +174,8 @@
 	
 	        // 클릭 리스너 이벤트
 	        chatSpan.addEventListener("click", function () {
-	            //  chat.jsp이동
-	            window.location = "chat";
+	            //  goChattingList.jsp이동
+	        	window.location = "goChattingList";
 	        });
 	    });
 	</script>
@@ -182,8 +183,8 @@
 
 <script type="text/javascript"
 
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
 
+src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing,geometry"></script>
 <script src="assets/js/MapMain.js"></script>
 </body>
 
