@@ -12,6 +12,12 @@
 		<servlet-class>playwithme.controller.SetFavProgram</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>FixBoardProgram</servlet-name>
+		<display-name>FixBoardProgram</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.FixBoardProgram</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>goChangepPw</servlet-name>
 		<display-name>goChangepPw</display-name>
 		<description></description>
@@ -22,12 +28,6 @@
 		<display-name>ChangePwProgram</display-name>
 		<description></description>
 		<servlet-class>playwithme.controller.ChangePwProgram</servlet-class>
-	</servlet>
-	<servlet>
-		<servlet-name>BoardProgram</servlet-name>
-		<display-name>BoardProgram</display-name>
-		<description></description>
-		<servlet-class>playwithme.controller.BoardProgram</servlet-class>
 	</servlet>
 	
 	<servlet>
@@ -40,9 +40,26 @@
   	<servlet-name>goMain</servlet-name>
   	<display-name>goMain</display-name>
   	<description></description>
-  	<servlet-class>playwithme.goMain</servlet-class>
+  	<servlet-class>playwithme.controller.goMain</servlet-class>
   </servlet>
-
+	<servlet>
+  	<servlet-name>goMyBoard</servlet-name>
+  	<display-name>goMyBoard</display-name>
+  	<description></description>
+  	<servlet-class>playwithme.controller.goMyBoard</servlet-class>
+  </servlet>
+	<servlet>
+  	<servlet-name>BoardProgram</servlet-name>
+  	<display-name>BoardProgram</display-name>
+  	<description></description>
+  	<servlet-class>playwithme.controller.BoardProgram</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>goFixBoard</servlet-name>
+  	<display-name>goFixBoard</display-name>
+  	<description></description>
+  	<servlet-class>playwithme.controller.goFixBoard</servlet-class>
+  </servlet>
 	<servlet>
 		<servlet-name>goLogin</servlet-name>
 		<display-name>goLogin</display-name>
@@ -79,6 +96,7 @@
 		<description></description>
 		<servlet-class>playwithme.controller.goFavorite</servlet-class>
 	</servlet>
+
 	
 	
 	<servlet>
@@ -91,9 +109,25 @@
 		<servlet-class>playwithme.controller.ChatGet</servlet-class>
 	</servlet>
 	
+
+	<servlet>
+		<servlet-name>BoardDeleteOne</servlet-name>
+		<display-name>BoardDeleteOne</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.BoardDeleteOne</servlet-class>
+	</servlet>
+
 	<servlet-mapping>
 		<servlet-name>goProfile</servlet-name>
 		<url-pattern>/goProfile</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>FixBoardProgram</servlet-name>
+		<url-pattern>/FixBoardProgram</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>goFixBoard</servlet-name>
+		<url-pattern>/goFixBoard</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
 		<servlet-name>goLogin</servlet-name>
@@ -134,7 +168,18 @@
 		<url-pattern>/ChangeImg</url-pattern>
 
 	</servlet-mapping>
+	<servlet-mapping>
 
+		<servlet-name>goMyBoard</servlet-name>
+		<url-pattern>/goMyBoard</url-pattern>
+
+	</servlet-mapping>
+	<servlet-mapping>
+
+		<servlet-name>BoardDeleteOne</servlet-name>
+		<url-pattern>/BoardDeleteOne</url-pattern>
+
+	</servlet-mapping>
 	<servlet-mapping>
 
 		<servlet-name>goChangepPw</servlet-name>
@@ -145,6 +190,7 @@
 		<servlet-name>SetFavProgram</servlet-name>
 		<url-pattern>/SetFavProgram</url-pattern>
 	</servlet-mapping>
+
 	
 	
 	<servlet-mapping>
@@ -157,5 +203,6 @@
 		<servlet-name>ChatGet</servlet-name>
 		<url-pattern>/ChatGet</url-pattern>
 	</servlet-mapping>
+
 
 </web-app>

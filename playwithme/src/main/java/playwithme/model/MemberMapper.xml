@@ -1,11 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="playwithme.model.MemberMapper">
-<select id="all" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
-		select *
-		from NA_MEMBER
-		where MEMBER_ID = #{member_Id} and PW = #{pw}
-</select>
+<!-- 회원가입 정보 -->
+	<insert id="join" parameterType="playwithme.model.MemberDTO">
+		insert into NA_MEMBER values(
+		#{email}
+		#{member_Id},
+		#{pw},
+		#{age},
+		#{m_name},
+		#{gender},
+		#{mbti}
+		)
+	</insert>
+
+	<!-- 로그인 정보 -->
+	<select id="login" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
+		select * from NA_MEMBER where member_Id=#{member_Id} and pw=#{pw}
+	</select>
+
+	<!-- 카카오 로그인 정보 -->
+	<insert id="kakao" parameterType="playwithme.model.MemberDTO">
+		insert into NA_MEMBER values(
+		#{email}
+		#{member_Id},
+		#{pw}
+		)
+	</insert>
+
+	<!-- 카카오로그인 정보 -->
+	<select id="kakaolog" parameterType="playwithme.model.MemberDTO"
+		resultType="string">
+		select name from NA_MEMBER where id=#{id} and pw=#{pw} and
+		email={email}
+	</select>
 <select id="get" parameterType="string" resultType="playwithme.model.MemberDTO">
 		select *
 		from NA_MEMBER

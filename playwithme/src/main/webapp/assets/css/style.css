@@ -8189,11 +8189,12 @@ h1, h2, h3, h4, h5,
   background-position: center center; }
 
 .btn-img {
-  width: 150px;
-  height: 150px;
+  width: 80px;
+  height: 80px;
   -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important;
   -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important;
-  box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important; }
+  box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41) !important; 
+  margin-right: 175px;}
 
 .dropdown-toggle::after {
   display: none; }

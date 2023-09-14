@@ -1,4 +1,4 @@
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
@@ -55,15 +55,67 @@
         }
    
         #back {
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 15px;
-		margin-left : 10px;
+			border : 0px;
+			background-color :#fafafa;
+			margin-top : 15px;
+			margin-left : 10px;
 		
 		}
+on
+		.manner-temperature {
+		    position: absolute;
+		    top: -25px; /* 그래프 위에 위치하도록 조절 */
+		    font-size: 11px;
+		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+		}
+		
+
+		#clock {
+		margin-left: 10px;
+		margin-bottom: 10px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		}
+		#fix{
+		    position: relative;
+		    top: 0;
+		    left: 0;
+		    height: 20px;
+		    
+		}
+		#navi{
+			height: 14px;
+			margin-bottom: 8px;
+		}
+		#internet{
+			height: 19px;
+			margin-left: 180px;
+			margin-bottom: 2px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 3px;
+		}
+		#battery{
+			height: 21px;
+			margin-bottom: 3px;
+		}
+
     </style>
   </head>
   <body>
+  <div id=fix>
+
+		<span id="clock"></span>
+		<img src="images/네비.png" id="navi">
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+		
+	</div>
   <%
 	String id = (String) session.getAttribute("memberid");
 	MemberDAO dao = new MemberDAO();
@@ -76,7 +128,7 @@ arrow_back_ios
 </button>
 		<section class="ftco-section">
 		
-			<div class="container">
+			<div class="container"></div>
 				<div class="row">
 					
 					
@@ -86,7 +138,11 @@ arrow_back_ios
 
 					<div class="col-md-6 d-flex justify-content-center">
 						<div class="btn-group show">
+
 						  <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  
+						  
+
 						  <div class="dropdown-menu show">
 						  <div>
 						    <a class="dropdown-item d-flex align-items-center" href="goChangeImg">
@@ -107,12 +163,13 @@ arrow_back_ios
 						    <a class="dropdown-item d-flex align-items-center" href="Logout">
 								로그아웃
 						    </a>
-						  </div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
+		<span></span>
+		
 		  <div class="graph-container">
         <!-- Graph bar that will animate -->
         <div class="graph-bar" style="width: 0%;"></div>
@@ -124,7 +181,32 @@ arrow_back_ios
 
 
 <script src="js/jquery-3.7.1.js"></script>
+
    <script>
+   
+///////////////////////////////////////////////////////////////////////////////
+	// 시계
+	function updateClock() {
+		let currentDate = new Date();
+		let hours = currentDate.getHours();
+		let minutes = currentDate.getMinutes();
+		
+		let hoursStr = hours < 10 ? `0${hours}` : hours;
+		let minutesStr = minutes < 10 ? `0${minutes}` : minutes;
+		
+		let clockElement = document.getElementById("clock");
+		clockElement.textContent = `${hours}:${minutes}`;
+	}
+
+	// 1초마다 시간을 업데이트
+	setInterval(updateClock, 1000);
+	// 초기 로딩 시에도 시간 표시
+	updateClock();
+
+	////////////////////////////////////////////////////////////////////////////////
+   
+   
+   
         // JavaScript로 그래프를 업데이트하는 함수
         function updateGraph(percentage) {
             const graphBar = document.querySelector(".graph-bar");
@@ -143,6 +225,13 @@ arrow_back_ios
         // temper 값을 사용하여 그래프 업데이트
         const temper = ${info.get(0).getTemper()}; // temper 값에 따라서 설정하세요.
         updateGraph(temper);
+        
+     // "매너온도" 문구 추가
+        const mannerTemperature = document.createElement("span");
+        mannerTemperature.className = "manner-temperature";
+        mannerTemperature.textContent = "매너온도";
+        document.querySelector(".graph-container").appendChild(mannerTemperature);
+        
         $('#back').click(function () {
 			location.href = 'goMain';
 		})

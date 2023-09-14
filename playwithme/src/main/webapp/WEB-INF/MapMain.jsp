@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -168,16 +168,7 @@
         
         
    
-	    document.addEventListener("DOMContentLoaded", function () {
-	        // id가져오기
-	       	let chatSpan = document.getElementById("chatLink");
-	
-	        // 클릭 리스너 이벤트
-	        chatSpan.addEventListener("click", function () {
-	            //  goChattingList.jsp이동
-	        	window.location = "goChattingList";
-	        });
-	    });
+	    
 	</script>
 
 
@@ -188,7 +179,8 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 <script src="assets/js/MapMain.js"></script>
 </body>
 
-=======
+
+
 <%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
@@ -209,20 +201,53 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
-#clock {
-	margin-left: 10px;
-	margin-bottom: 10px;
-}
+
+	#clock {
+		margin-left: 10px;
+		margin-bottom: 10px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+	}
+	#fix{
+	    position: relative;
+	    top: 0;
+	    left: 0;
+	    height: 20px;
+	    
+	}
+	#navi{
+		height: 14px;
+		margin-bottom: 2px;
+	}
+	#internet{
+		height: 19px;
+		margin-left: 180px;
+		margin-bottom: 2px;
+	}
+	#lte{
+		height: 11px;
+		margin-bottom: 5px;
+	}
+	#battery{
+		height: 21px;
+	}
 </style>
 
 
 </head>
 <body>
-	<div class=fix>
 
-		<div class="fix1">
-			<span id="clock"></span>
-		</div>
+	<div id=fix>
+
+		<span id="clock"></span>
+		<img src="images/네비.png" id="navi">
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+
 	</div>
 
 	<%
@@ -244,6 +269,8 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 740px; position: relative; overflow: hidden;"></div>
+
+
 		<ul id="category">
 			<li id="AT4" data-order="0"><span class="category_bg new-icon1"></span>
 				명소</li>
@@ -324,6 +351,7 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
 
+
 	<script src="assets/js/MapMain.js"></script>
 	<script>
 		document.addEventListener("DOMContentLoaded", function() {
@@ -339,8 +367,12 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 			const hours = currentDate.getHours();
 			const minutes = currentDate.getMinutes();
 			
-			const hoursStr = hours < 10 ? `0${hours}` : hours;
-			const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
+
+			const hours12 = hours % 12 || 12;
+			
+			const hoursStr = hours12 < 1 ? `0${hours12}` : hours12;
+		    const minutesStr = minutes < 1 ? `0${minutes}` : minutes;
+
 			
 			const clockElement = document.getElementById("clock");
 			clockElement.textContent = `${hours}:${minutes}`;
@@ -354,16 +386,16 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 
 		////////////////////////////////////////////////////////////////////////////////       
 
-		document.addEventListener("DOMContentLoaded", function() {
-			// id가져오기
-			let chatSpan = document.getElementById("chatLink");
-
-			// 클릭 리스너 이벤트
-			chatSpan.addEventListener("click", function() {
-				//  chat.jsp이동
-				window.location = "chat";
-			});
-		});
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("chatLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goChattingList";
+	        });
+	    });
 
 		   //////////////////////////////////////////////
 		    addMarker2() 
@@ -388,7 +420,9 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 							positions.push(data4)
 							
 					        imageSrc1 = "file/<%=board_Num.get(i).getM_Profile()%>"
-					        imageSize1 = new kakao.maps.Size(24, 35); 
+
+					        imageSize1 = new kakao.maps.Size(25, 25); 
+
 					        //console.log(board_Num.get(i).getM_Profile());
 					        // 마커 이미지를 생성합니다    
 					        markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
@@ -470,5 +504,5 @@ src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&lib
 </body>
 
 
->>>>>>> Stashed changes
+
 </html>
