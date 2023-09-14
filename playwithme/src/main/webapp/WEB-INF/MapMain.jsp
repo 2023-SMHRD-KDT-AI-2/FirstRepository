@@ -2,7 +2,7 @@
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="playwithme.model.MemberDAO"%>
+<%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
