@@ -37,7 +37,6 @@ public class BoardDAO {
 		return boardlist;
 	}
 	
-	// 내 게시물 
 	public ArrayList<BoardDTO> myList(String memberId) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
@@ -48,17 +47,23 @@ public class BoardDAO {
 		return boardlist;
 	}
 	
-	// 지도 위 게시글 
-	public ArrayList<BoardDTO> meeting() {
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		
-		boardlist = (ArrayList)sqlSession.selectList("meeting");
-		
+	public int deleteOne(int num) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		int message1 = sqlSession.delete("deleteOne",num);
 		sqlSession.close();
-		
+		return message1;
+	}
+	public  BoardDTO fixList(String num) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		BoardDTO boardlist = sqlSession.selectOne("fixList",num);
+		sqlSession.close();
 		return boardlist;
 	}
-	
-	
+	public  int boardup(BoardDTO num) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		int boardlist = sqlSession.update("boardup",num);
+		sqlSession.close();
+		return boardlist;
+	}
 	
 }

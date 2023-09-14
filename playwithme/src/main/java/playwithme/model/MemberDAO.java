@@ -20,7 +20,7 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	}
 	public MemberDTO login(MemberDTO member) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
-		MemberDTO member1 = sqlSession.selectOne("all",member);
+		MemberDTO member1 = sqlSession.selectOne("login",member);
 		sqlSession.close();
 		return member1;
 	}

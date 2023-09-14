@@ -1,5 +1,4 @@
-<%@page import="playwithme.model.BoardDTO"%>
-<%@page import="playwithme.model.BoardDAO"%>
+<%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -280,4 +279,5 @@
 </body>
 
 
+>>>>>>> origin/beta
 </html>

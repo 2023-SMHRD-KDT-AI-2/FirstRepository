@@ -12,19 +12,14 @@
            width: 50%;
         }
         table{
-            display: flex;
+            display: block;
             justify-content: center;
             align-items: center;
             border-collapse: separate;
             border-spacing: 20px 60px;
-            height : 680px;
-            margin-top: 50px !important;
+            height : 600px;
+            
         }
-
-        body{
-            background-color: white;
-        }
-        
       
         td{
         	text-align : center;
@@ -68,14 +63,27 @@
         #button:active {
    			 transform: scale(1.2);
         }
-        
+        #back {
+        border : 0px;
+		background-color :#fafafa;
+		margin-top : 8px;
+		margin-left : 8px;
+		
+		}
+		body{
+		background-color: #fafafa;
+		
+		}
     </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     
 </head>
 <body>
-    
+    <button class="material-symbols-outlined" id ="back" style="color:gray;">
+arrow_back_ios
+</button>
 
     <form action="SetFavProgram"  id='form'>
 
@@ -291,6 +299,9 @@
     		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
     		    }
     			);
+      $('#back').click(function () {
+  		location.href = 'goProfile';
+  	})
     </script>
     
    
