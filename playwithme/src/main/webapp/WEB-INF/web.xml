@@ -40,7 +40,7 @@
   	<servlet-name>goMain</servlet-name>
   	<display-name>goMain</display-name>
   	<description></description>
-  	<servlet-class>playwithme.goMain</servlet-class>
+  	<servlet-class>playwithme.controller.goMain</servlet-class>
   </servlet>
 	<servlet>
   	<servlet-name>goMyBoard</servlet-name>

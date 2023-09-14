@@ -9,9 +9,6 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <title></title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
@@ -122,15 +119,6 @@
         #change{
         display: none
         }
-        
-	 #back {
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 15px;
-		margin-left : 10px;
-		
-		}
-	
     </style>
 
 </head>
@@ -139,9 +127,6 @@
 <body>
     <div class="container">
 
-<button class="material-symbols-outlined" id ="back" style="color:gray;">
-arrow_back_ios
-</button>
         <form action="ChangePwProgram" id="form" class="form" onsubmit="return check()">
 
             <div id="logimg">
@@ -210,9 +195,6 @@ arrow_back_ios
     $('#button2').click(function(){
     	window.history.back()
     })
-    $('#back').click(function () {
-		location.href = 'goMain';
-	})
     </script>
 </body>
 

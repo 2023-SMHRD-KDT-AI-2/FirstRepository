@@ -89,7 +89,7 @@
         #menu {
             display: flex;
             position: absolute;
-            top: 670px;
+            top: 638px;
             left: 0px;
             right: 0px;
             width: 350px;
@@ -169,7 +169,7 @@
         #post {
             display: flex;
             position: absolute;
-            top: 610px;
+            top: 565px;
             right: 3px;
             width: 50px;
             height: 50px;
@@ -331,9 +331,7 @@
         }
 
 
-        #menu_wrap .option {
-            text-align: center;
-        }
+       
 
         #menu_wrap .option p {
             margin: 10px 0;
@@ -457,6 +455,7 @@
             margin: 10px auto;
             text-align: center;
         }
+        
 
         #pagination a {
             display: inline-block;
@@ -468,21 +467,23 @@
             cursor: default;
             color: #777;
         }
-		#clock{
-			size: 5px;;
-		}
+		
         input {
             border-radius: 5px;
             height: 28px;
             width: 195px;
-            margin-top: 25px;
+           
         }
         #myModal{
             width: 250px;
             height: 440px;
             bottom: 200px;
         }
-
+		#keyword{
+			margin-top:30px;
+			position: fixed;
+			
+		}
         
          /* 모달 스타일 */
          .modal {

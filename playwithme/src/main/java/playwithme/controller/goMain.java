@@ -10,19 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class goMyBoard
+ * Servlet implementation class goMain
  */
-public class goMyBoard extends HttpServlet {
+public class goMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		String uri = "WEB-INF/MyBoard.jsp";
-		RequestDispatcher rd = request.getRequestDispatcher(uri);
-		rd.forward(request, response);
+	RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
+	rd.forward(request, response);
+	
 	}
 
 }
