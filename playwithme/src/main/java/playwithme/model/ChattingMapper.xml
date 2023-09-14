@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="playwithme.model.ChattingMapper">
+
+	<select id="selectChatTitle" parameterType="String" resultType="playwithme.model.ChattingListDTO">
+		SELECT B.*
+		FROM chatting_room_parti A, chatting_room B
+		WHERE A.chatting_room_num = B.chatting_room_num
+    	AND A.member_id = #{member_Id}
+	</select>
+	
+	<select id="lastChat" parameterType="int" resultType="String">
+	select ch_content
+	from (select CH_CONTENT FROM CHATTING WHERE CHATTING_ROOM_NUM=#{chatroom_num} 
+		ORDER BY CHATTING_NUM)
+	where rownum=1
+	</select>
+
+
+</mapper>

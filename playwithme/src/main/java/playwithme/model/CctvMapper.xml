@@ -3,10 +3,10 @@
 <mapper namespace="playwithme.model.CCTVMapper">
 	
 	<!-- cctv 가져오기  -->
-		<select id="cctv">
+		<select id="cctv" resultType="playwithme.model.CctvDTO">
 			SELECT CCTV_NUM
-					, LONGITUDE
-					, LATITUDE
+					, X
+					, Y
 			FROM	CCTV
 		</select>
 	
