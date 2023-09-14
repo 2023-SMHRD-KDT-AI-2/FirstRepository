@@ -113,6 +113,8 @@ arrow_back_ios
 				</div>
 			</div>
 		</section>
+		<span></span>
+		
 		  <div class="graph-container">
         <!-- Graph bar that will animate -->
         <div class="graph-bar" style="width: 0%;"></div>

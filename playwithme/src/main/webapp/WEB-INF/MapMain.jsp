@@ -1,3 +1,5 @@
+<%@page import="playwithme.model.BoardDTO"%>
+<%@page import="playwithme.model.BoardDAO"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -25,6 +27,10 @@
 	ArrayList<MemberDTO> info = new ArrayList<>();
 	info=dao.getmember(id);
 	session.setAttribute("info",info);
+	BoardDAO brdao = new BoardDAO();
+	ArrayList<BoardDTO> Board = new ArrayList<>();
+	Board = brdao.list();
+	session.setAttribute("Board", Board);
 	
 	%>
 <!-- 선웅선웅선웅선웅  -->
@@ -180,13 +186,59 @@
 	</script>
 
 
-<script type="text/javascript"
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
 
-
-src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
 
 
 <script src="assets/js/MapMain.js"></script>
+<script>
+ let positions1 = [
+  
+	 <% 
+	 for(int  i = 0; i<Board.size(); i++ ){%>
+
+	 	{title :"<%=Board.get(i).getTitle()%>" , latlng: new kakao.maps.LatLng(<%=Board.get(i).getLongitude()%>,<%=Board.get(i).getLatitude()%>)},
+	 <%}%>
+	 
+	 
+	 
+ ];
+ let imageSrc1 = [
+	 <% 
+	 for(int  i = 0; i<Board.size(); i++ ){%>
+
+	 	"file/<%=Board.get(i).getM_Profile()%>",
+	 	
+	 <%}%>
+ ];
+
+// 마커 이미지의 이미지 주소입니다
+    
+for (let i = 0; i < positions1.length; i ++) {
+    
+    // 마커 이미지의 이미지 크기 입니다
+    let imageSize1 = new kakao.maps.Size(24, 35); 
+    
+    // 마커 이미지를 생성합니다    
+    let markerImage1 = new kakao.maps.MarkerImage(imageSrc1[i], imageSize1); 
+    
+    // 마커를 생성합니다
+    let marker1 = new kakao.maps.Marker({
+    	
+        map: map, // 마커를 표시할 지도
+        position: positions1[i].latlng, // 마커를 표시할 위치
+        title : positions1[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+        image : markerImage1 // 마커 이미지 
+    });
+    //let infowindow1 = new kakao.maps.InfoWindow({
+    //	map: map,
+    //	position :positions1[i].latlng , 
+    //    title : positions1[i].title 
+   // });
+    
+   
+};
+</script>
 </body>
 
 </html>

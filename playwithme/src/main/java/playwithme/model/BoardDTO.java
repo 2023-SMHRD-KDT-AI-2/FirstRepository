@@ -19,6 +19,6 @@ public class BoardDTO {
 	private Double latitude; // 위도
 	private String meet_Time; // 모임시간
 	private int num_People; // 모임 인원 수
-
+	private String M_Profile;
 
 }

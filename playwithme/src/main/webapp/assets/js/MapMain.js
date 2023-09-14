@@ -122,6 +122,9 @@
                     infowindow.open(map, marker);
                     let meetingPlace = document.getElementById('meetingPlace')
                     meetingPlace.value = result[0].address.address_name
+                      // 위도 경도값을 구합니다.
+                    $("#latitude").val(mouseEvent.latLng.getLng())
+                    $("#longitude").val(mouseEvent.latLng.getLat())
                 }   
             });
         });
