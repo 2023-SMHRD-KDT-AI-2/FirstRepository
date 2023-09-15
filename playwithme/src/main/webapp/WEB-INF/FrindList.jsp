@@ -36,6 +36,10 @@
     FriendListDAO friendDao = new FriendListDAO();
     ArrayList<String> friendList = friendDao.friendlist(memberId);
     System.out.println(friendList.get(1));
+    
+    ChattingListDAO Chatdao = new ChattingListDAO();
+    ArrayList<ChattingListDTO> chatList = new ArrayList<>();
+    chatList = Chatdao.chatlist(memberId);
     %>
    <div>
       <input type="text" id="friend_name_test" placeholder="친구 이름 입력">
@@ -44,7 +48,7 @@
   
 
 <%for(int i=0; i<friendList.size(); i++){ %>
-    <div class="contact">
+    <div class="contact" onclick="createChatRoom('<%= friendList.get(i) %>')">
         <div class="pic">
             <% 
             String friendId = friendList.get(i);
@@ -65,7 +69,7 @@
     </div>  
 <% } %>
 
-  
+   </div>
   
     <script>
     $(document).ready(function() {
@@ -91,6 +95,32 @@
         });
     });
     </script>
+    
+    
+    <script>
+    //친구방 만들기
+function createChatRoom(friendId) {
+    $.ajax({
+        url: 'ChattingListProgram',
+        type: 'GET',
+        data: {
+            roomTitle: friendId // 친구 ID를 방 제목으로 사용하거나, 적절한 방 제목을 설정해주세요.
+        },
+        success: function(response) {
+            console.log('서버 응답:', response);
+            alert('채팅방 생성 success');
+           // window.location = 'goChattingList'; // 채팅 방 목록 페이지로 이동
+            window.location = 'chat.jsp?room=' + friendId; // 채팅 방으로 이동
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+            alert('채팅방 생성 fail');
+        }
+    });
+}
+</script>
+
+
     
 
 </body>
