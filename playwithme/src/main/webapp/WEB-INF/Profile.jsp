@@ -1,3 +1,4 @@
+
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.List"%>
@@ -61,7 +62,7 @@
 			margin-left : 10px;
 		
 		}
-
+on
 		.manner-temperature {
 		    position: absolute;
 		    top: -25px; /* 그래프 위에 위치하도록 조절 */
@@ -71,7 +72,7 @@
 		
 
 		#clock {
-		margin-left: -38px;
+		margin-left: 10px;
 		margin-bottom: 10px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
@@ -80,24 +81,27 @@
 		}
 		#fix{
 		    position: relative;
-		    top: 4px;
-		    left: 62px;
+		    top: 0;
+		    left: 0;
 		    height: 20px;
 		    
 		}
-		
+		#navi{
+			height: 14px;
+			margin-bottom: 8px;
+		}
 		#internet{
 			height: 19px;
-			margin-left: 207px;
-			margin-bottom: 5px;
+			margin-left: 180px;
+			margin-bottom: 2px;
 		}
 		#lte{
 			height: 11px;
-			margin-bottom: 5px;
+			margin-bottom: 3px;
 		}
 		#battery{
 			height: 21px;
-			margin-bottom: 5px;
+			margin-bottom: 3px;
 		}
 
     </style>
@@ -106,6 +110,7 @@
   <div id=fix>
 
 		<span id="clock"></span>
+		<img src="images/네비.png" id="navi">
 		<img src="images/인터넷.png" id="internet">
 		<img src="images/LTE.png" id="lte">
 		<img src="images/배터리.png" id="battery">
@@ -177,9 +182,29 @@ arrow_back_ios
 
 
 <script src="js/jquery-3.7.1.js"></script>
-<script src="assets/js/clock.js"></script>
-   <script>
 
+   <script>
+   
+///////////////////////////////////////////////////////////////////////////////
+	// 시계
+	function updateClock() {
+		let currentDate = new Date();
+		let hours = currentDate.getHours();
+		let minutes = currentDate.getMinutes();
+		
+		let hoursStr = hours < 10 ? `0${hours}` : hours;
+		let minutesStr = minutes < 10 ? `0${minutes}` : minutes;
+		
+		let clockElement = document.getElementById("clock");
+		clockElement.textContent = `${hours}:${minutes}`;
+	}
+
+	// 1초마다 시간을 업데이트
+	setInterval(updateClock, 1000);
+	// 초기 로딩 시에도 시간 표시
+	updateClock();
+
+	////////////////////////////////////////////////////////////////////////////////
    
    
    
