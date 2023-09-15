@@ -63,5 +63,9 @@
    <select id="chatparti" parameterType="int" resultType="string">
    select member_id from chatting_room_parti where chatting_room_num=#{roomnum}
    </select>
+   
+   <select id="n_name" parameterType="string" resultType="string">
+   select m_name from na_member where member_id=#{memberid}
+   </select>
 
 </mapper>

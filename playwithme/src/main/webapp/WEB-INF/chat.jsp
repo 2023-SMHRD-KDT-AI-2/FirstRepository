@@ -23,6 +23,7 @@ info = dao.getmember(id);
 session.setAttribute("info", info);
 String memberId = info.get(0).getMember_Id();
 ChattingListDAO Chatdao = new ChattingListDAO();
+String nName=Chatdao.nName(memberId);
 ArrayList<ChattingListDTO> chatList = new ArrayList<>();
 chatList = Chatdao.chatlist(memberId);
 ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
@@ -59,55 +60,79 @@ $.ajax({
    },
    error : function(){ alert("error"); }   
 });
-
+//db에 저장된 이전 채팅 내용 가져오기
 $.ajax({
-    url : "ChatGet",
-    type : "get",
-    data : {"roomtitle" : chatroom},
-    success : function(data){
+    url: "ChatGet",
+    type: "get",
+    data: { "roomtitle": chatroom },
+    success: async function (data) {
         // 데이터를 받아서 처리
         var chatMessages = $("#chat-messages");
 
         // 서버에서 받은 JSON 데이터를 순회하며 메시지를 화면에 추가
         for (var i = 0; i < data.length; i++) {
-             var message = data[i];
-             if(message.member_id == '<%=memberId%>'){
-                 var messageDiv = $("<div>").addClass("message my");
-             } else {
-                 var messageDiv = $("<div>").addClass("message");
-             }
-             // member_id와 ch_content를 메시지에 추가
-             var memberId = message.member_id;
-             var chContent = message.ch_content;
-             messageDiv.text(memberId + ": " + chContent);
+            var message = data[i];
+            if (message.member_id == '<%=memberId%>') {
+                var messageDiv = $("<div>").addClass("message my");
+            } else {
+                var messageDiv = $("<div>").addClass("message");
+            }
+            // member_id와 ch_content를 메시지에 추가
+            var memberId = message.member_id;
+            
+            // 닉네임을 가져오는 AJAX 요청을 비동기로 실행하고 결과를 기다림
+            var nName = await getNickname(memberId);
+
+            var chContent = message.ch_content;
+            messageDiv.text(nName + ": " + chContent);
 
             // 메시지를 화면에 추가
             chatMessages.append(messageDiv);
         }
     },
-    error: function(jqXHR, textStatus, errorThrown) {
+    error: function (jqXHR, textStatus, errorThrown) {
         console.error("AJAX 오류 발생: " + textStatus, errorThrown);
     }
 });
 
+// 사용자의 닉네임을 가져오는 함수
+async function getNickname(memberId) {
+    return new Promise(function (resolve, reject) {
+        $.ajax({
+            url: "NickName",
+            type: "get",
+            data: { "MemberId": memberId },
+            success: function (data) {
+                resolve(data);
+            },
+            error: function () {
+                reject("error");
+            }
+        });
+    });
+}
+
+
+
 $.ajax({
-	   url : "ChatParti",
-	   type : "get", // 또는 "post", 서블릿에서 처리하는 방식에 따라 수정
-	   data : {"roomtitle" : chatroom},
-	   dataType: "json", // 데이터 형식을 JSON으로 지정
-	   success : function(data){
-	       // 이제 data는 JSON 형식으로 파싱됩니다.
-	       // JSON 데이터를 어떻게 표시할지 처리
-	       var html = "";
-	       for (var i = 1; i <= data.length; i++) {
-	           html += "「 "+data[i-1]+ "」  " ;
-	       }
-	       $(".seen").html(html);
-	   },
-	   error : function(){ 
-	       alert("error"); 
-	   }   
-	});
+    url: "ChatParti",
+    type: "get",
+    data: { "roomtitle": chatroom },
+    dataType: "json",
+    success: async function (data) {
+        var html = "";
+        for (var i = 0; i < data.length; i++) {
+            var memberId = data[i];
+            var nName = await getNickname(memberId);
+            html += "「 " + nName + "」  "; // 닉네임 사용
+        }
+        $(".seen").html(html);
+    },
+    error: function () {
+        alert("error");
+    }
+});
+
 
 console.log(chatroom)
 const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);
@@ -135,7 +160,7 @@ socket.onmessage = (event) => {
     } else {
         messageElement.classList.add("message","other");
     }
-    messageElement.innerHTML = "<strong>"+data.senderName+":</strong>"+data.message;
+    messageElement.innerHTML = "<strong>"+data.n_Name+":</strong>"+data.message;
 
     chatDiv.appendChild(messageElement);
     chatDiv.scrollTop = chatDiv.scrollHeight;
@@ -151,7 +176,9 @@ function sendMessage() {
     const message = document.getElementById("message").value;
     const data = JSON.stringify({
         senderName: "<%=memberId%>",
-        message: message
+        message: message,
+        n_Name:"<%=nName%>"
+        
     });
     socket.send(data);
     document.getElementById("message").value = "";

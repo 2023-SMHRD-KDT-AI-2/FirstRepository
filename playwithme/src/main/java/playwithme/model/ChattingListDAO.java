@@ -85,6 +85,14 @@ public class ChattingListDAO {
 		   sqlSession.close();
 		   return chatpart;
 	   }
+	   
+	   public String nName(String memberid) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   String nName=sqlSession.selectOne("n_name", memberid);
+		   sqlSession.close();
+		   return nName;
+	   }
 	
 
 }
