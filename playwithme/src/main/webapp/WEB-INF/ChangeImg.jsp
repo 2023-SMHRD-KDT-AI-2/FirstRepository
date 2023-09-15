@@ -91,6 +91,7 @@
 		'opsz' 24
 		}
 		button {
+		cursor :pointer;
 		border : 0px;
 		background-color :#fafafa;
 		margin-top : 10px;

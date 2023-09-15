@@ -92,6 +92,7 @@
    			 transform: scale(1.2);
         }
         #back {
+        cursor :pointer;
         border : 0px;
 		background-color :#fafafa;
 		margin-top : 8px;
@@ -138,70 +139,70 @@ arrow_back_ios
                     <label for="chk">
                         <i class="fa fa-cutlery fa-3x traval1" aria-hidden="true">🛫</i>
                     </label><br>
-                    <input type="checkbox" id="chk" class="traval check" name="favorite" value="아웃도어/여행" >
+                    <input type="checkbox" id="chk" class="traval check" name="favorite" value="🛫" >
                     <br>여행</td>
                     </span>
                 <td>
                     <label for="chk1">
                         <i class="fa fa-cutlery fa-3x sports1" aria-hidden="true">🚴‍♀️</i>
                     </label><br>
-                    <input type="checkbox" id="chk1" class="sports check" name="favorite" value="운동/스포츠"><br>운동</td>
+                    <input type="checkbox" id="chk1" class="sports check" name="favorite" value="🚴‍♀️"><br>운동</td>
                 <td>
                     <label for="chk2">
                         <i class="fa fa-cutlery fa-3x book1" aria-hidden="true">📚</i>
                     </label><br>
-                    <input type="checkbox"  id="chk2" class="book check" name="favorite" value="인문학/책/글"><br>인문학/책</td>
+                    <input type="checkbox"  id="chk2" class="book check" name="favorite" value="📚"><br>인문학/책</td>
             </tr>
             <tr>
                 <td>
                     <label for="chk3">
                         <i class="fa fa-cutlery fa-3x culture1" aria-hidden="true">🎊</i>
                     </label><br>
-                    <input type="checkbox" id="chk3" class="culture check" name="favorite" value="문화/공연/축제"><br>공연/축제</td>
+                    <input type="checkbox" id="chk3" class="culture check" name="favorite" value="🎊"><br>공연/축제</td>
                 <td>
                     <label for="chk4">
                         <i class="fa fa-cutlery fa-3x music1 " aria-hidden="true">🎧</i>
                     </label><br>
-                    <input type="checkbox" id="chk4" class="music check" name="favorite" value="음악/악기"><br>음악/악기</td>
+                    <input type="checkbox" id="chk4" class="music check" name="favorite" value="🎧"><br>음악/악기</td>
                 <td class='onlyCSS'>
                     <label for="chk5">
                         <i class="fa fa-cutlery fa-3x make1" aria-hidden="true">🛠</i>
                     </label><br>
-                    <input type="checkbox" id="chk5" class="make check" name="favorite" value="공예/만들기"><br>공예/만들기</td>
+                    <input type="checkbox" id="chk5" class="make check" name="favorite" value="🛠"><br>공예/만들기</td>
             </tr>
             <tr>
                 <td>
                     <label for="chk6">
                         <i class="fa fa-cutlery fa-3x cook1" aria-hidden="true">🍽</i>
                     </label><br>
-                    <input type="checkbox" id="chk6" class="cook check" name="favorite" value="요리/제조"><br>요리</td>
+                    <input type="checkbox" id="chk6" class="cook check" name="favorite" value="🍽"><br>요리</td>
                 <td>
                     <label for="chk7">
                         <i class="fa fa-cutlery fa-3x picture1" aria-hidden="true">📷</i>
                     </label><br>
-                    <input type="checkbox" id="chk7" class="picture check" name="favorite" value="사진/영상"><br>사진/영상</td>
+                    <input type="checkbox" id="chk7" class="picture check" name="favorite" value="📷"><br>사진/영상</td>
                 <td class='onlyCSS'>
                     <label for="chk8">
                         <i class="fa fa-cutlery  fa-3x car1" aria-hidden="true">🚗</i>
                     </label><br>
-                    <input type="checkbox" id="chk8" class="car check" name="favorite" value="차/오토바이"><br>차/오토바이</td>
+                    <input type="checkbox" id="chk8" class="car check" name="favorite" value="🚗"><br>차/오토바이</td>
             </tr>
             <tr>
                 <td>
                     <label for="chk9">
                         <i class="fa fa-cutlery fa-3x pet1" aria-hidden="true">🐈</i>
                     </label><br>
-                    <input type="checkbox" id="chk9" class="pet check" name="favorite" value="반려동물"><br>반려동물</td>
+                    <input type="checkbox" id="chk9" class="pet check" name="favorite" value="🐈"><br>반려동물</td>
                 <td>
                     <label for="chk10">
                         <i class="fa fa-cutlery fa-3x look1" aria-hidden="true">⚾</i>
                     </label><br>
-                    <input type="checkbox" id="chk10" class="look check" name="favorite" value="야구관람"><br>야구</td>
+                    <input type="checkbox" id="chk10" class="look check" name="favorite" value="⚾"><br>야구</td>
                 <td>
                     <label for="chk11">
                         <i class="fa fa-cutlery fa-3x people1" aria-hidden="true">👨‍👩‍👦‍👦</i>
                     </label><br>
-                    <input type="checkbox" id="chk11" class="people check" name="favorite" value="사교/인맥"><br>사교/인맥</td>
+                    <input type="checkbox" id="chk11" class="people check" name="favorite" value="‍👩"><br>사교/인맥</td>
             </tr>
             <tr>
                 <td></td>

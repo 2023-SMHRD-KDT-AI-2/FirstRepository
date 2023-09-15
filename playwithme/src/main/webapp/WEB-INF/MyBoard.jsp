@@ -69,13 +69,15 @@
             font-size: 10px;
 		    width: 38px;
 		    height: 25px;
+		    border-color: #fff !important;
+		    
         }
       .second {
             cursor: pointer;
             background-color: #848181;
             border-radius: 4px;
             font-size: 10px;
-            
+            border-color: #848181
             width: 38px;
 		    height: 25px;
         }
