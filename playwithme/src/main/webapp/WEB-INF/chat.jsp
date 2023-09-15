@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- core 라이브러리 연결 -->
 <%@page import="playwithme.model.*"%>
@@ -10,44 +10,50 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>CodePen - Daily UI #013 | Direct Messaging</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet'
+	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
 <link rel="stylesheet" href="assets/css/ChatList.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 <body>
-<%
-String id = (String) session.getAttribute("memberid");
-MemberDAO dao = new MemberDAO();
-ArrayList<MemberDTO> info = new ArrayList<>();
-info = dao.getmember(id);
-session.setAttribute("info", info);
-String memberId = info.get(0).getMember_Id();
-ChattingListDAO Chatdao = new ChattingListDAO();
-ArrayList<ChattingListDTO> chatList = new ArrayList<>();
-chatList = Chatdao.chatlist(memberId);
-ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
-%>
-<div class="chat">
-    <div class="contact bar">
-        <div class="name">                
-        </div>
-        <div class="seen">
-        <!-- 참여자 id -->
-        
-        </div>
-    </div>
-    <div class="messages" id="chat-messages">
-    </div>
-    <div class="input">
-        <input type="hidden" id="name-input" placeholder="이름 입력" value="<%=memberId%>">
-        <input type="text" id="message" placeholder="메시지 입력">
-        <i class="fa-solid fa-message" id="send-button" style="color: #6398f2;"></i>
-    </div>
-</div>
+	<%
+	String id = (String) session.getAttribute("memberid");
+	MemberDAO dao = new MemberDAO();
+	ArrayList<MemberDTO> info = new ArrayList<>();
+	info = dao.getmember(id);
+	session.setAttribute("info", info);
+	String memberId = info.get(0).getMember_Id();
+	ChattingListDAO Chatdao = new ChattingListDAO();
+	ArrayList<ChattingListDTO> chatList = new ArrayList<>();
+	chatList = Chatdao.chatlist(memberId);
+	ChattingListDTO chatinfo1 = (ChattingListDTO) session.getAttribute("chatinfo");
+	%>
+	<div class="chat">
+		<div class="contact bar">
+			<div class="name"></div>
+			<div class="seen">
+			<!-- 참여자 id -->
+			</div>
+			
+			<!-- 방 삭제하기 -->
+			<div class="button">
+				<button id="delete-option">나가기</button>
+			</div>
+			
+		</div>
+		<div class="messages" id="chat-messages"></div>
+		<div class="input">
+			<input type="hidden" id="name-input" placeholder="이름 입력"
+				value="<%=memberId%>"> <input type="text" id="message"
+				placeholder="메시지 입력"> <i class="fa-solid fa-message"
+				id="send-button" style="color: #6398f2;"></i>
+		</div>
+	</div>
 
 
-<script>
+	<script>
 const urlParams = new URLSearchParams(window.location.search);
 const chatroom = urlParams.get('room');
 
@@ -109,6 +115,25 @@ $.ajax({
 	       alert("error"); 
 	   }   
 	});
+	
+//방 삭제하기(박기원)
+document.getElementById('delete-option').addEventListener('click', function() {
+	console.log("chatting_Room_num:", chatroom);
+    $.ajax({
+        url: "LeaveChatRoom",
+        type: 'get',
+        data: {
+        	chatting_Room_num: chatroom
+        },
+        success: function(response) {
+
+        	window.location = "goChattingList";
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+        }
+    });
+});
 
 console.log(chatroom)
 const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);
@@ -161,6 +186,7 @@ function sendMessage() {
 // 버튼 클릭 시 sendMessage 함수 호출
 document.getElementById("send-button").addEventListener("click", sendMessage);
 </script>
-<script src="https://kit.fontawesome.com/9db75878c5.js" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/9db75878c5.js"
+		crossorigin="anonymous"></script>
 </body>
 </html>

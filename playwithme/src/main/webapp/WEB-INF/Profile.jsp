@@ -63,7 +63,7 @@
 			margin-left : 10px;
 		
 		}
-on
+
 		.manner-temperature {
 		    position: absolute;
 		    top: -25px; /* 그래프 위에 위치하도록 조절 */
@@ -226,8 +226,6 @@ arrow_back_ios
 <script src="js/jquery-3.7.1.js"></script>
 <script src="assets/js/clock.js"></script>
    <script>
-   
-
    
    
    
