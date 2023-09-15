@@ -86,6 +86,7 @@ public class ChattingListDAO {
 		   return chatpart;
 	   }
 	   
+<<<<<<< HEAD
 	   public String nName(String memberid) {
 		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		   
@@ -109,6 +110,25 @@ public class ChattingListDAO {
 		   return check;
 		   
 	   }
+=======
+		// 채팅방 삭제
+		public int deleteParti(Chat_PartiDTO Chatdto) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+			try {
+				// 1. 채팅방에서 해당 사용자 삭제
+				int deletedRows = sqlSession.delete("deleteParti", Chatdto);
+
+				// 2. 채팅방 내의 채팅 메시지 삭제 또는 처리 (선택적)
+				// 예를 들어, 채팅방 내의 모든 메시지를 삭제하는 작업을 추가할 수 있습니다.
+				// 이 작업은 필요에 따라 구현하세요.
+
+				return deletedRows; // 삭제된 행의 수 반환
+			} finally {
+				sqlSession.close();
+			}
+		}
+>>>>>>> branch 'guean-young' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 	
 
 }

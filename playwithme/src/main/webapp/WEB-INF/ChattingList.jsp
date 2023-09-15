@@ -9,8 +9,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<<<<<<< HEAD
 <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+=======
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+>>>>>>> branch 'guean-young' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 <title>CodePen - Daily UI #013 | Direct Messaging</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'><link rel="stylesheet" href="assets/css/ChatList.css">
@@ -74,7 +78,15 @@
 
 
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 <body class="center">
+<<<<<<< HEAD
+=======
+  
+  <div class="contacts">
+    <i class="fas fa-bars fa-2x"></i>
+>>>>>>> branch 'guean-young' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 
   <div class="contacts">
 
@@ -102,10 +114,8 @@
     ArrayList<ChattingListDTO> chatList = new ArrayList<>();
     
     chatList = Chatdao.chatlist(memberId);
-    
-    //
-    
     %>
+<<<<<<< HEAD
     <form action="ChattingListProgram" method="post" id="myForm">
     <input type="text" name="roomTitle" id="search">
     
@@ -115,6 +125,13 @@
     
     
    </form>
+=======
+    
+    <div>
+      <input type="text" id="roomTitle" placeholder="채팅방 제목을 입력하세요">
+      <button id="createRoomButton">채팅방 생성</button>
+  </div>
+>>>>>>> branch 'guean-young' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
     <%for(int i=0; i<chatList.size(); i++){ %>
     <div class="contact" onclick="location.href='<%= "goChat?room=" + chatList.get(i).getChatting_Room_num()%>'">
       <div class="pic">
@@ -143,11 +160,39 @@
     <%} %>
 
   </div>
+<<<<<<< HEAD
   <script src="assets/js/clock.js"></script>
   <script>
    
 </script>
  
+=======
+
+  <script>
+    $(document).ready(function() {
+        $('#createRoomButton').on('click', function() {
+            var roomTitle = $('#roomTitle').val();
+            $.ajax({
+                url: 'ChattingListProgram',
+                type: 'GET', 
+                data: {
+                    roomTitle: roomTitle
+                },
+                success: function(response) {
+
+                    console.log('서버 응답:', response);
+                    alert('채팅방 success');
+                    window.location = 'goChattingList'; 
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+                    alert('채팅방 fail');
+                }
+            });
+        });
+    });
+    </script>
+>>>>>>> branch 'guean-young' of https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository.git
 </body>
 
 </html>

@@ -53,6 +53,7 @@
 	
 	
 	 #back {
+	 	cursor: pointer;
 		border : 0px;
 		background-color :#fafafa;
 		margin-top : 15px;
@@ -117,7 +118,7 @@ arrow_back_ios
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="h5 mb-4 text-center"><%=memberId %>님의 게시물</h3>
+					<h3 class="h5 mb-4 text-center">${info.get(0).getM_Name()}님의 게시물</h3>
 					<span id = sulmyuong>내용을 보실려면 해당 게시글을 클릭해주세요</span>
 					<div class="table-wrap">
 						<table class="table myaccordion table-hover" id="accordion">
@@ -180,33 +181,9 @@ arrow_back_ios
   <script src="assets/js/MyBoardmain.js"></script>
   <script src="assets/js/clock.js"></script>
   <script >
-///////////////////////////////////////////////////////////////////////////////
-	// 시계
-	function updateClock() {
-		const currentDate = new Date();
-		const hours = currentDate.getHours();
-		const minutes = currentDate.getMinutes();
-		
-		const hours12 = hours % 12 || 12;
-		
-		const hoursStr = String(hours12).padStart(2, '0'); 
-	    const minutesStr = String(minutes).padStart(2, '0'); 
-
-	    const clockElement = document.getElementById("clock");
-	    clockElement.textContent = `${hoursStr}:${minutesStr}`;
-	}
-
-	// 1초마다 시간을 업데이트
-	setInterval(updateClock, 1000);
-
-	// 초기 로딩 시에도 시간 표시
-	updateClock();
-
-	//////////////////////////////////////////////////////////////////////////////// 
   $('#back').click(function () {
 		location.href = 'goProfile';
 	})
-  <script src="assets/js/MyBoardmain.js"></script> 
   <script >
   	$('.first').hover(
 		    function() {
