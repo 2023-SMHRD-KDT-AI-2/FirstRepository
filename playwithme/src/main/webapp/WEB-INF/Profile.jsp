@@ -96,7 +96,6 @@
 		}
 		#myid{
 		position: fixed;
-   		margin-left: 216px;
    		margin-top: 23px;
 		font-size : xx-small;
 		}
@@ -164,6 +163,7 @@ arrow_back_ios
 		<section class="ftco-section">
 		
 			<div class="container">
+
 				<span id ="myid"><%=info.get(0).getMember_Id() %></span>
 				<span id ="shap">#</span>
 				<span id = "name"><%=info.get(0).getM_Name() %></span>
@@ -187,7 +187,7 @@ arrow_back_ios
 						  	<div class="dropdown-menu show">
 						  		<div>
 						    		<a class="dropdown-item d-flex align-items-center" href="goChangeImg">
-									프로필 사진 변경
+									프로필 사진/닉네임 변경
 						    		</a>
 						    		<a class="dropdown-item d-flex align-items-center " href="goMyBoard">
 									내 게시물 확인
@@ -227,7 +227,6 @@ arrow_back_ios
 <script src="assets/js/clock.js"></script>
    <script>
    
-
    
    
         // JavaScript로 그래프를 업데이트하는 함수
@@ -258,7 +257,26 @@ arrow_back_ios
         $('#back').click(function () {
 			location.href = 'goMain';
 		})
-	
+		function updateMargin() {
+	    const nameElement = document.getElementById("name");
+	    const idElement = document.getElementById("myid");
+	    
+	    // name 요소의 폭을 가져오기
+	    const nameWidth = nameElement.offsetWidth;
+	    
+	    // id 요소의 margin-left 설정
+	    idElement.style.marginLeft = nameWidth + 170 + "px"; // 예시로 10px 여백 추가
+		}
+		
+		// 페이지 로드 시 초기 설정
+		window.onload = function () {
+		    updateMargin(); // 초기 설정
+		};
+		
+		// name 요소의 크기가 변경될 때마다 margin 업데이트
+		window.addEventListener("resize", function () {
+		    updateMargin();
+		});
 
     </script>
    
