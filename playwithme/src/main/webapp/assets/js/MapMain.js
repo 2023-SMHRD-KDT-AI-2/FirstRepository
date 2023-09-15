@@ -157,7 +157,7 @@
             // 지도에 표시되고 있는 마커를 제거합니다
             removeMarker();
             
-            ps.categorySearch(currCategory, placesSearchCB, { useMapBounds: true });
+            ps.categorySearch(currCategory, placesSearchCB1, { useMapBounds: true });
         }
 
         // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
@@ -322,29 +322,95 @@
             ps.keywordSearch(keyword, placesSearchCB);
         }
         
+    ////////////////////////////////////
+    /*선웅 추가*/
+    /*CCTV 마커*/
+    // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
+    function cctvAddMarker(position, idx, title) {
+        let imageSrc = 'images/cctv5.png', // 마커 이미지 url, 스프라이트 이미지를 씁니다
+        imageSize = new kakao.maps.Size(20, 20),  // 마커 이미지의 크기
+        imgOptions = {
+				/*spriteSize: new kakao.maps.Size(36, 691)*/
+                /*spriteSize: new kakao.maps.Size(100, 250), // 스프라이트 이미지의 크기
+                spriteOrigin: new kakao.maps.Point(0, (idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표*/
+                offset: new kakao.maps.Point(36, 37) // 마커 좌표에 일치시킬 이미지 내에서의 좌표
+            },
+            markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
+            marker = new kakao.maps.Marker({
+                position: position, // 마커의 위치
+                image: markerImage
+            });
+
+            marker.setMap(map); // 지도 위에 마커를 표출합니다
+            markers.push(marker);  // 배열에 생성된 마커를 추가합니다
+
+            return marker;
+        }        
+    ////////////////////////////////////
+    /*선웅 추가*/    
+    function displayPlaces3(places) {
+    let order = document.getElementById(currCategory).getAttribute('data-order');
+    let filteredPlaces = [];
+
+    // 최대 50개의 장소만 필터링
+    for (let i = 0; i < places.length && filteredPlaces.length < 50; i++) {
+        // 장소의 좌표
+        let placeLatLng = new kakao.maps.LatLng(places[i].y, places[i].x);
+
+        // Create a marker and display it on the map
+        let marker = cctvAddMarker(placeLatLng, order);
+
+        // Register a click event to display location information
+        /*(function (marker, place) {
+            kakao.maps.event.addListener(marker, 'click', function () {
+                displayPlaceInfo(place);
+            });
+        })*/(marker, places[i]);
+
+        filteredPlaces.push(places[i]);
+    }
+}
         // 장소검색이 완료됐을 때 호출되는 콜백함수 입니다
-        function placesSearchCB(data, status, pagination) {
-            if (status === kakao.maps.services.Status.OK) {
-                
-                // 정상적으로 검색이 완료됐으면
-                // 검색 목록과 마커를 표출합니다
-                displayPlaces(data);
-                
-                // 페이지 번호를 표출합니다
-                // displayPagination(pagination);
-                
-            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
-                
-                // alert('검색 결과가 존재하지 않습니다.');
-                return;
-                
-            } else if (status === kakao.maps.services.Status.ERROR) {
-                
-                alert('검색 결과 중 오류가 발생했습니다.');
-                return;
-                
-            }
-        }
+        ////////////////////////////// 선웅 수정
+        function placesSearchCB1(data, status, pagination) {	
+			if(currCategory=="AD5"){
+/*				    $.ajax({
+						url : "CctvProgram",
+						type : "get",
+						dataType : "json",
+						success : function(data){
+							displayPlaces1(data);
+							console.log("cctv");  
+							
+						 },
+						error : function(){ alert("error");  }
+					});*/
+						let center = map.getCenter();
+					    $.ajax({
+							url : "LocationProgram",
+							type : "get",
+							data : { "lat" : center.getLat(), "lng" : center.getLng() },
+							dataType : "json",
+							success : function(data){
+								console.log("cctv2")
+								console.log(data);
+								displayPlaces3(data); 
+							 },
+							error : function(){ alert("error"); }		
+						 });
+			}else if (status === kakao.maps.services.Status.OK) {
+			    	console.log("dddd");	                
+	                // 정상적으로 검색이 완료됐으면 지도에 마커를 표출합니다
+	                displayPlaces(data);
+	            } else if (status === kakao.maps.services.Status.ZERO_RESULT) {
+	                // 검색결과가 없는경우 해야할 처리가 있다면 이곳에 작성해 주세요                
+	                
+	            } else if (status === kakao.maps.services.Status.ERROR) {
+	                // 에러로 인해 검색결과가 나오지 않은 경우 해야할 처리가 있다면 이곳에 작성해 주세요
+	        } 
+	                     
+        };
+
 
         // 검색 결과 목록과 마커를 표출하는 함수입니다
         function displayPlaces(places) {
