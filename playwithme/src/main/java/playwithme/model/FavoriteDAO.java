@@ -35,4 +35,18 @@ public class FavoriteDAO {
 		sqlSession.close();
 		return member1;
 	}
+	public int findnum(String id) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		int num = sqlSession.selectOne("findnum", id);
+		sqlSession.close();
+		return num;
+		
+	}
+	ArrayList<FavoriteDTO> favList = new ArrayList<FavoriteDTO>();
+	public ArrayList<FavoriteDTO> findfav(int num) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		favList = (ArrayList)sqlSession.selectList("findfav", num);
+		sqlSession.close();
+		return favList;
+	}
 }
