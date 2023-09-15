@@ -104,10 +104,11 @@
 				CCTV</li>
 		</ul>
 		<ul id="menu">
-			<li id="A1" data-order="0"><span class="menu_bg new-icon1"></span>
+			<li id="A1" data-order="0"><span id="friendLink"
+			class="menu_bg new-icon1"></span>
 				친구</li>
-			<li id="A2" data-order="1"><span class="menu_bg new-icon2"></span>
-				게시판</li>
+			<li id="A2" data-order="1"><span id="boardLink"
+			class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
 			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
@@ -171,7 +172,9 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
+
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=628db567bbec48af8c138d59dec6bb57&libraries=services,clusterer,drawing"></script>
+
 
 
 	<script src="assets/js/MapMain.js"></script>
@@ -209,7 +212,7 @@
 		updateClock();
 
 		////////////////////////////////////////////////////////////////////////////////       
-
+		//메뉴에서 채팅 게시판 페이지로 이동
 		document.addEventListener("DOMContentLoaded", function () {
 	        // id가져오기
 	       	let chatSpan = document.getElementById("chatLink");
@@ -220,6 +223,32 @@
 	        	window.location = "goChattingList";
 	        });
 	    });
+
+	    
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("boardLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goBoardList.jsp이동
+	        	window.location = "goBoardList";
+	        });
+	    });
+
+
+		//친구 목록 가기
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("friendLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goFriendList";
+	        });
+	    });
+		
 
 		   //////////////////////////////////////////////
 		    addMarker2() 
