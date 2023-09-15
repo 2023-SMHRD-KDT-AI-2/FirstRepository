@@ -16,6 +16,8 @@
 <body class="center">
   <div class="contacts">
     <i class="fas fa-bars fa-2x"></i>
+
+    
     <h2>Contacts</h2>
     <%
     String id = (String) session.getAttribute("memberid");
@@ -32,8 +34,12 @@
     //
     
     %>
+    <form action="ChattingListProgram" method="post">
+    <input type="text" name="roomTitle" placeholder="채팅방 제목을 입력하세요">
+    <input type="submit" value="채팅방 생성">
+	</form>
     <%for(int i=0; i<chatList.size(); i++){ %>
-    <div class="contact">
+    <div class="contact" onclick="location.href='<%= "goChat?room=" + chatList.get(i).getChatting_Room_num()%>'">
       <div class="pic">
       <%
       ArrayList<MemberDTO> info_master = new ArrayList<>();
@@ -46,7 +52,7 @@
       </div>
       <div class="name">
         <!-- 채팅방 이름을 클릭하면 해당 채팅방으로 이동 -->
-        <a href="<%= "goChat?room=" + chatList.get(i).getChatting_Room_title() %>"><%=chatList.get(i).getChatting_Room_title() %></a>
+        <%=chatList.get(i).getChatting_Room_title() %>
       </div>
       <div class="message">
        <%String lastchat=Chatdao.lastCaht(Integer.parseInt(chatList.get(i).getChatting_Room_num()));     
@@ -58,7 +64,6 @@
        </div>
     </div>  
     <%} %>
-
 
   </div>
 </body>
