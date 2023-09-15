@@ -105,8 +105,8 @@
 		<ul id="menu">
 			<li id="A1" data-order="0"><span class="menu_bg new-icon1"></span>
 				친구</li>
-			<li id="A2" data-order="1"><span class="menu_bg new-icon2"></span>
-				게시판</li>
+			<li id="A2" data-order="1"><span id="boardLink"
+			class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
 			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
@@ -170,7 +170,7 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=628db567bbec48af8c138d59dec6bb57&libraries=services,clusterer,drawing"></script>
 
 
 	<script src="assets/js/MapMain.js"></script>
@@ -217,6 +217,27 @@
 	        	window.location = "goChattingList";
 	        });
 	    });
+	    
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("boardLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goBoardList.jsp이동
+	        	window.location = "goBoardList";
+	        });
+	    });
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 		   //////////////////////////////////////////////
 		    addMarker2() 
