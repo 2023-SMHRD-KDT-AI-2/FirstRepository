@@ -49,12 +49,4 @@
 		set pw = #{pw} where MEMBER_ID = #{member_Id}
 </update>
 
-	<select id="selectfriendlist" parameterType="playwithme.model.FriendListDTO"
-		resultType="string">
-		SELECT F_MEMBER_ID
-		FROM FRIEND
-		WHERE MEMBER_ID = #{member_Id}
-	</select>
-
-
 </mapper>

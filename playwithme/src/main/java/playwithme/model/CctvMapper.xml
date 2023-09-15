@@ -9,7 +9,17 @@
 					, Y
 			FROM	CCTV
 		</select>
-	
+
+		<select id="test" resultType="playwithme.model.CctvDTO" parameterType="playwithme.model.CctvDTO">
+			select X,Y from CCTV
+			WHERE 
+			X IS NOT NULL
+			AND Y IS NOT NULL
+			AND TO_NUMBER(nvl(X,'0')) BETWEEN (TO_NUMBER(#{x})-0.0113) 
+			AND (TO_NUMBER(#{x})+0.0113)
+			AND  TO_NUMBER(nvl(Y,'0')) BETWEEN (TO_NUMBER(#{y})-0.0091)
+			AND (TO_NUMBER(#{y})+0.0091)	
+		</select>	
 
 
 
