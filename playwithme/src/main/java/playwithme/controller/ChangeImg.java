@@ -55,7 +55,8 @@ public class ChangeImg extends HttpServlet {
 		String encoding = "UTF-8";
 
 		MultipartRequest multi = new MultipartRequest(request, path, maxSize, encoding,
-				new DefaultFileRenamePolicy());
+				new CustomFileRenamePolicy());
+		
 		// new DefaultFileRenamePlicy() ->
 		String img = multi.getFilesystemName("filename");
 		String name = multi.getParameter("changeName");

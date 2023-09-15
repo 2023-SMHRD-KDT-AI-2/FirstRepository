@@ -47,7 +47,7 @@
         }
         
         #submitButton {
-        	margin-top: 60%;
+        	margin-top: 40%;
         	margin-left : 20%;
         	
             width: 200px;
@@ -134,13 +134,19 @@
 
 		}
 		#chn{
-			position: fixed;
 		    background-color: #fafafa;
 		    border: 3px;
-		    margin-left: 20%;
+		    margin-left: 32%;
 		    margin-top: 40px;
-		    width: 200px;
+		    width: 110px;
 		    text-align: -webkit-center;
+		    font-size: 17px;
+		}
+		#icon{
+		cursor: pointer;
+	    font-size: 18px;
+	    position: relative;
+	    top: 3px;
 		}
 </style>
     
@@ -168,7 +174,10 @@
             <input type="file" id="changeImg" name="filename"> <!-- Hidden file input -->
         </div>
         <div>
-        <input id ="chn" name="changeName" type="text" value ="${info.get(0).getM_Name()}">
+       
+        <input id ="chn" name="changeName" type="text" value ="${info.get(0).getM_Name()}" > <span id ="icon" class="material-symbols-outlined">
+		edit
+		</span>
         </div>
         <div id="submitButtonContainer">
             <input type="submit" id="submitButton" value="변경하기"> <!-- Submit button -->
@@ -211,7 +220,13 @@
 	    if (selectedFile) {
 	        reader.readAsDataURL(selectedFile);
 	    }
+	   
 });
+		document.getElementById('icon').addEventListener('click', function() {
+	        const inputText = document.getElementById('chn');
+	        inputText.removeAttribute('disabled');
+	        inputText.focus(); // 활성화된 상태에서 포커스 설정
+	    });
     </script>
 </body>
 </html>
