@@ -11,12 +11,13 @@
 <title>Insert title here</title>
 <style>
 	#clock {
-		margin-left: 10px;
+		margin-left: 4px;
 		margin-bottom: 13px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 14px;
 	}
 	#fix{
 		position: relative;
@@ -28,7 +29,7 @@
 	
 	#internet{
 		height: 19px;
-		margin-left: 180px;
+		margin-left: 191px;
 		margin-bottom: 2px;
 	}
 	#lte{
@@ -38,6 +39,7 @@
 	#battery{
 		height: 21px;
 	}
+
 </style>
 </head>
 <body>
@@ -70,18 +72,20 @@
 
 			<button type="submit" id="loginSubmit">로그인</button>
 
-			<button id="button2" type="button">
-				<a href="#">간편로그인</a>
-			</button>
+			
 			<button id='button3' type="button">
 				<a href="goJoin">계정이 없으신가요?&nbsp;&nbsp; 회원가입</a>
 			</button>
+	<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
+		src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+		width="222" alt="카카오 로그인 버튼" /></a>
+	<p id="token-result"></p>
 		</form>
 	</div>
 
+	
+	
 	<script src="js/script.js"></script>
-	
-	
 	
 	
 	<!-- 카카오 스크립트 -->
@@ -91,10 +95,6 @@
 	</script>
 	<script>Kakao.init('662807c83d8fccc55bc8bf7c650227b4');</script> 
 
-	<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
-		src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-		width="222" alt="카카오 로그인 버튼" /></a>
-	<p id="token-result"></p>
 
 
 	<script>
@@ -126,7 +126,7 @@
     });
   }
 
-  // 아래는 데모를 위한 UI 코드입니다.
+  /* // 아래는 데모를 위한 UI 코드입니다.
   displayToken()
   function displayToken() {
     var token = getCookie('authorize-access-token');
@@ -144,7 +144,7 @@
           Kakao.Auth.setAccessToken(null);
         });
     }
-  }
+  } */
 
 
 

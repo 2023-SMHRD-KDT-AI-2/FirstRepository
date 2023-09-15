@@ -23,6 +23,35 @@
 	
 	<link rel="stylesheet" href="assets/css/MyBoardstyle.css">
 	<style >
+	#clock {
+		margin-left: -11px;
+		margin-bottom: 5px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		font-weight: BOLD;
+	}
+	#fix{
+	    position: relative;
+	    top: 7px;
+	    left:28px;
+	    height: 20px;
+	    
+	}
+	#internet{
+		height: 19px;
+		margin-left: 212px;
+		margin-bottom: 7px;
+	}
+	#lte{
+		height: 11px;
+		margin-bottom: 7px;
+	}
+	#battery{
+		height: 21px;
+		margin-bottom: 7px;
+	}
+	
+	
 	 #back {
 		border : 0px;
 		background-color :#fafafa;
@@ -40,13 +69,15 @@
             font-size: 10px;
 		    width: 38px;
 		    height: 25px;
+		    border-color: #fff !important;
+		    
         }
       .second {
             cursor: pointer;
             background-color: #848181;
             border-radius: 4px;
             font-size: 10px;
-            
+            border-color: #848181
             width: 38px;
 		    height: 25px;
         }
@@ -60,6 +91,15 @@
 	</style>
 	</head>
 	<body>
+	<div id=fix>
+
+		<span id="clock"></span>
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+		
+	</div>
 	<%
 	String memberId = (String) session.getAttribute("memberid");
 	BoardDAO brdao = new BoardDAO();
@@ -138,23 +178,47 @@ arrow_back_ios
   <script src="assets/js/MyBoardpopper.js"></script>
   <script src="assets/js/MyBoardbootstrap.min.js"></script>
   <script src="assets/js/MyBoardmain.js"></script>
+  <script src="assets/js/clock.js"></script>
   <script >
+///////////////////////////////////////////////////////////////////////////////
+	// 시계
+	function updateClock() {
+		const currentDate = new Date();
+		const hours = currentDate.getHours();
+		const minutes = currentDate.getMinutes();
+		
+		const hours12 = hours % 12 || 12;
+		
+		const hoursStr = String(hours12).padStart(2, '0'); 
+	    const minutesStr = String(minutes).padStart(2, '0'); 
+
+	    const clockElement = document.getElementById("clock");
+	    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+	}
+
+	// 1초마다 시간을 업데이트
+	setInterval(updateClock, 1000);
+
+	// 초기 로딩 시에도 시간 표시
+	updateClock();
+
+	//////////////////////////////////////////////////////////////////////////////// 
   $('#back').click(function () {
 		location.href = 'goProfile';
 	})
   <script src="assets/js/MyBoardmain.js"></script> 
   <script >
-  $('.first').hover(
+  	$('.first').hover(
 		    function() {
-		        $(this).css('backgroundColor', '#40a9f2');
+		        $(this).css('backgroundColor', '#74bdf0');
 		    },
 		    function() {
 		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
 		    }
 			);
-		    $('.second').hover(
+ 	$('.second').hover(
 		    function() {
-		        $(this).css('backgroundColor', '#40a9f2');
+		        $(this).css('backgroundColor', '#d92626');
 		    },
 		    function() {
 		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
