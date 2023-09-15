@@ -153,11 +153,13 @@
         }
         
 	 #back {
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 15px;
-		margin-left : 10px;
-		
+	 	cursor: pointer;
+	 	position: fixed;
+	    color: gray;
+	    border: 0px;
+	    background-color: white;
+	    margin-top: 39px;
+	    margin-left: 10px;
 		}
 	
     </style>
@@ -177,7 +179,7 @@
 	</div>
     <div class="container">
 
-<button class="material-symbols-outlined" id ="back" style="color:gray;">
+<button class="material-symbols-outlined" id ="back" >
 arrow_back_ios
 </button>
         <form action="ChangePwProgram" id="form" class="form" onsubmit="return check()">
@@ -271,7 +273,7 @@ arrow_back_ios
     	window.history.back()
     })
     $('#back').click(function () {
-		location.href = 'goMain';
+		location.href = 'goProfile';
 	})
     </script>
 </body>

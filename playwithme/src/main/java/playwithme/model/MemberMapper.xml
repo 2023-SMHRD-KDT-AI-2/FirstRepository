@@ -41,7 +41,8 @@
 </select>
 <update id="img" parameterType="playwithme.model.MemberDTO">
 		update NA_MEMBER
-		set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
+		set M_PROFILE = #{m_Profile}, M_NAME = #{m_Name} 
+		where MEMBER_ID = #{member_Id}
 </update>
 <update id="pw" parameterType="playwithme.model.MemberDTO">
 		update NA_MEMBER

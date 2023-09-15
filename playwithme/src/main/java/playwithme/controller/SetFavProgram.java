@@ -39,7 +39,7 @@ public class SetFavProgram extends HttpServlet {
 					dao.inup(dto);
 				}
 				session.setAttribute("favorite", favorite);
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Profile.jsp");
 			rd.forward(request, response);
 		}else {
 			dao.delfav(dto);
@@ -48,7 +48,7 @@ public class SetFavProgram extends HttpServlet {
 				dao.inup(dto);
 			}
 			session.setAttribute("favorite", favorite);
-			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/MapMain.jsp");
+			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/Profile.jsp");
 			rd.forward(request, response);
 		}
 	
