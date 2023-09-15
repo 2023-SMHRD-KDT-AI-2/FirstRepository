@@ -31,6 +31,10 @@ ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
     <div class="contact bar">
         <div class="name">                
         </div>
+        <div class="seen">
+        <!-- 참여자 id -->
+        
+        </div>
     </div>
     <div class="messages" id="chat-messages">
     </div>
@@ -85,6 +89,25 @@ $.ajax({
         console.error("AJAX 오류 발생: " + textStatus, errorThrown);
     }
 });
+
+$.ajax({
+	   url : "ChatParti",
+	   type : "get", // 또는 "post", 서블릿에서 처리하는 방식에 따라 수정
+	   data : {"roomtitle" : chatroom},
+	   dataType: "json", // 데이터 형식을 JSON으로 지정
+	   success : function(data){
+	       // 이제 data는 JSON 형식으로 파싱됩니다.
+	       // JSON 데이터를 어떻게 표시할지 처리
+	       var html = "";
+	       for (var i = 1; i <= data.length; i++) {
+	           html += "「 "+data[i-1]+ "」  " ;
+	       }
+	       $(".seen").html(html);
+	   },
+	   error : function(){ 
+	       alert("error"); 
+	   }   
+	});
 
 console.log(chatroom)
 const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);
