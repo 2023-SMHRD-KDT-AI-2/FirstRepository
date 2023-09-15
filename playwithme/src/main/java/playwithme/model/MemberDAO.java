@@ -10,7 +10,7 @@ import playwithme.db.SqlSessionManager;
 
 
 public class MemberDAO {
-SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	ArrayList<MemberDTO> MemberList = new ArrayList<>();
 	public ArrayList<MemberDTO> getmember(String memberId) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);

@@ -11,7 +11,7 @@ import playwithme.db.SqlSessionManager;
 
 public class BoardDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	
 	// 게시판 글쓰기 기능
