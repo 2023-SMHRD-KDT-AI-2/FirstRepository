@@ -104,7 +104,8 @@
 				CCTV</li>
 		</ul>
 		<ul id="menu">
-			<li id="A1" data-order="0"><span class="menu_bg new-icon1"></span>
+			<li id="A1" data-order="0"><span id="friendLink"
+			class="menu_bg new-icon1"></span>
 				친구</li>
 			<li id="A2" data-order="1"><span class="menu_bg new-icon2"></span>
 				게시판</li>
@@ -171,7 +172,9 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
+
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&libraries=services,clusterer,drawing"></script>
+
 
 
 	<script src="assets/js/MapMain.js"></script>
@@ -221,6 +224,18 @@
 	        });
 	    });
 
+		//친구 목록 가기
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("friendLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goFriendList";
+	        });
+	    });
+		
 		   //////////////////////////////////////////////
 		    addMarker2() 
 			<% BoardDAO dao2 = new BoardDAO();
