@@ -1,3 +1,9 @@
+<!-- 
+박기원
+2023.09.15
+친구 리스트 + 친구 추가
+ -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %><!-- core 라이브러리 연결 -->
@@ -12,6 +18,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'><link rel="stylesheet" href="assets/css/ChatList.css">
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <body class="center">
   
   <div class="contacts">
@@ -28,26 +35,63 @@
     String memberId = info.get(0).getMember_Id();
     FriendListDAO friendDao = new FriendListDAO();
     ArrayList<String> friendList = friendDao.friendlist(memberId);
-    System.out.println(friendList.get(0));
+    System.out.println(friendList.get(1));
     %>
-    
-    <%for(int i=0; i<friendList.size(); i++){ %>
-    <div class="contact">
-      <div class="pic">
-      <%
-      ArrayList<MemberDTO>info_friend=dao.getmember(friendList.get(i));
-      %>
-         <img class="pic" src="file/<%=info_friend.get(i).getM_Profile()%>" onerror="this.src='images/default.jpg'" >
-      </div>
-      <div class="name">
-        <%=friendList.get(i) %>
-      </div>
-       <div class="message">
-       </div>
-    </div>  
-    <%} %>
-
+   <div>
+      <input type="text" id="friend_name_test" placeholder="친구 이름 입력">
+      <button id="friendAddButton">친구 추가</button>
   </div>
+  
+
+<%for(int i=0; i<friendList.size(); i++){ %>
+    <div class="contact">
+        <div class="pic">
+            <% 
+            String friendId = friendList.get(i);
+            ArrayList<MemberDTO> info_friend = dao.getmember(friendId);
+            if (!info_friend.isEmpty()) {
+                String profileImage = info_friend.get(0).getM_Profile();
+            %>
+            <img class="pic" src="file/<%= profileImage %>" onerror="this.src='images/default.jpg'" >
+            <% } else { %>
+            <img class="pic" src="images/default.jpg">
+            <% } %>
+        </div>
+        <div class="name">
+            <%= friendId %>
+        </div>
+        <div class="message">
+        </div>
+    </div>  
+<% } %>
+
+  
+  
+    <script>
+    $(document).ready(function() {
+        $('#friendAddButton').on('click', function() {
+            let friend_name_test = $('#friend_name_test').val();
+            $.ajax({
+                url: 'FriendAddProgram',
+                type: 'GET', 
+                data: {
+                	friend_name_test: friend_name_test
+                },
+                success: function(response) {
+
+                    console.log('서버 응답:', response);
+                    alert('친구 추가 success');
+                    window.location = 'goFriendList.java'; 
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+                    alert('친구 ID를 확인하세요.');
+                }
+            });
+        });
+    });
+    </script>
+    
 
 </body>
 
