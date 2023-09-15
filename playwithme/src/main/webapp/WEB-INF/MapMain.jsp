@@ -30,10 +30,11 @@
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 15px;
 	}
 	#fix{
 	    position: relative;
-	    top: 0;
+	    top: -2px;
 	    left: 0;
 	    height: 20px;
 	    
@@ -191,12 +192,14 @@
 
 			const hours12 = hours % 12 || 12;
 			
-			const hoursStr = hours12 < 1 ? `0${hours12}` : hours12;
-		    const minutesStr = minutes < 1 ? `0${minutes}` : minutes;
 
-			
-			const clockElement = document.getElementById("clock");
-			clockElement.textContent = `${hours}:${minutes}`;
+			const hoursStr = String(hours12).padStart(2, '0'); 
+		    const minutesStr = String(minutes).padStart(2, '0'); 
+
+		    const clockElement = document.getElementById("clock");
+		    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+
+	
 		}
 
 		// 1초마다 시간을 업데이트

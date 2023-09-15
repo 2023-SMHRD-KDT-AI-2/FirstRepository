@@ -1,3 +1,4 @@
+
 <%@taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page import="java.io.PrintWriter"%>
 <%@page import="java.util.List"%>
@@ -55,18 +56,49 @@
         }
    
         #back {
+        	cursor :pointer;
 			border : 0px;
 			background-color :#fafafa;
 			margin-top : 15px;
 			margin-left : 10px;
 		
 		}
-on
+
 		.manner-temperature {
 		    position: absolute;
 		    top: -25px; /* 그래프 위에 위치하도록 조절 */
 		    font-size: 11px;
 		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+		}
+		#name {
+		position: fixed;
+   		margin-left: 161px;
+   		margin-top: 19px;
+   		color: #504e4e;
+   		font-weight: bold;
+		}
+		#favorite {
+		width: 170px;
+		position: fixed;
+   		margin-left: 145px;
+   		margin-top: 45px;
+		}
+		#shap{
+		position: fixed;
+		color: #504e4e;
+   		margin-left: 145px;
+   		margin-top: 19px;
+		}
+		#shap{
+		position: fixed;
+   		margin-left: 145px;
+   		margin-top: 19px;
+		}
+		#myid{
+		position: fixed;
+   		margin-left: 216px;
+   		margin-top: 23px;
+		font-size : xx-small;
 		}
 		
 
@@ -122,18 +154,27 @@ on
 	ArrayList<MemberDTO> info = new ArrayList<>();
 	info = dao.getmember(id);
 	session.setAttribute("info", info);
+	FavoriteDAO fdao = new FavoriteDAO();
+	int fav = fdao.findnum(id);
+	ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
 	%>
 		<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
 </button>
 		<section class="ftco-section">
 		
-			<div class="container"></div>
-				<div class="row">
-					
-					
-				</div>
+			<div class="container">
+				<span id ="myid"><%=info.get(0).getMember_Id() %></span>
+				<span id ="shap">#</span>
+				<span id = "name"><%=info.get(0).getM_Name() %></span>
+				<span id = "favorite">
+				<%for(int i = 0; i<favList.size(); i++){%>
+				<%=favList.get(i).getInterest() %>&nbsp;
 				
+				<%} %>
+				
+				</span>
+			</div>
 				<div class="row justify-content-center">
 
 					<div class="col-md-6 d-flex justify-content-center">
@@ -143,32 +184,34 @@ arrow_back_ios
 						  
 						  
 
-						  <div class="dropdown-menu show">
-						  <div>
-						    <a class="dropdown-item d-flex align-items-center" href="goChangeImg">
-								프로필 사진 변경
-						    </a>
-						    <a class="dropdown-item d-flex align-items-center " href="goMyBoard">
-								내 게시물 확인
-							</a>
-						    <a class="dropdown-item d-flex align-items-center" href="goChangepPw">
-						    	비밀번호 변경
-						    </a>
-						    <a class="dropdown-item d-flex align-items-center" href="goFavorite">
-						    	관심사 수정
-						    </a>
-						    <a class="dropdown-item d-flex align-items-center" href="goMain">
-								홈
-						    </a>
-						    <a class="dropdown-item d-flex align-items-center" href="Logout">
-								로그아웃
-						    </a>
+						  	<div class="dropdown-menu show">
+						  		<div>
+						    		<a class="dropdown-item d-flex align-items-center" href="goChangeImg">
+									프로필 사진 변경
+						    		</a>
+						    		<a class="dropdown-item d-flex align-items-center " href="goMyBoard">
+									내 게시물 확인
+									</a>
+						    		<a class="dropdown-item d-flex align-items-center" href="goChangepPw">
+						    		비밀번호 변경
+						    		</a>
+						    		<a class="dropdown-item d-flex align-items-center" href="goFavorite">
+						    		관심사 수정
+						    		</a>
+						    		<a class="dropdown-item d-flex align-items-center" href="goMain">
+									홈
+						    		</a>
+						    		<a class="dropdown-item d-flex align-items-center" href="Logout">
+									로그아웃
+						    		</a>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			
 		</section>
-		<span></span>
+		
 		
 		  <div class="graph-container">
         <!-- Graph bar that will animate -->
@@ -181,30 +224,10 @@ arrow_back_ios
 
 
 <script src="js/jquery-3.7.1.js"></script>
-
+<script src="assets/js/clock.js"></script>
    <script>
    
-///////////////////////////////////////////////////////////////////////////////
-	// 시계
-	function updateClock() {
-		let currentDate = new Date();
-		let hours = currentDate.getHours();
-		let minutes = currentDate.getMinutes();
-		
-		let hoursStr = hours < 10 ? `0${hours}` : hours;
-		let minutesStr = minutes < 10 ? `0${minutes}` : minutes;
-		
-		let clockElement = document.getElementById("clock");
-		clockElement.textContent = `${hours}:${minutes}`;
-	}
 
-	// 1초마다 시간을 업데이트
-	setInterval(updateClock, 1000);
-	// 초기 로딩 시에도 시간 표시
-	updateClock();
-
-	////////////////////////////////////////////////////////////////////////////////
-   
    
    
         // JavaScript로 그래프를 업데이트하는 함수
