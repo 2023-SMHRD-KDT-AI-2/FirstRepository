@@ -17,7 +17,8 @@
 	<!-- 로그인 정보 -->
 	<select id="login" parameterType="playwithme.model.MemberDTO"
 		resultType="playwithme.model.MemberDTO">
-		select * from NA_MEMBER where member_Id=#{member_Id} and
+		select * from NA_MEMBER 
+		where member_Id=#{member_Id} and
 		pw=#{pw}
 	</select>
 
@@ -36,16 +37,19 @@
 		select name from NA_MEMBER where id=#{id} and pw=#{pw} and
 		email={email}
 	</select>
+	
 	<select id="get" parameterType="string"
 		resultType="playwithme.model.MemberDTO">
 		select *
 		from NA_MEMBER
 		where MEMBER_ID = #{member_Id}
 	</select>
-<update id="img" parameterType="playwithme.model.MemberDTO">
-		update NA_MEMBER
-		set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
-</update>
+	
+	<update id="img" parameterType="playwithme.model.MemberDTO">
+			update NA_MEMBER
+			set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
+	</update>
+
 	<update id="pw" parameterType="playwithme.model.MemberDTO">
 
 		update NA_MEMBER

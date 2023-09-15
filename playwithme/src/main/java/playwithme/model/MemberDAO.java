@@ -6,8 +6,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
 import playwithme.db.SqlSessionManager;
+
 
 public class MemberDAO {
 SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
