@@ -58,5 +58,10 @@
    	select * from chatting where chatting_room_num=#{roomnum} order by ch_date asc
    
    </select>
+   
+      <!-- 채팅방 참여자 가져오기 -->
+   <select id="chatparti" parameterType="int" resultType="string">
+   select member_id from chatting_room_parti where chatting_room_num=#{roomnum}
+   </select>
 
 </mapper>

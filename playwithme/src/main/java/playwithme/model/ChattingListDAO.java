@@ -60,6 +60,15 @@ public class ChattingListDAO {
 			return chatcontet;
 		
 		}
+	   
+	   
+	   public ArrayList<String> chatParti(int roomnum) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   ArrayList<String> chatpart=(ArrayList)sqlSession.selectList("chatparti", roomnum);
+		   sqlSession.close();
+		   return chatpart;
+	   }
 	
 
 }

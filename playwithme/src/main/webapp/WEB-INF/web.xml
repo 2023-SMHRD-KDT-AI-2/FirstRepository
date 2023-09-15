@@ -116,6 +116,11 @@
 		<description></description>
 		<servlet-class>playwithme.controller.BoardDeleteOne</servlet-class>
 	</servlet>
+	
+			<servlet>
+		<servlet-name>ChatParti</servlet-name>
+		<servlet-class>playwithme.controller.ChatParti</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>goProfile</servlet-name>
@@ -202,6 +207,11 @@
 		<servlet-mapping>
 		<servlet-name>ChatGet</servlet-name>
 		<url-pattern>/ChatGet</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>ChatParti</servlet-name>
+		<url-pattern>/ChatParti</url-pattern>
 	</servlet-mapping>
 
 
