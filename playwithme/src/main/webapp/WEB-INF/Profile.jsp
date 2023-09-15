@@ -224,29 +224,10 @@ arrow_back_ios
 
 
 <script src="js/jquery-3.7.1.js"></script>
-
+<script src="assets/js/clock.js"></script>
    <script>
    
-///////////////////////////////////////////////////////////////////////////////
-	// 시계
-	function updateClock() {
-		let currentDate = new Date();
-		let hours = currentDate.getHours();
-		let minutes = currentDate.getMinutes();
-		
-		let hoursStr = hours < 10 ? `0${hours}` : hours;
-		let minutesStr = minutes < 10 ? `0${minutes}` : minutes;
-		
-		let clockElement = document.getElementById("clock");
-		clockElement.textContent = `${hours}:${minutes}`;
-	}
 
-	// 1초마다 시간을 업데이트
-	setInterval(updateClock, 1000);
-	// 초기 로딩 시에도 시간 표시
-	updateClock();
-
-	////////////////////////////////////////////////////////////////////////////////
    
    
    
