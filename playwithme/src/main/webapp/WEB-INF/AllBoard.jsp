@@ -107,8 +107,8 @@ arrow_back_ios
 							      
 							      <td style="text-align: left; !important"><%=AllBoard.get(i).getTitle() %></td>
 							      <td><%=AllBoard.get(i).getNum_People() %>명</td>
-							      <td><button class = "first"><a href ="goFixBoard?num=<%=AllBoard.get(i).getBoard_Num()%>" onclick ="return fixOk();">수정</button>
-							      <button class = "second"><a href ="BoardDeleteOne?num=<%=AllBoard.get(i).getBoard_Num()%>" onclick ="return delOk();">삭제</a></button >
+							      <td><button class = "first"><a href ="goChat?room=<%=AllBoard.get(i).getChat_room_num()%>">채팅참여</a></button>
+							     
 							      </td>
 							    </tr>
 							    <tr>

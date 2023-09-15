@@ -209,7 +209,7 @@
 		updateClock();
 
 		////////////////////////////////////////////////////////////////////////////////       
-
+		//메뉴에서 채팅 게시판 페이지로 이동
 		document.addEventListener("DOMContentLoaded", function () {
 	        // id가져오기
 	       	let chatSpan = document.getElementById("chatLink");
@@ -231,17 +231,6 @@
 	        	window.location = "goBoardList";
 	        });
 	    });
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-
 		   //////////////////////////////////////////////
 		    addMarker2() 
 			<% BoardDAO dao2 = new BoardDAO();

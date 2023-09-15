@@ -38,7 +38,7 @@
    
       <!--채팅방 만들기 -->
    <insert id="createRoom"
-      parameterType="playwithme.model.ChattingListDTO">
+      parameterType="playwithme.model.ChattingListDTO" useGeneratedKeys="true" keyColumn="CHATTING_ROOM_NUM" keyProperty="chatting_Room_num">
       INSERT INTO CHATTING_ROOM (CHATTING_ROOM_NUM,
       CHATTING_ROOM_TITLE,
       MEMBER_ID)
