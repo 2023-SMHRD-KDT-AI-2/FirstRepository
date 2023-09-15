@@ -70,6 +70,7 @@ function handleIconClick() {
 
     // 메시지 값이 null 또는 빈 문자열인 경우 클릭 이벤트를 무시합니다.
     if (!messageValue || messageValue.trim() === "") {
+    	sendButton.style.color = "#ccc"; // 회색
         return;
     }
 
@@ -87,11 +88,11 @@ messageInput.addEventListener("input", function() {
 
     // 메시지 값이 null 또는 빈 문자열인 경우 버튼을 비활성화하고 색깔을 회색으로 변경합니다.
     if (!messageValue || messageValue.trim() === "") {
-        sendButton.disabled = true;
+        //sendButton.disabled = true;
         sendButton.style.color = "#ccc"; // 회색
     } else {
         // 메시지 값이 있는 경우 버튼을 활성화하고 파란색으로 변경합니다.
-        sendButton.disabled = false;
+       //sendButton.disabled = false;
         sendButton.style.color = "#6398f2"; // 파란색
     }
 });
@@ -232,6 +233,18 @@ function sendMessage() {
     socket.send(data);
     document.getElementById("message").value = "";
 }
+
+//메시지 입력란에서 Enter 키를 눌렀을 때
+messageInput.addEventListener("keyup", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Enter 키 기본 동작(새 줄 추가)을 막습니다.
+        if (messageInput.value && messageInput.value.trim() !== "") {
+            sendMessage(); // 메시지 값이 있는 경우에만 sendMessage 함수를 호출하여 메시지 전송
+        }
+    }
+});
+
+
 
 
 
