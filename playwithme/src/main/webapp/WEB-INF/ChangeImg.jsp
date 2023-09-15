@@ -48,7 +48,7 @@
         }
         
         #submitButton {
-        	margin-top: 60%;
+        	margin-top: 40%;
         	margin-left : 20%;
         	
             width: 200px;
@@ -127,6 +127,28 @@
 			height: 21px;
 			margin-bottom: -1px;
 		}
+		#ci{
+		    position: fixed;
+		    margin-top: 60px;
+		    margin-left: 60px;
+		    color: gray;
+
+		}
+		#chn{
+		    background-color: #fafafa;
+		    border: 3px;
+		    margin-left: 32%;
+		    margin-top: 40px;
+		    width: 110px;
+		    text-align: -webkit-center;
+		    font-size: 17px;
+		}
+		#icon{
+		cursor: pointer;
+	    font-size: 18px;
+	    position: relative;
+	    top: 3px;
+		}
 </style>
     
 </head>
@@ -140,16 +162,23 @@
 			
 			
 		</div> 
+		<span id ="ci">변경하실려면 사진을 눌러주세요</span>
 	<button class="material-symbols-outlined" id ="back" style="color:gray;">
 	arrow_back_ios
 	</button>
 
-         <form action="ChangeImg" method="post" enctype="multipart/form-data">
+     <form action="ChangeImg" method="post" enctype="multipart/form-data">
         <div id="profileimg">
             <label for="changeImg" id="changeImgLabel"> <!-- Label to trigger file input -->
                 <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" id="img">
             </label>
             <input type="file" id="changeImg" name="filename"> <!-- Hidden file input -->
+        </div>
+        <div>
+       
+        <input id ="chn" name="changeName" type="text" value ="${info.get(0).getM_Name()}" > <span id ="icon" class="material-symbols-outlined">
+		edit
+		</span>
         </div>
         <div id="submitButtonContainer">
             <input type="submit" id="submitButton" value="변경하기"> <!-- Submit button -->
@@ -173,6 +202,32 @@
         $('#back').click(function () {
 			location.href = 'goProfile';
 		})
+		// HTML에서 파일 입력 필드와 이미지 미리보기 요소를 가져옵니다.
+		const fileInput = document.getElementById('changeImg');
+		const imagePreview = document.getElementById('img');
+
+		// 파일 입력 필드에 변경 사항이 있을 때 호출되는 이벤트 핸들러를 설정합니다.
+		fileInput.addEventListener('change', function() {
+	    // 선택한 파일을 가져옵니다.
+	    const selectedFile = fileInput.files[0];
+	
+	    // FileReader를 사용하여 선택한 파일을 읽고 미리보기 요소의 src 속성에 설정합니다.
+	    const reader = new FileReader();
+	    reader.onload = function(event) {
+	        imagePreview.src = event.target.result; // 이미지 URL을 설정합니다.
+	    };
+	
+	    // 파일을 읽습니다.
+	    if (selectedFile) {
+	        reader.readAsDataURL(selectedFile);
+	    }
+	   
+});
+		document.getElementById('icon').addEventListener('click', function() {
+	        const inputText = document.getElementById('chn');
+	        inputText.removeAttribute('disabled');
+	        inputText.focus(); // 활성화된 상태에서 포커스 설정
+	    });
     </script>
 </body>
 </html>
