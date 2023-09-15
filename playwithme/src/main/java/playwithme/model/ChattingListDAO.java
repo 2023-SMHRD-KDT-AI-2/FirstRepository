@@ -30,6 +30,45 @@ public class ChattingListDAO {
 		sqlSession.close();
 		return lastChat;
 	}
+
+	public String chatRoomTitle(int chatroom) {
+		SqlSession sqlSession=sqlSessionFactory.openSession(true);
+		String title=sqlSession.selectOne("chatRoomTitle", chatroom);		
+		sqlSession.close();
+		return title;
+	}
+	
+	   public int createRoom(ChattingListDTO chatlist) {
+		      SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		      
+		      int cnt = sqlSession.insert("createRoom", chatlist);
+		      
+		      sqlSession.insert("saveParticipant", chatlist);
+		      
+		      sqlSession.close();
+		      
+		      return cnt;   
+		   }
+	   
+	   public ArrayList<GetChatDTO> getChat(int roomnum) {
+			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+			
+			ArrayList<GetChatDTO> chatcontet=(ArrayList)sqlSession.selectList("getChat", roomnum);
+		
+			sqlSession.close();
+			
+			return chatcontet;
+		
+		}
+	   
+	   
+	   public ArrayList<String> chatParti(int roomnum) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   ArrayList<String> chatpart=(ArrayList)sqlSession.selectList("chatparti", roomnum);
+		   sqlSession.close();
+		   return chatpart;
+	   }
 	
 
 }

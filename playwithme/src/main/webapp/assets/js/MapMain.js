@@ -622,7 +622,7 @@
         
         let btn4 = document.getElementById("A4");
         btn4.addEventListener("click",function(){
-         window.location = "goProfile"
-      })
+			window.location = "goProfile"
+		})
 
            

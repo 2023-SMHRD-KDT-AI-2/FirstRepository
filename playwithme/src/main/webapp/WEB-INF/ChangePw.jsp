@@ -9,10 +9,42 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
     <title></title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
+		#clock {
+		margin-left: 49px;
+		margin-bottom: 35px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		}
+		#fix{
+		    position: fixed;
+		    top: 12px;
+		    left: -18px;
+		    height: 20px;
+		    z-index: 1000;
+		    
+		}
+		
+		#internet{
+			height: 19px;
+			margin-left: 180px;
+			margin-bottom: 12px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 16px;
+		}
+		#battery{
+			height: 21px;
+			margin-bottom: 11px;
+		}
         :root {
             --success-color: #2ecc71;
             --error-color: #e74c3c;
@@ -119,14 +151,35 @@
         #change{
         display: none
         }
+        
+	 #back {
+		border : 0px;
+		background-color :#fafafa;
+		margin-top : 15px;
+		margin-left : 10px;
+		
+		}
+	
     </style>
 
 </head>
 
 
 <body>
+  <div id=fix>
+
+		<span id="clock"></span>
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+		
+	</div>
     <div class="container">
 
+<button class="material-symbols-outlined" id ="back" style="color:gray;">
+arrow_back_ios
+</button>
         <form action="ChangePwProgram" id="form" class="form" onsubmit="return check()">
 
             <div id="logimg">
@@ -157,7 +210,29 @@
     </div>
     <script src="js/jquery-3.7.1.js"></script>
     <script>
-   
+///////////////////////////////////////////////////////////////////////////////
+	// 시계
+	function updateClock() {
+		const currentDate = new Date();
+		const hours = currentDate.getHours();
+		const minutes = currentDate.getMinutes();
+		
+		const hours12 = hours % 12 || 12;
+		
+		const hoursStr = String(hours12).padStart(2, '0'); 
+	    const minutesStr = String(minutes).padStart(2, '0'); 
+
+	    const clockElement = document.getElementById("clock");
+	    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+	}
+
+	// 1초마다 시간을 업데이트
+	setInterval(updateClock, 1000);
+
+	// 초기 로딩 시에도 시간 표시
+	updateClock();
+
+	//////////////////////////////////////////////////////////////////////////////// 
     $('#button1').click(function check(){
     	if($('#pw').val() === $('#pw3').val()){
     		alert("기존 비밀번호와 같습니다.")
@@ -195,6 +270,9 @@
     $('#button2').click(function(){
     	window.history.back()
     })
+    $('#back').click(function () {
+		location.href = 'goMain';
+	})
     </script>
 </body>
 

@@ -8,6 +8,36 @@
     <title>Document</title>
     <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+	    #clock {
+		margin-left: 49px;
+		margin-bottom: 35px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		}
+		#fix{
+		    position: fixed;
+		    top: 12px;
+		    left: -18px;
+		    height: 20px;
+		    z-index: 1000;
+		    
+		}
+		
+		#internet{
+			height: 19px;
+			margin-left: 180px;
+			margin-bottom: 12px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 16px;
+		}
+		#battery{
+			height: 21px;
+			margin-bottom: 11px;
+		}
 	    .check{
            width: 50%;
         }
@@ -16,8 +46,7 @@
             justify-content: center;
             align-items: center;
             border-collapse: separate;
-            border-spacing: 20px 60px;
-            height : 600px;
+            border-spacing: 26px 49px;
             
         }
       
@@ -40,13 +69,12 @@
             border-radius: 4px;
             color: #67b7ee;
             background-color: white;
-            border: 3px solid #67b7ee;
+            border: 2px solid #67b7ee;
             cursor: pointer;
             display: block;
             font-size: 14px;
-            padding: 10px;
-            margin-top: 16px;
-            width: 70px;
+            margin-top: -56px;
+            width: 74px;
             height: 45px;
             text-align : center;
             font-family: "paybooc-Light", sans-serif;
@@ -73,7 +101,12 @@
 		}
 		body{
 		background-color: #fafafa;
-		
+		margin-top: 37px;
+		}
+		#fav3{
+			font-size: 12px;
+			margin-left: 30px;
+		    margin-top: 30px;
 		}
     </style>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -82,10 +115,19 @@
     
 </head>
 <body>
+<div id=fix>
+
+		<span id="clock"></span>
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+		
+	</div>
     <button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
 </button>
-
+	<div id="fav3">관심사를 3개이상 선택해주세요 :)</div>
     <form action="SetFavProgram"  id='form'>
 
 
@@ -172,6 +214,29 @@ arrow_back_ios
     </form>
     <script src="js/jquery-3.7.1.js"></script>
     <script>
+///////////////////////////////////////////////////////////////////////////////
+	// 시계
+	function updateClock() {
+		const currentDate = new Date();
+		const hours = currentDate.getHours();
+		const minutes = currentDate.getMinutes();
+		
+		const hours12 = hours % 12 || 12;
+		
+		const hoursStr = String(hours12).padStart(2, '0'); 
+	    const minutesStr = String(minutes).padStart(2, '0'); 
+
+	    const clockElement = document.getElementById("clock");
+	    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+	}
+
+	// 1초마다 시간을 업데이트
+	setInterval(updateClock, 1000);
+
+	// 초기 로딩 시에도 시간 표시
+	updateClock();
+
+	//////////////////////////////////////////////////////////////////////////////// 
         $(document).ready(function(){
         $('.music').click(function(){
           if($('.music1').hasClass('bold')){

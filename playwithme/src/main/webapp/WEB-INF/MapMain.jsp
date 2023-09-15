@@ -1,3 +1,7 @@
+
+
+
+
 <%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
@@ -18,6 +22,7 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
+
 	#clock {
 		margin-left: 10px;
 		margin-bottom: 10px;
@@ -25,10 +30,11 @@
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 15px;
 	}
 	#fix{
 	    position: relative;
-	    top: 0;
+	    top: -2px;
 	    left: 0;
 	    height: 20px;
 	    
@@ -54,6 +60,7 @@
 
 </head>
 <body>
+
 	<div id=fix>
 
 		<span id="clock"></span>
@@ -62,7 +69,7 @@
 		<img src="images/LTE.png" id="lte">
 		<img src="images/배터리.png" id="battery">
 		
-		
+
 	</div>
 
 	<%
@@ -84,8 +91,8 @@
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 740px; position: relative; overflow: hidden;"></div>
-		
-		
+
+
 		<ul id="category">
 			<li id="AT4" data-order="0"><span class="category_bg new-icon1"></span>
 				명소</li>
@@ -164,7 +171,8 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+
 
 	<script src="assets/js/MapMain.js"></script>
 	<script>
@@ -181,13 +189,17 @@
 			const hours = currentDate.getHours();
 			const minutes = currentDate.getMinutes();
 			
+
 			const hours12 = hours % 12 || 12;
 			
-			const hoursStr = hours12 < 1 ? `0${hours12}` : hours12;
-		    const minutesStr = minutes < 1 ? `0${minutes}` : minutes;
-			
-			const clockElement = document.getElementById("clock");
-			clockElement.textContent = `${hours}:${minutes}`;
+
+			const hoursStr = String(hours12).padStart(2, '0'); 
+		    const minutesStr = String(minutes).padStart(2, '0'); 
+
+		    const clockElement = document.getElementById("clock");
+		    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+
+	
 		}
 
 		// 1초마다 시간을 업데이트
@@ -198,16 +210,16 @@
 
 		////////////////////////////////////////////////////////////////////////////////       
 
-		document.addEventListener("DOMContentLoaded", function() {
-			// id가져오기
-			let chatSpan = document.getElementById("chatLink");
-
-			// 클릭 리스너 이벤트
-			chatSpan.addEventListener("click", function() {
-				//  chat.jsp이동
-				window.location = "chat";
-			});
-		});
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("chatLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goChattingList";
+	        });
+	    });
 
 		   //////////////////////////////////////////////
 		    addMarker2() 
@@ -232,7 +244,9 @@
 							positions.push(data4)
 							
 					        imageSrc1 = "file/<%=board_Num.get(i).getM_Profile()%>"
+
 					        imageSize1 = new kakao.maps.Size(25, 25); 
+
 					        //console.log(board_Num.get(i).getM_Profile());
 					        // 마커 이미지를 생성합니다    
 					        markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
@@ -312,6 +326,7 @@
 
 
 </body>
+
 
 
 </html>
