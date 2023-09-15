@@ -13,7 +13,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'><link rel="stylesheet" href="assets/css/ChatList.css">
 </head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 <body class="center">
+  
   <div class="contacts">
     <i class="fas fa-bars fa-2x"></i>
 
@@ -30,10 +33,8 @@
     ArrayList<ChattingListDTO> chatList = new ArrayList<>();
     
     chatList = Chatdao.chatlist(memberId);
-    
-    //
-    
     %>
+    
     <div>
       <input type="text" id="roomTitle" placeholder="채팅방 제목을 입력하세요">
       <button id="createRoomButton">채팅방 생성</button>

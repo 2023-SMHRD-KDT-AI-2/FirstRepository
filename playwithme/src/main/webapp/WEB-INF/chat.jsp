@@ -55,48 +55,57 @@
 	<script>
 const urlParams = new URLSearchParams(window.location.search);
 const chatroom = urlParams.get('room');
+
 //채팅 null 입력 하면 버튼 비활성화
-const sendButton = document.getElementById("send-button");//입력 메시지
-const messageInput = document.getElementById("message"); // 메시지 입력
-const iconElement = document.getElementById("send-button"); //아이콘 요소를 가져옵니다.
+// 메시지 입력란과 아이콘 요소를 가져옵니다.
+const messageInput = document.getElementById("message");
+const sendButton = document.getElementById("send-button");
 
 
-/*
+
+//아이콘 클릭 이벤트 핸들러 함수
+function handleIconClick() {
+    // 메시지 입력란의 값
+    const messageValue = messageInput.value;
+
+    // 메시지 값이 null 또는 빈 문자열인 경우 클릭 이벤트를 무시합니다.
+    if (!messageValue || messageValue.trim() === "") {
+        return;
+    }
+
+    // 메시지 값이 있는 경우, 실제로 클릭 이벤트를 처리하는 로직을 여기에 추가하세요.
+    sendMessage(); // 아이콘 클릭 이벤트가 활성화되는 경우 메시지 전송 로직을 수행
+}
+
+// 아이콘 클릭 이벤트 핸들러를 등록합니다.
+sendButton.addEventListener("click", handleIconClick);
+
+// 메시지 입력란의 입력 이벤트를 감지합니다.
 messageInput.addEventListener("input", function() {
     // 메시지 입력란의 값
     const messageValue = messageInput.value;
-    iconElement.classList.add("disabled-icon"); //아이콘을 비활성화
-    // 메시지 값이 null 또는 빈 문자열인 경우 버튼을 비활성화.
+
+    // 메시지 값이 null 또는 빈 문자열인 경우 버튼을 비활성화하고 색깔을 회색으로 변경합니다.
     if (!messageValue || messageValue.trim() === "") {
-    	// 아이콘 요소를 가져옵니다.
-    	
-
-    	// 아이콘의 스타일을 변경하여 비활성화합니다.
-    	iconElement.style.color = "gray"; // 회색으로 설정
-
-    	// 아이콘 클릭 이벤트 비활성화
-    	iconElement.style.pointerEvents = "none"; // 클릭 이벤트 비활성화
+        sendButton.disabled = true;
+        sendButton.style.color = "#ccc"; // 회색
     } else {
-    	// 아이콘을 다시 활성화하기 위해 클래스를 제거합니다.
-    	// 아이콘을 다시 활성화하기 위해 스타일을 초기값으로 설정
-iconElement.style.color = "#6398f2"; // 아이콘의 원래 색상으로 설정
-iconElement.style.pointerEvents = "auto"; // 클릭 이벤트 활성화
-
-    	iconElement.classList.remove("disabled-icon");
-    }
-});
-*/
-document.getElementById('message').addEventListener('input', function() {
-    if (this.value.trim() === '') {
-        document.getElementById('send-button').style.color = '#ccc';
-    } else {
-        document.getElementById('send-button').style.color = '#6398f2';
+        // 메시지 값이 있는 경우 버튼을 활성화하고 파란색으로 변경합니다.
+        sendButton.disabled = false;
+        sendButton.style.color = "#6398f2"; // 파란색
     }
 });
 
-console.log(sendButton)
-console.log(messageInput)
-console.log(iconElement)
+
+// 초기로딩 시 메시지 입력란이 비어있다면 버튼을 비활성화합니다.
+if (!messageInput.value || messageInput.value.trim() === "") {
+    sendButton.disabled = true;
+    sendButton.style.color = "#ccc"; // 회색
+} else {
+    sendButton.disabled = false;
+    
+    sendButton.style.color = "#6398f2"; // 파란색
+}
 
 $.ajax({
    url : "ChatRoomTitle",
@@ -224,11 +233,9 @@ function sendMessage() {
     document.getElementById("message").value = "";
 }
 
-// 버튼 클릭 시 sendMessage 함수 호출
-sendButton.addEventListener("click", sendMessage);
 
 
-
+//sendButton.addEventListener("click", sendMessage);
 // 버튼 클릭 시 sendMessage 함수 호출
 //document.getElementById("send-button").addEventListener("click", sendMessage);
 </script>
