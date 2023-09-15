@@ -21,5 +21,14 @@ DELETE FROM INTEREST_NAME
 WHERE INTER_NUM = (SELECT inter_num FROM INTEREST WHERE Member_id = #{member_id})
   
 </delete>
-
+<select id="findfav" parameterType="playwithme.model.FavoriteDTO" resultType="playwithme.model.FavoriteDTO">
+SELECT*
+FROM INTEREST_NAME
+WHERE INTER_NUM = #{INTER_NUM}
+</select>
+<select id="findnum" parameterType="string" resultType="int">
+    SELECT inter_num
+    FROM interest
+    WHERE member_id = #{member_id}
+</select>
 </mapper>

@@ -16,7 +16,7 @@ public class CctvDAO {
 	public ArrayList<CctvDTO> clist() {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
-		cctvlist = (ArrayList)sqlSession.selectList("clist");
+		cctvlist = (ArrayList)sqlSession.selectList("cctv");
 		
 		sqlSession.close();
 		

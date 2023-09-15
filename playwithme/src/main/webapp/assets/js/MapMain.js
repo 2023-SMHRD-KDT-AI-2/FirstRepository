@@ -1,3 +1,4 @@
+
 /**
  * 
  */
@@ -62,28 +63,7 @@
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
       // 게시글 작성 후 마커
 
-      // 마커가 표시될 위치입니다 
-      //let markerPosition2  = new kakao.maps.LatLng(35.11039142255239, 126.87748644508468); 
-      
-      // 마커를 생성합니다
-      //let marker2 = new kakao.maps.Marker({
-      //    position: markerPosition2
-      //});
-      
-      // 마커가 지도 위에 표시되도록 설정합니다
-      //marker2.setMap(map);
-      
-      //let iwContent = '<div style="padding:5px;">여기에 게시물 제목</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-      //    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
-      //
-      // 인포윈도우를 생성합니다
-      //let infowindow2 = new kakao.maps.InfoWindow({
-      //    position : iwPosition, 
-      //    content : iwContent 
-      //});
-        
-      // 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
-      //infowindow2.open(map, marker); 
+		
 
         //////////////////////////////////////////////////////////////////////////////////////////////////////////////       
         // 주소-좌표
@@ -122,7 +102,7 @@
                     infowindow.open(map, marker);
                     let meetingPlace = document.getElementById('meetingPlace')
                     meetingPlace.value = result[0].address.address_name
-           		    // 위도 경도값을 구합니다.
+                      // 위도 경도값을 구합니다.
                     $("#latitude").val(mouseEvent.latLng.getLng())
                     $("#longitude").val(mouseEvent.latLng.getLat())
                 }   
@@ -592,9 +572,9 @@
             message2.style.position = 'static';
             message2.innerHTML = '';
         });*/
-        	// 게시물 저장 시 내용 안 채웠을 때 / 선웅
-        	function check(){
-				if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
+           // 게시물 저장 시 내용 안 채웠을 때 / 선웅
+           function check(){
+            if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
             // 모달 창 닫음
              alert('게시글이 저장되었습니다:\n');
             modal.style.display = 'none';
@@ -603,11 +583,11 @@
             map2.style.opacity = '1';
             message2.style.position = 'static';
             message2.innerHTML = '';
-				}else{
-					alert('모든 값을 입력해주세요!')
-					return false;
-				}
-			}
+            }else{
+               alert('모든 값을 입력해주세요!')
+               return false;
+            }
+         }
                 
         ////////////////////////////////////////////////////////////////////////////////////
         // 게시글 작성 시 인원 수 
@@ -644,4 +624,5 @@
         btn4.addEventListener("click",function(){
 			window.location = "goProfile"
 		})
+
            
