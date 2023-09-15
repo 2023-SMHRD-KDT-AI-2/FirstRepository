@@ -133,6 +133,19 @@ $.ajax({
     }
 });
 
+$.ajax({
+    url: "JoinChat",
+    type: "post",
+    data: { "roomtitle": chatroom, "id": "<%= memberId %>" },
+    success: function (response) {
+        // 성공 시 수행할 작업
+        console.log("Success:", response);
+    },
+    error: function (xhr, status, error) {
+        // 실패 시 수행할 작
+    }
+});
+
 
 console.log(chatroom)
 const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);

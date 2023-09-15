@@ -93,6 +93,22 @@ public class ChattingListDAO {
 		   sqlSession.close();
 		   return nName;
 	   }
+	   
+	   public int joinChat(ChatPartiDTO chatpart) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   int cnt=sqlSession.insert("join_chat", chatpart);
+		   sqlSession.close();
+		   return cnt;
+	   }
+	   
+	   public String checkparti (ChatPartiDTO chatpart) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   String check=sqlSession.selectOne("check_parti", chatpart);
+		   sqlSession.close();
+		   return check;
+		   
+	   }
 	
 
 }

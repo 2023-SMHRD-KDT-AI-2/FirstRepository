@@ -126,7 +126,15 @@
 		<servlet-name>NickName</servlet-name>
 		<servlet-class>playwithme.controller.NickName</servlet-class>
 	</servlet>
-
+	
+			<servlet>
+		<servlet-name>JoinChat</servlet-name>
+		<servlet-class>playwithme.controller.JoinChat</servlet-class>
+	</servlet>
+	
+	
+	
+<!-- /////////////////////////////////////////////////////////////////////////////////////////////////////////      -->
 	<servlet-mapping>
 		<servlet-name>goProfile</servlet-name>
 		<url-pattern>/goProfile</url-pattern>
@@ -222,6 +230,11 @@
 		<servlet-mapping>
 		<servlet-name>NickName</servlet-name>
 		<url-pattern>/NickName</url-pattern>
+	</servlet-mapping>
+	
+		<servlet-mapping>
+		<servlet-name>JoinChat</servlet-name>
+		<url-pattern>/JoinChat</url-pattern>
 	</servlet-mapping>
 
 </web-app>

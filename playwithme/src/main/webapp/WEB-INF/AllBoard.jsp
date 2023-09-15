@@ -107,7 +107,8 @@ arrow_back_ios
 							      
 							      <td style="text-align: left; !important"><%=AllBoard.get(i).getTitle() %></td>
 							      <td><%=AllBoard.get(i).getNum_People() %>명</td>
-							      <td><button class = "first"><a href ="goChat?room=<%=AllBoard.get(i).getChat_room_num()%>">채팅참여</a></button>
+							      <%String boardChat=AllBoard.get(i).getChat_room_num(); %>
+							      <td><button  id="partichat"  class = "first"><a href ="goChat?room=<%=boardChat%>">채팅참여</a></button>
 							     
 							      </td>
 							    </tr>
@@ -141,7 +142,7 @@ arrow_back_ios
   <script >
   $('#back').click(function () {
 		location.href = 'goProfile';
-	})
+	});
   <script src="assets/js/MyBoardmain.js"></script> 
   <script >
   $('.first').hover(
@@ -161,5 +162,7 @@ arrow_back_ios
 		    }
 			);
   </script>
+
+
 	</body>
 </html>

@@ -67,5 +67,15 @@
    <select id="n_name" parameterType="string" resultType="string">
    select m_name from na_member where member_id=#{memberid}
    </select>
+   
+   <insert id="join_chat" parameterType="playwithme.model.ChatPartiDTO">
+   INSERT INTO CHATTING_ROOM_PARTI (PARTI_NUM, CHATTING_ROOM_NUM, MEMBER_ID) 
+   values (SEQ_CHATTING_ROOM_PARTI.nextval, #{chatting_room_num}, #{member_id})
+   </insert>
+   
+   <select id="check_parti" parameterType="playwithme.model.ChatPartiDTO" resultType="string">
+   	select PARTI_NUM from chatting_room_parti 
+ 	where MEMBER_ID= #{member_id} and CHATTING_ROOM_NUM=#{chatting_room_num}
+   </select>
 
 </mapper>
