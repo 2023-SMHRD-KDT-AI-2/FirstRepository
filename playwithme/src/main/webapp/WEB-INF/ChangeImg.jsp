@@ -91,19 +91,57 @@
 		'opsz' 24
 		}
 		button {
+		cursor :pointer;
 		border : 0px;
 		background-color :#fafafa;
 		margin-top : 10px;
 		margin-left : 5px;
 		
 		}
+		#clock {
+		margin-left: 10px;
+		margin-bottom: 16px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		font-size: 15px;
+		}
+		#fix{
+		    position: relative;
+		    top: -3px;
+		    left: 6px;
+		    height: 20px;
+		    
+		}
+		#internet{
+			height: 19px;
+			margin-left: 192px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 4px;
+		}
+		#battery{
+			height: 21px;
+			margin-bottom: -1px;
+		}
 </style>
     
 </head>
-<body>   
-<button class="material-symbols-outlined" id ="back" style="color:gray;">
-arrow_back_ios
-</button>
+<body>  
+	<div id=fix>
+	
+			<span id="clock"></span>
+			<img src="images/인터넷.png" id="internet">
+			<img src="images/LTE.png" id="lte">
+			<img src="images/배터리.png" id="battery">
+			
+			
+		</div> 
+	<button class="material-symbols-outlined" id ="back" style="color:gray;">
+	arrow_back_ios
+	</button>
 
          <form action="ChangeImg" method="post" enctype="multipart/form-data">
         <div id="profileimg">
@@ -117,7 +155,9 @@ arrow_back_ios
         </div>
     </form>
     <script src="js/jquery-3.7.1.js"></script>
+    <script src="assets/js/clock.js"></script>
     <script>
+
         // JavaScript to trigger the file input when the image is clicked
         document.getElementById('changeImgLabel').addEventListener('click', function() {
             if (!fileInputClicked) {

@@ -1,4 +1,4 @@
-package playwithme;
+package playwithme.controller;
 
 import java.io.IOException;
 

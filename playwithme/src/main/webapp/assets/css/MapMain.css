@@ -70,7 +70,7 @@
         }
 
         #category li .category_bg.new-icon2 {
-            background: url("../../images/식당.png") no-repeat;
+            background: url("../../images/식당3.png") no-repeat;
             background-size: contain;
 
         }
@@ -89,7 +89,7 @@
         #menu {
             display: flex;
             position: absolute;
-            top: 670px;
+            top: 638px;
             left: 0px;
             right: 0px;
             width: 350px;
@@ -162,14 +162,14 @@
         }
         #menu li .menu_bg.new-icon5 {
             margin-top: 7px;
-            background: url("../../images/지도2.png") no-repeat;
+            background: url("../../images/지도3.png") no-repeat;
             background-size: contain;
 
         }
         #post {
             display: flex;
             position: absolute;
-            top: 610px;
+            top: 565px;
             right: 3px;
             width: 50px;
             height: 50px;
@@ -331,9 +331,7 @@
         }
 
 
-        #menu_wrap .option {
-            text-align: center;
-        }
+       
 
         #menu_wrap .option p {
             margin: 10px 0;
@@ -457,6 +455,7 @@
             margin: 10px auto;
             text-align: center;
         }
+        
 
         #pagination a {
             display: inline-block;
@@ -468,21 +467,23 @@
             cursor: default;
             color: #777;
         }
-		#clock{
-			size: 5px;;
-		}
+		
         input {
             border-radius: 5px;
             height: 28px;
             width: 195px;
-            margin-top: 25px;
+           
         }
         #myModal{
             width: 250px;
             height: 440px;
             bottom: 200px;
         }
-
+		#keyword{
+			margin-top:30px;
+			position: fixed;
+			
+		}
         
          /* 모달 스타일 */
          .modal {
