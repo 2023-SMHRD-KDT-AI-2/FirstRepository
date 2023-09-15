@@ -111,9 +111,6 @@ body {
 .contacts .contact:last-child {
   margin: 0;
 }
-
-
-
 .chat {
   position: relative;
   display: flex;
@@ -229,6 +226,13 @@ body {
 .chat .input input:placeholder {
   color: #999;
 }
+
+/* 비활성화된 아이콘 스타일 */
+.disabled-icon {
+    color: gray; /* 회색으로 만듭니다. */
+    pointer-events: none; /* 클릭과 같은 이벤트를 무시하도록 설정합니다. */
+}
+
 
 @-webkit-keyframes typing {
   0%, 75%, 100% {

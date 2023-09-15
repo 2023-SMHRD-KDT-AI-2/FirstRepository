@@ -33,14 +33,14 @@
 		<div class="contact bar">
 			<div class="name"></div>
 			<div class="seen">
-			<!-- 참여자 id -->
+				<!-- 참여자 id -->
 			</div>
-			
+
 			<!-- 방 삭제하기 -->
 			<div class="button">
 				<button id="delete-option">나가기</button>
 			</div>
-			
+
 		</div>
 		<div class="messages" id="chat-messages"></div>
 		<div class="input">
@@ -55,6 +55,48 @@
 	<script>
 const urlParams = new URLSearchParams(window.location.search);
 const chatroom = urlParams.get('room');
+//채팅 null 입력 하면 버튼 비활성화
+const sendButton = document.getElementById("send-button");//입력 메시지
+const messageInput = document.getElementById("message"); // 메시지 입력
+const iconElement = document.getElementById("send-button"); //아이콘 요소를 가져옵니다.
+
+
+/*
+messageInput.addEventListener("input", function() {
+    // 메시지 입력란의 값
+    const messageValue = messageInput.value;
+    iconElement.classList.add("disabled-icon"); //아이콘을 비활성화
+    // 메시지 값이 null 또는 빈 문자열인 경우 버튼을 비활성화.
+    if (!messageValue || messageValue.trim() === "") {
+    	// 아이콘 요소를 가져옵니다.
+    	
+
+    	// 아이콘의 스타일을 변경하여 비활성화합니다.
+    	iconElement.style.color = "gray"; // 회색으로 설정
+
+    	// 아이콘 클릭 이벤트 비활성화
+    	iconElement.style.pointerEvents = "none"; // 클릭 이벤트 비활성화
+    } else {
+    	// 아이콘을 다시 활성화하기 위해 클래스를 제거합니다.
+    	// 아이콘을 다시 활성화하기 위해 스타일을 초기값으로 설정
+iconElement.style.color = "#6398f2"; // 아이콘의 원래 색상으로 설정
+iconElement.style.pointerEvents = "auto"; // 클릭 이벤트 활성화
+
+    	iconElement.classList.remove("disabled-icon");
+    }
+});
+*/
+document.getElementById('message').addEventListener('input', function() {
+    if (this.value.trim() === '') {
+        document.getElementById('send-button').style.color = '#ccc';
+    } else {
+        document.getElementById('send-button').style.color = '#6398f2';
+    }
+});
+
+console.log(sendButton)
+console.log(messageInput)
+console.log(iconElement)
 
 $.ajax({
    url : "ChatRoomTitle",
@@ -134,8 +176,8 @@ document.getElementById('delete-option').addEventListener('click', function() {
     });
 });
 
-console.log(chatroom)
-const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);
+
+const socket = new WebSocket('ws://localhost:8080/aa/chat/'+chatroom);
 let senderName = ""; // 초기값은 빈 문자열로 설정합니다.
 
 // 이름 입력란의 값이 변경될 때마다 발신자 이름을 업데이트합니다.
@@ -183,7 +225,12 @@ function sendMessage() {
 }
 
 // 버튼 클릭 시 sendMessage 함수 호출
-document.getElementById("send-button").addEventListener("click", sendMessage);
+sendButton.addEventListener("click", sendMessage);
+
+
+
+// 버튼 클릭 시 sendMessage 함수 호출
+//document.getElementById("send-button").addEventListener("click", sendMessage);
 </script>
 	<script src="https://kit.fontawesome.com/9db75878c5.js"
 		crossorigin="anonymous"></script>
