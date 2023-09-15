@@ -22,6 +22,14 @@ public class CctvDAO {
 		
 		return cctvlist;
 	}
-	
+	public ArrayList<CctvDTO> test(CctvDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		cctvlist = (ArrayList)sqlSession.selectList("test", dto);
+		
+		sqlSession.close();
+		
+		return cctvlist;
+	}
 	
 }
