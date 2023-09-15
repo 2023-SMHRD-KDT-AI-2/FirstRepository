@@ -16,7 +16,8 @@
          , LONGITUDE   
          , LATITUDE   
          , MEET_TIME   
-         , NUM_PEOPLE )
+         , NUM_PEOPLE
+         , CHAT_ROOM_NUM )
       VALUES
       ( seq_board.nextval,
          #{member_Id},
@@ -27,7 +28,8 @@
          #{longitude},
          #{latitude},
          REPLACE(#{meet_Time},':',''),
-         #{num_People} )
+         #{num_People},
+         #{chat_room_num} )
    </insert>
 	<!-- 전체 게시물 읽기 -->
 	<select id = "list" resultType="playwithme.model.BoardDTO">

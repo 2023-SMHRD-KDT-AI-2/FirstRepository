@@ -640,7 +640,7 @@
         });*/
            // 게시물 저장 시 내용 안 채웠을 때 / 선웅
            function check(){
-            if($(postTitle).val()!= ''|| $(meetingTime).val()!= ''|| $(postContent).val()!= ''){
+            if($(postTitle).val()!= ''&& $(meetingTime).val()!= ''&& $(postContent).val()!= ''){
             // 모달 창 닫음
              alert('게시글이 저장되었습니다:\n');
             modal.style.display = 'none';
