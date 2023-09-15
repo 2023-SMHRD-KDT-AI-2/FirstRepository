@@ -18,20 +18,51 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
-#clock {
-	margin-left: 10px;
-	margin-bottom: 10px;
-}
+	#clock {
+		margin-left: 10px;
+		margin-bottom: 10px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+	}
+	#fix{
+	    position: relative;
+	    top: 0;
+	    left: 0;
+	    height: 20px;
+	    
+	}
+	#navi{
+		height: 14px;
+		margin-bottom: 2px;
+	}
+	#internet{
+		height: 19px;
+		margin-left: 180px;
+		margin-bottom: 2px;
+	}
+	#lte{
+		height: 11px;
+		margin-bottom: 5px;
+	}
+	#battery{
+		height: 21px;
+	}
 </style>
 
 
 </head>
 <body>
-	<div class=fix>
+	<div id=fix>
 
-		<div class="fix1">
-			<span id="clock"></span>
-		</div>
+		<span id="clock"></span>
+		<img src="images/네비.png" id="navi">
+		<img src="images/인터넷.png" id="internet">
+		<img src="images/LTE.png" id="lte">
+		<img src="images/배터리.png" id="battery">
+		
+		
 	</div>
 
 	<%
@@ -53,6 +84,8 @@
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 740px; position: relative; overflow: hidden;"></div>
+		
+		
 		<ul id="category">
 			<li id="AT4" data-order="0"><span class="category_bg new-icon1"></span>
 				명소</li>
@@ -131,7 +164,7 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7346a61533c9bd3cf2f11f5f00313917&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
 
 	<script src="assets/js/MapMain.js"></script>
 	<script>
@@ -148,8 +181,10 @@
 			const hours = currentDate.getHours();
 			const minutes = currentDate.getMinutes();
 			
-			const hoursStr = hours < 10 ? `0${hours}` : hours;
-			const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
+			const hours12 = hours % 12 || 12;
+			
+			const hoursStr = hours12 < 1 ? `0${hours12}` : hours12;
+		    const minutesStr = minutes < 1 ? `0${minutes}` : minutes;
 			
 			const clockElement = document.getElementById("clock");
 			clockElement.textContent = `${hours}:${minutes}`;
@@ -197,7 +232,7 @@
 							positions.push(data4)
 							
 					        imageSrc1 = "file/<%=board_Num.get(i).getM_Profile()%>"
-					        imageSize1 = new kakao.maps.Size(24, 35); 
+					        imageSize1 = new kakao.maps.Size(25, 25); 
 					        //console.log(board_Num.get(i).getM_Profile());
 					        // 마커 이미지를 생성합니다    
 					        markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
@@ -279,5 +314,4 @@
 </body>
 
 
->>>>>>> origin/beta
 </html>
