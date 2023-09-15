@@ -154,10 +154,10 @@
         
 	 #back {
 		border : 0px;
-		background-color :#fafafa;
-		margin-top : 15px;
+		background-color :white;
+		padding-top : 56px;
 		margin-left : 10px;
-		
+		position: fixed;
 		}
 	
     </style>
