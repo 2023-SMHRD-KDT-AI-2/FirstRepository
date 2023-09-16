@@ -13,13 +13,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
       
        body{
-       background: #fafafa;
+       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+       background: #FFF;
        
        
        }
@@ -75,13 +75,12 @@
         }
         #submitButton:active {
         }
-        #backbtn {
+        #back {
+        cursor :pointer;
         border: 0px;
-        color : #fafafa ;
-        background-color : #fafafa;
-        }
-        #backbtn > img {
-        	width : 50px;
+        background-color : #FFF;
+        margin-left: 3px;
+        margin-top: 9px;
         }
         
 		.material-symbols-outlined {
@@ -91,17 +90,10 @@
  		 'GRAD' 0,
 		'opsz' 24
 		}
-		button {
-		cursor :pointer;
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 10px;
-		margin-left : 5px;
 		
-		}
 		#clock {
-		margin-left: 10px;
-		margin-bottom: 16px;
+		margin-left: 4px;
+		margin-bottom: 10px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
@@ -113,11 +105,12 @@
 		    top: -3px;
 		    left: 6px;
 		    height: 20px;
-		    
+		    margin-top: 9px;
 		}
 		#internet{
 			height: 19px;
-			margin-left: 192px;
+			margin-left: 197px;
+			:
 		}
 		#lte{
 			height: 11px;
@@ -135,7 +128,7 @@
 
 		}
 		#chn{
-		    background-color: #fafafa;
+		    background-color: #FFF;
 		    border: 3px;
 		    margin-left: 32%;
 		    margin-top: 40px;

@@ -5,9 +5,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>관심사 수정</title>
     <style>
     @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+	   body{
+	   position: fixed;
+	   background: #fafafa;
+	   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	   }
 	    #clock {
 		margin-left: 49px;
 		margin-bottom: 35px;
@@ -15,11 +20,12 @@
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 15px;
 		}
 		#fix{
 		    position: fixed;
-		    top: 12px;
-		    left: -18px;
+		    top: 6px;
+    		left: -31px;
 		    height: 20px;
 		    z-index: 1000;
 		    
@@ -27,7 +33,7 @@
 		
 		#internet{
 			height: 19px;
-			margin-left: 180px;
+			margin-left: 197px;
 			margin-bottom: 12px;
 		}
 		#lte{
@@ -89,19 +95,20 @@
     		cursor: pointer;
         }
         #button:active {
-   			 transform: scale(1.2);
+   			transform: scale(1.2);
         }
         #back {
-        cursor :pointer;
-        border : 0px;
-		background-color :#fafafa;
-		margin-top : 8px;
-		margin-left : 8px;
+		  	cursor: pointer;
+		  	border: 0px;
+		    background-color: #fafafa;
+		    margin-top: 29px;
+		    margin-left: 2px;
+		}
 		
 		}
 		body{
-		background-color: #fafafa;
-		margin-top: 37px;
+			background-color: #fafafa;
+			margin-top: 37px;
 		}
 		#fav3{
 			font-size: 12px;

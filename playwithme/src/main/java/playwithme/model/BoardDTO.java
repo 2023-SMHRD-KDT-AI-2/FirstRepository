@@ -19,7 +19,7 @@ public class BoardDTO {
 	private Double latitude; // 경도
 	private String meet_Time; // 모임시간
 	private int num_People; // 모임 인원 수
-	private String M_Profile; // 내 프로필 사진
 	private String chat_room_num; //게시판 연동 채팅방번호
+	private String m_Profile; // 내 프로필 사진
 
 }

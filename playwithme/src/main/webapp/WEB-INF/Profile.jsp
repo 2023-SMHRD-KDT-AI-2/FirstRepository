@@ -20,6 +20,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
 		 <style>
+		 
         /* 그래프 스타일 */
         .graph-container {
         	background-color : #ded1d18f;
@@ -58,7 +59,7 @@
         #back {
         	cursor :pointer;
 			border : 0px;
-			background-color :#fafafa;
+			background-color :#FaFaFa;
 			margin-top : 15px;
 			margin-left : 10px;
 		
@@ -71,6 +72,7 @@
 		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
 		}
 		#name {
+		font-size: 14px;
 		position: fixed;
    		margin-left: 161px;
    		margin-top: 19px;
@@ -78,6 +80,7 @@
    		font-weight: bold;
 		}
 		#favorite {
+		font-size: 14px;
 		width: 170px;
 		position: fixed;
    		margin-left: 145px;
@@ -89,12 +92,9 @@
    		margin-left: 145px;
    		margin-top: 19px;
 		}
-		#shap{
-		position: fixed;
-   		margin-left: 145px;
-   		margin-top: 19px;
-		}
+		
 		#myid{
+		font-size: 14px;
 		position: fixed;
    		margin-top: 23px;
 		font-size : xx-small;
@@ -102,36 +102,35 @@
 		
 
 		#clock {
-		margin-left: 10px;
+		MARGIN-TOP: 1px;
+		margin-left: 18px;
 		margin-bottom: 10px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 15px;
 		}
 		#fix{
 		    position: relative;
 		    top: 0;
 		    left: 0;
 		    height: 20px;
-		    
-		}
-		#navi{
-			height: 14px;
-			margin-bottom: 8px;
+		    margin-top: 3px;
 		}
 		#internet{
 			height: 19px;
-			margin-left: 180px;
-			margin-bottom: 2px;
+			margin-left: 197px;
+			margin-bottom: 12px;
 		}
 		#lte{
 			height: 11px;
-			margin-bottom: 3px;
+			margin-bottom: 11px;
+			
 		}
 		#battery{
 			height: 21px;
-			margin-bottom: 3px;
+			margin-bottom: 11px;
 		}
 
     </style>
@@ -140,7 +139,6 @@
   <div id=fix>
 
 		<span id="clock"></span>
-		<img src="images/네비.png" id="navi">
 		<img src="images/인터넷.png" id="internet">
 		<img src="images/LTE.png" id="lte">
 		<img src="images/배터리.png" id="battery">

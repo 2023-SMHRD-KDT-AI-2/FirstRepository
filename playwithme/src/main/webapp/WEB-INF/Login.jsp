@@ -8,8 +8,11 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
+<title>로그인 창</title>
 <style>
+	body{
+	
+	}
 	#clock {
 		margin-left: 4px;
 		margin-bottom: 13px;
@@ -17,19 +20,19 @@
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
-		font-size: 14px;
+		font-size: 15px;
 	}
 	#fix{
 		position: relative;
-	    margin-top: 10px;
-	    margin-left: 23px;
+	    margin-top: 7px;
+	    margin-left: 14px;
 	    height: 20px;
 	    
 	}
 	
 	#internet{
 		height: 19px;
-		margin-left: 191px;
+		margin-left: 197px;
 		margin-bottom: 2px;
 	}
 	#lte{
@@ -90,27 +93,32 @@
 	
 	<!-- 카카오 스크립트 -->
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
-		integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH"
-		crossorigin="anonymous">
-	</script>
-	<script>Kakao.init('662807c83d8fccc55bc8bf7c650227b4');</script> 
+  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
+<script>
+  Kakao.init('7346a61533c9bd3cf2f11f5f00313917'); // 사용하려는 앱의 JavaScript 키 입력
+</script>
 
 
 
 	<script>
-	///////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////
 	// 시계
 	function updateClock() {
 		const currentDate = new Date();
 		const hours = currentDate.getHours();
 		const minutes = currentDate.getMinutes();
+		
+
 		const hours12 = hours % 12 || 12;
 		
-		const hoursStr = hours12 < 10 ? `0${hours12}` : hours12;
-	    const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
-		
-		const clockElement = document.getElementById("clock");
-		clockElement.textContent = `${hours}:${minutes}`;
+
+		const hoursStr = String(hours12).padStart(2, '0'); 
+	    const minutesStr = String(minutes).padStart(2, '0'); 
+
+	    const clockElement = document.getElementById("clock");
+	    clockElement.textContent = `${hoursStr}:${minutesStr}`;
+
+
 	}
 
 	// 1초마다 시간을 업데이트
@@ -119,14 +127,12 @@
 	// 초기 로딩 시에도 시간 표시
 	updateClock();
 
-	////////////////////////////////////////////////////////////////////////////////     
+	////////////////////////////////////////////////////////////////////////////////    
   function loginWithKakao() {
     Kakao.Auth.authorize({
-      redirectUri: 'http://localhost:8082/goLoginRediectUri',
+      redirectUri: 'http://localhost:8090/KakaoLogin',
     });
   }
-
-  /* // 아래는 데모를 위한 UI 코드입니다.
   displayToken()
   function displayToken() {
     var token = getCookie('authorize-access-token');
@@ -144,7 +150,12 @@
           Kakao.Auth.setAccessToken(null);
         });
     }
-  } */
+  }
+
+  function getCookie(name) {
+    var parts = document.cookie.split(name + '=');
+    if (parts.length === 2) { return parts[1].split(';')[0]; }
+  }
 
 
 

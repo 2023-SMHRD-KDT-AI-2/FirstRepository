@@ -1,74 +1,66 @@
-
-
-
-
 <%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
 <%@page import="playwithme.model.CctvDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="assets/css/MapMain.css" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<style>
-
-	#clock {
-		margin-left: 10px;
-		margin-bottom: 10px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		font-size: 15px;
-	}
-	#fix{
-	    position: relative;
-	    top: -2px;
-	    left: 0;
-	    height: 20px;
-	    
-	}
-	#navi{
-		height: 14px;
-		margin-bottom: 2px;
-	}
-	#internet{
-		height: 19px;
-		margin-left: 180px;
-		margin-bottom: 2px;
-	}
-	#lte{
-		height: 11px;
-		margin-bottom: 5px;
-	}
-	#battery{
-		height: 21px;
-	}
-</style>
-
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메인 지도창</title>
+	<link rel="stylesheet" href="assets/css/MapMain.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<style>
+		body{
+    		background: #fafafa;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+		}
+		#clock{
+			margin-left: 10px;
+			margin-bottom: 10px;
+			display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+			vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+			margin-right: 3px;
+			font-weight: BOLD;
+			font-size: 15px;
+		}
+		#fix{
+		    position: relative;
+		    top: -2px;
+		    left: 0;
+		    height: 20px;
+		}
+		#navi{
+			height: 14px;
+			margin-bottom: 2px;
+		}
+		#internet{
+			height: 19px;
+			margin-left: 180px;
+			margin-bottom: 2px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 5px;
+		}
+		#battery{
+			height: 21px;
+		}
+	</style>
 </head>
 <body>
 
 	<div id=fix>
 
-		<span id="clock"></span>
-		<img src="images/네비.png" id="navi">
-		<img src="images/인터넷.png" id="internet">
-		<img src="images/LTE.png" id="lte">
+		<span id="clock"></span> 
+		<img src="images/네비.png" id="navi"> 
+		<img src="images/인터넷.png" id="internet"> 
+		<img src="images/LTE.png" id="lte"> 
 		<img src="images/배터리.png" id="battery">
-		
 
 	</div>
 
@@ -78,20 +70,16 @@
 	ArrayList<MemberDTO> info = new ArrayList<>();
 	info = dao.getmember(id);
 	session.setAttribute("info", info);
-	%>
-	<!-- 선웅선웅선웅선웅  -->
-	<%
 	CctvDAO cdao = new CctvDAO();
 	%>
+
 	<p style="margin-top: -12px">
-		<em class="link"> <a href="/web/documentation/#CategoryCode"
-			target="_blank"></a>
+		<em class="link"> <a href="/web/documentation/#CategoryCode" target="_blank"></a>
 		</em>
 	</p>
 	<div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 740px; position: relative; overflow: hidden;"></div>
-
+		<div id="map" style="width: 100%; height: 637px; position: relative; overflow: hidden;">
+		</div>
 
 		<ul id="category">
 			<li id="AT4" data-order="0"><span class="category_bg new-icon1"></span>
@@ -105,10 +93,9 @@
 		</ul>
 		<ul id="menu">
 			<li id="A1" data-order="0"><span id="friendLink"
-			class="menu_bg new-icon1"></span>
-				친구</li>
+				class="menu_bg new-icon1"></span> 친구</li>
 			<li id="A2" data-order="1"><span id="boardLink"
-			class="menu_bg new-icon2"></span>게시판</li>
+				class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
 			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
@@ -172,7 +159,6 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=628db567bbec48af8c138d59dec6bb57&libraries=services,clusterer,drawing"></script>
 
 
@@ -351,11 +337,5 @@
   
  
 	</script>
-
-
-
 </body>
-
-
-
 </html>

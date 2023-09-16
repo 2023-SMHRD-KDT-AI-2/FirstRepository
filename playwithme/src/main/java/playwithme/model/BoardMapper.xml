@@ -69,12 +69,7 @@
 	WHERE BOARD_NUM = #{board_Num}
 	
 	</update>
-	<select id="">
-	select board.* , na_member.m_profile
-from BOARD
-JOIN NA_MEMBER ON BOARD.#{member_ID} = NA_MEMBER#{member_ID};
 	
-	</select>
 
 
 

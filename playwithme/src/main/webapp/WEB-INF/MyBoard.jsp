@@ -29,17 +29,18 @@
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		font-weight: BOLD;
+		font-size: 15px;
 	}
 	#fix{
 	    position: relative;
-	    top: 7px;
-	    left:28px;
+	    top: 10px;
+	    left:29px;
 	    height: 20px;
 	    
 	}
 	#internet{
 		height: 19px;
-		margin-left: 212px;
+		margin-left: 200px;
 		margin-bottom: 7px;
 	}
 	#lte{
@@ -56,8 +57,8 @@
 	 	cursor: pointer;
 		border : 0px;
 		background-color :#fafafa;
-		margin-top : 15px;
-		margin-left : 10px;
+		margin-top : 21px;
+		margin-left : 7px;
 		
 		}
 	
@@ -88,7 +89,24 @@
         .title{
         	    padding-left: 10px;
         }
-     
+     #searchInput {
+     	width: 90%;
+		height: 29px;
+	    margin: 0;
+	    border-radius: 33px;
+	    border: 1px solid gray;
+	    margin-bottom: 0px;
+	    padding-left: 10px;
+	}
+	#clearSearch{
+		position: relative;
+	    cursor: pointer;
+	    color: red;
+	    z-index: 1;
+	    left: -28px;
+	    top: 4px;
+	}
+	
 	</style>
 	</head>
 	<body>
@@ -119,8 +137,12 @@ arrow_back_ios
 			<div class="row">
 				<div class="col-md-12">
 					<h3 class="h5 mb-4 text-center">${info.get(0).getM_Name()}님의 게시물</h3>
+					<input type="text" id="searchInput" placeholder="검색어를 입력하세요"/><span id="clearSearch" class="material-symbols-outlined">
+close
+</span><BR>
 					<span id = sulmyuong>내용을 보실려면 해당 게시글을 클릭해주세요</span>
-					<div class="table-wrap">
+					<div id="searchResults">
+					<div class="table-wrap" class="table-container">
 						<table class="table myaccordion table-hover" id="accordion">
 						  <thead>
 						    <tr>
@@ -169,6 +191,7 @@ arrow_back_ios
 						  </tbody>
 						</table>
 					</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -180,27 +203,64 @@ arrow_back_ios
   <script src="assets/js/MyBoardbootstrap.min.js"></script>
   <script src="assets/js/MyBoardmain.js"></script>
   <script src="assets/js/clock.js"></script>
-  <script >
-  $('#back').click(function () {
+  <script>
+	$('#back').click(function () {
 		location.href = 'goProfile';
 	})
-  <script >
-  	$('.first').hover(
-		    function() {
-		        $(this).css('backgroundColor', '#74bdf0');
-		    },
-		    function() {
-		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
-		    }
-			);
- 	$('.second').hover(
-		    function() {
-		        $(this).css('backgroundColor', '#d92626');
-		    },
-		    function() {
-		        $(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
-		    }
-			);
+	
+$('.first').hover(
+		function() {
+		$(this).css('backgroundColor', '#40a9f2');
+		},
+		function() {
+		$(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
+		}
+	);
+$('.second').hover(
+		function() {
+			$(this).css('backgroundColor', '#40a9f2');
+		},
+		function() {
+			$(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
+		}
+		);
+$(document).ready(function() {
+    // 검색어 입력 시 실행될 함수
+    function filterTableRows(query) {
+        // 검색어를 소문자로 변환
+        query = query.toLowerCase();
+
+        // 모든 행을 숨김
+        $("#accordion tbody tr").hide();
+
+        // 검색어와 일치하는 행을 표시
+        $("#accordion tbody tr").each(function(index) {
+            var rowText = $(this).text().toLowerCase();
+            if (rowText.indexOf(query) !== -1) {
+                $(this).show();
+
+                // 검색 결과 행부터 다음 행까지도 표시
+                var nextRow = $(this).next("tr");
+                while (nextRow.length > 0 && !nextRow.is(":visible")) {
+                    nextRow.show();
+                    nextRow = nextRow.next("tr");
+                }
+            }
+        });
+    }
+
+    // 검색어 입력란에 입력이 있을 때 실행
+    $("#searchInput").on("input", function() {
+        var query = $(this).val();
+        filterTableRows(query);
+    });
+
+    // 검색 초기화 버튼 클릭 시 검색어 초기화 및 모든 행 표시
+    $("#clearSearch").click(function() {
+        $("#searchInput").val("");
+        $("#accordion tbody tr").show();
+    });
+});
   </script>
 	</body>
 </html>
