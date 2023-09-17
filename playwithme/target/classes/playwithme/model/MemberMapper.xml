@@ -76,6 +76,16 @@
 		
 		
 	</insert>
+	
+	
+<!-- 친구 삭제 -->
+<delete id="deleteFriend" parameterType="playwithme.model.FriendListDTO">
+    DELETE FROM FRIEND
+    WHERE MEMBER_ID = #{member_Id}
+    AND F_MEMBER_ID = #{f_Member_Id}
+</delete>
+
+
 
 
 </mapper>

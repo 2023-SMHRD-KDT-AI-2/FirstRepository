@@ -98,5 +98,7 @@
 		select *
 		from FRIEND
 	</select>
+	
+	
 
 </mapper>

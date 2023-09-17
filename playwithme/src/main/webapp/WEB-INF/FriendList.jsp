@@ -1,7 +1,9 @@
 <!-- 
 박기원
-2023.09.15
-친구 리스트 + 친구 추가
+2023.09.17
+친구 리스트 + 친구 추가 + 1:1 채팅 추가 + 버튼 누를때 마다 새로고침
+문제점 : @입력하면 안먹히는 것 친구 추가 안됨?
+ 
  -->
 
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
@@ -72,6 +74,7 @@ if (friendList != null && !friendList.isEmpty()) {
                 <%= friendId %>
             </div>
             <div class="message">
+            <button class="deleteFriendButton" data-friend="<%= friendId %>">삭제</button>
             </div>
         </div>  
 <% 
@@ -100,47 +103,48 @@ if (friendList != null && !friendList.isEmpty()) {
                     console.log('서버 응답:', response);
                     alert('친구 추가 success');
                     window.location.href = 'goFriendList.java';
-
+                    location.reload(); // 페이지 새로 고침
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('Request failed: ' + textStatus + ', ' + errorThrown);
                     alert('친구 추가 success');
+                    location.reload(); // 페이지 새로 고침
                 }
             });
         });
     });
     </script>
     
-    
-    
     <script>
-    //친구방 만들기
-    /*
-function createChatRoom(friendId) {
-    $.ajax({
-        url: 'ChattingListProgram',
-        type: 'GET',
-        data: {
-            roomTitle: friendId // 친구 ID를 방 제목으로 사용하거나, 적절한 방 제목을 설정해주세요.
-        },
-        success: function(response) {
-            console.log('서버 응답:', response);
-            alert('채팅방 생성 success');
-           window.location = 'goChattingList'; // 채팅 방 목록 페이지로 이동
-           // window.location = 'chat.jsp?room=' + friendId; // 채팅 방으로 이동
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('Request failed: ' + textStatus + ', ' + errorThrown);
-            alert('채팅방 생성 fail');
-        }
-    });
-}
-    */
-</script>
-
-
     
+    //친구 삭제 버튼
+    $(document).ready(function() {
+        $('.deleteFriendButton').on('click', function() {
+            let friendId = $(this).data('friend');
+            if (confirm('친구를 삭제하시겠습니까?')) {
+                $.ajax({
+                    url: 'FriendDeleteProgram',
+                    type: 'POST', // POST 방식으로 변경
+                    data: {
+                        friendId: friendId
+                    },
+                    success: function(response) {
+                        console.log('서버 응답:', response);
+                        alert('친구 삭제 success');
+                        location.reload(); // 페이지 새로 고침
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+                        alert('친구 삭제 실패');
+                    }
+                });
+            }
+        });
+    });
+</script>
+   
 
+  
 </body>
 
 </html>

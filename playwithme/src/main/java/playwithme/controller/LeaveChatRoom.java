@@ -53,9 +53,7 @@ response.setCharacterEncoding("utf-8");
 
         // MyBatis를 사용하여 채팅 파티원 삭제
         int cnt = Chatdao.deleteParti(Chatdto);
-        System.out.println("chatting_Room_num: " + chatroom);
-        System.out.println("member_id: " + member_id);
-        System.out.println("Delete count: " + cnt); // Print the delete count
+
         if (cnt > 0) {
             // 삭제 성공한 경우
             RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/ChattingList.jsp");
