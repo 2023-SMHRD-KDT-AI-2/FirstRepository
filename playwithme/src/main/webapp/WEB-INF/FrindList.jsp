@@ -35,7 +35,7 @@
     String memberId = info.get(0).getMember_Id();
     FriendListDAO friendDao = new FriendListDAO();
     ArrayList<String> friendList = friendDao.friendlist(memberId);
-    System.out.println(friendList.get(1));
+
     
     ChattingListDAO Chatdao = new ChattingListDAO();
     ArrayList<ChattingListDTO> chatList = new ArrayList<>();
@@ -47,27 +47,37 @@
   </div>
   
 
-<%for(int i=0; i<friendList.size(); i++){ %>
-    <div class="contact" onclick="createChatRoom('<%= friendList.get(i) %>')">
-        <div class="pic">
-            <% 
-            String friendId = friendList.get(i);
-            ArrayList<MemberDTO> info_friend = dao.getmember(friendId);
-            if (!info_friend.isEmpty()) {
-                String profileImage = info_friend.get(0).getM_Profile();
-            %>
-            <img class="pic" src="file/<%= profileImage %>" onerror="this.src='images/default.jpg'" >
-            <% } else { %>
-            <img class="pic" src="images/default.jpg">
-            <% } %>
-        </div>
-        <div class="name">
-            <%= friendId %>
-        </div>
-        <div class="message">
-        </div>
-    </div>  
-<% } %>
+<%
+if (friendList != null && !friendList.isEmpty()) {
+    for(int i=0; i<friendList.size(); i++){ 
+%>
+        <div class="contact" onclick="createChatRoom('<%= friendList.get(i) %>')">
+            <div class="pic">
+                <% 
+                String friendId = friendList.get(i);
+                ArrayList<MemberDTO> info_friend = dao.getmember(friendId);
+                if (!info_friend.isEmpty()) {
+                    String profileImage = info_friend.get(0).getM_Profile();
+                %>
+                <img class="pic" src="file/<%= profileImage %>" onerror="this.src='images/default.jpg'" >
+                <% } else { %>
+                <img class="pic" src="images/default.jpg">
+                <% } %>
+            </div>
+            <div class="name">
+                <%= friendId %>
+            </div>
+            <div class="message">
+            </div>
+        </div>  
+<% 
+    }
+} else { 
+%>
+    <p>친구가 없습니다.</p>
+<% 
+} 
+%>
 
    </div>
   
