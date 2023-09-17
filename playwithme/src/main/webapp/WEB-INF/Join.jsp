@@ -11,6 +11,18 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%String code = request.getParameter("code");
+
+//액세스 토큰을 얻어오는 HTTP 요청
+String accessToken = getAccessToken(code);
+
+//액세스 토큰을 사용하여 Kakao 사용자 정보 가져오기
+KakaoUserInfoDto userInfo = getKakaoUserInfo(accessToken);
+
+//사용자 정보 활용
+String userId = userInfo.getId();
+String userName = userInfo.getName();
+String userEmail = userInfo.getEmail(); %>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form">
 
@@ -54,23 +66,23 @@
 			<div class="form-control">
 				<input type="text" id="mbti" name="mbti" placeholder="mbti">
 				<select>
-					<obtion value="" disabled selected>MBTI</obtion>
-					<obtion value="mbti">ISTJ</obtion>
-					<obtion value="mbti">ISFJ</obtion>
-					<obtion value="mbti">INFJ</obtion>
-					<obtion value="mbti">INTJ</obtion>
-					<obtion value="mbti">ISTP</obtion>
-					<obtion value="mbti">ISFP</obtion>
-					<obtion value="mbti">INFP</obtion>
-					<obtion value="mbti">INTP</obtion>
-					<obtion value="mbti">ESTP</obtion>
-					<obtion value="mbti">ESFP</obtion>
-					<obtion value="mbti">ENFP</obtion>
-					<obtion value="mbti">ENTP</obtion>
-					<obtion value="mbti">ESTJ</obtion>
-					<obtion value="mbti">ESFJ</obtion>
-					<obtion value="mbti">ENFJ</obtion>
-					<obtion value="mbti">ENTJ</obtion>
+					<option value="" disabled selected>MBTI</obtion>
+					<option value="mbti">ISTJ</option>
+					<option value="mbti">ISFJ</option>
+					<option value="mbti">INFJ</option>
+					<option value="mbti">INTJ</option>
+					<option value="mbti">ISTP</option>
+					<option value="mbti">ISFP</option>
+					<option value="mbti">INFP</option>
+					<option value="mbti">INTP</option>
+					<option value="mbti">ESTP</option>
+					<option value="mbti">ESFP</option>
+					<option value="mbti">ENFP</option>
+					<option value="mbti">ENTP</option>
+					<option value="mbti">ESTJ</option>
+					<option value="mbti">ESFJ</option>
+					<option value="mbti">ENFJ</option>
+					<option value="mbti">ENTJ</option>
 				</select>
 			</div>
 

@@ -15,41 +15,7 @@
 	<link rel="stylesheet" href="assets/css/MapMain.css" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<style>
-		body{
-    		background: #fafafa;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		}
-		#clock{
-			margin-left: 10px;
-			margin-bottom: 10px;
-			display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-			vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-			margin-right: 3px;
-			font-weight: BOLD;
-			font-size: 15px;
-		}
-		#fix{
-		    position: relative;
-		    top: -2px;
-		    left: 0;
-		    height: 20px;
-		}
-		#navi{
-			height: 14px;
-			margin-bottom: 2px;
-		}
-		#internet{
-			height: 19px;
-			margin-left: 180px;
-			margin-bottom: 2px;
-		}
-		#lte{
-			height: 11px;
-			margin-bottom: 5px;
-		}
-		#battery{
-			height: 21px;
-		}
+		
 	</style>
 </head>
 <body>
@@ -303,39 +269,6 @@
 						        infowindow.close();
 						    };
 						}   
-		/////////////////////////////////////////////////////////////////
-		// 내 게시물 마커 생성
-		 	<%--  let positions1 = [
-		    <% 
-		    for(int  i = 0; i<board_Num.size(); i++ ){%>
-		       {title :"<%=board_Num.get(i).getTitle()%>" , latlng: new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>,<%=board_Num.get(i).getLatitude()%>)},
-		    <%}%>
-		    
-		 ];
-		
-		// 마커 이미지의 이미지 주소입니다
-		var imageSrc1 = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-		    
-		for (var i = 0; i < positions1.length; i ++) {
-		    
-		    // 마커 이미지의 이미지 크기 입니다
-		    var imageSize1 = new kakao.maps.Size(24, 35); 
-		    
-		    // 마커 이미지를 생성합니다    
-		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
-		    
-		    // 마커를 생성합니다
-		    var marker1 = new kakao.maps.Marker({
-		        map: map, // 마커를 표시할 지도
-		        position: positions1[i].latlng, // 마커를 표시할 위치
-		        title : positions1[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-		        image : markerImage1 // 마커 이미지 
-		    });
-		}; --%>
-
-
-  
- 
 	</script>
 </body>
 </html>

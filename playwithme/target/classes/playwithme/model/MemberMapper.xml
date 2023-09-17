@@ -38,6 +38,7 @@
 		email={email}
 	</select>
 	
+<!-- 사용자 정보 불러오기 -->
 	<select id="get" parameterType="string"
 		resultType="playwithme.model.MemberDTO">
 		select *
@@ -45,11 +46,13 @@
 		where MEMBER_ID = #{member_Id}
 	</select>
 	
+<!-- 이미지,닉네임변경 -->
 	<update id="img" parameterType="playwithme.model.MemberDTO">
 			update NA_MEMBER
-			set M_PROFILE = #{m_Profile} where MEMBER_ID = #{member_Id}
+			set M_PROFILE = #{m_Profile} ,M_NAME = #{m_Name} where MEMBER_ID = #{member_Id}
 	</update>
 
+<!-- 비밀번호 변경 -->
 	<update id="pw" parameterType="playwithme.model.MemberDTO">
 
 		update NA_MEMBER

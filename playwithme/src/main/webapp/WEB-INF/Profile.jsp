@@ -18,121 +18,9 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/Profilestyle.css">
 		 <style>
-		 
-        /* 그래프 스타일 */
-        .graph-container {
-        	background-color : #ded1d18f;
-        	border-radius : 45px;
-            width: 75%;
-            height: 14px;
-            border: 1px solid #ccc;
-            position: relative;
-            display: flex;
-            margin-left: 12%;
-            margin-top: 10%;
-             /* 그래프를 가로로 뒤집음 */
-        }
-        .graph-bar {
-        	border-radius : 45px;
-            width: 0;
-            background-color: #67b7ee;
-            transition: width 0.5s;
-        }
-        .graph-label {
-        	position :relative;
-        	top : -30px;
-        	left : -10px;
-            width: 0;
-   			margin-bottom: 20px;
-   			font-size: 5px;
-        }
-        .arrow {
-        	position :relative;
-        	left : -7px;
-        	top : -20px; 
-            width: 0;
-    		font-size: 5px;
-        }
-   
-        #back {
-        	cursor :pointer;
-			border : 0px;
-			background-color :#FaFaFa;
-			margin-top : 15px;
-			margin-left : 10px;
 		
-		}
-
-		.manner-temperature {
-		    position: absolute;
-		    top: -25px; /* 그래프 위에 위치하도록 조절 */
-		    font-size: 11px;
-		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
-		}
-		#name {
-		font-size: 14px;
-		position: fixed;
-   		margin-left: 161px;
-   		margin-top: 19px;
-   		color: #504e4e;
-   		font-weight: bold;
-		}
-		#favorite {
-		font-size: 14px;
-		width: 170px;
-		position: fixed;
-   		margin-left: 145px;
-   		margin-top: 45px;
-		}
-		#shap{
-		position: fixed;
-		color: #504e4e;
-   		margin-left: 145px;
-   		margin-top: 19px;
-		}
-		
-		#myid{
-		font-size: 14px;
-		position: fixed;
-   		margin-top: 23px;
-		font-size : xx-small;
-		}
-		
-
-		#clock {
-		MARGIN-TOP: 1px;
-		margin-left: 18px;
-		margin-bottom: 10px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		font-size: 15px;
-		}
-		#fix{
-		    position: relative;
-		    top: 0;
-		    left: 0;
-		    height: 20px;
-		    margin-top: 3px;
-		}
-		#internet{
-			height: 19px;
-			margin-left: 197px;
-			margin-bottom: 12px;
-		}
-		#lte{
-			height: 11px;
-			margin-bottom: 11px;
-			
-		}
-		#battery{
-			height: 21px;
-			margin-bottom: 11px;
-		}
-
     </style>
   </head>
   <body>
@@ -223,60 +111,13 @@ arrow_back_ios
 
 <script src="js/jquery-3.7.1.js"></script>
 <script src="assets/js/clock.js"></script>
-   <script>
-   
-   
-   
-        // JavaScript로 그래프를 업데이트하는 함수
-        function updateGraph(percentage) {
-            const graphBar = document.querySelector(".graph-bar");
-            const graphLabel = document.querySelector(".graph-label");
-            const arrow = document.querySelector(".arrow");
-            
-            // 그래프 바 업데이트
-            graphBar.style.width = percentage + "%";
-            
-            // 그래프 라벨와 화살표의 너비와 위치를 그래프 바에 맞게 설정
-            
-            // 그래프 라벨 업데이트
-            graphLabel.textContent =percentage +"℃";
-        }
-        
-        // temper 값을 사용하여 그래프 업데이트
-        const temper = ${info.get(0).getTemper()}; // temper 값에 따라서 설정하세요.
-        updateGraph(temper);
-        
-     // "매너온도" 문구 추가
-        const mannerTemperature = document.createElement("span");
-        mannerTemperature.className = "manner-temperature";
-        mannerTemperature.textContent = "매너온도";
-        document.querySelector(".graph-container").appendChild(mannerTemperature);
-        
-        $('#back').click(function () {
-			location.href = 'goMain';
-		})
-		function updateMargin() {
-	    const nameElement = document.getElementById("name");
-	    const idElement = document.getElementById("myid");
-	    
-	    // name 요소의 폭을 가져오기
-	    const nameWidth = nameElement.offsetWidth;
-	    
-	    // id 요소의 margin-left 설정
-	    idElement.style.marginLeft = nameWidth + 170 + "px"; // 예시로 10px 여백 추가
-		}
-		
-		// 페이지 로드 시 초기 설정
-		window.onload = function () {
-		    updateMargin(); // 초기 설정
-		};
-		
-		// name 요소의 크기가 변경될 때마다 margin 업데이트
-		window.addEventListener("resize", function () {
-		    updateMargin();
-		});
-
-    </script>
+<script src="assets/js/Profile.js"></script>
+  <script >
+  // temper 값을 사용하여 그래프 업데이트
+  
+  let temper = ${info.get(0).getTemper()}; // temper 값에 따라서 설정하세요.
+  updateGraph(temper);
+  </script>
    
 </body>
 </html>

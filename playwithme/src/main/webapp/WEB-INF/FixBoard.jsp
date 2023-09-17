@@ -10,54 +10,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>내게시글 수정</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<style >
-		body {
-			background-color: #fafafa;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-			}
-		#back {
-			border : 0px;
-			background-color :#fafafa;
-			margin-top : 15px;
-			margin-left : 10px;	
-			}
-		.first {
-			cursor: pointer;
-			background-color: #a5afb7;
-			border: #a5afb7;
-			border-radius: 4px;
-			color: #fff;
-			font-size: 16px;
-			width: 32%;
-			height: 37px;
-			margin-top: 44px;
-		        }
-		form {
-		   	display: block;
-		   	margin-top: 20%;
-		       	}
-		#content {
-		   	margin-top: 12%;
-		   	margin-left: 5%;
-		       	}
-		#postContent {
-		   	width: 90%;
-		   	height: 200px;
-		       	}
-		#btn {
-		   	display: flex;
-		   	justify-content: center;
-		   	margin-top: 5%;
-		    	}
-		#sub{
-		   	margin-top: 14%;
-		   	margin-left: 5%;
-		      	}
-		#main{
-		   	margin-top: 5%;
-		   	margin-left: 5%;
-		       	}
-</style>
+	<link rel="stylesheet" href="assets/css/FixBoard.css">
 </head>
 <body>
 	<!-- 뒤로가기 버튼 -->
@@ -105,9 +58,7 @@
 	</form>
 	<script src="js/jquery-3.7.1.js"></script>
 	<script>
-		console.log(
-	<%=board.getMeet_Time()%>
-		);
+	
 		$('#back').click(function() {
 			location.href = 'goMyBoard';
 		})
