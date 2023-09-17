@@ -78,10 +78,42 @@
 
 		</form>
 	</div>
+	<%String code=(String) request.getAttribute("code"); %>
 	<script src="js/script.js"></script>
+<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
+  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
 
 	<script>
-		
+	function requestUserInfo() {
+	    Kakao.API.request({
+	      url: '/v2/user/me',
+	    })
+	      .then(function(res) {
+	        alert(JSON.stringify(res));
+	      })
+	      .catch(function(err) {
+	        alert(
+	          'failed to request user information: ' + JSON.stringify(err)
+	        );
+	      });
+	  }
+
+	  // 아래는 데모를 위한 UI 코드입니다.
+	  displayToken()
+	  function displayToken() {
+	    var token = getCookie('authorize-access-token');
+
+	    if(token) {
+	      Kakao.Auth.setAccessToken(token);
+	      document.querySelector('#token-result').innerText = 'login success, ready to request API';
+	      document.querySelector('button.api-btn').style.visibility = 'visible';
+	    }
+	  }
+
+	  function getCookie(name) {
+	    var parts = document.cookie.split(name + '=');
+	    if (parts.length === 2) { return parts[1].split(';')[0]; }
+	  }
 	</script>
 
 </body>

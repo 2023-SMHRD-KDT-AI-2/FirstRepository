@@ -375,6 +375,19 @@ arrow_back_ios
       $('#back').click(function () {
   		location.href = 'goProfile';
   	})
+  	document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("form"); // 폼 엘리먼트 가져오기
+    const checkboxes = document.querySelectorAll(".check"); // 체크박스 엘리먼트 모두 가져오기
+
+    form.addEventListener("submit", function(event) {
+        const selectedCheckboxes = Array.from(checkboxes).filter(checkbox => checkbox.checked);
+
+        if (selectedCheckboxes.length < 3) {
+            alert("관심사를 3개 이상 선택하세요.");
+            event.preventDefault(); // 폼 제출 방지
+        }
+    });
+});
     </script>
     
    

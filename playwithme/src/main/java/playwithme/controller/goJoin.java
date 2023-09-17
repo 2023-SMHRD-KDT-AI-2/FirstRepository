@@ -17,6 +17,7 @@ public class goJoin extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("utf-8");
 		String uri = "WEB-INF/Join.jsp";
+		
 		RequestDispatcher rd = request.getRequestDispatcher(uri);
 		rd.forward(request, response);
 	}

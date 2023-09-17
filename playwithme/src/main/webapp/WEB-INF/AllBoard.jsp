@@ -24,6 +24,9 @@
 	
 	<link rel="stylesheet" href="assets/css/MyBoardstyle.css">
 	<style >
+	body{
+	position: fixed;
+	}
 	 #clock {
 		margin-left: -11px;
 		margin-bottom: 5px;
@@ -105,6 +108,10 @@
 	    left: -28px;
 	    top: 5px;
 	}
+	 .table-wrap {
+            max-height: 100%; /* 원하는 최대 높이로 설정하세요. */
+            overflow-y: auto; /* 세로 스크롤 활성화 */
+        }
 	
 	</style>
 	</head>
@@ -142,7 +149,7 @@ arrow_back_ios
 					<div class="table-wrap" class="table-container">
 						<table class="table myaccordion table-hover" id="accordion">
 						  <thead>
-						    <tr>
+						    <tr  >
 						      <th class="title" style="text-align: left; !important" >&nbsp;&nbsp;제목</th>
 						      <th>인원수</th>
 						      <th>수정/삭제</th>
