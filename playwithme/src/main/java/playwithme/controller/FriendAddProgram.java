@@ -39,7 +39,7 @@ public class FriendAddProgram extends HttpServlet {
 
 		//채팅방 연동 채팅방 생성//
 		ChattingListDTO Chatdto = new ChattingListDTO();
-	    Chatdto.setChatting_Room_title(friend_name);
+	    Chatdto.setChatting_Room_title(friend_name+"친구와의 채팅");
 	    Chatdto.setMember_Id(member_id);
 	    
 	    ChattingListDAO Chatdao = new ChattingListDAO();
@@ -47,10 +47,6 @@ public class FriendAddProgram extends HttpServlet {
 	    
 	    //ChatRoom 가져오기
 	    String friendChatRoom = Chatdao.createRoom3(Chatdto);
-	    
-	   
-	    
-	    
 		FriendListDTO Frienddto = new FriendListDTO();
 		Frienddto.setF_Member_Id(friend_name);
 		Frienddto.setMember_Id(member_id);
