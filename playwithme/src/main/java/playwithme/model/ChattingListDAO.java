@@ -49,6 +49,8 @@ public class ChattingListDAO {
 		      
 		      return cnt;   
 		   }
+	   
+	   //친구 추가할때 방 생성
 	   public String createRoom3(ChattingListDTO chatlist) {
 		      SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		      
@@ -58,11 +60,21 @@ public class ChattingListDAO {
 		      
 		      sqlSession.close();
 		      
-		      String boardchat = chatlist.getChatting_Room_num();
+		      String friendchat = chatlist.getChatting_Room_num();
 
 
-		      return boardchat;   
+		      return friendchat;   
 		   }
+	   
+	   //친구 초대
+	   public void inviteFriendToChatRoom(FriendListDTO friendListDTO) {
+		    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		    sqlSession.insert("friendParticipant", friendListDTO);
+
+		    sqlSession.close();
+
+		}
 	   
 	   public ArrayList<GetChatDTO> getChat(int roomnum) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
