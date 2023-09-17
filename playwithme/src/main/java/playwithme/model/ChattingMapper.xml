@@ -37,16 +37,16 @@
 		CURRENT_TIMESTAMP)
 	</insert>
 
-	<!--채팅방 만들기 -->
-	<insert id="createRoom"
-		parameterType="playwithme.model.ChattingListDTO">
-		INSERT INTO CHATTING_ROOM (CHATTING_ROOM_NUM,
-		CHATTING_ROOM_TITLE,
-		MEMBER_ID)
-		VALUES (SEQ_CHATTING_ROOM.nextval,
-		#{chatting_Room_title}, #{member_Id})
-	</insert>
-
+      <!--채팅방 만들기 -->
+   <insert id="createRoom"
+      parameterType="playwithme.model.ChattingListDTO" useGeneratedKeys="true" keyColumn="CHATTING_ROOM_NUM" keyProperty="chatting_Room_num">
+      INSERT INTO CHATTING_ROOM (CHATTING_ROOM_NUM,
+      CHATTING_ROOM_TITLE,
+      MEMBER_ID)
+      VALUES (SEQ_CHATTING_ROOM.nextval,
+      #{chatting_Room_title}, #{member_Id})
+   </insert>
+   
 	<!-- 채팅방 만들면 바로 생성 -->
 	<insert id="saveParticipant"
 		parameterType="playwithme.model.ChattingListDTO">
@@ -73,5 +73,11 @@
 		DELETE FROM CHATTING_ROOM_PARTI WHERE CHATTING_ROOM_NUM =
 		#{chatting_Room_num} AND MEMBER_ID = #{member_Id}
 	</delete>
+	
+		<!-- 전체 친구 목록 읽기 -->
+	<select id = "friendlist" resultType="playwithme.model.FriendListDTO">
+		select *
+		from FRIEND
+	</select>
 
 </mapper>

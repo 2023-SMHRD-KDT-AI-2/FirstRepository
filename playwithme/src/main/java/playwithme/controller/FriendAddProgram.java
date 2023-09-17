@@ -37,11 +37,21 @@ public class FriendAddProgram extends HttpServlet {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("memberid");
 
-		
+		//게시판 연동 채팅방 생성//
+		ChattingListDTO Chatdto = new ChattingListDTO();
+	    Chatdto.setChatting_Room_title(friend_name);
+	    Chatdto.setMember_Id(member_id);
+	    
+	    ChattingListDAO Chatdao = new ChattingListDAO();
+	    
+	    String boardChatRoom = Chatdao.createRoom3(Chatdto);
+	    System.out.println(boardChatRoom);
+	    //
+	    
 		FriendListDTO Frienddto = new FriendListDTO();
 		Frienddto.setF_Member_Id(friend_name);
 		Frienddto.setMember_Id(member_id);
-
+		Frienddto.setFriendchat_room_num(boardChatRoom);
 		FriendListDAO Frienddao = new FriendListDAO();
 
 		int cnt = Frienddao.friendAdd(Frienddto);

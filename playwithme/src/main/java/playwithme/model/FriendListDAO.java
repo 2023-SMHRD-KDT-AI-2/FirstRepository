@@ -29,6 +29,20 @@ public class FriendListDAO {
 		return friendcnt;
 		
 	}
+	
+	ArrayList<FriendListDTO> allfriendlist = new ArrayList<>();
+	// 친구 전체 보기
+	public ArrayList<FriendListDTO> friendlist() {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		allfriendlist = (ArrayList)sqlSession.selectList("friendlist");
+		
+		sqlSession.close();
+		
+		return allfriendlist;
+	}
+	
+	
 
 	public int friendAdd(FriendListDTO frienddto) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);

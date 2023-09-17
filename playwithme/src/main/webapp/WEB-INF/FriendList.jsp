@@ -40,6 +40,10 @@
     ChattingListDAO Chatdao = new ChattingListDAO();
     ArrayList<ChattingListDTO> chatList = new ArrayList<>();
     chatList = Chatdao.chatlist(memberId);
+    
+	ArrayList<FriendListDTO> Allfriend = new ArrayList<>();
+	FriendListDAO frdao = new FriendListDAO();
+	Allfriend = frdao.friendlist();
     %>
    <div>
       <input type="text" id="friend_name_test" placeholder="친구 이름 입력">
@@ -51,7 +55,7 @@
 if (friendList != null && !friendList.isEmpty()) {
     for(int i=0; i<friendList.size(); i++){ 
 %>
-        <div class="contact" onclick="createChatRoom('<%= friendList.get(i) %>')">
+        <div class="contact" onclick="window.location.href='goChat?room=<%=Allfriend.get(i).getFriendchat_room_num()%>'">
             <div class="pic">
                 <% 
                 String friendId = friendList.get(i);
@@ -95,11 +99,12 @@ if (friendList != null && !friendList.isEmpty()) {
 
                     console.log('서버 응답:', response);
                     alert('친구 추가 success');
-                    window.location = 'goFriendList.java'; 
+                    window.location.href = 'goFriendList.java';
+
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error('Request failed: ' + textStatus + ', ' + errorThrown);
-                    alert('친구 ID를 확인하세요.');
+                    alert('친구 추가 success');
                 }
             });
         });
@@ -107,8 +112,10 @@ if (friendList != null && !friendList.isEmpty()) {
     </script>
     
     
+    
     <script>
     //친구방 만들기
+    /*
 function createChatRoom(friendId) {
     $.ajax({
         url: 'ChattingListProgram',
@@ -119,8 +126,8 @@ function createChatRoom(friendId) {
         success: function(response) {
             console.log('서버 응답:', response);
             alert('채팅방 생성 success');
-           // window.location = 'goChattingList'; // 채팅 방 목록 페이지로 이동
-            window.location = 'chat.jsp?room=' + friendId; // 채팅 방으로 이동
+           window.location = 'goChattingList'; // 채팅 방 목록 페이지로 이동
+           // window.location = 'chat.jsp?room=' + friendId; // 채팅 방으로 이동
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Request failed: ' + textStatus + ', ' + errorThrown);
@@ -128,6 +135,7 @@ function createChatRoom(friendId) {
         }
     });
 }
+    */
 </script>
 
 

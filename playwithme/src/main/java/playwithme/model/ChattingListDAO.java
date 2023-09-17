@@ -49,6 +49,20 @@ public class ChattingListDAO {
 		      
 		      return cnt;   
 		   }
+	   public String createRoom3(ChattingListDTO chatlist) {
+		      SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		      
+		      sqlSession.insert("createRoom", chatlist);
+		      
+		      sqlSession.insert("saveParticipant", chatlist);
+		      
+		      sqlSession.close();
+		      
+		      String boardchat = chatlist.getChatting_Room_num();
+
+
+		      return boardchat;   
+		   }
 	   
 	   public ArrayList<GetChatDTO> getChat(int roomnum) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
