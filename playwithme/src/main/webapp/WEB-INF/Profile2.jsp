@@ -145,29 +145,28 @@
 		
 	</div>
   <%
-	String id = (String) session.getAttribute("memberid");
-	MemberDAO dao = new MemberDAO();
-	ArrayList<MemberDTO> info = new ArrayList<>();
-	info = dao.getmember(id);
-	session.setAttribute("info", info);
-	FavoriteDAO fdao = new FavoriteDAO();
+	
+	BoardDTO board=(BoardDTO)request.getAttribute("board"); 
+	BoardDAO dao2 = new BoardDAO();
+	String id = board.getMember_Id();
+  	FavoriteDAO fdao = new FavoriteDAO();
 	int fav = fdao.findnum(id);
 	ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
 	%>
 		<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
 </button>
-		<section class="ftco-section">
 		
-			<div class="container">
-				<span id ="myid"><%=info.get(0).getMember_Id() %></span>
+		<section class="ftco-section">
+		<div class="container">
 				<span id ="shap">#</span>
-				<span id = "name"><%=info.get(0).getM_Name() %></span>
+				<span id = "name"><%=board.getM_Name()%><%=board.getMember_Id()%></span>
 				<span id = "favorite">
 				<%for(int i = 0; i<favList.size(); i++){%>
 				<%=favList.get(i).getInterest() %>&nbsp;
 				
 				<%} %>
+				
 				
 				</span>
 			</div>
@@ -176,37 +175,25 @@ arrow_back_ios
 					<div class="col-md-6 d-flex justify-content-center">
 						<div class="btn-group show">
 
-						  <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <img src="images/<%=board.getM_Profile()%>" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  
 						  
 
 						  	<div class="dropdown-menu show">
 						  		<div>
-						    		<a class="dropdown-item d-flex align-items-center" href="goChangeImg">
-									프로필 사진 변경
-						    		</a>
-						    		<a class="dropdown-item d-flex align-items-center " href="goMyBoard">
-									내 게시물 확인
-									</a>
-						    		<a class="dropdown-item d-flex align-items-center" href="goChangepPw">
-						    		비밀번호 변경
-						    		</a>
-						    		<a class="dropdown-item d-flex align-items-center" href="goFavorite">
-						    		관심사 수정
-						    		</a>
-						    		<a class="dropdown-item d-flex align-items-center" href="goMain">
-									홈
-						    		</a>
-						    		<a class="dropdown-item d-flex align-items-center" href="Logout">
-									로그아웃
-						    		</a>
+						  		<h3>게시글</h3>
+						  		<p><strong>제목:</strong> <span id="displayTitle3"><%=board.getTitle()%></span></p>
+						        <p><strong>인원수:</strong> <span id="displayNumPeople3"><%=board.getNum_People()%></span></p>
+						        <p><strong>모임시간:</strong> <span id="displayMeetTime3"><%=board.getMeet_Time()%></span></p>
+						        <p><strong>모임장소:</strong> <span id="displayPlace3"><%=board.getPlace()%></span></p>
+						        <p><strong>내용:</strong> <span id="displayBContent3"><%=board.getB_Content()%></span></p>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			
 		</section>
+		
 		
 		
 		  <div class="graph-container">
@@ -222,10 +209,6 @@ arrow_back_ios
 <script src="js/jquery-3.7.1.js"></script>
 <script src="assets/js/clock.js"></script>
    <script>
-   
-
-   
-   
         // JavaScript로 그래프를 업데이트하는 함수
         function updateGraph(percentage) {
             const graphBar = document.querySelector(".graph-bar");
@@ -242,7 +225,7 @@ arrow_back_ios
         }
         
         // temper 값을 사용하여 그래프 업데이트
-        const temper = ${info.get(0).getTemper()}; // temper 값에 따라서 설정하세요.
+        const temper = ${board.getTemper()} // temper 값에 따라서 설정하세요.
         updateGraph(temper);
         
      // "매너온도" 문구 추가
@@ -254,6 +237,8 @@ arrow_back_ios
         $('#back').click(function () {
 			location.href = 'goMain';
 		})
+		
+	
 	
 
     </script>

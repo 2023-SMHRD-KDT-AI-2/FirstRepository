@@ -271,7 +271,7 @@ arrow_back_ios
     	window.history.back()
     })
     $('#back').click(function () {
-		location.href = 'goMain';
+		location.href = 'goProfile';
 	})
     </script>
 </body>
