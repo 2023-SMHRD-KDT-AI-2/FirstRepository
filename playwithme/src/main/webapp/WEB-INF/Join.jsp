@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="com.google.gson.JsonObject" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -136,6 +140,10 @@ a {
 </style>
 </head>
 <body>
+<%JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
+String gender = kakaoUserInfo.get("gender").getAsString();
+String ageRange = kakaoUserInfo.get("age_range").getAsString();
+String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form" method="post">
 
@@ -146,8 +154,10 @@ a {
 			<h2 style="color:#a0e1f4">Play With Me</h2>
 
 			<div class="form-control">
+
 				<input type="text" id="email" name="member_Id" placeholder="이메일 주소 또는 전화번호"> 
 				<small>Error message</small>
+
 			</div>
 
 			<div class="form-control">
@@ -161,17 +171,21 @@ a {
 			</div>
 
 			<div class="form-control">
+
 				<label class="label" for="gender">성별 선택</label> 
 				<select class="label2" name="gender" class="form-select form-select-lg mb-3"
 					aria-label="Large select example">
 					<option value="men">남성</option>
 					<option value="women">여성</option>
+
 				</select>
 			</div>
 
 			<div class="form-control">
+
 				<input type="text" id="age" name="age" placeholder="나이"> 
 				<small>Error message</small>
+
 			</div>
 
 			<div class="form-control">
@@ -180,6 +194,7 @@ a {
 			</div>
 
 			<div class="form-control">
+
 				<label class="label" for="mbti">MBTI 선택</label> <select
 					class="label2" name="mbti" class="form-select form-select-lg mb-3"
 					aria-label="Large select example">
@@ -199,14 +214,18 @@ a {
 					<option value="ESFJ">ESFJ</option>
 					<option value="ENFJ">ENFJ</option>
 					<option value="ENTJ">ENTJ</option>
+
 				</select>
 			</div>
 
 			<button id="joinSubmit" type="submit">회원가입</button>
 
 		</form>
+		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
+
 	<script src="assets/js/Joinscript.js"></script>
+
 
 </body>
 </html>

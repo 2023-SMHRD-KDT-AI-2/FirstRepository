@@ -10,7 +10,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 
 import playwithme.db.SqlSessionManager;
 public class FavoriteDAO {
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
+	
 	public int interestup(FavoriteDTO fav) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		int member1 = sqlSession.insert("in",fav);

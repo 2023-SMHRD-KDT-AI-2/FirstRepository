@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="playwithme.model.CCTVMapper">
+<mapper namespace="playwithme.model.CctvMapper">
 	
 	<!-- cctv 가져오기  -->
 		<select id="cctv" resultType="playwithme.model.CctvDTO">
@@ -9,7 +9,17 @@
 					, Y
 			FROM	CCTV
 		</select>
-	
+
+		<select id="test" resultType="playwithme.model.CctvDTO" parameterType="playwithme.model.CctvDTO">
+			select X,Y from CCTV
+			WHERE 
+			X IS NOT NULL
+			AND Y IS NOT NULL
+			AND TO_NUMBER(nvl(X,'0')) BETWEEN (TO_NUMBER(#{x})-0.0113) 
+			AND (TO_NUMBER(#{x})+0.0113)
+			AND  TO_NUMBER(nvl(Y,'0')) BETWEEN (TO_NUMBER(#{y})-0.0091)
+			AND (TO_NUMBER(#{y})+0.0091)	
+		</select>	
 
 
 

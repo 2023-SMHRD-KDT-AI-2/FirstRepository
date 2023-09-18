@@ -325,7 +325,7 @@ h4, .h4 {
   font-size: 1.5rem; }
 
 h5, .h5 {
-  font-size: 1.25rem; }
+  font-size: 18px; }
 
 h6, .h6 {
   font-size: 1rem; }
@@ -502,7 +502,8 @@ pre {
 .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
 .col-xl-auto {
   position: relative;
-  width: 100%;
+  width: 345px;
+  margin-left: 8px;
   padding-right: 7px;
   padding-left: 7px; }
 
@@ -5370,18 +5371,6 @@ button.bg-dark:focus {
 
 
 
-.border-danger {
-  border-color: #dc3545 !important; }
-
-.border-light {
-  border-color: #f8f9fa !important; }
-
-.border-dark {
-  border-color: #343a40 !important; }
-
-.border-white {
-  border-color: #fff !important; }
-
 .rounded-sm {
   border-radius: 0.2rem !important; }
 
@@ -8038,7 +8027,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: normal;
-  background: #f8f9fd;
+  background: #fafafa;
   margin-top: -6px;}
 
 a {
@@ -8171,3 +8160,94 @@ h1, h2, h3, h4, h5,
  position: relative;
  
  }
+ 	body {
+	position: fixed;
+	}
+	#clock {
+		margin-left: -11px;
+		margin-bottom: 5px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		font-weight: BOLD;
+		font-size: 15px;
+	}
+	#fix{
+	    position: relative;
+	    top: 10px;
+	    left:29px;
+	    height: 20px;
+	    
+	}
+	#internet{
+		height: 19px;
+		margin-left: 200px;
+		margin-bottom: 7px;
+	}
+	#lte{
+		height: 11px;
+		margin-bottom: 7px;
+	}
+	#battery{
+		height: 21px;
+		margin-bottom: 7px;
+	}
+	
+	
+	 #back {
+	 	cursor: pointer;
+		border : 0px;
+		background-color :#fafafa;
+		margin-top : 21px;
+		margin-left : 7px;
+		
+		}
+	
+	
+	.first {
+            cursor: pointer;
+            background-color: #adabab;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 10px;
+		    width: 38px;
+		    height: 25px;
+		    border-color: #fff !important;
+		    
+        }
+      .second {
+            cursor: pointer;
+            background-color: #848181;
+            border-radius: 4px;
+            font-size: 10px;
+            border-color: #848181;
+            width: 38px;
+		    height: 25px;
+        }
+        .collapse.acc2{
+        	padding-left:64px;
+        }
+        .title{
+        	    padding-left: 10px;
+        }
+     #searchInput {
+     	width: 90%;
+		height: 29px;
+	    margin: 0;
+	    border-radius: 33px;
+	    border: 1px solid gray;
+	    margin-bottom: 0px;
+	    padding-left: 10px;
+	}
+	#clearSearch{
+		position: relative;
+	    cursor: pointer;
+	    color: red;
+	    z-index: 1;
+	    left: -28px;
+	    top: 4px;
+	}
+	.table-wrap {
+            max-height: 100%; /* 원하는 최대 높이로 설정하세요. */
+            overflow-y: auto; /* 세로 스크롤 활성화 */
+        }
+	

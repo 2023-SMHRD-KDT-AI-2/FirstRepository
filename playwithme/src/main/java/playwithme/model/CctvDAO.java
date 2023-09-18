@@ -9,7 +9,7 @@ import playwithme.db.SqlSessionManager;
 
 public class CctvDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	ArrayList<CctvDTO> cctvlist = new ArrayList<>();
 	
@@ -22,6 +22,14 @@ public class CctvDAO {
 		
 		return cctvlist;
 	}
-	
+	public ArrayList<CctvDTO> test(CctvDTO dto) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		cctvlist = (ArrayList)sqlSession.selectList("test", dto);
+		
+		sqlSession.close();
+		
+		return cctvlist;
+	}
 	
 }
