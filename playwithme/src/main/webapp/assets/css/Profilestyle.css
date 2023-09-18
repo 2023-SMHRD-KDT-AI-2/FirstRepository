@@ -50,14 +50,16 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
   display: block; }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #212529;
-  text-align: left;
-  background-color: #fff; }
+	  position: fixed;
+	  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	  background: #fafafa;
+	  margin: 0;
+	  font-size: 1rem;
+	  font-weight: 400;
+	  line-height: 1.5;
+	  color: #212529;
+	  text-align: left;
+   }
 
 [tabindex="-1"]:focus {
   outline: 0 !important; }
@@ -8133,7 +8135,7 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6; } }
 
 body {
-  font-size: 14px;
+  
   line-height: 1.8;
   font-weight: normal;
   background: #fafafa;
@@ -8207,7 +8209,7 @@ h1, h2, h3, h4, h5,
   padding: 0;
   width: 290px;
   height: 397px;
-  left: 50% !important;
+  left: 56% !important;
   -webkit-transform: translateX(-50%) !important;
   -ms-transform: translateX(-50%) !important;
   transform: translateX(-50%) !important;
@@ -8253,3 +8255,116 @@ h1, h2, h3, h4, h5,
       color: #fff; }
       .btn-group .dropdown-menu .dropdown-item:hover .icon, .btn-group .dropdown-menu .dropdown-item:focus .icon {
         background: #74f39e; }
+         
+        /* 그래프 스타일 */
+        .graph-container {
+        	background-color : #ded1d18f;
+        	border-radius : 45px;
+            width: 285px;
+            height: 14px;
+            border: 1px solid #ccc;
+            position: relative;
+            display: flex;
+            margin-left: 12%;
+            margin-top: 10%;
+             /* 그래프를 가로로 뒤집음 */
+        }
+        .graph-bar {
+        	border-radius : 45px;
+            width: 0;
+            background-color: #67b7ee;
+            transition: width 0.5s;
+        }
+        .graph-label {
+        	position :relative;
+        	top : -30px;
+        	left : -10px;
+            width: 0;
+   			margin-bottom: 20px;
+   			font-size: 5px;
+        }
+        .arrow {
+        	position :relative;
+        	left : -7px;
+        	top : -20px; 
+            width: 0;
+    		font-size: 5px;
+        }
+   
+        #back {
+        	cursor :pointer;
+			border : 0px;
+			background-color :#FaFaFa;
+			margin-top : 15px;
+			margin-left : 10px;
+		
+		}
+
+		.manner-temperature {
+		    position: absolute;
+		    top: -25px; /* 그래프 위에 위치하도록 조절 */
+		    font-size: 11px;
+		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+		}
+		#name {
+		font-size: 14px;
+		position: fixed;
+   		margin-left: 161px;
+   		margin-top: 19px;
+   		color: #504e4e;
+   		font-weight: bold;
+		}
+		#favorite {
+		font-size: 14px;
+		width: 170px;
+		position: fixed;
+   		margin-left: 145px;
+   		margin-top: 45px;
+		}
+		#shap{
+		position: fixed;
+		color: #504e4e;
+   		margin-left: 145px;
+   		margin-top: 19px;
+		}
+		
+		#myid{
+		font-size: 14px;
+		position: fixed;
+   		margin-top: 23px;
+		font-size : xx-small;
+		}
+		
+
+		#clock {
+		MARGIN-TOP: 1px;
+		margin-left: 18px;
+		margin-bottom: 10px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		font-size: 15px;
+		}
+		#fix{
+		    position: relative;
+		    top: 0;
+		    left: 0;
+		    height: 20px;
+		    margin-top: 3px;
+		}
+		#internet{
+			height: 19px;
+			margin-left: 197px;
+			margin-bottom: 12px;
+		}
+		#lte{
+			height: 11px;
+			margin-bottom: 11px;
+			
+		}
+		#battery{
+			height: 21px;
+			margin-bottom: 11px;
+		}
+

@@ -10,5 +10,7 @@ import lombok.NoArgsConstructor;
 public class FriendListDTO {
 	private String member_Id;
 	private String f_Member_Id;
+	private String friendchat_room_num;
+
 }
 
