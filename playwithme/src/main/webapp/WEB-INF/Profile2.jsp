@@ -22,8 +22,8 @@
 		 <style>
         /* 그래프 스타일 */
         .graph-container {
-        	background-color : #ded1d18f;
-        	border-radius : 45px;
+           background-color : #ded1d18f;
+           border-radius : 45px;
             width: 75%;
             height: 14px;
             border: 1px solid #ccc;
@@ -34,103 +34,103 @@
              /* 그래프를 가로로 뒤집음 */
         }
         .graph-bar {
-        	border-radius : 45px;
+           border-radius : 45px;
             width: 0;
             background-color: #67b7ee;
             transition: width 0.5s;
         }
         .graph-label {
-        	position :relative;
-        	top : -30px;
-        	left : -10px;
+           position :relative;
+           top : -30px;
+           left : -10px;
             width: 0;
-   			margin-bottom: 20px;
-   			font-size: 5px;
+            margin-bottom: 20px;
+            font-size: 5px;
         }
         .arrow {
-        	position :relative;
-        	left : -7px;
-        	top : -20px; 
+           position :relative;
+           left : -7px;
+           top : -20px; 
             width: 0;
-    		font-size: 5px;
+          font-size: 5px;
         }
    
         #back {
-        	cursor :pointer;
-			border : 0px;
-			background-color :#fafafa;
-			margin-top : 15px;
-			margin-left : 10px;
-		
-		}
+           cursor :pointer;
+         border : 0px;
+         background-color :#fafafa;
+         margin-top : 15px;
+         margin-left : 10px;
+      
+      }
 
-		.manner-temperature {
-		    position: absolute;
-		    top: -25px; /* 그래프 위에 위치하도록 조절 */
-		    font-size: 11px;
-		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
-		}
-		#name {
-		position: fixed;
-   		margin-left: 161px;
-   		margin-top: 19px;
-   		color: #504e4e;
-   		font-weight: bold;
-		}
-		#favorite {
-		width: 170px;
-		position: fixed;
-   		margin-left: 145px;
-   		margin-top: 45px;
-		}
-		#shap{
-		position: fixed;
-		color: #504e4e;
-   		margin-left: 145px;
-   		margin-top: 19px;
-		}
-		#shap{
-		position: fixed;
-   		margin-left: 145px;
-   		margin-top: 19px;
-		}
-		#myid{
-		position: fixed;
-   		margin-left: 216px;
-   		margin-top: 23px;
-		font-size : xx-small;
-		}
-		
+      .manner-temperature {
+          position: absolute;
+          top: -25px; /* 그래프 위에 위치하도록 조절 */
+          font-size: 11px;
+          z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+      }
+      #name {
+      position: fixed;
+         margin-left: 161px;
+         margin-top: 19px;
+         color: #504e4e;
+         font-weight: bold;
+      }
+      #favorite {
+      width: 170px;
+      position: fixed;
+         margin-left: 145px;
+         margin-top: 45px;
+      }
+      #shap{
+      position: fixed;
+      color: #504e4e;
+         margin-left: 145px;
+         margin-top: 19px;
+      }
+      #shap{
+      position: fixed;
+         margin-left: 145px;
+         margin-top: 19px;
+      }
+      #myid{
+      position: fixed;
+         margin-left: 216px;
+         margin-top: 23px;
+      font-size : xx-small;
+      }
+      
 
-		#clock {
-		margin-left: 10px;
-		margin-bottom: 1px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		}
-		#fix{
-		    position: relative;
-		    top: 3px;
-		    left: 16px;
-		    height: 20px;
-		    
-		}
-		
-		#internet{
-			height: 19px;
-			margin-left: 206px;
-			margin-bottom: 2px;
-		}
-		#lte{
-			height: 11px;
-			margin-bottom: 3px;
-		}
-		#battery{
-			height: 21px;
-			margin-bottom: 3px;
-		}
+      #clock {
+      margin-left: 10px;
+      margin-bottom: 1px;
+      display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+      vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+      margin-right: 3px;
+      font-weight: BOLD;
+      }
+      #fix{
+          position: relative;
+          top: 3px;
+          left: 16px;
+          height: 20px;
+          
+      }
+      
+      #internet{
+         height: 19px;
+         margin-left: 206px;
+         margin-bottom: 2px;
+      }
+      #lte{
+         height: 11px;
+         margin-bottom: 3px;
+      }
+      #battery{
+         height: 21px;
+         margin-bottom: 3px;
+      }
 
     </style>
   </head>

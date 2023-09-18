@@ -101,7 +101,7 @@
 
 
         #menu li {
-			
+         
             display: block;
             /* border-right: 1px solid #acacac; */
             padding: 6px 6%; 
@@ -204,7 +204,7 @@
             background-size: contain;
             cursor: pointer;
             display: block;
-          	transition: 0.25s;
+             transition: 0.25s;
 
         }
         #post li span:hover{
@@ -462,12 +462,11 @@
             cursor: default;
             color: #777;
         }
-		
+      
         input {
-            border: 1.5px solid #353434;
-    		border-radius: 8px;
-            height: 30px;
-            width: 206px;
+            border-radius: 5px;
+            height: 28px;
+            width: 195px;
            
         }
         #myModal{
@@ -475,11 +474,11 @@
             height: 440px;
             bottom: 200px;
         }
-		#keyword{
-			margin-top:30px;
-			position: fixed;
-			
-		}
+      #keyword{
+         margin-top:30px;
+         position: fixed;
+         
+      }
         
          /* 모달 스타일 */
          .modal {
@@ -510,39 +509,68 @@
             width: 240px;
         }
         body{
-    		background: #fafafa;
-			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-		}
-		#clock{
-			margin-left: 10px;
-			margin-bottom: 10px;
-			display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-			vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-			margin-right: 3px;
-			font-weight: BOLD;
-			font-size: 15px;
-		}
-		#fix{
-		    position: relative;
-		    top: -2px;
-		    left: 0;
-		    height: 20px;
-		}
-		#navi{
-			height: 14px;
-			margin-bottom: 2px;
-		}
-		#internet{
-			height: 19px;
-			margin-left: 180px;
-			margin-bottom: 2px;
-		}
-		#lte{
-			height: 11px;
-			margin-bottom: 5px;
-		}
-		#battery{
-			height: 21px;
-		}
+          background: #fafafa;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      #clock{
+         margin-left: 10px;
+         margin-bottom: 10px;
+         display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+         vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+         margin-right: 3px;
+         font-weight: BOLD;
+         font-size: 15px;
+      }
+      #fix{
+          position: relative;
+          top: -2px;
+          left: 0;
+          height: 20px;
+      }
+      #navi{
+         height: 14px;
+         margin-bottom: 2px;
+      }
+      #internet{
+         height: 19px;
+         margin-left: 180px;
+         margin-bottom: 2px;
+      }
+      #lte{
+         height: 11px;
+         margin-bottom: 5px;
+      }
+      #battery{
+         height: 21px;
+      }
+
+ #profile3 {
+    width: 50px; /* 원하는 너비 */
+    height: 50px; /* 원하는 높이 */
+    border-radius: 50%; /* 동그랗게 만드는 속성 */
+    overflow: hidden; /* 이미지가 동그랗게 자르도록 설정 */
+    border: 0.5px solid gray;
+  }
+  #profile3 img {
+    width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    height: auto; /* 이미지의 가로세로 비율 유지 */
+  }
+   /* 게시글 정보 스타일 */
+  #postDisplay {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  #postDisplay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #postDisplay p {
+    margin: 5px 0;
+  }
+
 
         

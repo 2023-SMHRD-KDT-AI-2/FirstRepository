@@ -30,31 +30,37 @@
 		
 		
 	</div>
-  <%
-	String id = (String) session.getAttribute("memberid");
-	MemberDAO dao = new MemberDAO();
-	ArrayList<MemberDTO> info = new ArrayList<>();
-	info = dao.getmember(id);
-	session.setAttribute("info", info);
-	FavoriteDAO fdao = new FavoriteDAO();
-	int fav = fdao.findnum(id);
-	ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
-	%>
+<%
+   String id = (String) session.getAttribute("memberid");
+   MemberDAO dao = new MemberDAO();
+   ArrayList<MemberDTO> info = new ArrayList<>();
+   info = dao.getmember(id);
+   session.setAttribute("info", info);
+   FavoriteDAO fdao = new FavoriteDAO();
+   FavoriteDTO fdto = new FavoriteDTO();
+   fdto.setMember_id(id);
+   FavoriteDTO inc =fdao.incheck(fdto);
+   
+   %>
 		<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
 </button>
 		<section class="ftco-section">
 		
 			<div class="container">
-
+				
 				<span id ="myid"><%=info.get(0).getMember_Id() %></span>
 				<span id ="shap">#</span>
 				<span id = "name"><%=info.get(0).getM_Name() %></span>
 				<span id = "favorite">
-				<%for(int i = 0; i<favList.size(); i++){%>
-				<%=favList.get(i).getInterest() %>&nbsp;
-				
-				<%} %>
+				<%if(inc!=null){ 
+               int fav = fdao.findnum(id);
+               ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+            %>
+            <%for(int i = 0; i<favList.size(); i++){%>
+            <%=favList.get(i).getInterest() %>&nbsp;
+            
+            <%}} %>
 				
 				</span>
 			</div>
