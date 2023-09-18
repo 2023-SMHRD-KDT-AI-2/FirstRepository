@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="com.google.gson.JsonObject" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -140,7 +144,6 @@ a {
 </style>
 </head>
 <body>
-
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form" method="post">
 
@@ -151,8 +154,10 @@ a {
 			<h2 style="color:#a0e1f4">Play With Me</h2>
 
 			<div class="form-control">
-				<input type="text" id="email" name="member_Id" placeholder="이메일 주소"> 
+
+				<input type="text" id="email" name="member_Id" placeholder="이메일 주소 "> 
 				<small>Error message</small>
+
 			</div>
 
 			<div class="form-control">
@@ -166,18 +171,22 @@ a {
 			</div>
 
 			<div class="form-control">
+
 				<label class="label" for="gender">성별 선택</label> 
 				<select class="label2" name="gender" class="form-select form-select-sm"
 					aria-label="Small select example">
 					<option selected>성별 선택</option>
 					<option value="men">남성</option>
 					<option value="women">여성</option>
+
 				</select>
 			</div>
 
 			<div class="form-control">
+
 				<input type="text" id="age" name="age" placeholder="나이"> 
 				<small>Error message</small>
+
 			</div>
 
 			<div class="form-control">
@@ -206,6 +215,7 @@ a {
 					<option value="ESFJ">ESFJ</option>
 					<option value="ENFJ">ENFJ</option>
 					<option value="ENTJ">ENTJ</option>
+
 				</select>
 			</div>
 
@@ -213,9 +223,12 @@ a {
 			
 
 		</form>
+		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
+
 	<script src="assets/js/Joinscript.js"></script>
 	
+
 
 </body>
 </html>

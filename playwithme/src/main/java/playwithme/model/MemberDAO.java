@@ -6,11 +6,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
-
 import playwithme.db.SqlSessionManager;
 
+
 public class MemberDAO {
+
 SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+
 	ArrayList<MemberDTO> MemberList = new ArrayList<>();
 	public ArrayList<MemberDTO> getmember(String memberId) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -59,5 +61,5 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		sqlSession.close();
 		return cnt;
 	}
-	
 }
+
