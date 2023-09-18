@@ -140,10 +140,15 @@ a {
 </style>
 </head>
 <body>
-<%JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
+ 
+<%/*
+JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
 String gender = kakaoUserInfo.get("gender").getAsString();
 String ageRange = kakaoUserInfo.get("age_range").getAsString();
-String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
+String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
+*/
+%>
+
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form" method="post">
 

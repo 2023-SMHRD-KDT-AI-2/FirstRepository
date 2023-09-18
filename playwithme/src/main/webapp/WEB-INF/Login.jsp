@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="css/style.css">
 <title>로그인 창</title>
-
+<style type="text/css">
 
 	#clock {
 		margin-left: 4px;
@@ -41,6 +41,7 @@
 	#battery{
 		height: 21px;
 	}
+
 
 
 </style>
@@ -134,12 +135,6 @@
 		Kakao.init('662807c83d8fccc55bc8bf7c650227b4');
 	</script>
 
-	<!-- 카카오 로그인 버튼 태그 -->
-	<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
-		src="images/카카오로그인와이드.png" / id="kakao">
-	</a>
-
-	<p id="token-result"></p>
 
 	<!-- Redirecturl : "http://localhost:8082/goKakaoLog", -->
 
