@@ -1,0 +1,576 @@
+@charset "UTF-8";
+
+ .map_wrap,
+        .map_wrap * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+            font-size: 12px;
+        }
+
+        .map_wrap {
+            position: relative;
+            width: 100%;
+            height: 350px;
+        }
+
+        #category {
+            position: absolute;
+            top: 240px;
+            right: 3px;
+            width: 40px;
+            border-radius: 5px;
+            border: 1px solid #909090;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+            background: #fff;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+
+        #category li {
+            display: block;
+            /* 가로에서 세로로 변경 */
+            border-bottom: 1px solid #acacac;
+            /* 각 카테고리 아래에 구분선 추가 */
+            padding: 6px 0;
+            /* 패딩을 작게 조정 */
+            font-size: 10px;
+            /* 폰트 크기를 작게 조정 */
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #category li.on {
+            background: #eee;
+        }
+
+        #category li:hover {
+            background: #eee;
+            border-left: 1px solid #acacac;
+            margin-left: -1px;
+        }
+
+        #category li:last-child {
+            margin-right: 0;
+            border-right: 0;
+        }
+
+        #category li span {
+            display: block;
+            margin: 0 auto 3px;
+            width: 27px;
+            height: 28px;
+        }
+
+        #category li .category_bg.new-icon1 {
+            background: url("../../images/명소6.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #category li .category_bg.new-icon2 {
+            background: url("../../images/식당3.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #category li .category_bg.new-icon3 {
+            background: url("../../images/카페12.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #category li .category_bg.new-icon4 {
+            background: url("../../images/cctv.png") no-repeat;
+            background-size: contain;
+
+        }
+        #menu {
+            display: flex;
+            position: absolute;
+            top: 638px;
+            left: 0px;
+            right: 0px;
+            width: 350px;
+            height: 70px;
+            background: #fff;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+
+        #menu li {
+         
+            display: block;
+            /* border-right: 1px solid #acacac; */
+            padding: 6px 6%; 
+            /* 패딩을 작게 조정 */
+            font-size: 10px;
+            /* 폰트 크기를 작게 조정 */
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #menu li.on {
+            background: #eee;
+        }
+
+        #menu li:hover {
+            background: #eee;
+            margin-left: -1px;
+        }
+
+        #menu li:last-child {
+            margin-right: 0;
+            border-right: 0;
+        }
+
+        #menu li span {
+            display: block;
+            margin: 0 auto 3px;
+            width: 27px;
+            height: 28px;
+        }
+
+        #menu li .menu_bg.new-icon1 {
+            margin-top: 7px;
+            background: url("../../images/친구2.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #menu li .menu_bg.new-icon2 {
+            margin-top: 7px;
+            background: url("../../images/게시판5.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #menu li .menu_bg.new-icon3 {
+            margin-top: 7px;
+            background: url("../../images/채팅.png") no-repeat;
+            background-size: contain;
+
+        }
+
+        #menu li .menu_bg.new-icon4 {
+            margin-top: 7px;
+            background: url("../../images/마이.png") no-repeat;
+            background-size: contain;
+
+        }
+        #menu li .menu_bg.new-icon5 {
+            margin-top: 7px;
+            background: url("../../images/지도3.png") no-repeat;
+            background-size: contain;
+
+        }
+        #post {
+            display: flex;
+            position: absolute;
+            top: 565px;
+            right: 3px;
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            overflow: hidden;
+            z-index: 2;
+            border-radius: 50%;
+        }
+
+
+        #post li {
+            display: block;
+            /* border-right: 1px solid #acacac; */
+            padding: 5px 5px;
+            /* 패딩을 작게 조정 */
+            cursor: pointer;
+        }
+
+        #post li.on {
+            background: #eee;
+        }
+
+        #post li span {
+            display: block;
+            margin: 0 auto 3px;
+            width: 50px;
+            height: 40px;
+        }
+
+        #post li .post.new-icon1 {
+            background: url("../../images/플러스.png") no-repeat;
+            background-size: contain;
+            cursor: pointer;
+            display: block;
+             transition: 0.25s;
+
+        }
+        #post li span:hover{
+          letter-spacing: 2px;
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+        #post li span:active {
+             transform: scale(1.2);
+        }
+
+
+        .placeinfo_wrap {
+            position: absolute;
+            bottom: 28px;
+            left: -150px;
+            width: 300px;
+        }
+
+        .placeinfo {
+            position: relative;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+            background: #fff;
+        }
+
+        .placeinfo:nth-of-type(n) {
+            border: 0;
+            box-shadow: 0px 1px 2px #888;
+        }
+
+        .placeinfo_wrap .after {
+            content: '';
+            position: relative;
+            margin-left: -12px;
+            left: 50%;
+            width: 22px;
+            height: 12px;
+            background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png')
+        }
+
+        .placeinfo a,
+        .placeinfo a:hover,
+        .placeinfo a:active {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .placeinfo a,
+        .placeinfo span {
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .placeinfo span {
+            margin: 5px 5px 0 5px;
+            cursor: default;
+            font-size: 13px;
+        }
+
+        .placeinfo .title {
+            font-weight: bold;
+            font-size: 14px;
+            border-radius: 6px 6px 0 0;
+            margin: -1px -1px 0 -1px;
+            padding: 10px;
+            color: #fff;
+            background: #d95050;
+            background: #d95050 url("https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png") no-repeat right 14px center;
+        }
+
+        .placeinfo .tel {
+            color: #0f7833;
+        }
+
+        .placeinfo .jibun {
+            color: #999;
+            font-size: 11px;
+            margin-top: 0;
+        }
+
+        .map_wrap,
+        .map_wrap * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Malgun Gothic', dotum, '돋움', sans-serif;
+            font-size: 12px;
+        }
+
+        .map_wrap a,
+        .map_wrap a:hover,
+        .map_wrap a:active {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .map_wrap {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        #menu_wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            margin: 3px 0 0 10px;
+            padding: 5px;
+            overflow-y: auto;
+            /* background: rgba(255, 255, 255, 0.7); */
+            z-index: 1;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+
+       
+
+        #menu_wrap .option p {
+            margin: 10px 0;
+        }
+
+        #menu_wrap .option button {
+            margin-left: 5px;
+        }
+
+        #placesList li {
+            list-style: none;
+        }
+
+        #placesList .item {
+            position: relative;
+            border-bottom: 1px solid #888;
+            overflow: hidden;
+            cursor: pointer;
+            min-height: 65px;
+        }
+
+        #placesList .item span {
+            display: block;
+            margin-top: 4px;
+        }
+
+        #placesList .item h5,
+        #placesList .item .info {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        #placesList .item .info {
+            padding: 10px 0 10px 55px;
+        }
+
+        #placesList .info .gray {
+            color: #8a8a8a;
+        }
+
+        #placesList .info .jibun {
+            padding-left: 26px;
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;
+        }
+
+        #placesList .info .tel {
+            color: #009900;
+        }
+
+        #placesList .item .markerbg {
+            float: left;
+            position: absolute;
+            width: 36px;
+            height: 37px;
+            margin: 10px 0 0 10px;
+            background: url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;
+        }
+
+        #placesList .item .marker_1 {
+            background-position: 0 -10px;
+        }
+
+        #placesList .item .marker_2 {
+            background-position: 0 -56px;
+        }
+
+        #placesList .item .marker_3 {
+            background-position: 0 -102px
+        }
+
+        #placesList .item .marker_4 {
+            background-position: 0 -148px;
+        }
+
+        #placesList .item .marker_5 {
+            background-position: 0 -194px;
+        }
+
+        #placesList .item .marker_6 {
+            background-position: 0 -240px;
+        }
+
+        #placesList .item .marker_7 {
+            background-position: 0 -286px;
+        }
+
+        #placesList .item .marker_8 {
+            background-position: 0 -332px;
+        }
+
+        #placesList .item .marker_9 {
+            background-position: 0 -378px;
+        }
+
+        #placesList .item .marker_10 {
+            background-position: 0 -423px;
+        }
+
+        #placesList .item .marker_11 {
+            background-position: 0 -470px;
+        }
+
+        #placesList .item .marker_12 {
+            background-position: 0 -516px;
+        }
+
+        #placesList .item .marker_13 {
+            background-position: 0 -562px;
+        }
+
+        #placesList .item .marker_14 {
+            background-position: 0 -608px;
+        }
+
+        #placesList .item .marker_15 {
+            background-position: 0 -654px;
+        }
+
+        #pagination {
+            margin: 10px auto;
+            text-align: center;
+        }
+        
+
+        #pagination a {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        #pagination .on {
+            font-weight: bold;
+            cursor: default;
+            color: #777;
+        }
+      
+        input {
+            border-radius: 5px;
+            height: 28px;
+            width: 195px;
+           
+        }
+        #myModal{
+            width: 250px;
+            height: 440px;
+            bottom: 200px;
+        }
+      #keyword{
+         margin-top:30px;
+         position: fixed;
+         
+      }
+        
+         /* 모달 스타일 */
+         .modal {
+            display: none;
+            position: fixed;
+            width: 200px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 모달 뒷 배경 스타일 */
+        .modal-background {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1
+        }
+        #postContent{
+            width: 240px;
+        }
+        body{
+          background: #fafafa;
+         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+      }
+      #clock{
+         margin-left: 10px;
+         margin-bottom: 10px;
+         display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+         vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+         margin-right: 3px;
+         font-weight: BOLD;
+         font-size: 15px;
+      }
+      #fix{
+          position: relative;
+          top: -2px;
+          left: 0;
+          height: 20px;
+      }
+      #navi{
+         height: 14px;
+         margin-bottom: 2px;
+      }
+      #internet{
+         height: 19px;
+         margin-left: 180px;
+         margin-bottom: 2px;
+      }
+      #lte{
+         height: 11px;
+         margin-bottom: 5px;
+      }
+      #battery{
+         height: 21px;
+      }
+
+ #profile3 {
+    width: 50px; /* 원하는 너비 */
+    height: 50px; /* 원하는 높이 */
+    border-radius: 50%; /* 동그랗게 만드는 속성 */
+    overflow: hidden; /* 이미지가 동그랗게 자르도록 설정 */
+    border: 0.5px solid gray;
+  }
+  #profile3 img {
+    width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    height: auto; /* 이미지의 가로세로 비율 유지 */
+  }
+   /* 게시글 정보 스타일 */
+  #postDisplay {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  #postDisplay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #postDisplay p {
+    margin: 5px 0;
+  }
+
+
+        
