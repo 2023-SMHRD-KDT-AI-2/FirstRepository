@@ -7,10 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FriendListDTO {
-	private String member_Id;
-	private String f_Member_Id;
-	private String friendchat_room_num;
 
+public class ChatPartiDTO {
+
+	private String chatting_room_num;
+	private String member_id;
+	
 }
-

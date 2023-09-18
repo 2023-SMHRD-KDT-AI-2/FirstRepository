@@ -37,15 +37,26 @@ public class FriendAddProgram extends HttpServlet {
 		HttpSession session = request.getSession();
 		String member_id = (String) session.getAttribute("memberid");
 
-		
+		//채팅방 연동 채팅방 생성//
+		ChattingListDTO Chatdto = new ChattingListDTO();
+	    Chatdto.setChatting_Room_title(friend_name+"친구와의 채팅");
+	    Chatdto.setMember_Id(member_id);
+	    
+	    ChattingListDAO Chatdao = new ChattingListDAO();
+	    
+	    
+	    //ChatRoom 가져오기
+	    String friendChatRoom = Chatdao.createRoom3(Chatdto);
 		FriendListDTO Frienddto = new FriendListDTO();
 		Frienddto.setF_Member_Id(friend_name);
 		Frienddto.setMember_Id(member_id);
-
+		Frienddto.setFriendchat_room_num(friendChatRoom);
 		FriendListDAO Frienddao = new FriendListDAO();
 
 		int cnt = Frienddao.friendAdd(Frienddto);
-
+		
+		Chatdao.inviteFriendToChatRoom(Frienddto);
+		
 		if (cnt > 0) {
 			// 채팅방 생성에 성공한 경우
 			RequestDispatcher rd = request.getRequestDispatcher("WEB-INF/FrindList.jsp");

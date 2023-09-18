@@ -78,14 +78,14 @@ arrow_back_ios
 								Timestamp timestamp = Timestamp.valueOf(timestampString);
 
 								// 원하는 형식으로 포맷팅
-								SimpleDateFormat outputFormat = new SimpleDateFormat("yy-MM-dd");
+								SimpleDateFormat outputFormat = new SimpleDateFormat("yy-MM-dd HH:mm");
 								String formattedDate = outputFormat.format(timestamp);
 							
 							%>
 							    <tr data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>"  >
 							      
 							      <td  style="text-align: left; !important"><%=AllBoard.get(i).getTitle() %></td>
-							      <td ><%=AllBoard.get(i).getNum_People() %>명</td>
+							      <td class="meeting-time"><%=formattedDate%></td>
 							      <td><button class = "first"><a href ="goChat?room=<%=AllBoard.get(i).getChat_room_num()%>">채팅참여</a></button>
 							     
 							      </td>
@@ -94,7 +94,7 @@ arrow_back_ios
 							    	<td colspan="1" id="collapse<%=i%>" class="collapse acc"  data-parent="#accordion"style="text-align: left; !important" width= 165px; >
 							    		 <%=AllBoard.get(i).getB_Content()%>
 							    	</td>
-							      <td colspan="2" id="collapse<%=i%>" class="collapse acc2" data-parent="#accordion"style="text-align: center;"><%=formattedDate%></td>
+							      <td colspan="2" id="collapse<%=i%>" class="collapse acc2" data-parent="#accordion"style="text-align: center;"><%=AllBoard.get(i).getNum_People() %>명</td>
 							    </tr>
 							    <script>
 	           						 document.getElementById('collapse<%=i%>'). classList.remove('show');
@@ -177,6 +177,31 @@ arrow_back_ios
 	        $("#accordion tbody tr").show();
 	    });
     });
+	
+	 // 페이지 로딩 시 한 번 호출하여 초기 스타일 적용
+    function applyRowStyles() {
+        var currentTime = new Date();
+
+        // 각 행을 확인하면서 모임 시간과 비교
+        $("#accordion tbody tr").each(function(index) {
+            var meetingTimeStr = $(this).find(".meeting-time").text();
+            var meetingTime = new Date(meetingTimeStr.replace(/-/g, '/'));
+	console.log(currentTime)
+	console.log(meetingTimeStr)
+            // 모임 시간이 현재 시간을 넘어갔을 경우
+            if (meetingTime < currentTime) {
+                $(this).css({
+                    "background-color": "#ccc",  // 짙은 회색 배경색
+                    "color": "white"             // 흰색 글자색
+                });
+            }
+        });
+    }
+    // 페이지 로딩 시 한 번 호출하여 초기 스타일 적용
+    applyRowStyles();
+
+    // 1분마다 현재 시간을 확인하여 스타일 업데이트
+    setInterval(applyRowStyles, 60000); // 1분(60,000밀리초)마다 업데이트
   </script>
 	</body>
 </html>

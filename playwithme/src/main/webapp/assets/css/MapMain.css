@@ -544,5 +544,34 @@
 		#battery{
 			height: 21px;
 		}
+		#profile3 {
+    width: 50px; /* 원하는 너비 */
+    height: 50px; /* 원하는 높이 */
+    border-radius: 50%; /* 동그랗게 만드는 속성 */
+    overflow: hidden; /* 이미지가 동그랗게 자르도록 설정 */
+    border: 0.5px solid gray;
+  }
+  #profile3 img {
+    width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    height: auto; /* 이미지의 가로세로 비율 유지 */
+  }
+   /* 게시글 정보 스타일 */
+  #postDisplay {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  #postDisplay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #postDisplay p {
+    margin: 5px 0;
+  }
+
+
 
         

@@ -123,7 +123,7 @@
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=628db567bbec48af8c138d59dec6bb57&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=662807c83d8fccc55bc8bf7c650227b4&libraries=services,clusterer,drawing"></script>
 
 
 
@@ -299,8 +299,6 @@
 	        window.location.href = 'goProfile2?index=' + index;
 	    }
 		///////////////////////////////////////////
-		
-	
 
 
   

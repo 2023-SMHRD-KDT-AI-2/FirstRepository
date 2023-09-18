@@ -3,15 +3,14 @@
 <mapper namespace="playwithme.model.MemberMapper">
 	<!-- 회원가입 정보 -->
 	<insert id="join" parameterType="playwithme.model.MemberDTO">
-		insert into NA_MEMBER values(
-		#{email}
-		#{member_Id},
-		#{pw},
-		#{age},
-		#{m_name},
-		#{gender},
-		#{mbti}
-		)
+		insert into NA_MEMBER(MEMBER_ID,PW,AGE,M_NAME,GENDER,MBTI) values(
+      #{member_Id},
+      #{pw},
+      #{age},
+      #{m_Name},
+      #{gender},
+      #{mbti}
+      )
 	</insert>
 
 	<!-- 로그인 정보 -->
@@ -22,21 +21,6 @@
 		pw=#{pw}
 	</select>
 
-	<!-- 카카오 로그인 정보 -->
-	<insert id="kakao" parameterType="playwithme.model.MemberDTO">
-		insert into NA_MEMBER values(
-		#{email}
-		#{member_Id},
-		#{pw}
-		)
-	</insert>
-
-	<!-- 카카오로그인 정보 -->
-	<select id="kakaolog" parameterType="playwithme.model.MemberDTO"
-		resultType="string">
-		select name from NA_MEMBER where id=#{id} and pw=#{pw} and
-		email={email}
-	</select>
 	
 <!-- 사용자 정보 불러오기 -->
 	<select id="get" parameterType="string"
@@ -79,6 +63,14 @@
 		#{member_Id},
 		#{f_Member_Id})
 	</insert>
+	<!-- 카카오로그인 -->
+	<select id="kakaoLogin" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
+		select * from NA_MEMBER where member_Id=#{member_Id} 
+	</select>
+	<!-- 중복된아이디 체크 -->
+	<select id="checkDuplicateId" parameterType="java.lang.String" resultType="int">
+    SELECT COUNT(*) FROM NA_MEMBER WHERE MEMBER_ID = #{member_Id}
+</select>
 
 
 </mapper>

@@ -1,31 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 최종 수정일 : 2023.09.13 작성자 : 윤근영, 박기원 목적 : 채팅방 생성 및 채팅 리스트 보여주기, 채틸방을 만들면 
-	참여자 db에 바로 삽입 -->
+<!--
+최종 수정일 : 2023.09.13 
+작성자 : 윤근영, 박기원
+목적 : 채팅방 생성 및 채팅 리스트 보여주기, 채틸방을 만들면 참여자 db에 바로 삽입
+
+ -->
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="playwithme.model.ChattingMapper">
 
-	<select id="selectChatTitle" parameterType="String"
-		resultType="playwithme.model.ChattingListDTO">
+	<select id="selectChatTitle" parameterType="String" resultType="playwithme.model.ChattingListDTO">
 		SELECT B.*
 		FROM chatting_room_parti A, chatting_room B
-		WHERE
-		A.chatting_room_num = B.chatting_room_num
-		AND A.member_id = #{member_Id}
-	</select>
 
+		WHERE A.chatting_room_num = B.chatting_room_num
+    	AND A.member_id = #{member_Id}
+
+	</select>
+	
 	<select id="lastChat" parameterType="int" resultType="String">
-		select ch_content
-		from (select CH_CONTENT FROM CHATTING WHERE
-		CHATTING_ROOM_NUM=#{chatroom_num}
+
+	select ch_content
+	from (select CH_CONTENT FROM CHATTING WHERE CHATTING_ROOM_NUM=#{chatroom_num} 
 		ORDER BY CHATTING_NUM)
-		where rownum=1
+	where rownum=1
 	</select>
 
-	<select id="chatRoomTitle" parameterType="int"
-		resultType="String">
-		select chatting_room_title from chatting_room where
-		chatting_room_num=#{chatroom}
-	</select>
+	<select id="chatRoomTitle" parameterType="int" resultType="String">
+	   select chatting_room_title from chatting_room where chatting_room_num=#{chatroom}
+</select>
 
 	<!-- 채팅 기록 남기기 -->
 	<insert id="saveMessage"
@@ -33,13 +35,16 @@
 		INSERT INTO CHATTING (CHATTING_NUM, CHATTING_ROOM_NUM,
 		MEMBER_ID,CH_CONTENT, CH_DATE)
 		VALUES (SEQ_CHATTING.nextval,
-		#{room}, #{senderName}, #{message},
+		#{room},
+		#{senderName}, #{message},
 		CURRENT_TIMESTAMP)
 	</insert>
 
 	<!--채팅방 만들기 -->
 	<insert id="createRoom"
-		parameterType="playwithme.model.ChattingListDTO">
+		parameterType="playwithme.model.ChattingListDTO"
+		useGeneratedKeys="true" keyColumn="CHATTING_ROOM_NUM"
+		keyProperty="chatting_Room_num">
 		INSERT INTO CHATTING_ROOM (CHATTING_ROOM_NUM,
 		CHATTING_ROOM_TITLE,
 		MEMBER_ID)
@@ -50,31 +55,61 @@
 	<!-- 채팅방 만들면 바로 생성 -->
 	<insert id="saveParticipant"
 		parameterType="playwithme.model.ChattingListDTO">
-		INSERT INTO CHATTING_ROOM_PARTI (PARTI_NUM, CHATTING_ROOM_NUM, MEMBER_ID)
-		VALUES (SEQ_CHATTING_ROOM_PARTI.nextval, SEQ_CHATTING_ROOM.currval,
+		INSERT INTO CHATTING_ROOM_PARTI (PARTI_NUM,
+		CHATTING_ROOM_NUM, MEMBER_ID)
+		VALUES (SEQ_CHATTING_ROOM_PARTI.nextval,
+		SEQ_CHATTING_ROOM.currval,
 		#{member_Id})
 	</insert>
+	<!-- 친구 추가 및 채팅 방 친구 초대 -->
+	<insert id="friendParticipant"
+		parameterType="playwithme.model.FriendListDTO">
+		INSERT INTO CHATTING_ROOM_PARTI (PARTI_NUM, CHATTING_ROOM_NUM, MEMBER_ID)
+		VALUES (SEQ_CHATTING_ROOM_PARTI.nextval, #{friendchat_room_num},
+		#{f_Member_Id})
+	</insert>
+
 
 	<select id="getChat" parameterType="int"
 		resultType="playwithme.model.GetChatDTO">
-		select * from chatting where chatting_room_num=#{roomnum} order by ch_date
+		select * from chatting where chatting_room_num=#{roomnum}
+		order by ch_date
 		asc
 
 	</select>
 
 	<!-- 채팅방 참여자 가져오기 -->
 	<select id="chatparti" parameterType="int" resultType="string">
-		select member_id from chatting_room_parti where chatting_room_num=#{roomnum}
+		select
+		member_id from chatting_room_parti where chatting_room_num=#{roomnum}
+
 	</select>
-
 	
-
-
 	<!-- 채팅 파티원 삭제 -->
 	<delete id="deleteParti"
 		parameterType="playwithme.model.Chat_PartiDTO">
-		DELETE FROM CHATTING_ROOM_PARTI WHERE CHATTING_ROOM_NUM =
+		DELETE FROM CHATTING_ROOM_PARTI WHERE CHATTING_ROOM_NUM
+		=
 		#{chatting_Room_num} AND MEMBER_ID = #{member_Id}
 	</delete>
 
+
+	<!-- 전체 친구 목록 읽기 -->
+	<select id="friendlist"
+		resultType="playwithme.model.FriendListDTO">
+		select *
+		from FRIEND
+	</select>
+	
+	<select id="n_name" parameterType="string" resultType="string">
+   select m_name from na_member where member_id=#{memberid}
+   </select>
+   
+      <insert id="join_chat" parameterType="playwithme.model.ChatPartiDTO">
+   INSERT INTO CHATTING_ROOM_PARTI (PARTI_NUM, CHATTING_ROOM_NUM, MEMBER_ID) 
+   values (SEQ_CHATTING_ROOM_PARTI.nextval, #{chatting_room_num}, #{member_id})
+   </insert>
+	
+	
+	
 </mapper>

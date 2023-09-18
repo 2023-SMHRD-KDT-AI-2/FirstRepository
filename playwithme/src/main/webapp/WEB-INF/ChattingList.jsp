@@ -136,7 +136,6 @@
             <span id="clearSearch" class="material-symbols-outlined">close</span>
             <img id="createRoomButton" src="images/채팅방생성.png" alt="채팅방 생성" /> 
         </div>
-	<div class="contacts">
 	
 		
 		
@@ -150,11 +149,9 @@
 		ChattingListDAO Chatdao = new ChattingListDAO();
 		ArrayList<ChattingListDTO> chatList = new ArrayList<>();
 
-  <div class="contacts">
 
 		
-		<%
-		for (int i = 0; i < chatList.size(); i++) {
+		 for (int i = 0; i < chatList.size(); i++) {
 		%>
 		<div class="contact"
 			onclick="location.href='<%="goChat?room=" + chatList.get(i).getChatting_Room_num()%>'">
