@@ -55,9 +55,12 @@
 	 #back {
 		border : 0px;
 		background-color :#fafafa;
-		margin-top : 15px;
+		margin-top : 22px;
 		margin-left : 10px;
 		
+		}
+		#back:focus{
+			outline: none;
 		}
 	
 	
@@ -72,6 +75,10 @@
 		    border-color: #fff !important;
 		    
         }
+        .first:focus{
+			outline: none;
+		}
+	
       .second {
             cursor: pointer;
             background-color: #848181;
@@ -81,6 +88,11 @@
             width: 38px;
 		    height: 25px;
         }
+        
+        .second:focus{
+			outline: none;
+		}
+	
         .collapse.acc2{
         	padding-left:64px;
         }
@@ -106,7 +118,10 @@
 	ArrayList<BoardDTO> myBoard = new ArrayList<>();
 	myBoard = brdao.myList(memberId);
 	session.setAttribute("myBoard", myBoard);
-	
+	MemberDAO dao = new MemberDAO();
+	ArrayList<MemberDTO> info = new ArrayList<>();
+	info = dao.getmember(memberId);
+	session.setAttribute("info", info);
 	%>
 	<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
@@ -117,7 +132,7 @@ arrow_back_ios
 			</div>
 			<div class="row">
 				<div class="col-md-12">
-					<h3 class="h5 mb-4 text-center"><%=memberId %>님의 게시물</h3>
+					<h3 class="h5 mb-4 text-center"><%=info.get(0).getM_Name() %>님의 게시물</h3>
 					<span id = sulmyuong>내용을 보실려면 해당 게시글을 클릭해주세요</span>
 					<div class="table-wrap">
 						<table class="table myaccordion table-hover" id="accordion">
