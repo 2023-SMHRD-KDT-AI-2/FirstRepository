@@ -1,3 +1,4 @@
+
 package playwithme.model;
 
 import java.util.ArrayList;
@@ -66,3 +67,4 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
       return cnt;
    }
 }
+

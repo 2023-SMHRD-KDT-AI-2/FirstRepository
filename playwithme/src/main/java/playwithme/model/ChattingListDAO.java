@@ -9,7 +9,7 @@ import playwithme.db.SqlSessionManager;
 
 
 public class ChattingListDAO {
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	//ArrayList<ChattingListDTO> chatroom=new ArrayList<>();
 	
@@ -50,22 +50,48 @@ public class ChattingListDAO {
 		      return cnt;   
 		   }
 	   
+	      public String createRoom2(ChattingListDTO chatlist) {
+	            SqlSession sqlSession = sqlSessionFactory.openSession(true);
+	            
+	            int cnt = sqlSession.insert("createRoom", chatlist);
+	            
+	            sqlSession.insert("saveParticipant", chatlist);
+	            
+	            sqlSession.close();
+	            
+	            String boardchat=chatlist.getChatting_Room_num();
+	            
+	            
+	            return boardchat;   
+	         }
+	      
 	   
-	   public String createRoom2(ChattingListDTO chatlist) {
+
+	   //친구 추가할때 방 생성
+	   public String createRoom3(ChattingListDTO chatlist) {
 		      SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		      
-		      int cnt = sqlSession.insert("createRoom", chatlist);
-		      
+		      sqlSession.insert("createRoom", chatlist);
 		      sqlSession.insert("saveParticipant", chatlist);
 		      
 		      sqlSession.close();
 		      
-		      String boardchat=chatlist.getChatting_Room_num();
-		      
-		      
-		      return boardchat;   
+		      String friendchat = chatlist.getChatting_Room_num();
+
+
+		      return friendchat;   
 		   }
 	   
+	   //친구 초대
+	   public void inviteFriendToChatRoom(FriendListDTO friendListDTO) {
+		    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+		    sqlSession.insert("friendParticipant", friendListDTO);
+
+		    sqlSession.close();
+		   }
+	   
+
 	   public ArrayList<GetChatDTO> getChat(int roomnum) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
 			
@@ -86,23 +112,51 @@ public class ChattingListDAO {
 		   return chatpart;
 	   }
 	   
-		// 채팅방 삭제
-		public int deleteParti(Chat_PartiDTO Chatdto) {
-			SqlSession sqlSession = sqlSessionFactory.openSession(true);
+	   public String nName(String memberid) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   String nName=sqlSession.selectOne("n_name", memberid);
+		   sqlSession.close();
+		   return nName;
+	   }
+	   
+	   public int joinChat(ChatPartiDTO chatpart) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   
+		   int cnt=sqlSession.insert("join_chat", chatpart);
+		   sqlSession.close();
+		   return cnt;
+	   }
+	   
+	   public String checkparti (ChatPartiDTO chatpart) {
+		   SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		   String check=sqlSession.selectOne("check_parti", chatpart);
+		   sqlSession.close();
+		   System.out.println("dao check parti 작동확인");
+		   return check;
+		   
+	   }
+	   
+	// 채팅방 삭제
+	      public int deleteParti(Chat_PartiDTO Chatdto) {
+	         SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
-			try {
-				// 1. 채팅방에서 해당 사용자 삭제
-				int deletedRows = sqlSession.delete("deleteParti", Chatdto);
+	         try {
+	            // 1. 채팅방에서 해당 사용자 삭제
+	            int deletedRows = sqlSession.delete("deleteParti", Chatdto);
 
-				// 2. 채팅방 내의 채팅 메시지 삭제 또는 처리 (선택적)
-				// 예를 들어, 채팅방 내의 모든 메시지를 삭제하는 작업을 추가할 수 있습니다.
-				// 이 작업은 필요에 따라 구현하세요.
 
-				return deletedRows; // 삭제된 행의 수 반환
-			} finally {
-				sqlSession.close();
-			}
-		}
+	            // 2. 채팅방 내의 채팅 메시지 삭제 또는 처리 (선택적)
+	            // 예를 들어, 채팅방 내의 모든 메시지를 삭제하는 작업을 추가할 수 있습니다.
+	            // 이 작업은 필요에 따라 구현하세요.
+
+
+	            return deletedRows; // 삭제된 행의 수 반환
+	         } finally {
+	            sqlSession.close();
+	         }
+	      }
+	
 	
 
 }

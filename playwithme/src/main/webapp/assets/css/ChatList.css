@@ -6,29 +6,20 @@ body, html {
   line-height: 1.25em;
   letter-spacing: 0.025em;
   color: #333;
-  background: #F7F7F7;
   width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  background: #fafafa;
 }
 
-.center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  
-}
+
 
 html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
 .pic {
   width: 4rem;
@@ -41,14 +32,12 @@ body {
 .contact {
   position: relative;
   margin-bottom: 1rem;
-  padding-left: 5rem;
+  padding-left: 0rem;
   height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 .contact .pic {
   position: absolute;
@@ -59,6 +48,7 @@ body {
 .contact .name {
   font-weight: 500;
   margin-bottom: 0.125rem;
+  margin-left: 75px;
 }
 .contact .message, .contact .seen {
   font-size: 0.9rem;
@@ -82,18 +72,14 @@ body {
 
 .contacts {
   position: absolute;
-  top: 50%;
+  top: 429px;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  height: 100vh;
-  
-  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+  height: 85vh;
+  padding: 1rem 2rem 1rem 1rem;
   box-sizing: border-box;
-  border-radius: 1rem;
   cursor: pointer;
-  background: white;
-  box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 2rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
   overflow-y: auto; /* 세로 스크롤 활성화 */
 }
 .contacts h2 {
