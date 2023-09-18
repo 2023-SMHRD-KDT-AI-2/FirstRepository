@@ -606,6 +606,7 @@
         map2.addEventListener('click', function(mouseEvent) {
             if (isPostClicked) {
                 modal.style.display = 'block';
+                console.log('확인',modalBackground);
                 modalBackground.style.display = 'block';
                 modal.style.position= "relative";
                 modal.style.zIndex = "2";

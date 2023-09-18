@@ -22,39 +22,70 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <style>
+#clock {
+	margin-left: 10px;
+	margin-bottom: 10px;
+	display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+	vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+	margin-right: 3px;
+	font-weight: BOLD;
+	font-size: 15px;
+}
 
-	#clock {
-		margin-left: 10px;
-		margin-bottom: 10px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		font-size: 15px;
-	}
-	#fix{
-	    position: relative;
-	    top: -2px;
-	    left: 0;
-	    height: 20px;
-	    
-	}
-	#navi{
-		height: 14px;
-		margin-bottom: 2px;
-	}
-	#internet{
-		height: 19px;
-		margin-left: 180px;
-		margin-bottom: 2px;
-	}
-	#lte{
-		height: 11px;
-		margin-bottom: 5px;
-	}
-	#battery{
-		height: 21px;
-	}
+#fix {
+	position: relative;
+	top: -2px;
+	left: 0;
+	height: 20px;
+}
+
+#navi {
+	height: 14px;
+	margin-bottom: 2px;
+}
+
+#internet {
+	height: 19px;
+	margin-left: 180px;
+	margin-bottom: 2px;
+}
+
+#lte {
+	height: 11px;
+	margin-bottom: 5px;
+}
+
+#battery {
+	height: 21px;
+}
+
+ #profile3 {
+    width: 50px; /* 원하는 너비 */
+    height: 50px; /* 원하는 높이 */
+    border-radius: 50%; /* 동그랗게 만드는 속성 */
+    overflow: hidden; /* 이미지가 동그랗게 자르도록 설정 */
+    border: 0.5px solid gray;
+  }
+  #profile3 img {
+    width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    height: auto; /* 이미지의 가로세로 비율 유지 */
+  }
+   /* 게시글 정보 스타일 */
+  #postDisplay {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  #postDisplay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #postDisplay p {
+    margin: 5px 0;
+  }
 </style>
 
 
@@ -63,12 +94,10 @@
 
 	<div id=fix>
 
-		<span id="clock"></span>
-		<img src="images/네비.png" id="navi">
-		<img src="images/인터넷.png" id="internet">
-		<img src="images/LTE.png" id="lte">
-		<img src="images/배터리.png" id="battery">
-		
+		<span id="clock"></span> <img src="images/네비.png" id="navi"> <img
+			src="images/인터넷.png" id="internet"> <img src="images/LTE.png"
+			id="lte"> <img src="images/배터리.png" id="battery">
+
 
 	</div>
 
@@ -165,27 +194,20 @@
 			<!-- <button id="savePost">저장</button> -->
 		</form>
 	</div>
-
-	<div id="modalBackground" class="modal-background"></div>
-
+<div id="modalBackground" class="modal-background"></div>
 
 
 	<script src="js/jquery-3.7.1.js"></script>
-	<script type="text/javascript"
 
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=628db567bbec48af8c138d59dec6bb57&libraries=services,clusterer,drawing"></script>
-
-
-
-	<script src="assets/js/MapMain.js"></script>
 	<script>
+	
+	
 		document.addEventListener("DOMContentLoaded", function() {
 
 			// id가져오기
 			let chatSpan = document.getElementById("chatLink");
 		})
 
-		///////////////////////////////////////////////////////////////////////////////
 		// 시계
 		function updateClock() {
 			const currentDate = new Date();
@@ -251,101 +273,43 @@
 		
 
 		   //////////////////////////////////////////////
-		    addMarker2() 
-			<% BoardDAO dao2 = new BoardDAO();
+			<%BoardDAO dao2 = new BoardDAO();
 			ArrayList<BoardDTO> board_Num = new ArrayList<>();
 			board_Num = dao2.list();%>
-			
-		///////////////////////////////////////////\
-			// 전체게시글 지도 표시
-			function addMarker2() {
-			let marker4 =new kakao.maps.Marker({})
-			let infowindow3 = new kakao.maps.InfoWindow({}) 
-			let positions =[]
-					console.log("sarf")				
-					
-					<%for(int i = 0; i<board_Num.size(); i++ ){%>
-						
-							data4 = {
-							content: "<div><%=board_Num.get(i).getTitle()%></div>",
-					        latlng: new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>, <%=board_Num.get(i).getLatitude()%>)				
-							};
-							positions.push(data4)
-							
-					        imageSrc1 = "file/<%=board_Num.get(i).getM_Profile()%>"
-
-					        imageSize1 = new kakao.maps.Size(25, 25); 
-
-					        //console.log(board_Num.get(i).getM_Profile());
-					        // 마커 이미지를 생성합니다    
-					        markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
-					        
-					        
-					        console.log(imageSrc1)
-					        console.log(positions[<%=i%>].latlng)
-					    // 마커를 생성합니다
-					    	marker4 = new kakao.maps.Marker({
-					    	map: map, // 마커를 표시할 지도
-					        position: positions[<%=i%>].latlng, // 마커의 위치
-					        image: markerImage1
-					    });
-						 // 마커에 표시할 인포윈도우를 생성합니다 
-					    	 infowindow3 = new kakao.maps.InfoWindow({
-					         content: positions[<%=i%>].content
-					         
-					         // 인포윈도우에 표시할 내용
-					    });
-						 
-					    // 마커가 지도 위에 표시되도록 설정합니다
-					    marker4.setMap(map);
-					    console.log(infowindow3.isOpen)
-						
-					    kakao.maps.event.addListener(marker4, 'mouseover', makeOverListener(map, marker4, infowindow3));
-					    kakao.maps.event.addListener(marker4, 'mouseout', makeOutListener(infowindow3));
-			<%}%>
-			}
-					// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-						function makeOverListener(map, marker4, infowindow) {
-						    return function() {
-						        infowindow.open(map, marker4);
-						    };
-						}
-						
-						// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-						function makeOutListener(infowindow) {
-						    return function() {
-						        infowindow.close();
-						    };
-						}   
-		/////////////////////////////////////////////////////////////////
-		// 내 게시물 마커 생성
-		 	<%--  let positions1 = [
-		    <% 
-		    for(int  i = 0; i<board_Num.size(); i++ ){%>
-		       {title :"<%=board_Num.get(i).getTitle()%>" , latlng: new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>,<%=board_Num.get(i).getLatitude()%>)},
-		    <%}%>
-		    
-		 ];
+	
 		
-		// 마커 이미지의 이미지 주소입니다
-		var imageSrc1 = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-		    
-		for (var i = 0; i < positions1.length; i ++) {
-		    
-		    // 마커 이미지의 이미지 크기 입니다
-		    var imageSize1 = new kakao.maps.Size(24, 35); 
-		    
-		    // 마커 이미지를 생성합니다    
-		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
-		    
-		    // 마커를 생성합니다
-		    var marker1 = new kakao.maps.Marker({
-		        map: map, // 마커를 표시할 지도
-		        position: positions1[i].latlng, // 마커를 표시할 위치
-		        title : positions1[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-		        image : markerImage1 // 마커 이미지 
-		    });
-		}; --%>
+		///////////////////////////////////////////////////////////////////////////////
+		<%for(int i = 0; i<board_Num.size(); i++ ){%>
+				var content = 
+			    `<div>
+				    <!-- 프로필 사진 -->
+				    <a href ="goProfile2?i=<%=board_Num.get(i).getBoard_Num()%>">
+				        <img src="images/<%=board_Num.get(i).getM_Profile()%>" id="profile3" onerror="this.src='images/default.jpg'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+				    </div>`
+		
+		// 커스텀 오버레이가 표시될 위치입니다 
+		var position = new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>, <%=board_Num.get(i).getLatitude()%>); 
+		
+		// 커스텀 오버레이를 생성합니다
+		var customOverlay = new kakao.maps.CustomOverlay({
+		    position: position,
+		    content: content,
+		    xAnchor: 0.3,
+		    yAnchor: 0.91
+		});
+		
+		// 커스텀 오버레이를 지도에 표시합니다
+		customOverlay.setMap(map);
+		
+		<%}%>
+		
+		function goToProfile(index) {
+	        // 클릭한 이미지를 클릭한 프로필 페이지로 이동합니다.
+	        window.location.href = 'goProfile2?index=' + index;
+	    }
+		///////////////////////////////////////////
+		
+	
 
 
   
@@ -358,4 +322,4 @@
 
 
 
-</html>
+	</html>

@@ -37,6 +37,12 @@
 		<servlet-class>playwithme.controller.goProfile</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>goProfile2</servlet-name>
+		<display-name>goProfile2</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.goProfile2</servlet-class>
+	</servlet>
+	<servlet>
   	<servlet-name>goMain</servlet-name>
   	<display-name>goMain</display-name>
   	<description></description>
@@ -48,6 +54,7 @@
   	<description></description>
   	<servlet-class>playwithme.controller.goMyBoard</servlet-class>
   </servlet>
+
 	<servlet>
   	<servlet-name>BoardProgram</servlet-name>
   	<display-name>BoardProgram</display-name>
@@ -66,6 +73,7 @@
 		<description></description>
 		<servlet-class>playwithme.controller.goLogin</servlet-class>
 	</servlet>
+
 	<servlet>
 		<servlet-name>Logout</servlet-name>
 		<display-name>Logout</display-name>
@@ -127,6 +135,10 @@
 		<url-pattern>/goProfile</url-pattern>
 	</servlet-mapping>
 	<servlet-mapping>
+		<servlet-name>goProfile2</servlet-name>
+		<url-pattern>/goProfile2</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
 		<servlet-name>FixBoardProgram</servlet-name>
 		<url-pattern>/FixBoardProgram</url-pattern>
 	</servlet-mapping>
@@ -138,6 +150,7 @@
 		<servlet-name>goLogin</servlet-name>
 		<url-pattern>/goLogin</url-pattern>
 	</servlet-mapping>
+	
 	<servlet-mapping>
 		<servlet-name>ChangePwProgram</servlet-name>
 		<url-pattern>/ChangePwProgram</url-pattern>
@@ -146,6 +159,7 @@
 		<servlet-name>LoginProgram</servlet-name>
 		<url-pattern>/LoginProgram</url-pattern>
 	</servlet-mapping>
+
 	<servlet-mapping>
 		<servlet-name>Logout</servlet-name>
 		<url-pattern>/Logout</url-pattern>

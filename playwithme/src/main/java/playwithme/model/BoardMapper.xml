@@ -33,10 +33,16 @@
    </insert>
 	<!-- 전체 게시물 읽기 -->
 	<select id = "list" resultType="playwithme.model.BoardDTO">
-		select board.* , na_member.m_profile
+		select board.* , na_member.m_profile,  na_member.m_name, na_member.temper
 		from BOARD
 		JOIN NA_MEMBER ON BOARD.MEMBER_ID = NA_MEMBER.MEMBER_ID
 	
+	</select>
+	<select id = "oneList" resultType="playwithme.model.BoardDTO" parameterType="String" >
+		select board.* , na_member.m_profile,  na_member.m_name, na_member.temper
+		from BOARD
+		JOIN NA_MEMBER ON BOARD.MEMBER_ID = NA_MEMBER.MEMBER_ID
+		where board_Num = #{board_Num} 
 	</select>
 
 	<!-- 내 게시물  -->
