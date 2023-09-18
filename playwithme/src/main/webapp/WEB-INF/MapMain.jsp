@@ -268,7 +268,9 @@
 						    return function() {
 						        infowindow.close();
 						    };
-						}   
+						} 
+						
+		 
 	</script>
 </body>
 </html>

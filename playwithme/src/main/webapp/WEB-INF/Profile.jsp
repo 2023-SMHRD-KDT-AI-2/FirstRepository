@@ -40,8 +40,10 @@
 	info = dao.getmember(id);
 	session.setAttribute("info", info);
 	FavoriteDAO fdao = new FavoriteDAO();
-	int fav = fdao.findnum(id);
-	ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+	FavoriteDTO fdto = new FavoriteDTO();
+	fdto.setMember_id(id);
+	FavoriteDTO inc =fdao.incheck(fdto);
+	
 	%>
 		<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
@@ -54,10 +56,14 @@ arrow_back_ios
 				<span id ="shap">#</span>
 				<span id = "name"><%=info.get(0).getM_Name() %></span>
 				<span id = "favorite">
+				<%if(inc!=null){ 
+					int fav = fdao.findnum(id);
+					ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+				%>
 				<%for(int i = 0; i<favList.size(); i++){%>
 				<%=favList.get(i).getInterest() %>&nbsp;
 				
-				<%} %>
+				<%}} %>
 				
 				</span>
 			</div>
