@@ -26,7 +26,7 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 
 			<div class="form-control">
 				<input type="text" id="email" name="member_Id"
-					placeholder="이메일 주소 또는 전화번호"> <small>Error message</small>
+					placeholder="이메일 주소 또는 전화번호" > <small>Error message</small>
 			</div>
 
 			<div class="form-control">
@@ -85,12 +85,8 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 			<button id="joinSubmit" type="submit">회원가입</button>
 
 		</form>
+		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
-	<script src="js/script.js"></script>
-
-	<script>
-		
-	</script>
 
 </body>
 </html>

@@ -68,25 +68,6 @@
 	</select>
 
 	
-	   <!-- 채팅 기록 남기기 -->
-   <insert id="saveMessage"
-      parameterType="playwithme.model.ChatDTO">
-      INSERT INTO CHATTING (CHATTING_NUM, CHATTING_ROOM_NUM,
-      MEMBER_ID,CH_CONTENT, CH_DATE)
-      VALUES (SEQ_CHATTING.nextval,
-      #{room}, #{senderName}, #{message},
-      CURRENT_TIMESTAMP)
-   </insert>
-   
-      <!--채팅방 만들기 -->
-   <insert id="createRoom"
-      parameterType="playwithme.model.ChattingListDTO" useGeneratedKeys="true" keyColumn="CHATTING_ROOM_NUM" keyProperty="chatting_Room_num">
-      INSERT INTO CHATTING_ROOM (CHATTING_ROOM_NUM,
-      CHATTING_ROOM_TITLE,
-      MEMBER_ID)
-      VALUES (SEQ_CHATTING_ROOM.nextval,
-      #{chatting_Room_title}, #{member_Id})
-   </insert>
 
 
 	<!-- 채팅 파티원 삭제 -->

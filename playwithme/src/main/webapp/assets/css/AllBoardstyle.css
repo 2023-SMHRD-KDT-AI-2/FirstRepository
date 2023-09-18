@@ -325,7 +325,7 @@ h4, .h4 {
   font-size: 1.5rem; }
 
 h5, .h5 {
-  font-size: 18px; }
+  font-size: 1.25rem; }
 
 h6, .h6 {
   font-size: 1rem; }
@@ -8027,7 +8027,7 @@ body {
   font-size: 16px;
   line-height: 1.8;
   font-weight: normal;
-  background: #fafafa;
+  background: #f8f9fd;
   margin-top: -6px;}
 
 a {
@@ -8160,10 +8160,10 @@ h1, h2, h3, h4, h5,
  position: relative;
  
  }
- 	body {
+ body{
 	position: fixed;
 	}
-	#clock {
+	 #clock {
 		margin-left: -11px;
 		margin-bottom: 5px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
@@ -8211,15 +8211,13 @@ h1, h2, h3, h4, h5,
             font-size: 10px;
 		    width: 38px;
 		    height: 25px;
-		    border-color: #fff !important;
-		    
         }
       .second {
             cursor: pointer;
             background-color: #848181;
             border-radius: 4px;
             font-size: 10px;
-            border-color: #848181;
+            
             width: 38px;
 		    height: 25px;
         }
@@ -8229,8 +8227,8 @@ h1, h2, h3, h4, h5,
         .title{
         	    padding-left: 10px;
         }
-     #searchInput {
-     	width: 90%;
+    #searchInput {
+   		width: 90%;
 		height: 29px;
 	    margin: 0;
 	    border-radius: 33px;
@@ -8244,9 +8242,9 @@ h1, h2, h3, h4, h5,
 	    color: red;
 	    z-index: 1;
 	    left: -28px;
-	    top: 4px;
+	    top: 5px;
 	}
-	.table-wrap {
+	 .table-wrap {
             max-height: 100%; /* 원하는 최대 높이로 설정하세요. */
             overflow-y: auto; /* 세로 스크롤 활성화 */
         }

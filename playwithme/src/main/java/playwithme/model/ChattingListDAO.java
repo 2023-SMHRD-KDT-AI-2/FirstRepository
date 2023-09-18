@@ -9,7 +9,7 @@ import playwithme.db.SqlSessionManager;
 
 
 public class ChattingListDAO {
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	//ArrayList<ChattingListDTO> chatroom=new ArrayList<>();
 	

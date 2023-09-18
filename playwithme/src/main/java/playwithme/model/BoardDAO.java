@@ -11,7 +11,7 @@ import playwithme.db.SqlSessionManager;
 
 public class BoardDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	
 	// 게시판 글쓰기 기능
@@ -36,6 +36,7 @@ public class BoardDAO {
 		
 		return boardlist;
 	}
+	// 내게시글 불러오기 -강련 
 	public BoardDTO oneList(String num) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		
@@ -55,19 +56,21 @@ public class BoardDAO {
 		
 		return boardlist;
 	}
-	
+	// 게시글 삭제 -강련
 	public int deleteOne(int num) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		int message1 = sqlSession.delete("deleteOne",num);
 		sqlSession.close();
 		return message1;
 	}
+	// 게시글 수정 -강련
 	public  BoardDTO fixList(String num) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		BoardDTO boardlist = sqlSession.selectOne("fixList",num);
 		sqlSession.close();
 		return boardlist;
 	}
+	
 	public  int boardup(BoardDTO num) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		int boardlist = sqlSession.update("boardup",num);

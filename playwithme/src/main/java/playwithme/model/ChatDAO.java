@@ -9,7 +9,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import playwithme.db.SqlSessionManager;
 
 public class ChatDAO {
-   SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+   SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 
 
    //채팅 메시지 저장

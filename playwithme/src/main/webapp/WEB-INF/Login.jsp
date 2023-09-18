@@ -9,40 +9,42 @@
 	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="css/style.css">
-<title>Insert title here</title>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<title>로그인 창</title>
+
 <style>
-#clock {
-	margin-left: 4px;
-	margin-bottom: 13px;
-	display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-	vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-	margin-right: 3px;
-	font-weight: BOLD;
-	font-size: 14px;
-}
+	body{
+	
+	}
+	#clock {
+		margin-left: 4px;
+		margin-bottom: 13px;
+		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+		margin-right: 3px;
+		font-weight: BOLD;
+		font-size: 15px;
+	}
+	#fix{
+		position: relative;
+	    margin-top: 7px;
+	    margin-left: 14px;
+	    height: 20px;
+	    
+	}
+	
+	#internet{
+		height: 19px;
+		margin-left: 197px;
+		margin-bottom: 2px;
+	}
+	#lte{
+		height: 11px;
+		margin-bottom: 5px;
+	}
+	#battery{
+		height: 21px;
+	}
 
-#fix {
-	position: relative;
-	margin-top: 10px;
-	margin-left: 23px;
-	height: 20px;
-}
-
-#internet {
-	height: 19px;
-	margin-left: 191px;
-	margin-bottom: 2px;
-}
-
-#lte {
-	height: 11px;
-	margin-bottom: 5px;
-}
-
-#battery {
-	height: 21px;
-}
 </style>
 
 </head>
