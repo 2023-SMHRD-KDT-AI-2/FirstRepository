@@ -41,7 +41,7 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	//회원가입 
 	public int Join(MemberDTO member) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		int cnt = sqlSession.insert("Join", member);
+		int cnt = sqlSession.insert("join", member);
 		sqlSession.close();
 		return cnt;
 	}

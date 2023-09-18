@@ -39,7 +39,7 @@ public class LoginProgram extends HttpServlet {
 			rd.forward(request, response);
 		} else {
 			out.println("<script>alert('ID,PW를 다시 확인하세요.');location.href='goLogin'; </script>");
-			
+			//
 
 		}
 	}

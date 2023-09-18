@@ -45,7 +45,6 @@
 	<classpathentry kind="src" output="target/test-classes" path=".apt_generated_tests">
 		<attributes>
 			<attribute name="test" value="true"/>
-
 			<attribute name="optional" value="true"/>
 		</attributes>
 	</classpathentry>
