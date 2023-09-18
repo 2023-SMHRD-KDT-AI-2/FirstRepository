@@ -9,11 +9,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>메인 지도창</title>
-	<link rel="stylesheet" href="assets/css/MapMain.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" href="assets/css/MapMain.css" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+<style>
+#clock {
+	margin-left: 10px;
+	margin-bottom: 10px;
+	display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+	vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+	margin-right: 3px;
+	font-weight: BOLD;
+	font-size: 15px;
+}
+
+#fix {
+	position: relative;
+	top: -2px;
+	left: 0;
+	height: 20px;
+}
+
+#navi {
+	height: 14px;
+	margin-bottom: 2px;
+}
+
+#internet {
+	height: 19px;
+	margin-left: 180px;
+	margin-bottom: 2px;
+}
+
+#lte {
+	height: 11px;
+	margin-bottom: 5px;
+}
+
+#battery {
+	height: 21px;
+}
+
+ #profile3 {
+    width: 50px; /* 원하는 너비 */
+    height: 50px; /* 원하는 높이 */
+    border-radius: 50%; /* 동그랗게 만드는 속성 */
+    overflow: hidden; /* 이미지가 동그랗게 자르도록 설정 */
+    border: 0.5px solid gray;
+  }
+  #profile3 img {
+    width: 100%; /* 이미지가 부모 요소에 맞게 크기 조절 */
+    height: auto; /* 이미지의 가로세로 비율 유지 */
+  }
+   /* 게시글 정보 스타일 */
+  #postDisplay {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+
+  #postDisplay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  #postDisplay p {
+    margin: 5px 0;
+  }
+</style>
+
+
 
 </head>
 
@@ -116,11 +186,14 @@
 			<button type="submit" id="savePost">저장</button>
 			<!-- <button id="savePost">저장</button> -->
 		</form>
+
 	</div>
 <div id="modalBackground" class="modal-background"></div>
 
 
 	<script src="js/jquery-3.7.1.js"></script>
+	 
+	
 	<script type="text/javascript"
 
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=662807c83d8fccc55bc8bf7c650227b4&libraries=services,clusterer,drawing"></script>

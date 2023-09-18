@@ -140,14 +140,18 @@ a {
 </style>
 </head>
 <body>
- 
-<%/*
-JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
-String gender = kakaoUserInfo.get("gender").getAsString();
-String ageRange = kakaoUserInfo.get("age_range").getAsString();
-String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
-*/
+
+<%
+String name = (String)session.getAttribute("kakaoName");
+String id = (String)session.getAttribute("kakaoId");
+
+
+
+
 %>
+	<div class="container">
+		<form action="JoinProgram" id="form" class="form">
+
 
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form" method="post">
@@ -160,8 +164,8 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
 
 			<div class="form-control">
 
-				<input type="text" id="email" name="member_Id" placeholder="이메일 주소 또는 전화번호"> 
-				<small>Error message</small>
+				<input type="text" id="email" name="member_Id"
+					placeholder="이메일 주소 또는 전화번호" > <small>Error message</small>
 
 			</div>
 
@@ -177,6 +181,7 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
 
 			<div class="form-control">
 
+
 				<label class="label" for="gender">성별 선택</label> 
 				<select class="label2" name="gender" class="form-select form-select-lg mb-3"
 					aria-label="Large select example">
@@ -188,7 +193,10 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
 
 			<div class="form-control">
 
+
+
 				<input type="text" id="age" name="age" placeholder="나이"> 
+
 				<small>Error message</small>
 
 			</div>
@@ -228,6 +236,17 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();
 		</form>
 		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
+	<script src="js/script.js"></script>
+	<script src="js/jquery-3.7.1.js"></script>
+
+	<script>
+		if(<%=name%>!=null){
+			$("#username").attr('value', <%=name%>);
+		}
+		if(<%=id%>!=null){
+			$("#email").attr('value', <%=id%>);
+		}
+	</script>
 
 	<script src="assets/js/Joinscript.js"></script>
 
