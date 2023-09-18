@@ -23,7 +23,6 @@ public class LoginProgram extends HttpServlet {
 		// 2. 데이터수집
 		String id = request.getParameter("memberid");
 		String pw = request.getParameter("pw");
-
 		MemberDTO dto = new MemberDTO();
 		MemberDAO dao = new MemberDAO();
 		dto.setMember_Id(id);
@@ -45,3 +44,4 @@ public class LoginProgram extends HttpServlet {
 	}
 
 }
+  

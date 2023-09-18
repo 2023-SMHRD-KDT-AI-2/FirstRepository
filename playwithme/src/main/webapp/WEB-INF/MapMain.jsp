@@ -1,74 +1,32 @@
-
-
-
-
 <%@page import="playwithme.model.*"%>
 <%@page import="playwithme.model.CctvDAO"%>
 <%@page import="playwithme.model.MemberDTO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
 <%@page import="playwithme.model.CctvDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Document</title>
-<link rel="stylesheet" href="assets/css/MapMain.css" />
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-<style>
-
-	#clock {
-		margin-left: 10px;
-		margin-bottom: 10px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		font-size: 15px;
-	}
-	#fix{
-	    position: relative;
-	    top: -2px;
-	    left: 0;
-	    height: 20px;
-	    
-	}
-	#navi{
-		height: 14px;
-		margin-bottom: 2px;
-	}
-	#internet{
-		height: 19px;
-		margin-left: 180px;
-		margin-bottom: 2px;
-	}
-	#lte{
-		height: 11px;
-		margin-bottom: 5px;
-	}
-	#battery{
-		height: 21px;
-	}
-</style>
-
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>메인 지도창</title>
+	<link rel="stylesheet" href="assets/css/MapMain.css" />
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+	<style>
+		
+	</style>
 </head>
 <body>
 
 	<div id=fix>
 
-		<span id="clock"></span>
-		<img src="images/네비.png" id="navi">
-		<img src="images/인터넷.png" id="internet">
-		<img src="images/LTE.png" id="lte">
+		<span id="clock"></span> 
+		<img src="images/네비.png" id="navi"> 
+		<img src="images/인터넷.png" id="internet"> 
+		<img src="images/LTE.png" id="lte"> 
 		<img src="images/배터리.png" id="battery">
-		
 
 	</div>
 
@@ -78,20 +36,16 @@
 	ArrayList<MemberDTO> info = new ArrayList<>();
 	info = dao.getmember(id);
 	session.setAttribute("info", info);
-	%>
-	<!-- 선웅선웅선웅선웅  -->
-	<%
 	CctvDAO cdao = new CctvDAO();
 	%>
+
 	<p style="margin-top: -12px">
-		<em class="link"> <a href="/web/documentation/#CategoryCode"
-			target="_blank"></a>
+		<em class="link"> <a href="/web/documentation/#CategoryCode" target="_blank"></a>
 		</em>
 	</p>
 	<div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 740px; position: relative; overflow: hidden;"></div>
-
+		<div id="map" style="width: 100%; height: 637px; position: relative; overflow: hidden;">
+		</div>
 
 		<ul id="category">
 			<li id="AT4" data-order="0"><span class="category_bg new-icon1"></span>
@@ -104,10 +58,10 @@
 				CCTV</li>
 		</ul>
 		<ul id="menu">
-			<li id="A1" data-order="0"><span class="menu_bg new-icon1"></span>
-				친구</li>
-			<li id="A2" data-order="1"><span class="menu_bg new-icon2"></span>
-				게시판</li>
+			<li id="A1" data-order="0"><span id="friendLink"
+				class="menu_bg new-icon1"></span> 친구</li>
+			<li id="A2" data-order="1"><span id="boardLink"
+				class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
 			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
@@ -164,25 +118,25 @@
 			<!-- <button id="savePost">저장</button> -->
 		</form>
 	</div>
-
-	<div id="modalBackground" class="modal-background"></div>
-
+<div id="modalBackground" class="modal-background"></div>
 
 
 	<script src="js/jquery-3.7.1.js"></script>
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=984ad7ec7053f83c9546db7ad1d059ad&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=662807c83d8fccc55bc8bf7c650227b4&libraries=services,clusterer,drawing"></script>
+
 
 
 	<script src="assets/js/MapMain.js"></script>
 	<script>
+	
+	
 		document.addEventListener("DOMContentLoaded", function() {
 
 			// id가져오기
 			let chatSpan = document.getElementById("chatLink");
 		})
 
-		///////////////////////////////////////////////////////////////////////////////
 		// 시계
 		function updateClock() {
 			const currentDate = new Date();
@@ -209,7 +163,7 @@
 		updateClock();
 
 		////////////////////////////////////////////////////////////////////////////////       
-
+		//메뉴에서 채팅 게시판 페이지로 이동
 		document.addEventListener("DOMContentLoaded", function () {
 	        // id가져오기
 	       	let chatSpan = document.getElementById("chatLink");
@@ -221,9 +175,34 @@
 	        });
 	    });
 
+	    
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("boardLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goBoardList.jsp이동
+	        	window.location = "goBoardList";
+	        });
+	    });
+
+
+		//친구 목록 가기
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("friendLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goFriendList";
+	        });
+	    });
+		
+
 		   //////////////////////////////////////////////
-		    addMarker2() 
-			<% BoardDAO dao2 = new BoardDAO();
+			<%BoardDAO dao2 = new BoardDAO();
 			ArrayList<BoardDTO> board_Num = new ArrayList<>();
 			board_Num = dao2.list();%>
 			
@@ -288,45 +267,42 @@
 						        infowindow.close();
 						    };
 						}   
-		/////////////////////////////////////////////////////////////////
-		// 내 게시물 마커 생성
-		 	<%--  let positions1 = [
-		    <% 
-		    for(int  i = 0; i<board_Num.size(); i++ ){%>
-		       {title :"<%=board_Num.get(i).getTitle()%>" , latlng: new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>,<%=board_Num.get(i).getLatitude()%>)},
-		    <%}%>
-		    
-		 ];
+	
 		
-		// 마커 이미지의 이미지 주소입니다
-		var imageSrc1 = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
-		    
-		for (var i = 0; i < positions1.length; i ++) {
-		    
-		    // 마커 이미지의 이미지 크기 입니다
-		    var imageSize1 = new kakao.maps.Size(24, 35); 
-		    
-		    // 마커 이미지를 생성합니다    
-		    var markerImage1 = new kakao.maps.MarkerImage(imageSrc1, imageSize1); 
-		    
-		    // 마커를 생성합니다
-		    var marker1 = new kakao.maps.Marker({
-		        map: map, // 마커를 표시할 지도
-		        position: positions1[i].latlng, // 마커를 표시할 위치
-		        title : positions1[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-		        image : markerImage1 // 마커 이미지 
-		    });
-		}; --%>
+		///////////////////////////////////////////////////////////////////////////////
+		<%for(int i = 0; i<board_Num.size(); i++ ){%>
+				var content = 
+			    `<div>
+				    <!-- 프로필 사진 -->
+				    <a href ="goProfile2?i=<%=board_Num.get(i).getBoard_Num()%>">
+				        <img src="images/<%=board_Num.get(i).getM_Profile()%>" id="profile3" onerror="this.src='images/default.jpg'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+				    </div>`
+		
+		// 커스텀 오버레이가 표시될 위치입니다 
+		var position = new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>, <%=board_Num.get(i).getLatitude()%>); 
+		
+		// 커스텀 오버레이를 생성합니다
+		var customOverlay = new kakao.maps.CustomOverlay({
+		    position: position,
+		    content: content,
+		    xAnchor: 0.3,
+		    yAnchor: 0.91
+		});
+		
+		// 커스텀 오버레이를 지도에 표시합니다
+		customOverlay.setMap(map);
+		
+		<%}%>
+		
+		function goToProfile(index) {
+	        // 클릭한 이미지를 클릭한 프로필 페이지로 이동합니다.
+	        window.location.href = 'goProfile2?index=' + index;
+	    }
+		///////////////////////////////////////////
 
 
   
  
 	</script>
-
-
-
 </body>
-
-
-
 </html>
