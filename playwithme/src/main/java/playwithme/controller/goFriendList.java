@@ -15,7 +15,7 @@ public class goFriendList extends HttpServlet {
 
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       request.setCharacterEncoding("utf-8");   
-      String uri = "WEB-INF/FrindList.jsp";
+      String uri = "WEB-INF/FriendList.jsp";
       RequestDispatcher rd = request.getRequestDispatcher(uri);
       rd.forward(request, response);
    }

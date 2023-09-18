@@ -74,11 +74,25 @@
 		parameterType="playwithme.model.FriendListDTO">
 		INSERT INTO FRIEND (FRIEND_NUM,
 		MEMBER_ID,
-		F_MEMBER_ID)
+		F_MEMBER_ID,
+		FRIENDCHAT_ROOM_NUM)
 		VALUES (SEQ_FRIEND_NUM.nextval,
 		#{member_Id},
-		#{f_Member_Id})
+		#{f_Member_Id},
+		#{friendchat_room_num})
+		
+		
 	</insert>
+	
+	
+<!-- 친구 삭제 -->
+<delete id="deleteFriend" parameterType="playwithme.model.FriendListDTO">
+    DELETE FROM FRIEND
+    WHERE MEMBER_ID = #{member_Id}
+    AND F_MEMBER_ID = #{f_Member_Id}
+</delete>
+
+
 
 
 </mapper>

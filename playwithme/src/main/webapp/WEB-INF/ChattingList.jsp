@@ -225,7 +225,7 @@
 					$('#createRoomButton').on(
 							'click',
 							function() {
-								var roomTitle = $('#search').val();
+								let roomTitle = $('#search').val();
 								$.ajax({
 									url : 'ChattingListProgram',
 									type : 'GET',
