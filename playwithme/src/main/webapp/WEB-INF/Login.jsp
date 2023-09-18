@@ -75,40 +75,23 @@
 			</div>
 
 			<button type="submit" id="loginSubmit">로그인</button>
-
 			
 			<button id='button3' type="button">
 				<a href="goJoin">계정이 없으신가요?&nbsp;&nbsp; 회원가입</a>
 			</button>
-	<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
-		src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-		width="222" alt="카카오 로그인 버튼" /></a>
-	<p id="token-result"></p>
+			<a id="kakao-login-btn" href="javascript:loginWithKakao()">
+  <img src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg" width="222"
+    alt="카카오 로그인 버튼" />
+</a>
+	
 		</form>
 	</div>
-
+ 
 	
 	
 	<script src="js/script.js"></script>
-	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
-  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
 <script>
-  Kakao.init('7346a61533c9bd3cf2f11f5f00313917'); // 사용하려는 앱의 JavaScript 키 입력
-</script>
-	
-	<!-- 카카오 스크립트 -->
-	
 
-
-
-	<script>
-	 function loginWithKakao() {
-		    Kakao.Auth.authorize({
-		      redirectUri: 'http://localhost:8090/aa/goJoin',
-		    });
-		  }
-		 
-	
 ///////////////////////////////////////////////////////////////////////////////
 	// 시계
 	function updateClock() {

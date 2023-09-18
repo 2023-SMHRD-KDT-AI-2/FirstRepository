@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="playwithme.model.*"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,18 +12,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%String code = request.getParameter("code");
-
-//액세스 토큰을 얻어오는 HTTP 요청
-String accessToken = getAccessToken(code);
-
-//액세스 토큰을 사용하여 Kakao 사용자 정보 가져오기
-KakaoUserInfoDto userInfo = getKakaoUserInfo(accessToken);
-
-//사용자 정보 활용
-String userId = userInfo.getId();
-String userName = userInfo.getName();
-String userEmail = userInfo.getEmail(); %>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form">
 
@@ -30,7 +19,7 @@ String userEmail = userInfo.getEmail(); %>
 
 			<div class="form-control">
 				<input type="text" id="email" name="member_Id"
-					placeholder="이메일 주소 또는 전화번호"> <small>Error message</small>
+					placeholder="이메일 주소 또는 전화번호" > <small>Error message</small>
 			</div>
 
 			<div class="form-control">
@@ -89,44 +78,8 @@ String userEmail = userInfo.getEmail(); %>
 			<button id="joinSubmit" type="submit">회원가입</button>
 
 		</form>
+		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
-	<%String code=(String) request.getAttribute("code"); %>
-	<script src="js/script.js"></script>
-<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
-  integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH" crossorigin="anonymous"></script>
-
-	<script>
-	function requestUserInfo() {
-	    Kakao.API.request({
-	      url: '/v2/user/me',
-	    })
-	      .then(function(res) {
-	        alert(JSON.stringify(res));
-	      })
-	      .catch(function(err) {
-	        alert(
-	          'failed to request user information: ' + JSON.stringify(err)
-	        );
-	      });
-	  }
-
-	  // 아래는 데모를 위한 UI 코드입니다.
-	  displayToken()
-	  function displayToken() {
-	    var token = getCookie('authorize-access-token');
-
-	    if(token) {
-	      Kakao.Auth.setAccessToken(token);
-	      document.querySelector('#token-result').innerText = 'login success, ready to request API';
-	      document.querySelector('button.api-btn').style.visibility = 'visible';
-	    }
-	  }
-
-	  function getCookie(name) {
-	    var parts = document.cookie.split(name + '=');
-	    if (parts.length === 2) { return parts[1].split(';')[0]; }
-	  }
-	</script>
 
 </body>
 </html>
