@@ -77,8 +77,10 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
+
   height: 85vh;
   padding: 1rem 2rem 1rem 1rem;
+
   box-sizing: border-box;
   cursor: pointer;
   overflow-y: auto; /* 세로 스크롤 활성화 */

@@ -84,9 +84,12 @@ arrow_back_ios
 							%>
 							    <tr data-toggle="collapse" data-target="#collapse<%=i%>" aria-expanded="false" aria-controls="collapse<%=i%>"  >
 							      
-							      <td  style="text-align: left; !important"><%=AllBoard.get(i).getTitle() %></td>
-							      <td ><%=AllBoard.get(i).getNum_People() %>명</td>
-							      <td><button class = "first"><a href ="goChat?room=<%=AllBoard.get(i).getChat_room_num()%>">채팅참여</a></button>
+
+							      <td style="text-align: left; !important"><%=AllBoard.get(i).getTitle() %></td>
+							      <td><%=AllBoard.get(i).getNum_People() %>명</td>
+							      <%String boardChat=AllBoard.get(i).getChat_room_num(); %>
+							      <td><button  id="partichat"  class = "first"><a href ="goChat?room=<%=boardChat%>">채팅참여</a></button>
+
 							     
 							      </td>
 							    </tr>
@@ -118,6 +121,7 @@ arrow_back_ios
   <script src="assets/js/MyBoardpopper.js"></script>
   <script src="assets/js/MyBoardbootstrap.min.js"></script>
   <script src="assets/js/MyBoardmain.js"></script>
+
   <script src="assets/js/clock.js"></script>
   <script>
 	$('#back').click(function () {
@@ -139,6 +143,7 @@ arrow_back_ios
 			function() {
 				$(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화
 			}
+
 			);
 	$(document).ready(function() {
 	    // 검색어 입력 시 실행될 함수
@@ -178,5 +183,7 @@ arrow_back_ios
 	    });
     });
   </script>
+
+
 	</body>
 </html>
