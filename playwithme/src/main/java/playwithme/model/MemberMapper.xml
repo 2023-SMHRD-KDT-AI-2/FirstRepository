@@ -3,12 +3,11 @@
 <mapper namespace="playwithme.model.MemberMapper">
 	<!-- 회원가입 정보 -->
 	<insert id="join" parameterType="playwithme.model.MemberDTO">
-		insert into NA_MEMBER values(
-		#{email}
+		insert into NA_MEMBER(MEMBER_ID,PW,AGE,M_NAME,GENDER,MBTI) values(
 		#{member_Id},
 		#{pw},
 		#{age},
-		#{m_name},
+		#{m_Name},
 		#{gender},
 		#{mbti}
 		)

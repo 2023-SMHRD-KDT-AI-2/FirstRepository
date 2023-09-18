@@ -11,10 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>로그인 창</title>
 
-<style>
-	body{
-	
-	}
+
 	#clock {
 		margin-left: 4px;
 		margin-bottom: 13px;
@@ -45,6 +42,7 @@
 		height: 21px;
 	}
 
+
 </style>
 
 </head>
@@ -57,13 +55,23 @@
 				id="battery">
 
 
+
+
+
+
 		</div>
 
-		<form action="LoginProgram" id="form" class="form" method="post">
+		<div>
+			<img src="images/로고2.png" class="logo">
+		</div>
 
-			<div id="logoimg">
-				<h2>Play With Me</h2>
+
+		<form action="LoginProgram" id="form" class="form" method="post">
+		
+			<div class="logofont">
+				<h2 style="color:#a0e1f4">Play With Me</h2>
 			</div>
+
 
 			<div class="form-control">
 				<input type="text" name="memberid" id="email"
@@ -79,9 +87,15 @@
 			<button type="submit" id="loginSubmit">로그인</button>
 
 
+			<a href="goJoin">
+				<button type="button">계정이 없으가요?&nbsp;&nbsp; <b>회원가입</b></button>
+			</a>
+
+
 			<button id='button3' type="button">
 				<a href="goJoin">계정이 없으신가요?&nbsp;&nbsp; 회원가입</a>
 			</button>
+
 
 		</form>
 		<a href="javascript:loginWithKakao()"
@@ -97,16 +111,131 @@
 			</div>
 		</a>
 	</div>
-<script type="text/javascript" src="assets/js/kakao.js"></script>
+
+
+
+	<script src="assets/js/Joinscript.js"></script>
+
+
+	<!-- 제이쿼리 cdn 스크립트-->
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous">
+	</script>
+
+	<!-- 카카오 스크립트 -->
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.4.0/kakao.min.js"
+		integrity="sha384-mXVrIX2T/Kszp6Z0aEWaA8Nm7J6/ZeWXbL8UpGRjKwWe56Srd/iyNmWMBhcItAjH"
+		crossorigin="anonymous">
+	</script>
+
+	<!--  개인 토큰 스크립트-->
+	<script>
+		Kakao.init('662807c83d8fccc55bc8bf7c650227b4');
+	</script>
+
+	<!-- 카카오 로그인 버튼 태그 -->
+	<a id="kakao-login-btn" href="javascript:loginWithKakao()"> <img
+		src="images/카카오로그인와이드.png" / id="kakao">
+	</a>
+
+	<p id="token-result"></p>
+
+	<!-- Redirecturl : "http://localhost:8082/goKakaoLog", -->
+
+	<!--------------------------------------------------------------->
+
+	<script>
+		//1 카카오 로그인 동작 함수 
+	 	function loginWithKakao() {
+		    Kakao.Auth.authorize({
+		      redirectUri: 'http://localhost:8082/goKakaoLog',
+		    });
+		  }
+
+		  // 2 아래는 데모를 위한 UI 코드입니다.
+		  displayToken()
+		  function displayToken() {
+		    var token = getCookie('authorize-access-token');
+
+		    if(token) {
+		      Kakao.Auth.setAccessToken(token);
+		      Kakao.Auth.getStatusInfo()
+		        .then(function(res) {
+		          if (res.status === 'connected') {
+		            document.getElementById('token-result').innerText
+		              = 'login success, token: ' + Kakao.Auth.getAccessToken();
+		          }
+		        })
+		        
+		        .catch(function(err) {
+		          Kakao.Auth.setAccessToken(null);
+		        });
+		    }
+		  }
+		  
+		  // 3 토큰 발급
+		   function getInfo() {
+      			Kakao.API.request({
+          		url: '/v2/user/me',
+          	success: function (res) {
+              console.log(res);
+		
+		  // 3.1 로그인 정보 받기 
+		   var id = res.id;
+		   var email = JSON.stringify(res.kakao_account.email);
+		   var profile_image = JSON.stringify(res.properties.profile_image);
+		   
+		   consol.log(id, email, profile_image);
+		   
+		   $.ajax({
+               url:"http://localhost:8082/goKakaoLog",
+               data:{"id":id, "email":email, "name":name, "profile_image":profile_image},
+               type : "post",
+            
+            })
+
+             window.location.href='http://localhost:8082/goKakaoLog'
+
+          	},
+          	
+          	fail:function(error){
+          		alret('로그인 실패')}
+          	}
+
+      			
+		  //로그아웃 함수 
+		  function kakaoLogout() {
+			  //카카오 서버에 접근하는 어세스 토큰 만료 
+		      if (!Kakao.Auth.getAccessToken()) {
+		          alert('Not logged in.');
+		          return;
+		      }
+		      Kakao.Auth.logout(function() {
+		          alert('logout ok\naccess token -> ' + Kakao.Auth.getAccessToken());
+		      });
+		  }
+		  
+		 
+		  // 현재까지 받은 코드값 : http://localhost:8082/goKakaoLog?code=2AKq0m1e9gEmhQeOUAoiKm68flN4O4d8GYfNpvSIlxo4cKyGe1rQ1ntWX8Tao_KIgwV6cwopyNoAAAGKlMf-EA
+
+				  
+	</script>
+
+
+
+
 	<script src="js/jquery-3.7.1.js"></script>
 
 	<script>
+
 		///////////////////////////////////////////////////////////////////////////////
 		// 시계
 		function updateClock() {
 			const currentDate = new Date();
 			const hours = currentDate.getHours();
 			const minutes = currentDate.getMinutes();
+
 
 			const hours12 = hours % 12 || 12;
 
@@ -126,25 +255,7 @@
 
 		////////////////////////////////////////////////////////////////////////////////     
 
-		/* // 아래는 데모를 위한 UI 코드입니다.
-		displayToken()
-		function displayToken() {
-		  var token = getCookie('authorize-access-token');
 
-		  if(token) {
-		    Kakao.Auth.setAccessToken(token);
-		    Kakao.Auth.getStatusInfo()
-		      .then(function(res) {
-		        if (res.status === 'connected') {
-		          document.getElementById('token-result').innerText
-		            = 'login success, token: ' + Kakao.Auth.getAccessToken();
-		        }
-		      })
-		      .catch(function(err) {
-		        Kakao.Auth.setAccessToken(null);
-		      });
-		  }
-		} */
 	</script>
 
 </body>

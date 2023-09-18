@@ -10,7 +10,9 @@ import playwithme.db.SqlSessionManager;
 
 
 public class MemberDAO {
-SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
+
+SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+
 	ArrayList<MemberDTO> MemberList = new ArrayList<>();
 	public ArrayList<MemberDTO> getmember(String memberId) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
@@ -19,7 +21,7 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 		return MemberList;
 	}
 	public MemberDTO login(MemberDTO member) {
-		SqlSession sqlSession= sqlSessionFactory.openSession();
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		MemberDTO member1 = sqlSession.selectOne("login",member);
 		sqlSession.close();
 		return member1;
@@ -41,8 +43,10 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	//회원가입 
 	public int Join(MemberDTO member) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		int cnt = sqlSession.insert("Join", member);
+		int cnt = sqlSession.insert("join", member);
 		sqlSession.close();
 		return cnt;
 	}
+
 }
+

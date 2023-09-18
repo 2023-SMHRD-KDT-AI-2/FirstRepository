@@ -46,7 +46,7 @@ public class JoinProgram extends HttpServlet {
 
 		// 4. 회원가입 성공 여부
 		if (cnt > 0) {
-			url="WEB-INF/MapMain.jsp";
+			url="WEB-INF/Login.jsp";
 			RequestDispatcher rd = request.getRequestDispatcher(url);
 			rd.forward(request, response);
 		} else {			
