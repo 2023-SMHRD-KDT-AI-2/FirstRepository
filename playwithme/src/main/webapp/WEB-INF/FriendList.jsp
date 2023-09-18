@@ -303,11 +303,9 @@ h3 {
 																console
 																		.error('Request failed: '
 																				+ textStatus
-																				+ ', '
+																				+ ', '	
 																				+ errorThrown);
-																alert('친구 추가 success');
-																location
-																		.reload(); // 페이지 새로 고침
+																location.reload(); // 페이지 새로 고침
 															}
 														});
 											});
@@ -332,7 +330,7 @@ h3 {
 										success : function(response) {
 											console.log('서버 응답:', response);
 											alert('친구 삭제 success');
-											location.reload(); // 페이지 새로 고침
+											window.location.href = 'goFriendList.java';
 										},
 										error : function(jqXHR, textStatus,
 												errorThrown) {

@@ -32,14 +32,12 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 .contact {
   position: relative;
   margin-bottom: 1rem;
-  padding-left: 5rem;
+  padding-left: 0rem;
   height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-
-
 
 .contact .pic {
   position: absolute;
@@ -50,6 +48,7 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 .contact .name {
   font-weight: 500;
   margin-bottom: 0.125rem;
+  margin-left: 75px;
 }
 .contact .message, .contact .seen {
   font-size: 0.9rem;
