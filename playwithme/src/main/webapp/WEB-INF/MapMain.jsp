@@ -118,9 +118,7 @@
 			<!-- <button id="savePost">저장</button> -->
 		</form>
 	</div>
-
-	<div id="modalBackground" class="modal-background"></div>
-
+<div id="modalBackground" class="modal-background"></div>
 
 
 	<script src="js/jquery-3.7.1.js"></script>
@@ -131,13 +129,14 @@
 
 	<script src="assets/js/MapMain.js"></script>
 	<script>
+	
+	
 		document.addEventListener("DOMContentLoaded", function() {
 
 			// id가져오기
 			let chatSpan = document.getElementById("chatLink");
 		})
 
-		///////////////////////////////////////////////////////////////////////////////
 		// 시계
 		function updateClock() {
 			const currentDate = new Date();
@@ -203,8 +202,7 @@
 		
 
 		   //////////////////////////////////////////////
-		    addMarker2() 
-			<% BoardDAO dao2 = new BoardDAO();
+			<%BoardDAO dao2 = new BoardDAO();
 			ArrayList<BoardDTO> board_Num = new ArrayList<>();
 			board_Num = dao2.list();%>
 			
@@ -268,9 +266,45 @@
 						    return function() {
 						        infowindow.close();
 						    };
-						} 
-						
-		 
+						}   
+	
+		
+		///////////////////////////////////////////////////////////////////////////////
+		<%for(int i = 0; i<board_Num.size(); i++ ){%>
+				var content = 
+			    `<div>
+				    <!-- 프로필 사진 -->
+				    <a href ="goProfile2?i=<%=board_Num.get(i).getBoard_Num()%>">
+				        <img src="images/<%=board_Num.get(i).getM_Profile()%>" id="profile3" onerror="this.src='images/default.jpg'" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+				    </div>`
+		
+		// 커스텀 오버레이가 표시될 위치입니다 
+		var position = new kakao.maps.LatLng(<%=board_Num.get(i).getLongitude()%>, <%=board_Num.get(i).getLatitude()%>); 
+		
+		// 커스텀 오버레이를 생성합니다
+		var customOverlay = new kakao.maps.CustomOverlay({
+		    position: position,
+		    content: content,
+		    xAnchor: 0.3,
+		    yAnchor: 0.91
+		});
+		
+		// 커스텀 오버레이를 지도에 표시합니다
+		customOverlay.setMap(map);
+		
+		<%}%>
+		
+		function goToProfile(index) {
+	        // 클릭한 이미지를 클릭한 프로필 페이지로 이동합니다.
+	        window.location.href = 'goProfile2?index=' + index;
+	    }
+		///////////////////////////////////////////
+		
+	
+
+
+  
+ 
 	</script>
 </body>
 </html>
