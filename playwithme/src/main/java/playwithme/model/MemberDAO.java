@@ -38,11 +38,26 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		return member1;
 		
 	}
+	// 중복체크
+	
+    public boolean isDuplicateId(String memberId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        int count = sqlSession.selectOne("checkDuplicateId", memberId);
+        sqlSession.close();
+        return count > 0;
+    }
 	//회원가입 
 	public int Join(MemberDTO member) {
+		MemberDAO memberDAO = new MemberDAO();
+
+	    // 중복된 아이디인 경우 회원가입을 처리하지 않음
+	    if (memberDAO.isDuplicateId(member.getMember_Id())) {
+	        return 0;
+	    }
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		int cnt = sqlSession.insert("join", member);
 		sqlSession.close();
 		return cnt;
 	}
+	
 }

@@ -46,5 +46,9 @@
 		update NA_MEMBER
 		set pw = #{pw} where MEMBER_ID = #{member_Id}
 </update>
+	<!-- 중복된 아이디 확인 -->
+<select id="checkDuplicateId" parameterType="java.lang.String" resultType="int">
+    SELECT COUNT(*) FROM NA_MEMBER WHERE MEMBER_ID = #{member_Id}
+</select>
 
 </mapper>

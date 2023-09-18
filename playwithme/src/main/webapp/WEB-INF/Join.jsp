@@ -53,11 +53,11 @@ h2 {
 
 .form {
 	padding: 30px 40px;
-	margin-top: 40px;
+	margin-top: 10px;
 }
 
 .form-control {
-	margin-bottom: 10px;
+	margin-bottom: 5px;
 	padding-bottom: 20px;
 	position: relative;
 }
@@ -110,7 +110,7 @@ h2 {
 	display: block;
 	font-size: 12px;
 	padding: 10px;
-	margin-top: 20px;
+	margin-top: 10px;
 	width: 100%;
 }
 
@@ -133,9 +133,14 @@ a {
 	margin: auto;
 	transform: translate(0, -10%);
 }
+
+.selected {
+	font-size :12px;
+}
 </style>
 </head>
 <body>
+
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form" method="post">
 
@@ -146,7 +151,7 @@ a {
 			<h2 style="color:#a0e1f4">Play With Me</h2>
 
 			<div class="form-control">
-				<input type="text" id="email" name="member_Id" placeholder="이메일 주소 또는 전화번호"> 
+				<input type="text" id="email" name="member_Id" placeholder="이메일 주소"> 
 				<small>Error message</small>
 			</div>
 
@@ -162,8 +167,9 @@ a {
 
 			<div class="form-control">
 				<label class="label" for="gender">성별 선택</label> 
-				<select class="label2" name="gender" class="form-select form-select-lg mb-3"
-					aria-label="Large select example">
+				<select class="label2" name="gender" class="form-select form-select-sm"
+					aria-label="Small select example">
+					<option selected>성별 선택</option>
 					<option value="men">남성</option>
 					<option value="women">여성</option>
 				</select>
@@ -180,9 +186,10 @@ a {
 			</div>
 
 			<div class="form-control">
-				<label class="label" for="mbti">MBTI 선택</label> <select
-					class="label2" name="mbti" class="form-select form-select-lg mb-3"
-					aria-label="Large select example">
+				<label class="label" for="mbti">MBTI 선택</label> 
+				<select class="label2" name="mbti" class="form-select form-select-sm"
+					aria-label="Small select example">
+					<option selected>MBTI 선택</option>
 					<option value="ISTJ">ISTJ</option>
 					<option value="ISTJ">ISFJ</option>
 					<option value="INFJ">INFJ</option>
@@ -202,11 +209,13 @@ a {
 				</select>
 			</div>
 
-			<button id="joinSubmit" type="submit">회원가입</button>
+			<button id="joinSubmit">회원가입</button>
+			
 
 		</form>
 	</div>
 	<script src="assets/js/Joinscript.js"></script>
+	
 
 </body>
 </html>
