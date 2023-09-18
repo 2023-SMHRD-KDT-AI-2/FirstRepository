@@ -84,6 +84,9 @@
 		member_id from chatting_room_parti where chatting_room_num=#{roomnum}
 	</select>
 
+	
+
+
 	<!-- 채팅 파티원 삭제 -->
 	<delete id="deleteParti"
 		parameterType="playwithme.model.Chat_PartiDTO">

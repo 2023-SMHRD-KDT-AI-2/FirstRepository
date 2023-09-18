@@ -1,5 +1,6 @@
 <!-- 
 박기원
+
 2023.09.18
 친구 리스트 + 친구 추가 + 1:1 채팅 추가 + 버튼 누를때 마다 새로고침+ 삭제 버튼 파란색
 문제점 : @입력하면 안먹히는 것 친구 추가 안됨?
@@ -10,6 +11,7 @@
 	pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- core 라이브러리 연결 -->
+
 <%@page import="playwithme.model.*"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -18,6 +20,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Friend List</title>
+
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet'
@@ -261,6 +264,8 @@ h3 {
 
 
 
+  
+   
 </body>
 
 </html>

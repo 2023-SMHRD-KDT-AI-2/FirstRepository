@@ -9,7 +9,7 @@ import playwithme.db.SqlSessionManager;
 
 
 public class ChattingListDAO {
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	//ArrayList<ChattingListDTO> chatroom=new ArrayList<>();
 	
@@ -50,12 +50,14 @@ public class ChattingListDAO {
 		      return cnt;   
 		   }
 	   
+
 	   //친구 추가할때 방 생성
 	   public String createRoom3(ChattingListDTO chatlist) {
 		      SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		      
 		      sqlSession.insert("createRoom", chatlist);
-		      
+
+
 		      sqlSession.insert("saveParticipant", chatlist);
 		      
 		      sqlSession.close();
@@ -76,6 +78,13 @@ public class ChattingListDAO {
 
 		}
 	   
+		      String boardchat=chatlist.getChatting_Room_num();
+		      
+		      
+		      return boardchat;   
+		   }
+	   
+
 	   public ArrayList<GetChatDTO> getChat(int roomnum) {
 			SqlSession sqlSession = sqlSessionFactory.openSession(true);
 			

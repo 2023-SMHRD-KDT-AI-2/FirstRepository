@@ -16,7 +16,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import playwithme.db.SqlSessionManager;
 
 public class FriendListDAO {
-    SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+    SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	//ArrayList<ChattingListDTO> chatroom=new ArrayList<>();
 	

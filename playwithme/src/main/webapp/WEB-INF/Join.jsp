@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="com.google.gson.JsonObject" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +15,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
+String gender = kakaoUserInfo.get("gender").getAsString();
+String ageRange = kakaoUserInfo.get("age_range").getAsString();
+String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form">
 
@@ -18,7 +26,7 @@
 
 			<div class="form-control">
 				<input type="text" id="email" name="member_Id"
-					placeholder="이메일 주소 또는 전화번호"> <small>Error message</small>
+					placeholder="이메일 주소 또는 전화번호" > <small>Error message</small>
 			</div>
 
 			<div class="form-control">
@@ -32,57 +40,53 @@
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="gneder" name="gender" placeholder="성별">
+				<input type="text" id="gneder" name="gender" placeholder="성별" value="<%= kakaoUserInfo.get("gender") %>">
 				<select>
-					<obtion value="" disabled selected>성별</obtion>
-					<obtion value="men">남자</obtion>
-					<obtion value="women">여자</obtion>
+					<option value="" disabled selected>성별</option>
+					<option value="men">남자</option>
+					<option value="women">여자</option>
 				</select>
 			</div>
 
 
 			<div class="form-control">
-				<input type="text" id="age" name="age" placeholder="나이"> <small>Error
+				<input type="text" id="age" name="age" placeholder="나이"  value="<%= kakaoUserInfo.get("age_range") %>"> <small>Error
 					message</small>
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="username" name="m_Name" placeholder="사용자 이름">
+				<input type="text" id="username" name="m_Name" placeholder="사용자 이름" value="<%= kakaoUserInfo.get("profile_nickname")%>">
 				<small>Error message</small>
 
 			</div>
 			<div class="form-control">
 				<input type="text" id="mbti" name="mbti" placeholder="mbti">
 				<select>
-					<obtion value="" disabled selected>MBTI</obtion>
-					<obtion value="mbti">ISTJ</obtion>
-					<obtion value="mbti">ISFJ</obtion>
-					<obtion value="mbti">INFJ</obtion>
-					<obtion value="mbti">INTJ</obtion>
-					<obtion value="mbti">ISTP</obtion>
-					<obtion value="mbti">ISFP</obtion>
-					<obtion value="mbti">INFP</obtion>
-					<obtion value="mbti">INTP</obtion>
-					<obtion value="mbti">ESTP</obtion>
-					<obtion value="mbti">ESFP</obtion>
-					<obtion value="mbti">ENFP</obtion>
-					<obtion value="mbti">ENTP</obtion>
-					<obtion value="mbti">ESTJ</obtion>
-					<obtion value="mbti">ESFJ</obtion>
-					<obtion value="mbti">ENFJ</obtion>
-					<obtion value="mbti">ENTJ</obtion>
+					<option value="" disabled selected>MBTI</option>
+					<option value="mbti">ISTJ</option>
+					<option value="mbti">ISFJ</option>
+					<option value="mbti">INFJ</option>
+					<option value="mbti">INTJ</option>
+					<option value="mbti">ISTP</option>
+					<option value="mbti">ISFP</option>
+					<option value="mbti">INFP</option>
+					<option value="mbti">INTP</option>
+					<option value="mbti">ESTP</option>
+					<option value="mbti">ESFP</option>
+					<option value="mbti">ENFP</option>
+					<option value="mbti">ENTP</option>
+					<option value="mbti">ESTJ</option>
+					<option value="mbti">ESFJ</option>
+					<option value="mbti">ENFJ</option>
+					<option value="mbti">ENTJ</option>
 				</select>
 			</div>
 
 			<button id="joinSubmit" type="submit">회원가입</button>
 
 		</form>
+		<button class="api-btn" onclick="requestUserInfo()" >사용자 정보 가져오기</button>
 	</div>
-	<script src="js/script.js"></script>
-
-	<script>
-		
-	</script>
 
 </body>
 </html>

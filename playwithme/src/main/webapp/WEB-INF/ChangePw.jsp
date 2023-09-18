@@ -16,16 +16,17 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 		#clock {
-		margin-left: 49px;
+		margin-left: 36px;
 		margin-bottom: 35px;
 		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 		margin-right: 3px;
 		font-weight: BOLD;
+		font-size: 15px;
 		}
 		#fix{
 		    position: fixed;
-		    top: 12px;
+		    top: 6px;
 		    left: -18px;
 		    height: 20px;
 		    z-index: 1000;
@@ -34,7 +35,7 @@
 		
 		#internet{
 			height: 19px;
-			margin-left: 180px;
+			margin-left: 197px;
 			margin-bottom: 12px;
 		}
 		#lte{
@@ -56,7 +57,7 @@
 
         body {
             background-color: #f9fafb;
-            font-family: 'Open Sans', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
             display: flex;
             justify-content: center;
             align-items: center;

@@ -24,7 +24,6 @@
       </dataSource>
     </environment>
   </environments>
-  
   <!-- 
   	sql 문장들이 정리된 파일을 연결하는 태그
    -->

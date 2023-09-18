@@ -9,7 +9,7 @@ import playwithme.db.SqlSessionManager;
 
 public class CctvDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
+	SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSessoin();
 	
 	ArrayList<CctvDTO> cctvlist = new ArrayList<>();
 	
