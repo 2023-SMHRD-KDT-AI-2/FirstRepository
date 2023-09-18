@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="playwithme.model.*"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.google.gson.Gson" %>
+<%@ page import="com.google.gson.JsonObject" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,6 +15,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
+String gender = kakaoUserInfo.get("gender").getAsString();
+String ageRange = kakaoUserInfo.get("age_range").getAsString();
+String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form">
 
@@ -33,29 +40,29 @@
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="gneder" name="gender" placeholder="성별">
+				<input type="text" id="gneder" name="gender" placeholder="성별" value="<%= kakaoUserInfo.get("gender") %>">
 				<select>
-					<obtion value="" disabled selected>성별</obtion>
-					<obtion value="men">남자</obtion>
-					<obtion value="women">여자</obtion>
+					<option value="" disabled selected>성별</option>
+					<option value="men">남자</option>
+					<option value="women">여자</option>
 				</select>
 			</div>
 
 
 			<div class="form-control">
-				<input type="text" id="age" name="age" placeholder="나이"> <small>Error
+				<input type="text" id="age" name="age" placeholder="나이"  value="<%= kakaoUserInfo.get("age_range") %>"> <small>Error
 					message</small>
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="username" name="m_Name" placeholder="사용자 이름">
+				<input type="text" id="username" name="m_Name" placeholder="사용자 이름" value="<%= kakaoUserInfo.get("profile_nickname")%>">
 				<small>Error message</small>
 
 			</div>
 			<div class="form-control">
 				<input type="text" id="mbti" name="mbti" placeholder="mbti">
 				<select>
-					<option value="" disabled selected>MBTI</obtion>
+					<option value="" disabled selected>MBTI</option>
 					<option value="mbti">ISTJ</option>
 					<option value="mbti">ISFJ</option>
 					<option value="mbti">INFJ</option>

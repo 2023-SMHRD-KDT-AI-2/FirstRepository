@@ -37,6 +37,16 @@ public class BoardDAO {
 		return boardlist;
 	}
 	// 내게시글 불러오기 -강련 
+	public BoardDTO oneList(String num) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		
+		BoardDTO boardlist = sqlSession.selectOne("oneList",num);
+		
+		sqlSession.close();
+		
+		return boardlist;
+	}
+	
 	public ArrayList<BoardDTO> myList(String memberId) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		

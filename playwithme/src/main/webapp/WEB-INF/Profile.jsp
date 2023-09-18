@@ -19,9 +19,6 @@
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
 		<link rel="stylesheet" href="assets/css/Profilestyle.css">
-		 <style>
-		
-    </style>
   </head>
   <body>
   <div id=fix>
