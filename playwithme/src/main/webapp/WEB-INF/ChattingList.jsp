@@ -19,6 +19,8 @@
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
 <link rel="stylesheet" href="assets/css/ChatList.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/clock.js"></script>
+
 
 <style>
 #searchInput {
@@ -140,6 +142,7 @@ h3 {
       <img src="images/인터넷.png" id="internet">
       <img src="images/LTE.png" id="lte">
       <img src="images/배터리.png" id="battery">
+
             
    </div>
 

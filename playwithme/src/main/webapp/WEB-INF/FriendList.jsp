@@ -14,24 +14,44 @@
 
 <%@page import="playwithme.model.*"%>
 <%@page import="java.util.ArrayList"%>
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<title>Friend List</title>
-
+	content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<title>CodePen - Daily UI #013 | Direct Messaging</title>
 <link rel="stylesheet"
 	href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel='stylesheet'
 	href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
 <link rel="stylesheet" href="assets/css/ChatList.css">
-</head>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/clock.js"></script>
+
 <style>
+#searchInput {
+	position: relative;
+	height: 29px;
+	margin: 0;
+	border-radius: 33px;
+	border: 1px solid gray;
+	margin-bottom: 0px;
+	width: 220px;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+#clearSearch {
+	position: relative;
+	cursor: pointer;
+	color: red;
+	z-index: 1;
+	left: -32px;
+	top: 5px;
+}
+
 #search {
 	height: 34px;
 	margin: 0;
@@ -41,6 +61,7 @@
 	margin-bottom: 29px;
 	padding-left: 10px;
 }
+
 
 #clock {
 	margin-left: 2px;
@@ -92,6 +113,32 @@ h3 {
 	position: relative;
 	top: 5px;
 }
+#back {
+	cursor: pointer;
+	border: 0px;
+	background-color: #fafafa;
+	margin-top: 23px;
+	margin-left: 6px;
+}
+@media ( min-width : 1920px) {
+	.center {
+		max-width: 360px;
+	}
+}
+
+#fix2 {
+	position: fixed;
+	top: 15px;
+	width: 100%;
+}
+
+#title {
+	position: relative;
+	left: 30px;
+	font-size: 25px;
+	font-weight: bold;
+}
+
 
 /* 삭제 버튼 스타일 */
 .deleteFriendButton {
@@ -116,13 +163,17 @@ h3 {
 </style>
 
 <body class="center">
-	<div class="contacts">
-		<div id="fix">
-			<span id="clock"></span> <img src="images/인터넷.png" id="internet">
-			<img src="images/LTE.png" id="lte"> <img src="images/배터리.png"
-				id="battery">
-		</div>
-		<h2>Friends</h2>
+	
+   <div id=fix>
+
+      <span id="clock"></span>
+      <img src="images/인터넷.png" id="internet">
+      <img src="images/LTE.png" id="lte">
+      <img src="images/배터리.png" id="battery">
+
+            
+   </div>
+		
 		<%
 		String id = (String) session.getAttribute("memberid");
 		MemberDAO dao = new MemberDAO();
@@ -142,16 +193,16 @@ h3 {
 		Allfriend = frdao.friendlist();
 		%>
 
-			<div>
-	
-				<input type="text" name="friend_name_test" id="search"> 
-				<img
-					id="searchButton" src="images/검색.png" alt="친구 검색" /> 
-					<img
-					id="friendAddButton" src="images/채팅방생성.png" alt="친구 추가" />
-			</div>
-
-
+		<div id="fix2">
+			<button class="material-symbols-outlined" id="back"
+				style="color: gray;">arrow_back_ios</button>
+			<span id="title">친구 목록</span> <br> <input type="text"
+				name="roomTitle" id="searchInput">
+			<!-- 검색어 입력란 id를 "searchInput"으로 수정 -->
+			<span id="clearSearch" class="material-symbols-outlined">close</span>
+			<img id="friendAddButton" src="images/채팅방생성.png" alt="친구 추가" />
+		</div>
+		<div class="contacts">
 
 
 		<%
@@ -196,11 +247,42 @@ h3 {
 	</div>
 
 	<script>
+	
+	$('#back').click(function() {
+		location.href = 'goMain';
+	})
+	// 검색어 입력란에 입력이 있을 때 실행
+	$("#searchInput").on(
+			"input",
+			function() {
+				var query = $(this).val().toLowerCase();
+
+				// 모든 연락처 숨기기
+				$(".contact").hide();
+
+				// 검색어와 일치하는 연락처만 보이기
+				$(".contact").each(
+						function() {
+							var contactText = $(this).find(".name")
+									.text().toLowerCase();
+							if (contactText.indexOf(query) !== -1) {
+								$(this).show();
+							}
+						});
+			});
+	$("#clearSearch").click(function() {
+		$("#searchInput").val("");
+		$(".contact").show();
+	});
+	
+	
+	
+	//친구추가
 		$(document).ready(function() {
 							$('#friendAddButton').on(
 											'click',
 											function() {
-												let friend_name_test = $('#search').val();
+												let friend_name_test = $('#searchInput').val();
 												$.ajax({
 													url : 'FriendAddProgram',
 													type : 'GET',
