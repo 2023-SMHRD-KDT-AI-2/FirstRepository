@@ -33,13 +33,12 @@ public class JoinChat extends HttpServlet {
 		
 
 		ChatPartiDTO chatpar=new ChatPartiDTO();
-		chatpar.setChatting_Room_num(boardchatnum);
-		chatpar.setMember_Id(id);
+		chatpar.setChatting_room_num(boardchatnum);
+		chatpar.setMember_id(id);
 		System.out.println(boardchatnum+"   --check--  "+id);
 		
-		System.out.println("joinChat!!!!");
-		
-		if(Chatdao.checkparti(chatpar)!=null) {
+
+		if(Chatdao.checkparti(chatpar)==null) {
 			Chatdao.joinChat(chatpar);						
 		}
 		

@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 public class ChatPartiDTO {
 
-	private String chatting_Room_num;
-	private String member_Id;
+	private String chatting_room_num;
+	private String member_id;
 	
 }

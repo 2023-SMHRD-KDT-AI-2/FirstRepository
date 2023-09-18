@@ -147,6 +147,8 @@ $.ajax({
 });
 
 
+
+
 console.log(chatroom)
 const socket = new WebSocket('ws://localhost:8090/aa/chat/'+chatroom);
 let senderName = ""; // 초기값은 빈 문자열로 설정합니다.
