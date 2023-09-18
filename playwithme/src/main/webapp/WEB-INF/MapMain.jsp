@@ -134,10 +134,11 @@
 				CCTV</li>
 		</ul>
 		<ul id="menu">
-			<li id="A1" data-order="0"><span class="menu_bg new-icon1"></span>
+			<li id="A1" data-order="0"><span id="friendLink"
+			class="menu_bg new-icon1"></span>
 				친구</li>
-			<li id="A2" data-order="1"><span class="menu_bg new-icon2"></span>
-				게시판</li>
+			<li id="A2" data-order="1"><span id="boardLink"
+			class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
 			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
@@ -237,7 +238,7 @@
 		updateClock();
 
 		////////////////////////////////////////////////////////////////////////////////       
-
+		//메뉴에서 채팅 게시판 페이지로 이동
 		document.addEventListener("DOMContentLoaded", function () {
 	        // id가져오기
 	       	let chatSpan = document.getElementById("chatLink");
@@ -248,6 +249,32 @@
 	        	window.location = "goChattingList";
 	        });
 	    });
+
+	    
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("boardLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goBoardList.jsp이동
+	        	window.location = "goBoardList";
+	        });
+	    });
+
+
+		//친구 목록 가기
+		document.addEventListener("DOMContentLoaded", function () {
+	        // id가져오기
+	       	let chatSpan = document.getElementById("friendLink");
+	
+	        // 클릭 리스너 이벤트
+	        chatSpan.addEventListener("click", function () {
+	            //  goChattingList.jsp이동
+	        	window.location = "goFriendList";
+	        });
+	    });
+		
 
 		   //////////////////////////////////////////////
 			<%BoardDAO dao2 = new BoardDAO();

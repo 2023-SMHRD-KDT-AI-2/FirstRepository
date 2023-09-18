@@ -55,12 +55,15 @@ public class ChangeImg extends HttpServlet {
 		String encoding = "UTF-8";
 
 		MultipartRequest multi = new MultipartRequest(request, path, maxSize, encoding,
-				new DefaultFileRenamePolicy());
+				new CustomFileRenamePolicy());
+		
 		// new DefaultFileRenamePlicy() ->
 		String img = multi.getFilesystemName("filename");
+		String name = multi.getParameter("changeName");
 		HttpSession session = request.getSession();
 		dto.setM_Profile(img);
 		dto.setMember_Id((String)session.getAttribute("memberid"));
+		dto.setM_Name(name);
 		PrintWriter out = response.getWriter();
 		
 		if(img != null) {

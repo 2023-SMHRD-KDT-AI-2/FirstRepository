@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
-<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %><!-- core 라이브러리 연결 -->
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!-- core 라이브러리 연결 -->
 <%@page import="playwithme.model.*"%>
 <%@page import="java.util.ArrayList"%>
 
@@ -10,6 +10,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport"
+
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 <title>CodePen - Daily UI #013 | Direct Messaging</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
@@ -148,6 +149,7 @@
 	
 </script>
  
+
 </body>
 
 </html>
