@@ -3,20 +3,23 @@
 <mapper namespace="playwithme.model.MemberMapper">
 <!-- 회원가입 정보 -->
 	<insert id="join" parameterType="playwithme.model.MemberDTO">
-		insert into NA_MEMBER values(
-		#{email}
-		#{member_Id},
-		#{pw},
-		#{age},
-		#{m_name},
-		#{gender},
-		#{mbti}
-		)
-	</insert>
+      insert into NA_MEMBER(MEMBER_ID,PW,AGE,M_NAME,GENDER,MBTI) values(
+      #{member_Id},
+      #{pw},
+      #{age},
+      #{m_Name},
+      #{gender},
+      #{mbti}
+      )
+   </insert>
+
 
 	<!-- 로그인 정보 -->
 	<select id="login" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
 		select * from NA_MEMBER where member_Id=#{member_Id} and pw=#{pw}
+	</select>
+	<select id="kakaoLogin" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
+		select * from NA_MEMBER where member_Id=#{member_Id} 
 	</select>
 
 	<!-- 카카오 로그인 정보 -->

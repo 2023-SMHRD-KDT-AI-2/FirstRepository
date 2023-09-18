@@ -15,10 +15,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%JsonObject kakaoUserInfo = (JsonObject) request.getAttribute("kakaoUserInfo");
-String gender = kakaoUserInfo.get("gender").getAsString();
-String ageRange = kakaoUserInfo.get("age_range").getAsString();
-String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
+<%
+String name = (String)session.getAttribute("kakaoName");
+String id = (String)session.getAttribute("kakaoId");
+
+
+
+
+%>
 	<div class="container">
 		<form action="JoinProgram" id="form" class="form">
 
@@ -26,7 +30,7 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 
 			<div class="form-control">
 				<input type="text" id="email" name="member_Id"
-					placeholder="이메일 주소 또는 전화번호"> <small>Error message</small>
+					placeholder="이메일 주소 또는 전화번호" > <small>Error message</small>
 			</div>
 
 			<div class="form-control">
@@ -40,7 +44,7 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="gneder" name="gender" placeholder="성별" value="<%= kakaoUserInfo.get("gender") %>">
+				<input type="text" id="gneder" name="gender" placeholder="성별" >
 				<select>
 					<option value="" disabled selected>성별</option>
 					<option value="men">남자</option>
@@ -50,12 +54,12 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 
 
 			<div class="form-control">
-				<input type="text" id="age" name="age" placeholder="나이"  value="<%= kakaoUserInfo.get("age_range") %>"> <small>Error
+				<input type="text" id="age" name="age" placeholder="나이"  value=""> <small>Error
 					message</small>
 			</div>
 
 			<div class="form-control">
-				<input type="text" id="username" name="m_Name" placeholder="사용자 이름" value="<%= kakaoUserInfo.get("profile_nickname")%>">
+				<input type="text" id="username" name="m_Name" placeholder="사용자 이름" >
 				<small>Error message</small>
 
 			</div>
@@ -87,9 +91,15 @@ String profileNickname = kakaoUserInfo.get("profile_nickname").getAsString();%>
 		</form>
 	</div>
 	<script src="js/script.js"></script>
+	<script src="js/jquery-3.7.1.js"></script>
 
 	<script>
-		
+		if(<%=name%>!=null){
+			$("#username").attr('value', <%=name%>);
+		}
+		if(<%=id%>!=null){
+			$("#email").attr('value', <%=id%>);
+		}
 	</script>
 
 </body>

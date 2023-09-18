@@ -18,6 +18,12 @@
 		<servlet-class>playwithme.controller.FixBoardProgram</servlet-class>
 	</servlet>
 	<servlet>
+		<servlet-name>KakaoLogin</servlet-name>
+		<display-name>KakaoLogin</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.KakaoLogin</servlet-class>
+	</servlet>
+	<servlet>
 		<servlet-name>goChangepPw</servlet-name>
 		<display-name>goChangepPw</display-name>
 		<description></description>
@@ -104,6 +110,12 @@
 		<description></description>
 		<servlet-class>playwithme.controller.goFavorite</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>JoinProgram</servlet-name>
+		<display-name>JoinProgram</display-name>
+		<description></description>
+		<servlet-class>playwithme.controller.JoinProgram</servlet-class>
+	</servlet>
 
 	
 	
@@ -150,6 +162,10 @@
 		<servlet-name>goLogin</servlet-name>
 		<url-pattern>/goLogin</url-pattern>
 	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>KakaoLogin</servlet-name>
+		<url-pattern>/KakaoLogin</url-pattern>
+	</servlet-mapping>
 	
 	<servlet-mapping>
 		<servlet-name>ChangePwProgram</servlet-name>
@@ -158,6 +174,10 @@
 	<servlet-mapping>
 		<servlet-name>LoginProgram</servlet-name>
 		<url-pattern>/LoginProgram</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>JoinProgram</servlet-name>
+		<url-pattern>/JoinProgram</url-pattern>
 	</servlet-mapping>
 
 	<servlet-mapping>

@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="assets/css/MapMain.css" />
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 <style>
 #clock {
 	margin-left: 10px;
@@ -192,11 +193,14 @@
 			<button type="submit" id="savePost">저장</button>
 			<!-- <button id="savePost">저장</button> -->
 		</form>
+
 	</div>
 <div id="modalBackground" class="modal-background"></div>
 
 
 	<script src="js/jquery-3.7.1.js"></script>
+	 
+	
 
 	<script>
 	

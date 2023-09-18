@@ -24,6 +24,12 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		sqlSession.close();
 		return member1;
 	}
+	public MemberDTO kakaoLogin(MemberDTO member) {
+		SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		MemberDTO member1 = sqlSession.selectOne("kakaoLogin",member);
+		sqlSession.close();
+		return member1;
+	}
 	public int upImg(MemberDTO member) {
 		SqlSession sqlSession= sqlSessionFactory.openSession(true);
 		int member1 = sqlSession.update("img", member);
@@ -38,11 +44,25 @@ SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 		return member1;
 		
 	}
-	//회원가입 
-	public int Join(MemberDTO member) {
-		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		int cnt = sqlSession.insert("Join", member);
-		sqlSession.close();
-		return cnt;
-	}
+	// 중복체크
+	   
+    public boolean isDuplicateId(String memberId) {
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        int count = sqlSession.selectOne("checkDuplicateId", memberId);
+        sqlSession.close();
+        return count > 0;
+    }
+   //회원가입 
+   public int Join(MemberDTO member) {
+      MemberDAO memberDAO = new MemberDAO();
+
+       // 중복된 아이디인 경우 회원가입을 처리하지 않음
+       if (memberDAO.isDuplicateId(member.getMember_Id())) {
+           return 0;
+       }
+      SqlSession sqlSession = sqlSessionFactory.openSession(true);
+      int cnt = sqlSession.insert("join", member);
+      sqlSession.close();
+      return cnt;
+   }
 }

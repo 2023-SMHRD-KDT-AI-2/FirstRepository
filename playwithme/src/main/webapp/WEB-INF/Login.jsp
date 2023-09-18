@@ -10,7 +10,7 @@
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" href="css/style.css">
 <title>Insert title here</title>
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 <style>
 #clock {
 	margin-left: 4px;
@@ -82,21 +82,56 @@
 			</button>
 
 		</form>
-		<a href="javascript:loginWithKakao()"
-			class="btn btn-kakao btn-user btn-block"
-			style="display: flex; align-items: center; flex-direction: row; justify-content: center;">
-			<div style="margin-right: 15px;">
-				<i class="fa fa-comment"></i>
-				<path
-					d="M512 240c0 114.9-114.6 208-256 208c-37.1 0-72.3-6.4-104.1-17.9c-11.9 8.7-31.3 20.6-54.3 30.6C73.6 471.1 44.7 480 16 480c-6.5 0-12.3-3.9-14.8-9.9c-2.5-6-1.1-12.8 3.4-17.4l0 0 0 0 0 0 0 0 .3-.3c.3-.3 .7-.7 1.3-1.4c1.1-1.2 2.8-3.1 4.9-5.7c4.1-5 9.6-12.4 15.2-21.6c10-16.6 19.5-38.4 21.4-62.9C17.7 326.8 0 285.1 0 240C0 125.1 114.6 32 256 32s256 93.1 256 208z" />
-			</div>
-			<div>
-				<strong>카카오 로그인</strong>
-			</div>
-		</a>
+				<!-- 카카오 버튼이 생기는 a태그 -->
+<div id="kakaoLogin">  
+    <a id="kakao-login-btn"></a>
+    <a href="http://developers.kakao.com/logout"></a>
+</div>
 	</div>
-<script type="text/javascript" src="assets/js/kakao.js"></script>
 	<script src="js/jquery-3.7.1.js"></script>
+
+<script type='text/javascript'>
+    // 사용할 앱의 JavaScript 키를 설정해 주세요.
+    Kakao.init('b050e9e0efc9c8e1f1202b4635c53089');
+    // 카카오 로그인 버튼을 생성합니다.
+    Kakao.Auth.createLoginButton({
+      container: '#kakao-login-btn',
+      success: function(authObj) {
+          
+          //로그인 성공시, kakao API를 호출한다.(카카오에 있는 데이터 불러옴)
+          Kakao.API.request({
+              url: '/v2/user/me',
+              success: function(res){
+                  console.log(res);
+                  console.log(res.id);
+                  console.log(JSON.stringify(res.properties.nickname));
+                  console.log(JSON.stringify(res.kakao_account.email));
+                  console.log(JSON.stringify(res.kakao_account.gender));
+                 $.ajax({
+                    url:"http://localhost:8082/aa/KakaoLogin",
+                    data:{"id":JSON.stringify(res.kakao_account.email), "name":JSON.stringify(res.properties.nickname)},
+                    Type:"post",
+                    success:function(data){
+                        //성공적으로 하고나면 이동할 url
+                        location.href=data;
+                    }
+                    
+                 });
+              },
+              fail: function(error){
+                  alert(JSON.stringify(error));
+              }
+          });
+         //접속된 회원의 토큰값 출력됨
+        //alert(JSON.stringify(authObj));
+        
+      },
+      fail: function(err) {
+         alert(JSON.stringify(err));
+      }
+    });
+</script> 
+
 
 	<script>
 		///////////////////////////////////////////////////////////////////////////////
