@@ -77,5 +77,14 @@ public class BoardDAO {
 		sqlSession.close();
 		return boardlist;
 	}
+
+	//인원수 증가하는 함수
+	   public int partinumup(int boardnum) {
+		      SqlSession sqlSession= sqlSessionFactory.openSession(true);
+		      int cnt=sqlSession.update("partinumup", boardnum);
+		      sqlSession.close();
+		      return cnt;
+		   }
+
 	
 }

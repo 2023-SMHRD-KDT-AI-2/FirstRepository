@@ -9,6 +9,8 @@
 package playwithme.model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -67,6 +69,22 @@ public class FriendListDAO {
 	    }
 	}
 
+	// 친구 중복 확인
+	public boolean isFriendDuplicate(String member_id, String friend_name) {
+	    SqlSession sqlSession = sqlSessionFactory.openSession(true);
+
+	    try {
+	        Map<String, Object> params = new HashMap<>();
+	        params.put("member_id", member_id);
+	        params.put("friend_name", friend_name);
+
+	        int count = sqlSession.selectOne("isFriendDuplicate", params);
+
+	        return count > 0;
+	    } finally {
+	        sqlSession.close();
+	    }
+	}
 
 
 

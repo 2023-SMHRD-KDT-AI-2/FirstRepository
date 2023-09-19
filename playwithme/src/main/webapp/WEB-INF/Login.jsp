@@ -31,7 +31,7 @@
 	
 	#internet{
 		height: 19px;
-		margin-left: 197px;
+		margin-left: 210px;
 		margin-bottom: 2px;
 	}
 	#lte{
@@ -41,7 +41,15 @@
 	#battery{
 		height: 21px;
 	}
-
+#kakaoLogin {
+   margin: auto;
+   display: block;
+} 
+#kakao-login-btn{
+	width: 280px;
+	height: 50px;
+	margin-left: 20px;
+}
 </style>
 
 </head>
@@ -81,8 +89,11 @@
 			</button>
 
 		</form>
-				<!-- 카카오 버튼이 생기는 a태그 -->
+    <!-- 카카오 버튼이 생기는 a태그 -->
+<div id="kakaoLogin">  
     <a id="kakao-login-btn"></a>
+    <a href="http://developers.kakao.com/logout"></a>
+</div>
 </div>
 	<script src="js/jquery-3.7.1.js"></script>
 
@@ -93,7 +104,6 @@
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
       success: function(authObj) {
-          
           //로그인 성공시, kakao API를 호출한다.(카카오에 있는 데이터 불러옴)
           Kakao.API.request({
               url: '/v2/user/me',

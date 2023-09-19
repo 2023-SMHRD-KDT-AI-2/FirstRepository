@@ -19,6 +19,7 @@
 		
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
 		<link rel="stylesheet" href="assets/css/style.css">
+		<link rel="stylesheet" href="assets/css/Profilestyle.css">
 		 <style>
         /* 그래프 스타일 */
         .graph-container {
@@ -59,7 +60,7 @@
            cursor :pointer;
          border : 0px;
          background-color :#fafafa;
-         margin-top : 15px;
+         margin-top : 32px;
          margin-left : 10px;
       
       }
@@ -131,6 +132,14 @@
          height: 21px;
          margin-bottom: 3px;
       }
+    div strong {
+    color: #000; /* 강조 텍스트의 색상을 설정합니다. */
+    font-weight: bold; /* 강조 텍스트를 두껍게 만듭니다. */
+    margin-top: 10px; /* 강조 텍스트 위쪽 여백을 추가합니다. */
+}	
+	h4 {
+    margin-bottom: 25px; /* <h4> 태그 아래쪽에 10px의 간격을 추가합니다. */
+}
 
     </style>
   </head>
@@ -149,9 +158,10 @@
 	BoardDTO board=(BoardDTO)request.getAttribute("board"); 
 	BoardDAO dao2 = new BoardDAO();
 	String id = board.getMember_Id();
-  	FavoriteDAO fdao = new FavoriteDAO();
-	int fav = fdao.findnum(id);
-	ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+	FavoriteDAO fdao = new FavoriteDAO();
+	FavoriteDTO fdto = new FavoriteDTO();
+	fdto.setMember_id(id);
+	FavoriteDTO inc =fdao.incheck(fdto);
 	%>
 		<button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
@@ -160,12 +170,16 @@ arrow_back_ios
 		<section class="ftco-section">
 		<div class="container">
 				<span id ="shap">#</span>
-				<span id = "name"><%=board.getM_Name()%><%=board.getMember_Id()%></span>
+				<span id = "name"><%=board.getM_Name()%>&nbsp;&nbsp;<%=board.getMember_Id()%></span>
 				<span id = "favorite">
+				<%if(inc!=null){ 
+					int fav = fdao.findnum(id);
+					ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+				%>
 				<%for(int i = 0; i<favList.size(); i++){%>
 				<%=favList.get(i).getInterest() %>&nbsp;
 				
-				<%} %>
+				<%}} %>
 				
 				
 				</span>
@@ -181,7 +195,7 @@ arrow_back_ios
 
 						  	<div class="dropdown-menu show">
 						  		<div>
-						  		<h3>게시글</h3>
+						  		<h4>게시글</h4>
 						  		<p><strong>제목:</strong> <span id="displayTitle3"><%=board.getTitle()%></span></p>
 						        <p><strong>인원수:</strong> <span id="displayNumPeople3"><%=board.getNum_People()%></span></p>
 						        <p><strong>모임시간:</strong> <span id="displayMeetTime3"><%=board.getMeet_Time()%></span></p>

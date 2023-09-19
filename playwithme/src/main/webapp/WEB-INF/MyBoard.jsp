@@ -30,6 +30,13 @@
 
 <link rel="stylesheet" href="assets/css/MyBoardstyle.css">
 <style>
+#search{
+	width: 17px;
+    z-index: 1;
+    position: relative;
+    bottom: -30px;
+    left: 33px;
+}
 </style>
 </head>
 <body>
@@ -56,7 +63,8 @@
 			<div class="col-md-12">
 				<h3 class="h5 mb-4 text-center">${info.get(0).getM_Name()}님의
 					게시물</h3>
-				<input type="text" id="searchInput" placeholder="검색어를 입력하세요" /><span
+					<img src="images/검색.png" id="search">
+				<input type="text" id="searchInput" placeholder="검색 또는 URL입력" /><span
 					id="clearSearch" class="material-symbols-outlined"> close </span><BR>
 				<span id=sulmyuong>내용을 보실려면 해당 게시글을 클릭해주세요</span>
 				<div id="searchResults">

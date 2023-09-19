@@ -23,6 +23,7 @@ public class BoardDTO {
 	private String m_Profile; // 내 프로필 사진
 	private String m_Name; // 사용자 닉네임
 	private int temper; // 사용자 온도
+	private int parti_num; // 참여자 인원
 
 
 }

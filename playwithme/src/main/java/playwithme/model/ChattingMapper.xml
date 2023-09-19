@@ -110,6 +110,14 @@
    values (SEQ_CHATTING_ROOM_PARTI.nextval, #{chatting_room_num}, #{member_id})
    </insert>
 	
-	
+	<select id="check_parti" parameterType="playwithme.model.ChatPartiDTO" resultType="string">
+      select PARTI_NUM from chatting_room_parti 
+    where MEMBER_ID= #{member_id} and CHATTING_ROOM_NUM=#{chatting_room_num}
+   </select>
+   
+   <select id="chatfindboard" parameterType="string" resultType="string">
+   select board_num from board where CHAT_ROOM_NUM= #{chat_num} 
+   </select>
+    
 	
 </mapper>

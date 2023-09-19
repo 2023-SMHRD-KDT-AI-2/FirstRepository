@@ -157,6 +157,11 @@ public class ChattingListDAO {
 	         }
 	      }
 	
-	
+	 	 public String chatFindBoard (String chatnum) {
+	         SqlSession sqlSession = sqlSessionFactory.openSession(true);
+	         String boardnum=sqlSession.selectOne("chatfindboard", chatnum);
+	         sqlSession.close();
+	         return boardnum;
+	      }
 
 }

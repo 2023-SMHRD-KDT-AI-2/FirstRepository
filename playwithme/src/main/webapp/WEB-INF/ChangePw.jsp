@@ -162,14 +162,16 @@
 	    margin-top: 39px;
 	    margin-left: 10px;
 		}
-	
+
     </style>
 
 </head>
 
 
 <body>
+      
   <div id=fix>
+     
 
 		<span id="clock"></span>
 		<img src="images/인터넷.png" id="internet">

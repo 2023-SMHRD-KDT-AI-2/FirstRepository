@@ -8110,7 +8110,7 @@ h1, h2, h3, h4, h5,
         transition: none; } }
   .table tbody th, .table tbody td {
     border: none;
-    height: 56px;
+    height: 59px;
     font-size: 12px;
     padding-left: 10px; }
   .table tbody td.acc {
@@ -8156,8 +8156,10 @@ h1, h2, h3, h4, h5,
     border-bottom: 2px solid #fafafa !important; }
 
  #sulmyuong{
- font-size: 5px;
- position: relative;
+    font-size: 5px;
+    position: relative;
+    top: -16px;
+    color: gray;
  
  }
  	body {
@@ -8180,7 +8182,7 @@ h1, h2, h3, h4, h5,
 	}
 	#internet{
 		height: 19px;
-		margin-left: 200px;
+		margin-left: 210px;
 		margin-bottom: 7px;
 	}
 	#lte{
@@ -8197,7 +8199,7 @@ h1, h2, h3, h4, h5,
 	 	cursor: pointer;
 		border : 0px;
 		background-color :#fafafa;
-		margin-top : 21px;
+		margin-top : 34px;
 		margin-left : 7px;
 		
 		}
@@ -8231,20 +8233,21 @@ h1, h2, h3, h4, h5,
         }
      #searchInput {
      	width: 90%;
-		height: 29px;
-	    margin: 0;
+		height: 33px;
 	    border-radius: 33px;
 	    border: 1px solid gray;
-	    margin-bottom: 0px;
-	    padding-left: 10px;
+	    margin-bottom: 18px;
+	    padding-left: 37px;
+	    margin-left: 20px;
+	    font-size: 14px;
 	}
 	#clearSearch{
 		position: relative;
 	    cursor: pointer;
-	    color: red;
+	    color: #b50202;
 	    z-index: 1;
-	    left: -28px;
-	    top: 4px;
+	    right: -283px;
+	    top: -47px;
 	}
 	.table-wrap {
             max-height: 100%; /* 원하는 최대 높이로 설정하세요. */

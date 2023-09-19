@@ -76,8 +76,14 @@
 	
 	</update>
 	
-
-
+<!--  참여자 증가 -->
+<update id="partinumup" parameterType="map">
+    UPDATE BOARD
+    <set>
+        parti_num = parti_num + 1
+    </set>
+    WHERE board_num = #{boardnum}
+</update>
 
 
 

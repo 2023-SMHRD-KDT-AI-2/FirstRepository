@@ -58,11 +58,21 @@
 		parameterType="playwithme.model.FriendListDTO">
 		INSERT INTO FRIEND (FRIEND_NUM,
 		MEMBER_ID,
-		F_MEMBER_ID)
+		F_MEMBER_ID,
+		FRIENDCHAT_ROOM_NUM)
 		VALUES (SEQ_FRIEND_NUM.nextval,
 		#{member_Id},
-		#{f_Member_Id})
+		#{f_Member_Id},
+		#{friendchat_room_num})
+		
 	</insert>
+	<!-- 친구 삭제 -->
+<delete id="deleteFriend" parameterType="playwithme.model.FriendListDTO">
+    DELETE FROM FRIEND
+    WHERE MEMBER_ID = #{member_Id}
+    AND F_MEMBER_ID = #{f_Member_Id}
+</delete>
+
 	<!-- 카카오로그인 -->
 	<select id="kakaoLogin" parameterType="playwithme.model.MemberDTO" resultType="playwithme.model.MemberDTO">
 		select * from NA_MEMBER where member_Id=#{member_Id} 
@@ -72,5 +82,10 @@
     SELECT COUNT(*) FROM NA_MEMBER WHERE MEMBER_ID = #{member_Id}
 </select>
 
+<!-- 친구 중복값 찾기 -->
+     <select id="isFriendDuplicate" resultType="int">
+        SELECT COUNT(*) FROM FRIEND WHERE MEMBER_ID = #{member_id} AND F_MEMBER_ID = #{friend_name}
+    </select>
+    
 
 </mapper>

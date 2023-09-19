@@ -149,8 +149,6 @@ String id = (String)session.getAttribute("kakaoId");
 
 
 %>
-	<div class="container">
-		<form action="JoinProgram" id="form" class="form">
 
 
 	<div class="container">

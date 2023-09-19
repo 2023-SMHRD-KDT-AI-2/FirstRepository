@@ -472,7 +472,7 @@
         }
         #myModal{
             width: 250px;
-            height: 440px;
+            height: 468px;
             bottom: 200px;
         }
 		#keyword{
@@ -514,7 +514,7 @@
 			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 		}
 		#clock{
-			margin-left: 10px;
+			margin-left: 8px;
 			margin-bottom: 10px;
 			display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
 			vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
@@ -534,7 +534,7 @@
 		}
 		#internet{
 			height: 19px;
-			margin-left: 180px;
+			margin-left: 191px;
 			margin-bottom: 2px;
 		}
 		#lte{

@@ -318,7 +318,8 @@ h3, .h3 {
   font-size: 1.75rem; }
 
 h4, .h4 {
-  font-size: 1.5rem; }
+  font-size: 20px;
+  text-align: center; }
 
 h5, .h5 {
   font-size: 1.25rem; }
@@ -8206,14 +8207,13 @@ h1, h2, h3, h4, h5,
   -webkit-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
   -moz-box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
   box-shadow: 0px 10px 34px -20px rgba(0, 0, 0, 0.41);
-  padding: 0;
   width: 290px;
-  height: 397px;
+  height: 415px;
   left: 56% !important;
   -webkit-transform: translateX(-50%) !important;
   -ms-transform: translateX(-50%) !important;
   transform: translateX(-50%) !important;
-  margin-top: 120px; }
+  margin-top: 107px; }
   .btn-group .dropdown-menu:after, .btn-group .dropdown-menu:before {
     display: block;
     border-style: solid;
@@ -8295,7 +8295,7 @@ h1, h2, h3, h4, h5,
         	cursor :pointer;
 			border : 0px;
 			background-color :#FaFaFa;
-			margin-top : 15px;
+			margin-top : 32px;
 			margin-left : 10px;
 		
 		}
@@ -8355,7 +8355,7 @@ h1, h2, h3, h4, h5,
 		}
 		#internet{
 			height: 19px;
-			margin-left: 197px;
+			margin-left: 204px;
 			margin-bottom: 12px;
 		}
 		#lte{

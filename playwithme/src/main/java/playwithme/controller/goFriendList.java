@@ -9,13 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/goFriendList")
 public class goFriendList extends HttpServlet {
    private static final long serialVersionUID = 1L;
 
    protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       request.setCharacterEncoding("utf-8");   
-      String uri = "WEB-INF/FrindList.jsp";
+      String uri = "WEB-INF/FriendList.jsp";
       RequestDispatcher rd = request.getRequestDispatcher(uri);
       rd.forward(request, response);
    }
