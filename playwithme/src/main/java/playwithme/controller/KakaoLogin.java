@@ -13,6 +13,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import playwithme.model.FavoriteDAO;
+import playwithme.model.FavoriteDTO;
 import playwithme.model.MemberDAO;
 import playwithme.model.MemberDTO;
 
@@ -45,15 +47,27 @@ public class KakaoLogin extends HttpServlet {
          PrintWriter out = response.getWriter();
          System.out.println(kakaoId);
          
-           if(m==null) {
-               //회원가입이 필요
-              out.print("http://localhost:8082/aa/goJoin");
-           }else {
-              session.setAttribute("memberid", kakaoId1);
-              System.out.println("main");
-               out.print("http://localhost:8082/aa/goMain");
+         if(m==null) {
+             //회원가입이 필요
+            out.print("http://localhost:8082/aa/goJoin");
+         }else {
+            System.out.println("main");
+            FavoriteDAO fdao = new FavoriteDAO();
+          FavoriteDTO fdto = new FavoriteDTO();
+          fdto.setMember_id(kakaoId1);
+          FavoriteDTO inc =fdao.incheck(fdto);
+          session.setAttribute("memberid", kakaoId1);
+          if(inc==null) {
+             out.println("http://localhost:8082/aa/goFavorite");
+             
+          }else {
+             
+             out.print("http://localhost:8082/aa/goMain");
+             
+          }   
+            
 
-           }
+         }
            
    }
    }

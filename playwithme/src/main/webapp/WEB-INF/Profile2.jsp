@@ -6,21 +6,21 @@
 <%@ page isELIgnored="false"%>
 <%@page import="playwithme.model.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+   pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
   <head>
-  	<title></title>
+     <title></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
-		
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-		<link rel="stylesheet" href="assets/css/style.css">
-		<link rel="stylesheet" href="assets/css/Profilestyle.css">
-		 <style>
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+      <link rel="stylesheet" href="assets/css/style.css">
+      <link rel="stylesheet" href="assets/css/Profilestyle.css">
+       <style>
         /* 그래프 스타일 */
         .graph-container {
            background-color : #ded1d18f;
@@ -55,7 +55,7 @@
             width: 0;
           font-size: 5px;
         }
-   
+   		
         #back {
            cursor :pointer;
          border : 0px;
@@ -132,85 +132,125 @@
          height: 21px;
          margin-bottom: 3px;
       }
+      
+      .custom-box {
+    width: 290px; /* 원하는 너비 설정 */
+    height: 400px; /* 원하는 높이 설정 */
+    background-color: #fafafa; /* 박스 배경색 설정 */
+    border: 1px solid #ccc; /* 테두리 스타일 및 색상 설정 */
+    border-radius: 20px; /* 깎인 모서리 설정 */
+    overflow: hidden; /* 박스를 벗어나는 부분을 숨깁니다. */
+    
+}
+      
     div strong {
     color: #000; /* 강조 텍스트의 색상을 설정합니다. */
     font-weight: bold; /* 강조 텍스트를 두껍게 만듭니다. */
     margin-top: 10px; /* 강조 텍스트 위쪽 여백을 추가합니다. */
-}	
-	h4 {
-    margin-bottom: 25px; /* <h4> 태그 아래쪽에 10px의 간격을 추가합니다. */
+    font-size: 13px;
+}   
+   h4 {
+    margin-bottom: 20px; /* <h4> 태그 아래쪽에 10px의 간격을 추가합니다. */
+    font-weight: bold;
+    font-size:15px;
 }
-
+ .custom-box p {
+    margin-left: 20px;
+    max-width: calc(100% - 40px); /* 오른쪽 20px 공백을 유지하기 위해 최대 너비를 설정합니다. */
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}   
+   .data-box {
+       border: 1px solid #ccc;
+       padding: 5px;
+       max-width: 250px; /* 최대 너비 설정 */
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       background-color: #fafafa;
+       border-radius: 1rem;
+       margin-left: 19px;
+       position: relative; /* 요소를 상대 위치로 설정합니다. */
+         top: 0px; /* 원하는 만큼 위로 이동시킵니다. */
+         height:160px;
+         overflow: auto; /* 스크롤을 추가합니다. */ 
+   }
     </style>
   </head>
   <body>
   <div id=fix>
 
-		<span id="clock"></span>
-		<img src="images/인터넷.png" id="internet">
-		<img src="images/LTE.png" id="lte">
-		<img src="images/배터리.png" id="battery">
-		
-		
-	</div>
+      <span id="clock"></span>
+      <img src="images/인터넷.png" id="internet">
+      <img src="images/LTE.png" id="lte">
+      <img src="images/배터리.png" id="battery">
+      
+      
+   </div>
   <%
-	
-	BoardDTO board=(BoardDTO)request.getAttribute("board"); 
-	BoardDAO dao2 = new BoardDAO();
-	String id = board.getMember_Id();
-	FavoriteDAO fdao = new FavoriteDAO();
-	FavoriteDTO fdto = new FavoriteDTO();
-	fdto.setMember_id(id);
-	FavoriteDTO inc =fdao.incheck(fdto);
-	%>
-		<button class="material-symbols-outlined" id ="back" style="color:gray;">
+   
+   BoardDTO board=(BoardDTO)request.getAttribute("board"); 
+   BoardDAO dao2 = new BoardDAO();
+   String id = board.getMember_Id();
+   FavoriteDAO fdao = new FavoriteDAO();
+   FavoriteDTO fdto = new FavoriteDTO();
+   fdto.setMember_id(id);
+   FavoriteDTO inc =fdao.incheck(fdto);
+   %>
+      <button class="material-symbols-outlined" id ="back" style="color:gray;">
 arrow_back_ios
 </button>
-		
-		<section class="ftco-section">
-		<div class="container">
-				<span id ="shap">#</span>
-				<span id = "name"><%=board.getM_Name()%>&nbsp;&nbsp;<%=board.getMember_Id()%></span>
-				<span id = "favorite">
-				<%if(inc!=null){ 
-					int fav = fdao.findnum(id);
-					ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
-				%>
-				<%for(int i = 0; i<favList.size(); i++){%>
-				<%=favList.get(i).getInterest() %>&nbsp;
-				
-				<%}} %>
-				
-				
-				</span>
-			</div>
-				<div class="row justify-content-center">
+      
+      <section class="ftco-section">
+      <div class="container">
+            <span id ="shap">#</span>
+            <span id = "name"><%=board.getM_Name()%>&nbsp;&nbsp;<%=board.getMember_Id()%></span>
+            <span id = "favorite">
+            <%if(inc!=null){ 
+               int fav = fdao.findnum(id);
+               ArrayList<FavoriteDTO> favList = fdao.findfav(fav);
+            %>
+            <%for(int i = 0; i<favList.size(); i++){%>
+            <%=favList.get(i).getInterest() %>&nbsp;
+            
+            <%}} %>
+            
+            
+            </span>
+         </div>
+            <div class="row justify-content-center">
 
-					<div class="col-md-6 d-flex justify-content-center">
-						<div class="btn-group show">
+               <div class="col-md-6 d-flex justify-content-center">
+                  <div class="btn-group show">
 
-						  <img src="images/<%=board.getM_Profile()%>" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						  
-						  
+                    <img src="images/<%=board.getM_Profile()%>" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                    
 
-						  	<div class="dropdown-menu show">
-						  		<div>
-						  		<h4>게시글</h4>
-						  		<p><strong>제목:</strong> <span id="displayTitle3"><%=board.getTitle()%></span></p>
-						        <p><strong>인원수:</strong> <span id="displayNumPeople3"><%=board.getNum_People()%></span></p>
-						        <p><strong>모임시간:</strong> <span id="displayMeetTime3"><%=board.getMeet_Time()%></span></p>
-						        <p><strong>모임장소:</strong> <span id="displayPlace3"><%=board.getPlace()%></span></p>
-						        <p><strong>내용:</strong> <span id="displayBContent3"><%=board.getB_Content()%></span></p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-		</section>
-		
-		
-		
-		  <div class="graph-container">
+                       <div class="dropdown-menu show">
+                          <div class="custom-box">
+                          <h4>게시글</h4>
+                          <p><strong>제목 :</strong> <span id="displayTitle3"><%=board.getTitle()%></span></p>
+                          <p><strong>인원수 :</strong> <span id="displayNumPeople3"><%=board.getNum_People()%></span></p>
+                          <p><strong>모임시간 :</strong> <span id="displayMeetTime3"><%=board.getMeet_Time()%></span></p>
+                          <p><strong>모임장소 :</strong> <span id="displayPlace3"><%=board.getPlace()%></span></p>
+                          <div class="data-box">
+                             <!--    <p><strong>내용 :</strong></p> -->
+                                <p> <span id="displayBContent3"><%=board.getB_Content()%></span></p>
+                          
+                          </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+      </section>
+      
+      
+      
+        <div class="graph-container">
         <!-- Graph bar that will animate -->
         <div class="graph-bar" style="width: 0%;"></div>
         <!-- Label for the graph -->
@@ -249,11 +289,11 @@ arrow_back_ios
         document.querySelector(".graph-container").appendChild(mannerTemperature);
         
         $('#back').click(function () {
-			location.href = 'goMain';
-		})
-		
-	
-	
+         location.href = 'goMain';
+      })
+      
+   
+   
 
     </script>
    

@@ -64,7 +64,7 @@
 					<div class="table-wrap" class="table-container">
 						<table class="table myaccordion table-hover" id="accordion">
 							<thead>
-								<tr>
+								<tr id="top">
 									<th class="title" style="text-align: left; !important">&nbsp;&nbsp;제목</th>
 									<th>인원수</th>
 									<th>수정/삭제</th>
@@ -88,7 +88,7 @@
 									aria-expanded="false" aria-controls="collapse<%=i%>">
 
 									<td style="text-align: left; !important"><%=AllBoard.get(i).getTitle()%></td>
-									<td class="meeting-time"><%=formattedDate%></td>
+									<td class="meeting-time"><%=AllBoard.get(i).getParti_num() %>/<%=AllBoard.get(i).getNum_People() %>명</td>
 									<td><button class="first">
 											<a href="goChat?room=<%=AllBoard.get(i).getChat_room_num()%>">채팅참여</a>
 											<!-- 채팅 참여 버튼 -->
@@ -110,7 +110,7 @@
 									<td colspan="1" id="collapse<%=i%>" class="collapse acc"
 										data-parent="#accordion" style="text-align: left; !important"
 										width=165px;><%=AllBoard.get(i).getB_Content()%></td>
-									<td colspan="2" id="collapse<%=i%>" class="collapse acc2" data-parent="#accordion"style="text-align: center;"><%=AllBoard.get(i).getParti_num() %>/<%=AllBoard.get(i).getNum_People() %>명</td>
+									<td colspan="2" id="collapse<%=i%>" class="collapse acc2" data-parent="#accordion"style="text-align: center;"><%=formattedDate%></td>
 								</tr>
 								<script>
 	           						 document.getElementById('collapse<%=i%>

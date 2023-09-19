@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/style.css">
 <title>로그인 창</title>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+
 <style>
 	#clock {
 		margin-left: 4px;
@@ -99,7 +100,11 @@
 
 <script type='text/javascript'>
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
-    Kakao.init('b050e9e0efc9c8e1f1202b4635c53089');
+  
+	Kakao.init('b050e9e0efc9c8e1f1202b4635c53089')
+
+
+   
     // 카카오 로그인 버튼을 생성합니다.
     Kakao.Auth.createLoginButton({
       container: '#kakao-login-btn',
@@ -120,11 +125,16 @@
                     success:function(data){
                         //성공적으로 하고나면 이동할 url
                         location.href=data;
+                    },
+                    error:function(err){
+                    	console.log(err)
                     }
+                    
                     
                  });
               },
               fail: function(error){
+            	 
                   alert(JSON.stringify(error));
               }
           });
@@ -134,6 +144,7 @@
       },
       fail: function(err) {
          alert(JSON.stringify(err));
+         console.log(err)
       }
     });
 </script> 

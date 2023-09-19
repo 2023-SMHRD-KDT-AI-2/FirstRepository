@@ -263,6 +263,8 @@ socket.onmessage = (event) => {
     const chatDiv = document.getElementById("chat-messages");
     const data = JSON.parse(event.data);
     console.log(data);
+ // 새 메시지 도착 시 읽지 않은 메시지 수 업데이트
+    updateUnreadMessageCount(data.room); // 방 이름을 전달하여 업데이트
     // 메시지 출력
     const messageElement = document.createElement('div');
     if (data.senderName === "<%=memberId%>") {
@@ -276,6 +278,47 @@ socket.onmessage = (event) => {
     chatDiv.scrollTop = chatDiv.scrollHeight;
 };
 
+//읽지 않은 메시지 수 업데이트 함수
+function updateUnreadMessageCount(roomName) {
+    // 서버에서 해당 방의 읽지 않은 메시지 수를 가져오는 Ajax 요청 수행
+    $.ajax({
+        url: "GetUnreadMessageCount",
+        type: "get",
+        data: { "roomName": roomName },
+        success: function (unreadCount) {
+            // 읽지 않은 메시지 수를 표시하는 UI 업데이트
+            const unreadCountElement = document.getElementById("unread-count-" + roomName);
+            unreadCountElement.textContent = unreadCount;
+        },
+        error: function () {
+            console.error("읽지 않은 메시지 수 가져오기 오류");
+        }
+    });
+}
+//메시지 읽기 처리 함수
+function markMessageAsRead(roomName) {
+    // 서버에 메시지를 읽었다고 알리는 요청을 보낼 수 있습니다.
+    $.ajax({
+        url: "MarkMessageAsRead",
+        type: "post",
+        data: { "roomName": roomName },
+        success: function () {
+            // 읽은 메시지 수 업데이트
+            updateUnreadMessageCount(roomName);
+        },
+        error: function () {
+            console.error("메시지를 읽었다고 서버에 알리는 중 오류 발생");
+        }
+    });
+}
+
+// 예시: 메시지를 클릭했을 때 메시지를 읽었다고 처리하는 함수
+function handleMessageClick(roomName, messageId) {
+    // 여기에서 클릭한 메시지에 대한 처리를 수행합니다.
+    
+    // 메시지를 읽었다고 처리하는 함수 호출
+    markMessageAsRead(roomName);
+}
 // 연결이 닫혔을 때 실행할 코드
 socket.onclose = (event) => {
     console.log("채팅 소켓이 닫혔습니다. (코드: " + event.code + ")");
