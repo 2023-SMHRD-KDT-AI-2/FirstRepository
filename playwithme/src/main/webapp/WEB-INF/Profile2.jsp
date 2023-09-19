@@ -25,7 +25,7 @@
         .graph-container {
            background-color : #ded1d18f;
            border-radius : 45px;
-            width: 75%;
+            width: 84%;
             height: 14px;
             border: 1px solid #ccc;
             position: relative;
@@ -72,27 +72,28 @@
           z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
       }
       #name {
-      position: fixed;
-         margin-left: 161px;
-         margin-top: 19px;
-         color: #504e4e;
-         font-weight: bold;
+          position: fixed;
+    margin-left: 136px;
+    margin-top: 22px;
+    color: #504e4e;
+    font-weight: bold;
+    font-size: 12px;
       }
       #favorite {
       width: 170px;
-      position: fixed;
-         margin-left: 145px;
-         margin-top: 45px;
+    position: fixed;
+    margin-left: 123px;
+    margin-top: 45px;
       }
       #shap{
       position: fixed;
       color: #504e4e;
-         margin-left: 145px;
-         margin-top: 19px;
+    margin-left: 120px;
+    margin-top: 19px;
       }
       #shap{
       position: fixed;
-         margin-left: 145px;
+         margin-left: 123px;
          margin-top: 19px;
       }
       #myid{
@@ -135,9 +136,8 @@
       
       .custom-box {
     width: 290px; /* 원하는 너비 설정 */
-    height: 400px; /* 원하는 높이 설정 */
-    background-color: #fafafa; /* 박스 배경색 설정 */
-    border: 1px solid #ccc; /* 테두리 스타일 및 색상 설정 */
+    height: 398px; /* 원하는 높이 설정 */
+    background-color: #white; /* 박스 배경색 설정 */
     border-radius: 20px; /* 깎인 모서리 설정 */
     overflow: hidden; /* 박스를 벗어나는 부분을 숨깁니다. */
     
@@ -150,9 +150,10 @@
     font-size: 13px;
 }   
    h4 {
-    margin-bottom: 20px; /* <h4> 태그 아래쪽에 10px의 간격을 추가합니다. */
+    margin-bottom: 17px;
     font-weight: bold;
-    font-size:15px;
+    font-size: 15px;
+    margin-top: 15px;
 }
  .custom-box p {
     margin-left: 20px;
@@ -163,7 +164,7 @@
     font-size: 13px;
 }   
    .data-box {
-       border: 1px solid #ccc;
+       border: 0.5px solid #ccc;
        padding: 5px;
        max-width: 250px; /* 최대 너비 설정 */
        white-space: nowrap;

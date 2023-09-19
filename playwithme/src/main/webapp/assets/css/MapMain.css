@@ -92,7 +92,7 @@
             top: 638px;
             left: 0px;
             right: 0px;
-            width: 350px;
+            width: 375px;
             height: 70px;
             background: #fff;
             overflow: hidden;
@@ -137,6 +137,7 @@
             margin-top: 7px;
             background: url("../../images/친구2.png") no-repeat;
             background-size: contain;
+                width: 24px;
 
         }
 
@@ -144,6 +145,7 @@
             margin-top: 7px;
             background: url("../../images/게시판5.png") no-repeat;
             background-size: contain;
+                width: 24px;
 
         }
 
@@ -151,19 +153,21 @@
             margin-top: 7px;
             background: url("../../images/채팅.png") no-repeat;
             background-size: contain;
+                width: 24px;
 
         }
 
         #menu li .menu_bg.new-icon4 {
             margin-top: 7px;
-            background: url("../../images/마이.png") no-repeat;
             background-size: contain;
+                width: 1px;
 
         }
         #menu li .menu_bg.new-icon5 {
             margin-top: 7px;
             background: url("../../images/지도3.png") no-repeat;
             background-size: contain;
+                width: 24px;
 
         }
         #post {
@@ -463,9 +467,9 @@
             color: #777;
         }
 		
-        input {
-            border: 1.5px solid #353434;
-    		border-radius: 8px;
+         input {
+            border: 1.5px solid #acacac;
+          border-radius: 8px;
             height: 30px;
             width: 206px;
            
@@ -493,6 +497,7 @@
             background-color: white;
             border: 1px solid #ccc;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
         }
 
         /* 모달 뒷 배경 스타일 */
@@ -506,8 +511,17 @@
             background-color: rgba(0, 0, 0, 0.4);
             z-index: 1
         }
-        #postContent{
-            width: 240px;
+         #postContent{
+          position: relative;
+          top: 8px;
+          width: 245px;
+          border-radius: 10px;
+          height: 109px;
+          overflow: auto;
+          background-color:#fff;
+          padding-left: 10px; /* 시작 위치를 오른쪽으로 조정하는 여백 설정 */
+          padding-top: 10px;
+          border: 1.5px solid #acacac;
         }
         body{
     		background: #fafafa;

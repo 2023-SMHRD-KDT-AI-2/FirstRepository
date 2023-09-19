@@ -21,6 +21,54 @@
 		#meetingTime{
    width: 254px;
 }
+#pro{
+	width: 32px;
+	    height: 32px;
+    margin-right: 35px;
+    position: fixed;
+    right: 78px;
+    border-radius: 50%;
+    bottom: 75px;
+    border: 1.8px solid black;
+}
+   .modal h3 {
+    margin-top: 0; /* 기본 h3의 상단 여백 제거 */
+     text-align: center;
+     font-size: 16px;
+}
+   .modal label{
+   font-size: 14px;
+   font-weight: bold;
+   }
+   .modal input{
+   position: relative;
+   top: 10px;
+   background-color: #fff;
+   }
+   #postTitle{
+   
+   position: relative;
+   top: 0px;
+   left: 3px;   
+   }
+   #meetingPlace{
+   width:254px;
+   }
+   .modal button {
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    padding: 6px 13px; /* 버튼의 내부 여백 설정 */
+    border-radius: 5px; /* 모서리를 둥글게 깎음 */
+    cursor: pointer; /* 마우스 포인터를 손가락 모양으로 변경 */
+    font-weight: bold; /* 버튼 텍스트 굵기 설정 */
+    position: relative;
+    left: 148px;
+    bottom: 6px;
+}
+   button:hover {
+    background-color: #2980b9;
+}
 	</style>
 </head>
 <body>
@@ -69,7 +117,7 @@
 				class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
-			<li id="A4" data-order="3"><span class="menu_bg new-icon4"></span>
+			<li id="A4" data-order="3"><span class="menu_bg new-icon4"><img id="pro" src="images/<%=info.get(0).getM_Profile()%>" ></span>
 				마이</li>
 			<li id="A5" data-order="4"><span class="menu_bg new-icon5"></span>
 				지도</li>
