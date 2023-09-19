@@ -199,10 +199,10 @@
         // 마커를 생성하고 지도 위에 마커를 표시하는 함수입니다
         function addMarker(position, order) {
             let imageSrcArray = [
-                '명소.png',
-                '식당.png',
-                '카페.png',
-                'cctv.png'
+                '⛩',
+                '🍴',
+                '☕'
+                
             ];
             let imageSrc = imageSrcArray[order % imageSrcArray.length];
             imageSize = new kakao.maps.Size(27, 28),  // 마커 이미지의 크기

@@ -180,9 +180,9 @@
                  defaultTime:false,
                  // use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
                  defaultDate:false,
-                 minDate:false,
+                 minDate:0,
                  maxDate:false,
-                 minTime:false,
+                 minTime:'now',
                  maxTime:false,
                  minDateTime:false,
                  maxDateTime:false,

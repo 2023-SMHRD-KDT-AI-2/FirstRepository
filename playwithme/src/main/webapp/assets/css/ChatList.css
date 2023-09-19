@@ -31,45 +31,55 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 
 .contact {
   position: relative;
-  margin-bottom: 1rem;
-  padding-left: 5rem;
-  height: 4.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    margin-bottom: 10px;
+    padding-left: 5rem;
+    height: 4.5rem;
+    justify-content: space-between;
+    bottom: 10px;
 }
+
 
 
 
 .contact .pic {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
+     position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 .contact .name {
-  font-weight: 500;
   margin-bottom: 0.125rem;
-  margin-left: -72px;
+    position: absolute;
+    padding-left: 21px;
+    font-weight: bold;
+    top: 48px;
 }
+
+
 .contact .message, .contact .seen {
-  font-size: 0.9rem;
-  color: #999;
+          top: 3px;
+    font-size: 0.9rem;
+    color: #999;
+    position: absolute;
+    padding-top: 36px;
+    font-size: 11px;
+    padding-left: 45px;
 }
 
 
 .contacts {
-  position: absolute;
-  top: 429px;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 85vh;
-  padding: 1rem 2rem 1rem 1rem;
-  box-sizing: border-box;
-  cursor: pointer;
-  overflow-y: auto; /* 세로 스크롤 활성화 */
+    top: 468px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 85vh;
+    padding: 1rem 2rem 1rem 1rem;
+    box-sizing: border-box;   
+    cursor: pointer;
+    overflow-y: auto;
+    position: fixed;
 }
+
 .contacts h2 {
   margin: 0.5rem 0 1.5rem 5rem;
 }
@@ -200,6 +210,52 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 .chat .input input:placeholder {
   color: #999;
 }
+.profilepic{
+  width: 3rem;
+    height: 3rem;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+}
+.contacts2 .contact2 {
+  display: block; /* 한 줄에 하나씩 표시되도록 변경 */
+  margin-bottom: 1rem;
+  padding-left: 5rem;
+  height: 4.5rem;
+  position: relative;
+  flex-direction: column;
+}
+
+.contacts2 .contact2 .pic2 {
+     position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.contacts2 .contact2 .name2 {
+       top: 21px;
+    position: absolute;
+    left: 37px;
+}
+
+.contacts2 {
+  display: none;
+   position: absolute;
+    top: 382px;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    width: 61%;
+    height: 588px;
+    padding: 1rem 2rem 1rem 1rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    overflow-y: auto;
+    background-color: white;
+    z-index: 9999;
+    flex-direction: column;
+}
+
 
 /* 비활성화된 아이콘 스타일 */
 .disabled-icon {

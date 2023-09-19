@@ -14,7 +14,7 @@
         });
         
         $('#back').click(function () {
-			location.href = 'goProfile';
+			window.history.back(); // 뒤로 가기
 		})
 		// HTML에서 파일 입력 필드와 이미지 미리보기 요소를 가져옵니다.
 		const fileInput = document.getElementById('changeImg');

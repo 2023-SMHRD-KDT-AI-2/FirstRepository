@@ -11,12 +11,115 @@
 <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <title>CodePen - Daily UI #013 | Direct Messaging</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
 <link rel="stylesheet" href="assets/css/ChatList.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="assets/js/clock.js"></script>
+<script type="text/javascript">
 
+$(document).ready(function(){
+    $("#chatsetting").click(function(){   
+        var contacts2 = $(".contacts2");
+        
+        if (contacts2.css("display") === "none") {
+            contacts2.css("display", "flex");
+        } else {
+            contacts2.css("display", "none");
+        }
+    });   
+});
+</script>
+<style type="text/css">
+#chatsetting {
+        margin-left: 215px;
+    color: #8e8c8c;
+    font-size: 31px;
+   margin-top: 45px;
+    font-size: 26px;
+}
+.name2{
+    margin-left: 50px;
+}
+
+#back {
+    cursor: pointer;
+    border: 0px;
+    background-color: #a4c4e000;
+    margin-top: 53px;
+    margin-left: 11px;
+    z-index: 1;
+}
+
+#clock {
+   margin-left: 2px;
+   margin-bottom: 10px;
+   display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+   vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+   margin-right: 3px;
+   font-weight: BOLD;
+   font-size: 15px;
+}
+
+#fix {
+    position: fixed;
+    top: 7px;
+    left: 15px;
+    height: 20px;
+}
+
+#internet {
+    height: 19px;
+    margin-left: 210px;
+    margin-bottom: 2px;
+}
+
+
+#lte {
+   height: 11px;
+   margin-bottom: 5px;
+}
+
+#battery {
+   height: 21px;
+}
+
+h3 {
+   padding-left: 7px;
+   padding-top: 7px
+}
+
+@media ( min-width : 1920px) {
+   .center {
+      max-width: 360px;
+   }
+}
+
+#fix2 {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    bottom: 50px;
+}
+
+#title {
+   position: relative;
+   left: -10px;
+   font-size: 25px;
+   font-weight: bold;
+}
+#delete-option{
+position: relative;
+    top: 535px;
+    left: 25px;
+    color: gray;
+    font-size: 14px;
+}
+
+</style>
 
 </head>
 <body>
@@ -34,7 +137,25 @@ chatList = Chatdao.chatlist(memberId);
 ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
 %>
 <div class="chat">
+
+   <div id=fix>
+
+      <span id="clock"></span> <img src="images/인터넷.png" id="internet">
+      <img src="images/LTE.png" id="lte"> <img src="images/배터리.png"
+         id="battery">
+   </div>
+
+   
+      <div id="fix2">
+      <button class="material-symbols-outlined" id="back"
+      style="color: gray;">arrow_back_ios</button>
+      <span id="title"></span> 
+      
+
+   </div>
     <div class="contact bar">
+    
+      
     	<%
      String room = request.getParameter("room");
 
@@ -48,12 +169,7 @@ ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
 	<% } %>
         <div class="name">                
         </div>
-        <div class="seen">
-        <!-- 참여자 id -->
-        </div>
-        			<!-- 방 삭제하기 -->
-
-        <i id="delete-option" class="fa-solid fa-right-from-bracket" style="color: #5b90ec;"></i>
+        <i id="chatsetting" class="fa-solid fa-bars"></i>
     </div>
     <div class="messages" id="chat-messages">
     </div>
@@ -64,14 +180,26 @@ ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
     </div>
 </div>
 
+<div class="contacts2" >
+<i id="delete-option" class="fa-solid fa-right-from-bracket" >&nbsp;&nbsp;채팅방 나가기</i>
 
+</div>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
+
+$('#back').click(function() {
+    window.history.back(); // 뒤로 가기
+});
+
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const chatroom = urlParams.get('room');
 //채팅 null 입력 하면 버튼 비활성화
 //메시지 입력란과 아이콘 요소를 가져옵니다.
 const messageInput = document.getElementById("message");
 const sendButton = document.getElementById("send-button");
+
 
 
 
@@ -191,23 +319,42 @@ $.ajax({
     data: { "roomtitle": chatroom },
     dataType: "json",
     success: async function (data) {
-        var html = "";
+        var contacts2 = $(".contacts2"); // .contacts2 요소를 가져옴
+
         for (var i = 0; i < data.length; i++) {
-            var memberId = data[i];	
+            var propic = data[i].m_profile; // 프로필 이미지 URL 가져오기
+            var nickname = data[i].m_name;
             try {
-                var nName = await getNickname(memberId);
-                console.log(nName + " chat.jsp");
-                html += "「 " + nName + "」  "; // 닉네임 사용
+                console.log(propic + " chat.jsp");
+                // <div class="contact2"> 요소를 생성하여 이미지와 닉네임을 추가
+                var contact2Div = $("<div>").addClass("contact2");
+                
+                // <div class="pic2"> 요소를 생성하여 이미지를 추가
+                var pic2Div = $("<div>").addClass("pic2");
+                var img = $("<img>").addClass("profilepic").attr("src", "file/" + propic);
+                img.on("error", function () {
+                    $(this).off("error"); // 이미지 로딩 오류 시 이벤트 핸들러를 제거
+                    this.src = "images/default.jpg";
+                });
+                pic2Div.append(img);
+                
+                // <div class="name2"> 요소를 생성하여 닉네임을 추가
+                var name2Div = $("<div>").addClass("name2").text(nickname);
+
+                // <div class="contact2">에 <div class="pic2">와 <div class="name2">를 추가
+                contact2Div.append(pic2Div, name2Div);
+                contacts2.append(contact2Div);
             } catch (error) {
-                console.error("닉네임 가져오기 오류:", error);
+                console.error("프로필 사진 가져오기 오류:", error);
             }
         }
-        $(".seen").html(html);
     },
-    error: function () {
-        alert("오류 발생");
+    error: function (xhr, textStatus, errorThrown) {
+        console.error("AJAX 오류 발생:", textStatus, errorThrown);
+        alert("오류 발생: " + textStatus);
     }
 });
+
 
 
 $.ajax({
@@ -225,22 +372,29 @@ $.ajax({
 
 //방 삭제하기(박기원)
 document.getElementById('delete-option').addEventListener('click', function() {
-	console.log("chatting_Room_num:", chatroom);
-    $.ajax({
-        url: "LeaveChatRoom",
-        type: 'get',
-        data: {
-        	chatting_Room_num: chatroom
-        },
-        success: function(response) {
-
-        	window.location = "goChattingList";
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('Request failed: ' + textStatus + ', ' + errorThrown);
-        }
-    });
+    // 파업창 물어봄
+      let confirmDelete = confirm("채팅방을 삭제하시겠습니까?");
+    
+    // 사용자가 확인을 누른 경우에만 삭제를 실행합니다.
+    if (confirmDelete) {
+        console.log("chatting_Room_num:", chatroom);
+        $.ajax({
+            url: "LeaveChatRoom",
+            type: 'get',
+            data: {
+                chatting_Room_num: chatroom
+            },
+            success: function(response) {
+                // 삭제 성공 시 채팅 목록 페이지로 이동
+                window.location = "goChattingList";
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error('Request failed: ' + textStatus + ', ' + errorThrown);
+            }
+        });
+    }
 });
+
 
 
 

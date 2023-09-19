@@ -35,7 +35,7 @@
 		
 		#internet{
 			height: 19px;
-			margin-left: 197px;
+			margin-left: 209px;
 			margin-bottom: 12px;
 		}
 		#lte{
@@ -78,8 +78,10 @@
         }
 
         h2 {
-            text-align: center;
-            margin: 0 0 40px;
+                text-align: center;
+    margin: 0 0 40px;
+    top: 85px;
+    position: relative;
         }
 
         .form {
@@ -159,9 +161,19 @@
 	    color: gray;
 	    border: 0px;
 	    background-color: white;
-	    margin-top: 39px;
+	    margin-top: 51px;
 	    margin-left: 10px;
 		}
+   .logo {
+       display: block;
+    margin: auto;
+    transform: translate(0, -10%);
+    top: 86px;
+    position: relative;
+    width: 101px;
+}
+   }
+
 
     </style>
 
@@ -180,17 +192,21 @@
 		
 		
 	</div>
+
+	
     <div class="container">
 
+	  <div>
 <button class="material-symbols-outlined" id ="back" >
 arrow_back_ios
 </button>
+                <img src="images/로고2.png" class="logo">
+            </div>
+
+                <h2 style="color:#a0e1f4">Play With Me</h2>
         <form action="ChangePwProgram" id="form" class="form" onsubmit="return check()">
 
-            <div id="logimg">
-                <img src="">
-                <h2>Play With Me</h2>
-            </div>
+           
 
 
             <div class="form-control">
@@ -276,7 +292,7 @@ arrow_back_ios
     	window.history.back()
     })
     $('#back').click(function () {
-		location.href = 'goProfile';
+    	window.history.back(); // 뒤로 가기
 	})
     </script>
 </body>

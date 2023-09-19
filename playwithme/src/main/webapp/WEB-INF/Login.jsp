@@ -51,6 +51,16 @@
 	height: 50px;
 	margin-left: 20px;
 }
+ .logo {
+   display: block;
+   margin: auto;
+   transform: translate(0, -10%);
+       height: 70px;
+   }
+#button3 a {
+    color: white; /* 원하는 색상으로 변경하세요 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+  }
 </style>
 
 </head>
@@ -67,9 +77,11 @@
 
 		<form action="LoginProgram" id="form" class="form" method="post">
 
-			<div id="logoimg">
-				<h2>Play With Me</h2>
-			</div>
+			  <div>
+                <img src="images/로고2.png" class="logo">
+            </div>
+
+                <h2 style="color:#a0e1f4">Play With Me</h2>
 
 			<div class="form-control">
 				<input type="text" name="memberid" id="email"
@@ -86,7 +98,7 @@
 
 
 			<button id='button3' type="button">
-				<a href="goJoin">계정이 없으신가요?&nbsp;&nbsp; 회원가입</a>
+				<a href="goJoin" >계정이 없으신가요?&nbsp;&nbsp; 회원가입</a>
 			</button>
 
 		</form>

@@ -31,6 +31,17 @@ public class ChattingListDAO {
 		return lastChat;
 	}
 
+	
+	 public String lastData(int room_num) {
+	      
+	      SqlSession sqlSession=sqlSessionFactory.openSession(true);
+	      String lastData=sqlSession.selectOne("lastData", room_num);
+	      
+	      sqlSession.close();
+	      return lastData;
+	   }
+	 
+	 
 	public String chatRoomTitle(int chatroom) {
 		SqlSession sqlSession=sqlSessionFactory.openSession(true);
 		String title=sqlSession.selectOne("chatRoomTitle", chatroom);		
@@ -163,5 +174,13 @@ public class ChattingListDAO {
 	         sqlSession.close();
 	         return boardnum;
 	      }
+	 	 
+	 	   public ArrayList<IdProfileDTO> getPartiPic(String chatroomnum) {
+	            SqlSession sqlSession = sqlSessionFactory.openSession(true);
+	            ArrayList<IdProfileDTO> partipro= (ArrayList)sqlSession.selectList("getPicParti", chatroomnum);
+	            sqlSession.close();
+	            return partipro;
+	         }
+
 
 }

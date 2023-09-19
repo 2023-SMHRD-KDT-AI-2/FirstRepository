@@ -1,3 +1,5 @@
+
+
 package playwithme.controller;
 
 import java.io.IOException;
@@ -16,26 +18,28 @@ import com.google.gson.Gson;
 import playwithme.model.BoardDAO;
 import playwithme.model.BoardDTO;
 import playwithme.model.ChattingListDAO;
+import playwithme.model.IdProfileDTO;
 
 public class ChatParti extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
-		request.setCharacterEncoding("UTF-8");
-		
-		int chatroom = Integer.parseInt(request.getParameter("roomtitle"));
+   private static final long serialVersionUID = 1L;
+   protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+   
+      request.setCharacterEncoding("UTF-8");
+      
+      String chatroom = request.getParameter("roomtitle");
 
-		ChattingListDAO Chatdao = new ChattingListDAO();
-		ArrayList<String>chatpart=Chatdao.chatParti(chatroom);
-		
-		Gson gson = new Gson();
+      ChattingListDAO Chatdao = new ChattingListDAO();
+      ArrayList<IdProfileDTO>chatpart=Chatdao.getPartiPic(chatroom);
+      
+      Gson gson = new Gson();
         String json = gson.toJson(chatpart);
-        //System.out.println(json);
+        System.out.println(json);
         response.setContentType("application/json"); // JSON 형식으로 응답
         response.setCharacterEncoding("UTF-8");
         PrintWriter out = response.getWriter();
         out.print(json);
         out.flush();
-	}
+   }
 
 }
+

@@ -71,11 +71,11 @@
 					<div class="table-wrap" class="table-container">
 						<table class="table myaccordion table-hover" id="accordion">
 							<thead>
-								<tr>
-									<th class="title" style="text-align: left; !important">&nbsp;&nbsp;제목</th>
-									<th>인원수</th>
-									<th>수정/삭제</th>
-								</tr>
+								<tr id="top">
+                           <th class="title" >&nbsp;&nbsp;제목</th>
+                           <th>인원수</th>
+                           <th class ="dfix">수정/삭제</th>
+                        </tr>
 							</thead>
 							<tbody>
 
@@ -94,7 +94,7 @@
 								<tr data-toggle="collapse" data-target="#collapse<%=i%>"
 									aria-expanded="false" aria-controls="collapse<%=i%>">
 
-									<td style="text-align: left; !important"><%=myBoard.get(i).getTitle()%></td>
+									<td class="title"><%=myBoard.get(i).getTitle()%></td>
 									<td><%=myBoard.get(i).getNum_People()%>명</td>
 									<td><button class="first">
 											<a href="goFixBoard?num=<%=myBoard.get(i).getBoard_Num()%>"

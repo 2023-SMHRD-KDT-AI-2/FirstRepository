@@ -8257,9 +8257,9 @@ h1, h2, h3, h4, h5,
          
         /* 그래프 스타일 */
         .graph-container {
-        	background-color : #ded1d18f;
-        	border-radius : 45px;
-            width: 285px;
+           background-color : #ded1d18f;
+           border-radius : 45px;
+            width: 84%;
             height: 14px;
             border: 1px solid #ccc;
             position: relative;
@@ -8269,43 +8269,43 @@ h1, h2, h3, h4, h5,
              /* 그래프를 가로로 뒤집음 */
         }
         .graph-bar {
-        	border-radius : 45px;
+           border-radius : 45px;
             width: 0;
             background-color: #67b7ee;
             transition: width 0.5s;
         }
         .graph-label {
-        	position :relative;
-        	top : -30px;
-        	left : -10px;
+           position :relative;
+           top : -30px;
+           left : -10px;
             width: 0;
-   			margin-bottom: 20px;
-   			font-size: 5px;
+            margin-bottom: 20px;
+            font-size: 5px;
         }
         .arrow {
-        	position :relative;
-        	left : -7px;
-        	top : -20px; 
+           position :relative;
+           left : -7px;
+           top : -20px; 
             width: 0;
-    		font-size: 5px;
+          font-size: 5px;
         }
-   
+   		
         #back {
-        	cursor :pointer;
-			border : 0px;
-			background-color :#FaFaFa;
-			margin-top : 32px;
-			margin-left : 10px;
-		
-		}
+           cursor :pointer;
+         border : 0px;
+         background-color :#fafafa;
+         margin-top : 32px;
+         margin-left : 10px;
+      
+      }
 
-		.manner-temperature {
-		    position: absolute;
-		    top: -25px; /* 그래프 위에 위치하도록 조절 */
-		    font-size: 11px;
-		    z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
-		}
-		   #name {
+      .manner-temperature {
+          position: absolute;
+          top: -25px; /* 그래프 위에 위치하도록 조절 */
+          font-size: 11px;
+          z-index: 1; /* 다른 요소 위에 표시되도록 조절 */
+      }
+        #name {
    font-size: 14px;
     position: fixed;
     margin-left: 138px;
@@ -8333,37 +8333,79 @@ h1, h2, h3, h4, h5,
          margin-top: 23px;
       font-size : xx-small;
       }
-		
+      
 
-		#clock {
-		MARGIN-TOP: 1px;
-		margin-left: 18px;
-		margin-bottom: 10px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		margin-right: 3px;
-		font-weight: BOLD;
-		font-size: 15px;
-		}
-		#fix{
-		    position: relative;
-		    top: 0;
-		    left: 0;
-		    height: 20px;
-		    margin-top: 3px;
-		}
-		#internet{
-			height: 19px;
-			margin-left: 204px;
-			margin-bottom: 12px;
-		}
-		#lte{
-			height: 11px;
-			margin-bottom: 11px;
-			
-		}
-		#battery{
-			height: 21px;
-			margin-bottom: 11px;
-		}
-
+      #clock {
+      margin-left: 1px;
+      margin-bottom: 1px;
+      display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+      vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+      margin-right: 3px;
+      font-weight: BOLD;
+      }
+      #fix{
+          position: relative;
+          top: 3px;
+          left: 16px;
+          height: 20px;
+          
+      }
+      
+      #internet{
+         height: 19px;
+         margin-left: 209px;
+         margin-bottom: 2px;
+      }
+      #lte{
+         height: 11px;
+         margin-bottom: 3px;
+      }
+      #battery{
+         height: 21px;
+         margin-bottom: 3px;
+      }
+      
+      .custom-box {
+    width: 290px; /* 원하는 너비 설정 */
+    height: 398px; /* 원하는 높이 설정 */
+    background-color: white; /* 박스 배경색 설정 */
+    border-radius: 20px; /* 깎인 모서리 설정 */
+    overflow: hidden; /* 박스를 벗어나는 부분을 숨깁니다. */
+    
+}
+      
+    div strong {
+    color: #000; /* 강조 텍스트의 색상을 설정합니다. */
+    font-weight: bold; /* 강조 텍스트를 두껍게 만듭니다. */
+    margin-top: 10px; /* 강조 텍스트 위쪽 여백을 추가합니다. */
+    font-size: 13px;
+}   
+   h4 {
+    margin-bottom: 17px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 15px;
+}
+ .custom-box p {
+    margin-left: 20px;
+    max-width: calc(100% - 40px); /* 오른쪽 20px 공백을 유지하기 위해 최대 너비를 설정합니다. */
+    overflow: hidden;
+    white-space: normal;
+    text-overflow: ellipsis;
+    font-size: 13px;
+}   
+   .data-box {
+       border: 0.5px solid #ccc;
+       padding: 5px;
+       max-width: 250px; /* 최대 너비 설정 */
+       white-space: nowrap;
+       overflow: hidden;
+       text-overflow: ellipsis;
+       background-color: #fafafa;
+       border-radius: 1rem;
+       margin-left: 19px;
+       position: relative; /* 요소를 상대 위치로 설정합니다. */
+         top: 0px; /* 원하는 만큼 위로 이동시킵니다. */
+         height:160px;
+         overflow: auto; /* 스크롤을 추가합니다. */ 
+   }

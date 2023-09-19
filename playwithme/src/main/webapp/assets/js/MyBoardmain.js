@@ -22,13 +22,10 @@ function delOk(){
       }
   }
   $('#back').click(function () {
-		location.href = 'goProfile';
+		window.history.back(); // 뒤로 가기
 	})
 
-$('#back').click(function () {
-		location.href = 'goProfile';
-	})
-	
+
 $('.first').hover(
 		function() {
 		$(this).css('backgroundColor', '#40a9f2');
@@ -39,7 +36,7 @@ $('.first').hover(
 	);
 $('.second').hover(
 		function() {
-			$(this).css('backgroundColor', '#40a9f2');
+			$(this).css('backgroundColor', '#b50202');
 		},
 		function() {
 			$(this).css('backgroundColor', ''); // 마우스 아웃 시 배경색 초기화

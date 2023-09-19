@@ -153,7 +153,7 @@
     		    }
     			);
       $('#back').click(function () {
-  		location.href = 'goProfile';
+  		window.history.back(); // 뒤로 가기
   	})
   	document.addEventListener("DOMContentLoaded", function() {
     const form = document.getElementById("form"); // 폼 엘리먼트 가져오기

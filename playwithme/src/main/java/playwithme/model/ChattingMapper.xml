@@ -24,6 +24,15 @@
 		ORDER BY CHATTING_NUM)
 	where rownum=1
 	</select>
+	
+	<!-- 마지막 날짜 가져오기-->
+   <select id="lastData" parameterType="int" resultType="String">
+   select ch_date
+   from (select CH_DATE FROM CHATTING WHERE CHATTING_ROOM_NUM=#{room_num} 
+      ORDER BY CHATTING_NUM)
+   where rownum=1
+   </select>
+   
 
 	<select id="chatRoomTitle" parameterType="int" resultType="String">
 	   select chatting_room_title from chatting_room where chatting_room_num=#{chatroom}
@@ -117,6 +126,10 @@
    
    <select id="chatfindboard" parameterType="string" resultType="string">
    select board_num from board where CHAT_ROOM_NUM= #{chat_num} 
+   </select>
+     <select id="getPicParti" parameterType="string" resultType="playwithme.model.IdProfileDTO">
+   select m.member_id, m.m_profile, m.m_name from na_member m, chatting_room_parti c
+   where m.member_id=c.member_id and c.chatting_room_num=#{room_num}
    </select>
     
 	
