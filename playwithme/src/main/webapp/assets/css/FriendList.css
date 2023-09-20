@@ -42,60 +42,39 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
 
 
 .contact .pic {
-      position: absolute;
-    left: 14px;
-    top: 52%;
+     position: absolute;
+    left: 6px;
+    top: 50%;
     transform: translateY(-50%);
 }
-/*
 .contact .name {
     margin-bottom: 0.125rem;
     position: absolute;
-    padding-left: 43px;
+    padding-left: 21px;
     font-weight: bold;
-    top: 52px;
-}*/
-
-.contact .name {
-       margin-bottom: 0.125rem;
-    position: absolute;
-    padding-left: 33px;
-    font-weight: bold;
-    padding-top: 21px;
-    font-size: 13px;
+    top: 24px;
 }
 
 
-/*
 .contact .message, .contact .seen {
-        top: -1px;
+          top: 3px;
     font-size: 0.9rem;
     color: #999;
     position: absolute;
-    padding-top: 40px;
+    padding-top: 36px;
     font-size: 11px;
     padding-left: 45px;
-}
-*/
-.contact .message, .contact .seen {
-        top: 0px;
-    font-size: 0.9rem;
-    color: #999;
-    position: absolute;
-    padding-top: 38px;
-    font-size: 12px;
-    padding-left: 34px;
 }
 
 
 .contacts {
-    top: 409px;
+    top: 468px;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 532px;
+    height: 85vh;
     padding: 1rem 2rem 1rem 1rem;
-    box-sizing: border-box;
+    box-sizing: border-box;   
     cursor: pointer;
     overflow-y: auto;
     position: fixed;
@@ -132,10 +111,10 @@ font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica N
   box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 0rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
 }
 .chat .contact.bar {
-  flex-basis: 5.5rem;
-    flex-shrink: 0;
-    /* margin: 1rem; */
-    box-sizing: border-box;
+  flex-basis: 3.5rem;
+  flex-shrink: 0;
+  margin: 1rem;
+  box-sizing: border-box;
 }
 .chat .messages {
   padding: 1rem;

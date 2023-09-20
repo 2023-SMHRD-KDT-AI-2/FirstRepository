@@ -7,6 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -16,43 +17,83 @@
 <title>CodePen - Daily UI #013 | Direct Messaging</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
-<link rel="stylesheet" href="assets/css/ChatList.css">
+<link rel="stylesheet" href="assets/css/Chat.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/clock.js"></script>
 <script type="text/javascript">
 
-$(document).ready(function(){
-    $("#chatsetting").click(function(){   
-        var contacts2 = $(".contacts2");
-        
-        if (contacts2.css("display") === "none") {
-            contacts2.css("display", "flex");
-        } else {
-            contacts2.css("display", "none");
-        }
-    });   
+/*
+document.addEventListener('DOMContentLoaded', function() {
+    var chatMessages = document.getElementById('chat-messages');
+    chatMessages.scrollTop = chatMessages.scrollHeight;
 });
+*/
+$(document).ready(function () {
+	  $("#chatsetting").click(function () {
+	    var contacts2 = $(".contacts2");
+
+	    // .show-contacts 클래스가 있는지 확인하여 toggleClass를 사용하여 클래스를 토글합니다.
+	    contacts2.toggleClass("show-contacts");
+
+	    // .show-contacts 클래스의 상태에 따라 transform 속성 변경
+	    if (contacts2.hasClass("show-contacts")) {
+	      // .show-contacts 클래스가 있는 경우
+	      contacts2.css("transform", "translate(-50%, -50%)"); // 원래 위치로 이동
+	    } else {
+	      // .show-contacts 클래스가 없는 경우
+	      contacts2.css("transform", "translate(100%, -50%)"); // 오른쪽으로 이동
+	    }
+	  });
+	});
+
+
 </script>
+
 <style type="text/css">
+
+
 #chatsetting {
-        margin-left: 215px;
+    margin-left: 235px;
     color: #8e8c8c;
     font-size: 31px;
-   margin-top: 45px;
-    font-size: 26px;
+    margin-top: 59px;
+    font-size: 25px;
+    z-index: 1;
+    position: relative;
 }
+
+
+/* #chatsetting {
+    margin-left: 235px;
+    color: #8e8c8c;
+    font-size: 31px;
+    margin-top: 52px;
+    font-size: 26px;
+} */
+
 .name2{
     margin-left: 50px;
 }
 
+/*
+#back {
+   cursor: pointer;
+    border: 0px;
+    background-color: #a4c4e000;
+    margin-top: 57px;
+    margin-left: -71px;
+}
+
+*/
 #back {
     cursor: pointer;
     border: 0px;
     background-color: #a4c4e000;
-    margin-top: 53px;
-    margin-left: 11px;
-    z-index: 1;
+    margin-top: 47px;
+    margin-left: -71px;
+    z-index: 10;
 }
+
 
 #clock {
    margin-left: 2px;
@@ -106,17 +147,35 @@ h3 {
 }
 
 #title {
-   position: relative;
-   left: -10px;
-   font-size: 25px;
-   font-weight: bold;
+     position: relative;
+    left: -10px;
+    font-size: 25px;
+    font-weight: bold;
+    bottom: 2px;
 }
 #delete-option{
 position: relative;
-    top: 535px;
+    top: 517px;
     left: 25px;
     color: gray;
     font-size: 14px;
+}
+a{
+background-color: transparent;
+    position: relative;
+    -webkit-text-decoration-skip: objects;
+    top: 510px;
+    left: 21px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    color: gray;
+}
+.myboard{
+	font-size: 14px;
+    left: 6px;
+    top: -5px;
+    position: relative;
 }
 
 </style>
@@ -146,27 +205,18 @@ ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
    </div>
 
    
-      <div id="fix2">
-      <button class="material-symbols-outlined" id="back"
-      style="color: gray;">arrow_back_ios</button>
       <span id="title"></span> 
       
 
-   </div>
     <div class="contact bar">
     
+      <div id="fix2">
+      <button class="material-symbols-outlined" id="back"
+      style="color: gray;">arrow_back_ios</button>
+   </div>
       
-    	<%
-     String room = request.getParameter("room");
-
-     ChattingListDAO chattoboard = new ChattingListDAO();
-     String i = chattoboard.chatFindBoard(room);
-     if (i != null) {
-	%>
-	<a href="goProfile2?i=<%=i%>">
-    <i  class="fa-regular fa-newspaper" style="color: #5d92ee;"></i>
-    </a>
-	<% } %>
+    
+	
         <div class="name">                
         </div>
         <i id="chatsetting" class="fa-solid fa-bars"></i>
@@ -178,13 +228,34 @@ ChattingListDTO chatinfo1=(ChattingListDTO)session.getAttribute("chatinfo");
         <input type="text" id="message" placeholder="메시지 입력">
         <i class="fa-solid fa-message" id="send-button" style="color: #6398f2;"></i>
     </div>
-</div>
+</div>	
 
 <div class="contacts2" >
+<%
+     String room = request.getParameter("room");
+
+     ChattingListDAO chattoboard = new ChattingListDAO();
+     String i = chattoboard.chatFindBoard(room);
+     if (i != null) {
+	%>
+   <a href="goProfile2?i=<%=i%>" >
+    <span class="material-symbols-outlined" style= "font-size: 19px;">
+assignment
+</span>
+	<% }else{
+		%>
+		<a href="#" onclick="alert('작성된 게시물이 없습니다.')">
+    <span class="material-symbols-outlined" style= "font-size: 19px;">
+assignment
+</span>
+	<% }%>
+<span class ="myboard">게시글 보러가기</span>
+    </a>
 <i id="delete-option" class="fa-solid fa-right-from-bracket" >&nbsp;&nbsp;채팅방 나가기</i>
 
 </div>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
 <script>
 
 $('#back').click(function() {
@@ -193,10 +264,15 @@ $('#back').click(function() {
 
 
 
+
+
 const urlParams = new URLSearchParams(window.location.search);
 const chatroom = urlParams.get('room');
 //채팅 null 입력 하면 버튼 비활성화
 //메시지 입력란과 아이콘 요소를 가져옵니다.
+
+
+
 const messageInput = document.getElementById("message");
 const sendButton = document.getElementById("send-button");
 
@@ -260,6 +336,7 @@ $.ajax({
 });
 
 //db에 저장된 이전 채팅 내용 가져오기
+//db에 저장된 이전 채팅 내용 가져오기
 $.ajax({
     url: "ChatGet",
     type: "get",
@@ -272,21 +349,40 @@ $.ajax({
         for (var i = 0; i < data.length; i++) {
             var message = data[i];
             if (message.member_id == '<%=memberId%>') {
-                var messageDiv = $("<div>").addClass("message my");
-            } else {
-                var messageDiv = $("<div>").addClass("message");
-            }
-            // member_id와 ch_content를 메시지에 추가
-            var memberId = message.member_id;
-            
-            // 닉네임을 가져오는 AJAX 요청을 비동기로 실행하고 결과를 기다림
-            var nName = await getNickname(memberId);
+                var messageDiv2 = $("<div>").addClass("message my");
+                // member_id와 ch_content를 메시지에 추가
+                var memberId = message.member_id;
+                
+                // 닉네임을 가져오는 AJAX 요청을 비동기로 실행하고 결과를 기다림
+                var nName = await getNickname(memberId);
 
-            var chContent = message.ch_content;
-            messageDiv.text(nName + ": " + chContent);
+                var chContent = message.ch_content;
+                messageDiv2.text(chContent);
+            } else {
+               var messagePakDiv=$("<div>").addClass("messagePak")
+                var messageDiv = $("<div>").addClass("message");
+                // member_id와 ch_content를 메시지에 추가
+                var memberId = message.member_id;
+                
+                // 닉네임을 가져오는 AJAX 요청을 비동기로 실행하고 결과를 기다림
+                var nName = await getNickname(memberId);
+                var chContent = message.ch_content;
+
+                messageDiv.text(chContent);
+                
+                var nName2 = $("<div>").addClass("nName").text(nName);
+                messagePakDiv.append(nName2);
+                messagePakDiv.append(messageDiv);
+            }
+  
 
             // 메시지를 화면에 추가
-            chatMessages.append(messageDiv);
+            chatMessages.append(messagePakDiv);
+            chatMessages.append(messageDiv2);
+            window.onload=function(){
+                let mySpace = document.getElementById("chat-messages"); 
+                mySpace.scrollHeight;
+            };
         }
     },
     error: function (jqXHR, textStatus, errorThrown) {
@@ -399,7 +495,7 @@ document.getElementById('delete-option').addEventListener('click', function() {
 
 
 console.log(chatroom)
-const socket = new WebSocket('ws://localhost:8082/aa/chat/'+chatroom);
+const socket = new WebSocket('ws://59.3.58.96:8082/aa/chat/'+chatroom);
 let senderName = ""; // 초기값은 빈 문자열로 설정합니다.
 
 // 이름 입력란의 값이 변경될 때마다 발신자 이름을 업데이트합니다.
@@ -417,18 +513,32 @@ socket.onmessage = (event) => {
     const chatDiv = document.getElementById("chat-messages");
     const data = JSON.parse(event.data);
     console.log(data);
- // 새 메시지 도착 시 읽지 않은 메시지 수 업데이트
-    updateUnreadMessageCount(data.room); // 방 이름을 전달하여 업데이트
+
     // 메시지 출력
     const messageElement = document.createElement('div');
+    const messageElement2 = document.createElement('div');
+    const messagepake=document.createElement('div');
+    const nickname=document.createElement('div');
+    messagepake.classList.add("messagePak");
     if (data.senderName === "<%=memberId%>") {
-        messageElement.classList.add("message","my");
+        messageElement2.classList.add("message","my");
+        messageElement2.innerHTML = data.message;
+
     } else {
         messageElement.classList.add("message","other");
+        //messageElement.innerHTML = "<strong>"+data.n_Name+":</strong>"+data.message;
+        messageElement.innerHTML = data.message;
+        nickname.classList.add("nName");
+        nickname.innerHTML=data.n_Name;
+        messagepake.append(nickname);
+        messagepake.append(messageElement);
+        
     }
-    messageElement.innerHTML = "<strong>"+data.n_Name+":</strong>"+data.message;
-
-    chatDiv.appendChild(messageElement);
+   
+    chatDiv.appendChild(messageElement2);
+    if(messagepake.innerHTML.trim()){
+    chatDiv.appendChild(messagepake);    	
+    }
     chatDiv.scrollTop = chatDiv.scrollHeight;
 };
 
@@ -509,12 +619,19 @@ messageInput.addEventListener("keyup", function(event) {
 
 
 
+
 //sendButton.addEventListener("click", sendMessage);
 //버튼 클릭 시 sendMessage 함수 호출
 // 버튼 클릭 시 sendMessage 함수 호출
 
 
 //document.getElementById("send-button").addEventListener("click", sendMessage);
+</script>
+<script type="text/javascript">
+
+
+
+
 </script>
 <script src="https://kit.fontawesome.com/9db75878c5.js" crossorigin="anonymous"></script>
 </body>

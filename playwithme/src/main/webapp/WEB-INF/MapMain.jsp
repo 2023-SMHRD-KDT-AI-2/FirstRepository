@@ -117,7 +117,7 @@
 				class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
-			<li id="A4" data-order="3"><span class="menu_bg new-icon4"><img id="pro" src="images/<%=info.get(0).getM_Profile()%>" ></span>
+			<li id="A4" data-order="3"><span class="menu_bg new-icon4"><img id="pro" src="images/<%=info.get(0).getM_Profile()%>" onerror="this.src='images/default.jpg'" ></span>
 				마이</li>
 			<li id="A5" data-order="4"><span class="menu_bg new-icon5"></span>
 				지도</li>
@@ -263,7 +263,7 @@
 
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=662807c83d8fccc55bc8bf7c650227b4&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
 
 
 

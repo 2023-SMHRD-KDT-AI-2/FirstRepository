@@ -109,7 +109,7 @@ h3 {
 	cursor: pointer;
 	border: 0px;
 	background-color: #a4c4e000;
-	margin-top: 40px;
+	margin-top: 50px;
 	margin-left: 6px;
 }
 
@@ -237,13 +237,14 @@ h3 {
 	width: 24px;
 }
 
+
 .lastDate {
 	position: relative;
 	left: 138px;
-	bottom: 31px;
+	bottom: 37px;
 	font-size: 11px;
 }
-}
+
 </style>
 
 </head>
@@ -325,20 +326,25 @@ h3 {
 					int hour = Integer.parseInt(timeParts[0]); // 시간 부분을 정수로 파싱
 					String minute = timeParts[1]; // 분 부분
 
-					// 오전 오후
-					String amPm = "오전";
+		               // 오전 오후
+		               String amPm = "오전";
 
-					if (hour >= 12) {
-						amPm = "오후";
-					}
+		               if (hour >= 12) {
+		                  amPm = "오후";
+		               }
 
-					// 시간이 12를 넘어가면 1로 바꿔줌
-					if (hour > 12) {
-						hour = hour % 12; // 12로 나눈 나머지가 1로 바뀜
-					}
+		               // 시간이 12를 넘어가면 1로 바꿔줌
+		               if (hour > 12) {
+		                  hour = hour % 12; // 12로 나눈 나머지가 1로 바뀜
+		               }
 
-					// 시간과 분을 "AM/PM 시간:분" 형식으로 조합
-					String formattedTime = amPm + " " + hour + "시 " + minute + "분";
+		               // 시간과 분을 "AM/PM 시간:분" 형식으로 조합
+		               // 앞에 한자리수 넘어가면 0 추가
+		               String formattedHour = (hour < 10) ? "0" + hour : String.valueOf(hour);
+		               String formattedMinute = (minute.length() == 1) ? "0" + minute : minute;
+		               String formattedTime = amPm + " " + formattedHour + "시 " + formattedMinute + "분";
+
+		               //String formattedTime = amPm + " " + hour + "시 " + minute + "분";
 
 					// 대화 내용과 시간을 출력
 				%>
@@ -378,7 +384,7 @@ h3 {
 	<script src="assets/js/menuFix.js"></script>
 	<script>
 		$('#back').click(function() {
-			location.href = 'goMain';
+			window.history.back();
 		})
 		// 검색어 입력란에 입력이 있을 때 실행
 		$("#searchInput").on("input", function() {

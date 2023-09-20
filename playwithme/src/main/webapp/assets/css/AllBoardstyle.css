@@ -8109,9 +8109,10 @@ h1, h2, h3, h4, h5,
     border: none;
     height: 56px;
     font-size: 12px;
-    padding-left: 10px; }
+     }
   .table tbody td.acc {
     background: rgb(255, 255, 255);
+    padding-left: 10px;
     border: none; }
   .table tbody td .fa {
     font-size: 12px;
@@ -8144,71 +8145,73 @@ h1, h2, h3, h4, h5,
       transition: none; } }
 
 [data-toggle="collapse"] {
-  background:rgba(255, 255, 255, 0.15) !important; }
+  background:rgba(255, 255, 255, 0.15) ; }
 
 [data-toggle="collapse"].collapsed {
-  background :#fafafa !important; }
+  background :#fafafa ; }
   [data-toggle="collapse"].collapsed:hover {
-    background:rgba(255, 255, 255, 0.15) !important;
-    border-bottom: 2px solid #fafafa !important; }
+    background:rgba(255, 255, 255, 0.15) ;
+    border-bottom: 2px solid #fafafa '' }
 
  #sulmyuong{
- font-size: 5px;
+    font-size: 5px;
     position: relative;
     top: -16px;
     color: gray;
- }
+}
+ 
+ 
  body{
-	position: fixed;
-	}
-	 #clock {
-		margin-left: -11px;
-		margin-bottom: 5px;
-		display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
-		vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-		font-weight: BOLD;
-		font-size: 15px;
-	}
-	#fix{
-	    position: relative;
-	    top: 10px;
-	    left:29px;
-	    height: 20px;
-	    
-	}
-	#internet{
-		height: 19px;
-		margin-left: 212px;
-		margin-bottom: 7px;
-	}
-	#lte{
-		height: 11px;
-		margin-bottom: 7px;
-	}
-	#battery{
-		height: 21px;
-		margin-bottom: 7px;
-	}
-	
-	
-	 #back {
-	 	cursor: pointer;
-		border : 0px;
-		background-color :#fafafa;
-		margin-top : 21px;
-		margin-left : 7px;
-		outline: none;
-		}
-	
-	
-	.first {
+   position: fixed;
+   }
+    #clock {
+      margin-left: -11px;
+      margin-bottom: 5px;
+      display: inline-block; /* 시계를 인라인 블록 요소로 설정 */
+      vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+      font-weight: BOLD;
+      font-size: 15px;
+   }
+   #fix{
+       position: relative;
+       top: 10px;
+       left:29px;
+       height: 20px;
+       
+   }
+   #internet{
+      height: 19px;
+      margin-left: 212px;
+      margin-bottom: 7px;
+   }
+   #lte{
+      height: 11px;
+      margin-bottom: 7px;
+   }
+   #battery{
+      height: 21px;
+      margin-bottom: 7px;
+   }
+   
+   
+    #back {
+       cursor: pointer;
+      border : 0px;
+      background-color :#fafafa;
+      margin-top : 21px;
+      margin-left : 7px;
+      
+      }
+   
+   
+   .first {
             cursor: pointer;
             background-color: #adabab;
             border-radius: 4px;
             color: #fff;
             font-size: 10px;
-		    width: 38px;
-		    height: 25px;
+          width: 38px;
+          height: 25px;
         }
       .second {
             cursor: pointer;
@@ -8217,16 +8220,16 @@ h1, h2, h3, h4, h5,
             font-size: 10px;
             
             width: 38px;
-		    height: 25px;
+          height: 25px;
         }
         .collapse.acc2{
-        	padding-left:64px;
+           padding-left:64px;
         }
         .title{
-        	    padding-left: 10px;
+               padding-left: 10px;
         }
     #searchInput {
-   		width: 90%;
+         width: 90%;
     height: 33px;
     border-radius: 33px;
     border: 1px solid gray;
@@ -8234,26 +8237,27 @@ h1, h2, h3, h4, h5,
     padding-left: 37px;
     margin-left: 20px;
     font-size: 14px;
-	}
-	#clearSearch{
-		position: relative;
+   }
+   #clearSearch{
+      position: relative;
     cursor: pointer;
     color: #b50202;
     z-index: 1;
     right: -283px;
     top: -47px;
-	}
-	  .table-wrap {
+   }
+    .table-wrap {
         height: 485px;
 
             max-height: 100%; /* 원하는 최대 높이로 설정하세요. */
             overflow-y: auto; /* 세로 스크롤 활성화 */
         }
     #top{
-   position: fixed ;
-   width: 331px;
-   border: none;
-    padding: 5px;
+  position: fixed;
+    width: 331px;
+    border: none;
+    padding: 0px;
+    height: 46px;
     font-size: 13px;
     color: #000;
     border-bottom: 2px solid #ececec;
@@ -8264,12 +8268,12 @@ h1, h2, h3, h4, h5,
        
    #top th{
    position: relative;
-   border: none;
-    padding: 5px;
+    border: none;
     font-size: 13px;
     color: #000;
     background: #fff;
     font-weight: normal;
+    height: 32px;
 }
 tbody{
        position: relative;
@@ -8278,13 +8282,27 @@ tbody{
 }
 /* 추가*/
 .title {
-    width: 158px;
+    width: 145px;
 text-align: left;
+padding-left: 10px;
 }   
 .dfix {
    
    width: 114px;
    
 }
-   
+.meeting-time{
+	width: 85px;
 	
+	
+}
+#search{
+	width: 17px;
+    z-index: 1;
+    position: relative;
+    bottom: -30px;
+    left: 33px;
+	
+	
+}
+   

@@ -27,7 +27,7 @@
          #{place},
          #{longitude},
          #{latitude},
-         REPLACE(#{meet_Time},':',''),
+         REPLACE(#{meet_Time},'T',''),
          #{num_People},
          #{chat_room_num} )
    </insert>
@@ -36,6 +36,7 @@
 		select board.* , na_member.m_profile,  na_member.m_name, na_member.temper
 		from BOARD
 		JOIN NA_MEMBER ON BOARD.MEMBER_ID = NA_MEMBER.MEMBER_ID
+		order by meet_time DESC
 	
 	</select>
 	<select id = "oneList" resultType="playwithme.model.BoardDTO" parameterType="String" >
@@ -46,11 +47,11 @@
 	</select>
 
 	<!-- 내 게시물  -->
-	<select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
-		select * from Board
-		where MEMBER_ID = #{member_id}
-		order by Board_Num ASC
-	</select>
+   <select id = "myList" resultType="playwithme.model.BoardDTO" parameterType="String">
+      select * from Board
+      where MEMBER_ID = #{member_id}
+      order by meet_time DESC
+   </select>
 	
 	<!-- 지도 위 게시글  -->
 	<select id = "meeting" resultType="playwithme.model.BoardDTO">

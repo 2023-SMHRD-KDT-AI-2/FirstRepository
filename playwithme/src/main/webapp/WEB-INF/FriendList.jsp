@@ -27,7 +27,7 @@
    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel='stylesheet'
    href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'>
-<link rel="stylesheet" href="assets/css/ChatList.css">
+<link rel="stylesheet" href="assets/css/FriendList.css">
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="assets/js/clock.js"></script>
 
@@ -107,7 +107,7 @@ h3 {
    position: relative;
    top: 5px;
 }
-
+/*
 #friendAddButton {
        height: 24px;
     margin-left: 13px;
@@ -115,6 +115,16 @@ h3 {
     top: 6px;
     width: 25px;
 }
+*/
+
+#friendAddButton {
+    height: 24px;
+    margin-left: 3px;
+    position: relative;
+    top: 4px;
+    width: 25px;
+}
+
 
 #back {
       cursor: pointer;
