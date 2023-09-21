@@ -1,8 +1,10 @@
 # 나랑 놀자 - 내 주변 오프라인 모임 장소 공유 SNS
 https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
 
+
 ## 프로젝트 소개
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
+
 
 ##📅 개발 기간
 2023.09.06 ~ 2023.09.21(2주)
@@ -34,6 +36,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 | 테스트1 | 테스트2 |
 | 테스트1 | 테스트2 |
 | 테스트1 | 테스트2 |
+
 
 ##⭐주요 기능
 - 카카오 맵 api를 이용한 지도 기능들(게시판 연동)
