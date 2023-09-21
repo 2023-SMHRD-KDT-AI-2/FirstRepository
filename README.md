@@ -28,7 +28,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 - JDK 1.8
 - Database : Oracle DB
 - Web Socket 1.1.2
-
+- TOMCAT 9.0
 
 ## 주요 기능
 - 카카오 맵 api를 이용한 지도 기능들
