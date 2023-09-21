@@ -1,3 +1,7 @@
+## 시연 영상
+https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
+
+
 # Eclipse-Project-playwithme
 이클립스(자바) + 카카오톡 맵 api + 웹 소켓(ws) + 오라클 DB
 
@@ -34,8 +38,7 @@
 - 관심사 설정
 
 
-## 시연 영상
-https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
+
 
 
 
