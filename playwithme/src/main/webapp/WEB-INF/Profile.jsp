@@ -69,7 +69,7 @@ arrow_back_ios
 					<div class="col-md-6 d-flex justify-content-center">
 						<div class="btn-group show">
 
-						  <img src="file/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						  <img src="images/${info.get(0).getM_Profile()}" onerror="this.src='images/default.jpg'" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						  
 						  
 

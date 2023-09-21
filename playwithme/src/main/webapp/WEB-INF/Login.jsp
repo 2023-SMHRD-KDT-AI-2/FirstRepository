@@ -131,7 +131,7 @@
                   console.log(JSON.stringify(res.kakao_account.email));
                   console.log(JSON.stringify(res.kakao_account.gender));
                  $.ajax({
-                    url:"http://localhost:8082/aa/KakaoLogin",
+                    url:"http://172.30.1.5:8080/aa/KakaoLogin",
                     data:{"id":JSON.stringify(res.kakao_account.email), "name":JSON.stringify(res.properties.nickname)},
                     Type:"post",
                     success:function(data){

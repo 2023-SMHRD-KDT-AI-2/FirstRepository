@@ -4,82 +4,89 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="playwithme.model.MemberDAO"%>
 <%@page import="playwithme.model.CctvDAO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>메인 지도창</title>
-	<link rel="stylesheet" href="assets/css/MapMain.css" />
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-	<link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css" />
-   <script src="js/jquery-3.7.1.js"></script>
-   <script src="assets/js/jquery.datetimepicker.full.min.js"></script>
-	<style>
-		#meetingTime{
-   width: 254px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>메인 지도창</title>
+<link rel="stylesheet" href="assets/css/MapMain.css" />
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css" />
+<script src="js/jquery-3.7.1.js"></script>
+<script src="assets/js/jquery.datetimepicker.full.min.js"></script>
+<style>
+#meetingTime {
+	width: 254px;
 }
-#pro{
+
+#pro {
 	width: 32px;
-	    height: 32px;
-    margin-right: 35px;
-    position: fixed;
-    right: 78px;
-    border-radius: 50%;
-    bottom: 75px;
-    border: 1.8px solid black;
+	height: 32px;
+	margin-right: 35px;
+	position: absolute;
+	right: 76px;
+	border-radius: 50%;
+	bottom: 28px;
+	border: 1.8px solid black;
 }
-   .modal h3 {
-    margin-top: 0; /* 기본 h3의 상단 여백 제거 */
-     text-align: center;
-     font-size: 16px;
+
+.modal h3 {
+	margin-top: 0; /* 기본 h3의 상단 여백 제거 */
+	text-align: center;
+	font-size: 16px;
 }
-   .modal label{
-   font-size: 14px;
-   font-weight: bold;
-   }
-   .modal input{
-   position: relative;
-   top: 10px;
-   background-color: #fff;
-   }
-   #postTitle{
-   
-   position: relative;
-   top: 0px;
-   left: 3px;   
-   }
-   #meetingPlace{
-   width:254px;
-   }
-   .modal button {
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    padding: 6px 13px; /* 버튼의 내부 여백 설정 */
-    border-radius: 5px; /* 모서리를 둥글게 깎음 */
-    cursor: pointer; /* 마우스 포인터를 손가락 모양으로 변경 */
-    font-weight: bold; /* 버튼 텍스트 굵기 설정 */
-    position: relative;
-    left: 148px;
-    bottom: 6px;
+
+.modal label {
+	font-size: 14px;
+	font-weight: bold;
 }
-   button:hover {
-    background-color: #2980b9;
+
+.modal input {
+	position: relative;
+	top: 10px;
+	background-color: #fff;
 }
-	</style>
+
+#postTitle {
+	position: relative;
+	top: 0px;
+	left: 3px;
+}
+
+#meetingPlace {
+	width: 254px;
+}
+
+.modal button {
+	background-color: #3498db;
+	color: #fff;
+	border: none;
+	padding: 6px 13px; /* 버튼의 내부 여백 설정 */
+	border-radius: 5px; /* 모서리를 둥글게 깎음 */
+	cursor: pointer; /* 마우스 포인터를 손가락 모양으로 변경 */
+	font-weight: bold; /* 버튼 텍스트 굵기 설정 */
+	position: relative;
+	left: 148px;
+	bottom: 6px;
+}
+
+button:hover {
+	background-color: #2980b9;
+}
+</style>
 </head>
 <body>
 
 	<div id=fix>
 
-		<span id="clock"></span> 
-		<img src="images/네비.png" id="navi"> 
-		<img src="images/인터넷.png" id="internet"> 
-		<img src="images/LTE.png" id="lte"> 
-		<img src="images/배터리.png" id="battery">
+		<span id="clock"></span> <img src="images/네비.png" id="navi"> <img
+			src="images/인터넷.png" id="internet"> <img src="images/LTE.png"
+			id="lte"> <img src="images/배터리.png" id="battery">
 
 	</div>
 
@@ -93,11 +100,13 @@
 	%>
 
 	<p style="margin-top: -12px">
-		<em class="link"> <a href="/web/documentation/#CategoryCode" target="_blank"></a>
+		<em class="link"> <a href="/web/documentation/#CategoryCode"
+			target="_blank"></a>
 		</em>
 	</p>
 	<div class="map_wrap">
-		<div id="map" style="width: 100%; height: 637px; position: relative; overflow: hidden;">
+		<div id="map"
+			style="width: 100%; height: 637px; position: relative; overflow: hidden;">
 		</div>
 
 		<ul id="category">
@@ -117,8 +126,9 @@
 				class="menu_bg new-icon2"></span>게시판</li>
 			<li id="A3" data-order="2"><span id="chatLink"
 				class="menu_bg new-icon3"></span> 채팅</li>
-			<li id="A4" data-order="3"><span class="menu_bg new-icon4"><img id="pro" src="images/<%=info.get(0).getM_Profile()%>" onerror="this.src='images/default.jpg'" ></span>
-				마이</li>
+			<li id="A4" data-order="3"><span class="menu_bg new-icon4"><img
+					id="pro" src="images/<%=info.get(0).getM_Profile()%>"
+					onerror="this.src='images/default.jpg'"></span> 마이</li>
 			<li id="A5" data-order="4"><span class="menu_bg new-icon5"></span>
 				지도</li>
 		</ul>
@@ -154,8 +164,8 @@
 				name="numPeople">
 
 			</select> <br> <br> <label for="meetingTime">모임시간:</label> <input
-            type="textl" id="meetingTime" name="meetTime" placeholder ="날짜 입력...">
-            <script >
+				type="text" id="meetingTime" name="meetTime" placeholder="날짜 입력...">
+			<script>
             $('#meetingTime').datetimepicker({
                ownerDocument: document,
                  contentWindow: window,
@@ -242,10 +252,10 @@
                  insideParent:false,
 
             });
-            </script> <br> <br>
-			<label for="meetingPlace">모임장소:</label> <input type="text"
-				id="meetingPlace" name="place"> <br> <br> <label
-				for="postContent">내용:</label>
+            </script>
+			<br> <br> <label for="meetingPlace">모임장소:</label> <input
+				type="text" id="meetingPlace" name="place"> <br> <br>
+			<label for="postContent">내용:</label>
 			<textarea id="postContent" name="bContent" rows="4" cols="50"></textarea>
 
 			<br> <br> <input type="hidden" id="latitude"
@@ -259,11 +269,11 @@
 			<!-- <button id="savePost">저장</button> -->
 		</form>
 	</div>
-<div id="modalBackground" class="modal-background"></div>
+	<div id="modalBackground" class="modal-background"></div>
 
 
 	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=905aa3fde45ba1e3471eaa0800b62441&libraries=services,clusterer,drawing"></script>
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4409c4de37e0df523071580270ee4ff4&libraries=services,clusterer,drawing"></script>
 
 
 

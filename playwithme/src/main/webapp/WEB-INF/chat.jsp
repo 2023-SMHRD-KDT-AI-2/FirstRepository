@@ -495,7 +495,7 @@ document.getElementById('delete-option').addEventListener('click', function() {
 
 
 console.log(chatroom)
-const socket = new WebSocket('ws://59.3.58.96:8082/aa/chat/'+chatroom);
+const socket = new WebSocket('ws://172.30.1.5:8080/aa/chat/'+chatroom);
 let senderName = ""; // 초기값은 빈 문자열로 설정합니다.
 
 // 이름 입력란의 값이 변경될 때마다 발신자 이름을 업데이트합니다.

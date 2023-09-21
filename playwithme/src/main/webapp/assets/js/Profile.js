@@ -28,7 +28,7 @@
         document.querySelector(".graph-container").appendChild(mannerTemperature);
         
         $('#back').click(function () {
-			window.history.back(); // 뒤로 가기
+			location.href = 'goMain'; // 뒤로 가기
 		})
 		function updateMargin() {
 	    const nameElement = document.getElementById("name");

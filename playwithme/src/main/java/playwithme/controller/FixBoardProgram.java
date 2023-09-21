@@ -22,7 +22,7 @@ public class FixBoardProgram extends HttpServlet {
 		String numPeople1 = request.getParameter("numPeople");
 		int numPeople = Integer.parseInt(numPeople1);
 		String bContent = request.getParameter("b_Content");
-		String meetTime = request.getParameter("meet_Time");
+		String meetTime = request.getParameter("meetTime");
 		int board_Num=Integer.parseInt(request.getParameter("board_Num"));
 		BoardDTO boardDTO = new BoardDTO();
 		

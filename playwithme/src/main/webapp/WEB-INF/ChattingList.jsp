@@ -150,11 +150,11 @@ h3 {
 #pro {
 	width: 32px;
 	height: 32px;
-	margin-right: 11px;
-	position: fixed;
-	right: 78px;
+	margin-right: 35px;
+	position: absolute;
+	right: 76px;
 	border-radius: 50%;
-	bottom: 26px;
+	bottom: 28px;
 	border: 1.8px solid black;
 }
 
@@ -296,7 +296,7 @@ h3 {
 				ArrayList<MemberDTO> info_master = new ArrayList<>();
 				info_master = dao.getmember(chatList.get(i).getMember_Id());
 				%>
-				<img class="pic" src="file/<%=info_master.get(0).getM_Profile()%>"
+				<img class="pic" src="images/<%=info_master.get(0).getM_Profile()%>"
 					onerror="this.src='images/default.jpg'">
 			</div>
 

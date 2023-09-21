@@ -11,6 +11,15 @@
 	<title>내게시글 수정</title>
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<link rel="stylesheet" href="assets/css/FixBoard.css">
+	<link rel="stylesheet" href="assets/css/jquery.datetimepicker.min.css" />
+   <script src="js/jquery-3.7.1.js"></script>
+   <script src="assets/js/jquery.datetimepicker.full.min.js"></script>
+   <style >
+   #meetingTime{
+   width: 108px;
+   
+   }
+   </style>
 </head>
 <body>
 	<!-- 뒤로가기 버튼 -->
@@ -48,8 +57,96 @@
 				<%}%>
 			</select> 
 			<label for="postTitle">모임시간:</label> 
-			<input type="time"
-				id="postTitle" name="meet_Time" value="<%=formattedMeetTime%>">
+			<input
+            type="text" id="meetingTime" name="meetTime" placeholder ="날짜 입력...">
+            <script >
+            $('#meetingTime').datetimepicker({
+               ownerDocument: document,
+                 contentWindow: window,
+                 value:'',
+                 rtl:false,
+                 format:'Y/m/d H:i',
+                 formatTime:'H:i',
+                 formatDate:'Y/m/d',
+                 // new Date(), '1986/12/08', '-1970/01/05','-1970/01/05',
+                 startDate: false,
+                 step: 5,
+                 monthChangeSpinner:true,
+                 closeOnDateSelect:false,
+                 closeOnTimeSelect:true,
+                 closeOnWithoutClick:true,
+                 closeOnInputClick:true,
+                 openOnFocus:true,
+                 timepicker:true,
+                 datepicker:true,
+                 weeks:false,
+                 // use formatTime format (ex. '10:00' for formatTime: 'H:i')
+                 defaultTime:false,
+                 // use formatDate format (ex new Date() or '1986/12/08' or '-1970/01/05' or '-1970/01/05')
+                 defaultDate:false,
+                 minDate:0,
+                 maxDate:false,
+                 minTime:'now',
+                 maxTime:false,
+                 minDateTime:false,
+                 maxDateTime:false,
+                 allowTimes: [],
+                 opened:false,
+                 initTime:true,
+                 inline:false,
+                 theme:'',
+                 touchMovedThreshold: 5,
+                 onSelectDate:function () {},
+                 onSelectTime:function () {},
+                 onChangeMonth:function () {},
+                 onGetWeekOfYear:function () {},
+                 onChangeYear:function () {},
+                 onChangeDateTime:function () {},
+                 onShow:function () {},
+                 onClose:function () {},
+                 onGenerate:function () {},
+                 withoutCopyright:true,
+                 inverseButton:false,
+                 hours12:false,
+                 next:'xdsoft_next',
+                 prev :'xdsoft_prev',
+                 dayOfWeekStart: 0,
+                 parentID:'body',
+                 timeHeightInTimePicker: 25,
+                 todayButton:true,
+                 prevButton:true,
+                 nextButton:true,
+                 defaultSelect:true,
+                 scrollMonth:true,
+                 scrollTime:true,
+                 scrollInput:true,
+                 lazyInit:false,
+                 mask:false,
+                 validateOnBlur:true,
+                 allowBlank:true,
+                 yearStart: 1950,
+                 yearEnd: 2050,
+                 monthStart: 0,
+                 monthEnd: 11,
+                 id:'',
+                 fixed:false,
+                 roundTime:'round',// ceil, floor
+                 className:'',
+                 weekends: [],
+                 highlightedDates: [],
+                 highlightedPeriods: [],
+                 allowDates : [],
+                 allowDateRe :null,
+                 disabledDates : [],
+                 disabledWeekDays: [],
+                 yearOffset: 0,
+                 beforeShowDay:null,
+                 enterLikeTab:true,
+                 showApplyButton:false,
+                 insideParent:false,
+
+            });
+            </script>
 		</div>
 		<!-- 나머지 수정할 항목들도 유사하게 추가 -->
 		<div id="btn">

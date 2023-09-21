@@ -185,14 +185,14 @@ h3 {
 #contact2 {
    width: 300px;
 }
-#pro{
-	 width: 32px;
+#pro {
+    width: 32px;
     height: 32px;
-    margin-right: 11px;
-    position: fixed;
-    right: 79px;
+    margin-right: 35px;
+    position: absolute;
+    right: 53px;
     border-radius: 50%;
-    bottom: 26px;
+    bottom: 28px;
     border: 1.8px solid black;
 }
 #menu {
@@ -346,7 +346,7 @@ h3 {
             if (!info_friend.isEmpty()) {
                String profileImage = info_friend.get(0).getM_Profile();
             %>
-            <img class="pic" src="file/<%=profileImage%>"
+            <img class="pic" src="images/<%=profileImage%>"
                onerror="this.src='images/default.jpg'">
             <%
             } else {

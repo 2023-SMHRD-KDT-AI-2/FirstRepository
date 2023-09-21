@@ -22,7 +22,7 @@ function delOk(){
       }
   }
   $('#back').click(function () {
-		window.history.back(); // 뒤로 가기
+		location.href = 'goProfile'; // 뒤로 가기
 	})
 
 

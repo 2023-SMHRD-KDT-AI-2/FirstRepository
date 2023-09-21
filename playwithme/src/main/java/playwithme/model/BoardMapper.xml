@@ -71,7 +71,7 @@
 	update BOARD set 
 	TITLE = #{title},
 	B_CONTENT = #{b_Content},
-	MEET_TIME = REPLACE(#{meet_Time},':',''),
+	MEET_TIME = REPLACE(#{meet_Time},'T',''),
 	NUM_PEOPLE = #{num_People}
 	WHERE BOARD_NUM = #{board_Num}
 	
