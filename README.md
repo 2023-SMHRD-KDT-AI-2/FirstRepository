@@ -36,8 +36,10 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ### 서비스 흐름도
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/fbab25a6-d9fe-4891-bac3-e8d0e12de7c9)
 
+
 ### E-R 다이어그램
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/986f2865-f93b-4f56-9b35-483f6920d07a)
+
 
 ## 화면 구성
 
@@ -70,10 +72,6 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2b09c2a6-ef2a-46e8-a263-748237b38ed2)
 
 
-### 마이페이지
-![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/8ba438b3-76c8-48e6-b47d-e11f355c7215)
-
-
 ### 채팅화면 
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/cfbf3c41-f3e1-4976-9b80-e6c93362318a)
 
@@ -82,8 +80,24 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/a34dc87c-4803-4f44-8b37-0f1fb8f12c48)
 
 
+### 친구 목록
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/8d492bbf-2ccf-40e3-b4d5-e5f7f70c70d0)
+
+
 ### 게시판
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/5a9fedcb-8f49-4ae1-b63a-860a6a78b8b2)
+
+
+### 프로필 변경 / 닉네임 변경
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0df7edc1-e7ba-466a-a398-461ae04a420b)
+
+
+### 내 게시글 확인
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/83cba53f-52c5-4a1a-b311-97dd8981a84b)
+
+
+### 게시글 수정
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2f780756-5610-4374-bafc-09b0fd77f1fd)
 
 
 
