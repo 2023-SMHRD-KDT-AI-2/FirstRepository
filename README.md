@@ -35,7 +35,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ### 📚개발 환경
 | 구분 | 사용 스택 |
 | --- | --- |
-| 사용언어 | List all new or modified files |
+| 사용언어 | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"> | | <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> |
 | 라이브러리 | Show file differences that haven't been staged |
 | 개발도구 | Show file differences that haven't been staged |
 | 서버환경 | Show file differences that haven't been staged |
