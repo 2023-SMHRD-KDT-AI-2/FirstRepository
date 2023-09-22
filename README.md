@@ -52,12 +52,32 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 - 관심사 설정
 
 
-## ⚙ 시스템 아키텍처(구조) 예시
+## ⚙ 시스템 아키텍처 예시
 
 
-# 서비스 흐름도
-![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/9feb81a1-56ac-4b19-bebd-f91047aa8518)
+### 서비스 흐름도
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/fbab25a6-d9fe-4891-bac3-e8d0e12de7c9)
 
+### E-R 다이어그램
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/986f2865-f93b-4f56-9b35-483f6920d07a)
+
+## 화면 구성
+
+
+### 챌린지 포인트
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/98188b6f-be36-4c32-9644-ede2010ffa01)
+
+
+### 로그인 화면
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/ad6d087b-8893-461b-8f16-9a161d34207c)
+
+
+### 회언가입 화면
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0e824cc8-4a61-48ab-b02c-f362ee3028cd)
+
+
+### 관심사 선택
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2b534dc5-718c-4267-bbbf-08f6884643a7)
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
