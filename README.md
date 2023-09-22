@@ -15,7 +15,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 | 구분 | 사용 스택 |
 | --- | --- |
 | 사용언어 | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">| 
-| 라이브러리 | <img src="https://img.shields.io/badge/socket(ws)-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> |
+| 라이브러리 | <img src="https://img.shields.io/badge/socket(ws)-007396?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"> <img src="https://img.shields.io/badge/kakao API-FFCD00?style=for-the-badge&logo=kakao&logoColor=white"> |
 | 개발도구 |<img src="https://img.shields.io/badge/vscode-4285F4?style=for-the-badge&logo=visualstudiocode&logoColor=white"> <img src="https://img.shields.io/badge/eclips-2C2255?style=for-thebadge&logo=eclipseide&logoColor=white">|
 | 서버환경 | <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for- thebadge&logo=apachetomcat&logoColor=white"> |
 | 데이터베이스 | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
