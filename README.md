@@ -99,6 +99,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 
 
+![2-removebg-preview](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2c85c9ec-3e27-4a29-8599-df4398bacdaf)
 
 
 ## 🤾‍♂️ 트러블슈팅
