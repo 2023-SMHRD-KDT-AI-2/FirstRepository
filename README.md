@@ -41,8 +41,8 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 | 개발도구 |<img src="https://img.shields.io/badge/vscode-4285F4?style=for-the-badge&logo=visualstudiocode&logoColor=white"> |
 | 서버환경 | <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">|
 | 데이터베이스 | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
-| 라이브러리 | Show file differences that haven't been staged |
-
+| 라이브러리 | <img src="https://img.shields.io/badge/socket(ws)-007396?style=for-the-badge&logo=java&logoColor=white"> |
+| 협업도구 | <img src="https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white"> <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white">|
 
 
 ## ⭐주요 기능
