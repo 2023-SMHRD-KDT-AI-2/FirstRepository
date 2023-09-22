@@ -94,7 +94,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 | ![정나래](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/7e24dc5d-17cb-4da6-bff5-6158879242e5)|![근영](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/a8bc7704-ea36-45b8-bc52-fc2c16643b92)
  | ![강련](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/12972ba8-7e87-436c-b336-add507697d66) |![기원](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0d5f1ebc-1869-4a51-93a4-7db8180f57b4)|![선웅](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/5434300a-28bd-424f-b4c1-f6796fa8c228)|![수양](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/28e05f7f-6c81-40a7-acc3-4d0907a90c68)|
  
-|-----------------------------------|-----------------------------------|-------------------------|-----------------------|-----------------------------------|
+|-----------------------------------|-----------------------------------|-------------------------|-----------------------|-----------------------------------|-----------------------------------|
 | 팀장(정나래) | 부팀장(윤근영) |이강련 |박기원|유선웅|홍수양|
 | 애니메이션 <br> 간편로그인 <br> 외부aip지도  <br> 게시글 <br> 프톤트 백앤드 | 채팅 기능 <br> 채팅 목록 <br> 데이터베이스 <br> 백엔드 프론트앤드 | 회원정보 관리 <br> 게시판 기능 <br> 관심사 설정 <br> 밴엔드 프론트앤드 |채팅 기능 <br> 채팅방 <br> 데이터베이스 <br> 백엔드 프론트앤드|CCTV 기능 구현 <br> 백엔드 프론트엔드 |로그인 /회원가입 <br> 백엔드 프론트엔드|
 | [GitHub](https://github.com/team_member_1) | [GitHub](https://github.com/team_member_2) | [Your GitHub](https://github.com/yourusername) ||||||||
