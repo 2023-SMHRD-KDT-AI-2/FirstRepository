@@ -1,4 +1,4 @@
-# 나랑 놀자 - 내 주변 오프라인 모임 장소 공유 SNS
+### 나랑 놀자 - 내 주변 오프라인 모임 장소 공유 SNS
 https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
 
 
@@ -6,7 +6,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
 
 
-![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/9feb81a1-56ac-4b19-bebd-f91047aa8518)
+
 
 
 ## 📅 개발 기간
@@ -56,7 +56,10 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 ## ⚙ 시스템 아키텍처(구조) 예시
 
-![Uploading image.png…]()
+
+# 서비스 흐름도
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/9feb81a1-56ac-4b19-bebd-f91047aa8518)
+
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
