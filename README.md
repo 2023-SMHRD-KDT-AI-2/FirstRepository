@@ -6,7 +6,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
 
 
-![Uploading image.png…]()
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/9feb81a1-56ac-4b19-bebd-f91047aa8518)
 
 
 ## 📅 개발 기간
@@ -36,7 +36,8 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ### ⛏개발 환경
 | 구분   | 내용     |
 | ------ | -------- |
-| 사용언어 | https://camo.githubusercontent.com/5ca0600a870ed2fd6a5531de972a0bcbee8aa8bbb854e5dad4a153c70f910dff/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176612d3030373339363f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661266c6f676f436f6c6f723d7768697465 |
+| 사용언어 | 
+![Uploading image.png…](https://camo.githubusercontent.com/5ca0600a870ed2fd6a5531de972a0bcbee8aa8bbb854e5dad4a153c70f910dff/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f4a6176612d3030373339363f7374796c653d666f722d7468652d6261646765266c6f676f3d6a617661266c6f676f436f6c6f723d7768697465 |)
 | 라이브러리 |  |
 | 개발도구 |  |
 | 서버환경 |  |
@@ -54,6 +55,8 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 
 ## ⚙ 시스템 아키텍처(구조) 예시
+
+![Uploading image.png…]()
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
