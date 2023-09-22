@@ -77,7 +77,31 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 
 ### 관심사 선택
-![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2b534dc5-718c-4267-bbbf-08f6884643a7)
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/d1415dd9-4fd7-47b6-a255-fd3933cfe862)
+
+
+### 지도 메인화면
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0ffa6e70-fd45-4c4e-8497-9c91bd443873)
+
+
+### 지도 게시글 작성
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/b5df3a7c-3e56-4a9e-b2d2-aa1773bb368d)
+
+
+### 지도 게시글 채팅목록 
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/2b09c2a6-ef2a-46e8-a263-748237b38ed2)
+
+
+### 마이페이지
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/8ba438b3-76c8-48e6-b47d-e11f355c7215)
+
+
+### 채팅화면 
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/cfbf3c41-f3e1-4976-9b80-e6c93362318a)
+
+
+### 채팅 참여자
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/a34dc87c-4803-4f44-8b37-0f1fb8f12c48)
 
 
 ## 👨‍👩‍👦‍👦 팀원 역할
