@@ -91,8 +91,8 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ## 👨‍👩‍👦‍👦 팀원 역할
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/294f5181-9e31-4155-b470-833e337618d4)
 
-| ![정나래](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/7e24dc5d-17cb-4da6-bff5-6158879242e5)|![근영](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/a8bc7704-ea36-45b8-bc52-fc2c16643b92)
- | ![강련](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/12972ba8-7e87-436c-b336-add507697d66) |![기원](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0d5f1ebc-1869-4a51-93a4-7db8180f57b4)|![선웅](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/5434300a-28bd-424f-b4c1-f6796fa8c228)|![수양](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/28e05f7f-6c81-40a7-acc3-4d0907a90c68)|
+|![정나래](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/7e24dc5d-17cb-4da6-bff5-6158879242e5)|![근영](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/a8bc7704-ea36-45b8-bc52-fc2c16643b92)
+ |![강련](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/12972ba8-7e87-436c-b336-add507697d66) |![기원](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/0d5f1ebc-1869-4a51-93a4-7db8180f57b4)|![선웅](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/5434300a-28bd-424f-b4c1-f6796fa8c228)|![수양](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/28e05f7f-6c81-40a7-acc3-4d0907a90c68)|
  
 |-----------------------------------|-----------------------------------|-------------------------|-----------------------|-----------------------------------|-----------------------------------|
 | 팀장(정나래) | 부팀장(윤근영) |이강련 |박기원|유선웅|홍수양|
