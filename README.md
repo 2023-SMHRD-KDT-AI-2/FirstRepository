@@ -91,12 +91,12 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ## 👨‍👩‍👦‍👦 팀원 역할
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/294f5181-9e31-4155-b470-833e337618d4)
 
-| ![정나래](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/644899a2-194e-4cd0-b5d4-867fd7c5b320)| ![Team Member 2's Photo](image_url) | ![Your Photo](image_url) |
+|![정나래-removebg-preview](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/1ee626dc-bf2b-4e80-afeb-931b980fd1e6)
+ | ![Your Photo](image_url) |
 |-----------------------------------|-----------------------------------|-------------------------|-----------------------|-----------------------------------|-----------------------------------|-------------------------|
 | 팀장(정나래) | Team Member 2's Name | Your Name |||||||
-| 애니메이션 <br> 간편로그인 <br> 외부aip지도  <br> 게시글 <br> 프톤트 백앤드 | Team Member 2's Role/Function | Your Role/Function |||||||||
-| [GitHub](https://github.com/team_member_1) | [GitHub](https://github.com/team_member_2) | [Your GitHub](https://github.com/yourusername) ||||||||
-
+| 애니메이션 <br> 간편로그인 <br> 외부aip지도  <br> 게시글 <br> 프톤트 백앤드 | Team Member 2's Role/Function | Your Role/Function |
+| [GitHub](https://github.com/team_member_1) | [GitHub](https://github.com/team_member_2) | [Your GitHub](https://github.com/yourusername) |
 
 
 
