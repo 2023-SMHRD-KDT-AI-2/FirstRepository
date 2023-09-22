@@ -93,7 +93,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 | ![Team Member 1's Photo](image_url) | ![Team Member 2's Photo](image_url) | ![Your Photo](image_url) |
 |-----------------------------------|-----------------------------------|-------------------------|
-| Team Member 1's Name | Team Member 2's Name | Your Name |
+| 팀장( | Team Member 2's Name | Your Name |
 | Team Member 1's Role/Function | Team Member 2's Role/Function | Your Role/Function |
 | [GitHub](https://github.com/team_member_1) | [GitHub](https://github.com/team_member_2) | [Your GitHub](https://github.com/yourusername) |
 
