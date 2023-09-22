@@ -93,10 +93,11 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 
 | Photo | Name | Role/Function | GitHub Profile |
 |-------|------|---------------|----------------|
-| ![Your Photo](image_url) | Your Name | Your Role/Function | [Your GitHub](https://github.com/yourusername) |
 | ![Team Member 1's Photo](image_url) | Team Member 1's Name | Team Member 1's Role/Function | [GitHub](https://github.com/team_member_1) |
 | ![Team Member 2's Photo](image_url) | Team Member 2's Name | Team Member 2's Role/Function | [GitHub](https://github.com/team_member_2) |
+| ![Your Photo](image_url) | Your Name | Your Role/Function | [Your GitHub](https://github.com/yourusername) |
 | ...   | ...  | ...           | ...            |
+
 
 
 ## 🤾‍♂️ 트러블슈팅
