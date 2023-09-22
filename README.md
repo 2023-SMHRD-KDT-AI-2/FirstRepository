@@ -91,23 +91,13 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 ## 👨‍👩‍👦‍👦 팀원 역할
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/294f5181-9e31-4155-b470-833e337618d4)
 
-| Role                | Permissions                                   | Sample Image |
-|---------------------|-----------------------------------------------|--------------|
-| **Owner**           | - Full control over the repository            | [Owner Image](image_url) |
-|                     | - Can manage access, settings, and collaborators| |
-|                     | - Can transfer ownership                      | |
-| **Maintainer**      | - Full access to the repository               | [Maintainer Image](image_url) |
-|                     | - Can add/remove collaborators                | |
-| **Write**           | - Can push code to the repository             | [Write Image](image_url) |
-|                     | - Can create and manage pull requests         | |
-|                     | - Can create and manage issues                | |
-| **Triage**          | - Can manage issues, including assigning,      | [Triage Image](image_url) |
-|                     |   labeling, and closing                       | |
-| **Read**            | - Can view the repository and its contents    | [Read Image](image_url) |
-|                     | - Can create issues and pull requests,        | |
-|                       but not push code                       | |
-| **Secrets Read**    | - Can read repository secrets (for CI/CD)     | [Secrets Read Image](image_url) |
-| **Secrets Write**   | - Can manage and write repository secrets     | [Secrets Write Image](image_url) |
+| Photo | Name | Role/Function | GitHub Profile |
+|-------|------|---------------|----------------|
+| ![Your Photo](image_url) | Your Name | Your Role/Function | [Your GitHub](https://github.com/yourusername) |
+| ![Team Member 1's Photo](image_url) | Team Member 1's Name | Team Member 1's Role/Function | [GitHub](https://github.com/team_member_1) |
+| ![Team Member 2's Photo](image_url) | Team Member 2's Name | Team Member 2's Role/Function | [GitHub](https://github.com/team_member_2) |
+| ...   | ...  | ...           | ...            |
+
 
 ## 🤾‍♂️ 트러블슈팅
 
