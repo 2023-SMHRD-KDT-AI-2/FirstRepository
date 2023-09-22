@@ -6,6 +6,9 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
 
 
+![Uploading image.png…]()
+
+
 ## 📅 개발 기간
 2023.09.06 ~ 2023.09.21(2주)
 
