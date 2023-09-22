@@ -1,12 +1,11 @@
-### 나랑 놀자 - 내 주변 오프라인 모임 장소 공유 SNS
-https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
-
-
 ## 프로젝트 소개
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
 
+![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/90fc9a8b-f3f1-4f2d-93ff-d7e6e6a57f4b)
 
 
+### 나랑 놀자 - 내 주변 오프라인 모임 장소 공유 SNS
+https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-0837-44dd-a324-60c7d9c531ae
 
 
 ## 📅 개발 기간
@@ -33,33 +32,15 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
   - 역할: 로그인 / 회원가입, 프론트엔드, 백엔드
 
 
-### ⛏개발 환경
-<div align=center><h1>📚 STACKS</h1></div>
-
-
-
-<div align="center">
-  <h2>기술 스택</h2>
-  <table>
-    <tr>
-      <td align="center">
-        <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><br>
-        Java
-      </td>
-      <td align="center">
-        <img src="https://img.shields.io/badge/c++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"><br>
-        C++
-      </td>
-      <td align="center">
-        <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"><br>
-        Python
-      </td>
-    </tr>
-    <tr>
-      <!-- 이어서 다른 기술 스택 뱃지들을 추가하세요 -->
-    </tr>
-  </table>
-</div>
+### 📚개발 환경
+| 구분 | 사용 스택 |
+| --- | --- |
+| 사용언어 | List all new or modified files |
+| 라이브러리 | Show file differences that haven't been staged |
+| 개발도구 | Show file differences that haven't been staged |
+| 서버환경 | Show file differences that haven't been staged |
+| 데이터베이스 | Show file differences that haven't been staged |
+| 라이브러리 | Show file differences that haven't been staged |
 
 
 
