@@ -94,7 +94,12 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 |-----------------------------------|---------------------------------|-------------------------|---------------------|----------------------------------------|----------------------|
 | 팀장 (정나래) | 부팀장(윤근영) | 이강련 | 박기원 | 유선웅 | 홍수양 |
 | 애니메이션 <br> 간편로그인 <br> 외부API지도  <br> 게시글 <br> 프톤트엔드 <br> 백엔드 | 채팅 <br> 채팅 목록 <br> 데이터베이스 <br> 프론트엔드 <br>  백엔드 | 회원정보 관리 <br> 게시판 기능 <br> 관심사 설정 <br> 프론트엔드 <br>  백엔드 | 채팅 <br> 채팅 룸<br> 데이터베이스<br> 프론트엔드 <br>  백엔드 | CCTV 기능 <br> 지도 <br> 프론트엔드 <br>  백엔드 | 로그인 <br> 회원 가입 <br> 프론트엔드 <br>  백엔드 |
-| [GitHub](https://github.com/team_member_1) | [GitHub](https://github.com/team_member_2) | [귀하의 GitHub](https://github.com/yourusername) | [귀하의 GitHub](https://github.com/yourusername) | [귀하의 GitHub](https://github.com/yourusername) | [귀하의 GitHub](https://github.com/yourusername) |
+| [[[GitHub](https://github.com/team_member_1)](https://github.com/NaraeJung) | 
+[[GitHub](https://github.com/team_member_2)](https://github.com/gueanyoung) |
+[[GitHub](https://github.com/team_member_2)](https://github.com/Krkdfus)
+| [[GitHub](https://github.com/yourusername) ](https://github.com/parkgo0504)
+| [[GitHub](https://github.com/yourusername) ](https://github.com/YUSeanWoong)| 
+[[GitHub](https://github.com/yourusername) ](https://github.com/hongsuyang)|
 
 
 
