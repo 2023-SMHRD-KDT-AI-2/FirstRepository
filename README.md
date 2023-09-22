@@ -1,4 +1,4 @@
-![visualstudiocode](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/572c7b4f-d860-47fb-a10c-025ce0efdace)## 프로젝트 소개
+## 프로젝트 소개
 나랑 놀자 - 내 주변 오프라인 모임 장소 공유  SNS  
 
 ![image](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/90fc9a8b-f3f1-4f2d-93ff-d7e6e6a57f4b)
@@ -38,7 +38,7 @@ https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/3991ceeb-
 | --- | --- |
 | 사용언어 | <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white">  <img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"> <img src="https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white"> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/jquery-0769AD?style=for-the-badge&logo=jquery&logoColor=white">| 
 | 라이브러리 | Show file differences that haven't been staged |
-| 개발도구 | ![Uploading visualstudioco<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Visual Studio Code</title><path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/></svg>de.svg…]() |
+| 개발도구 | ![visualstudiocode](https://github.com/2023-SMHRD-KDT-AI-2/FirstRepository/assets/75320567/572c7b4f-d860-47fb-a10c-025ce0efdace)|
 | 서버환경 | <img src="https://img.shields.io/badge/apache tomcat-F8DC75?style=for-the-badge&logo=apachetomcat&logoColor=white">|
 | 데이터베이스 | <img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> |
 | 라이브러리 | Show file differences that haven't been staged |
